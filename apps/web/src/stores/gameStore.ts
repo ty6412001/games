@@ -1,5 +1,6 @@
 import { create } from 'zustand';
 import type {
+  BossBattleState,
   DurationMinutes,
   GamePhase,
   GameState,
@@ -38,8 +39,16 @@ import {
   type DiceRoll,
   type LandingEvent,
 } from '../domain/turnEngine.js';
+import { calculateCombatPower, type CombatPowerBreakdown } from '../domain/combatPower.js';
+import {
+  applyAttack,
+  buildInitialBossBattle,
+  markBossEscaped,
+} from '../domain/bossBattle.js';
 import { loadQuestionPack } from '../data/packs/questionPackLoader.js';
 import { recordWrong } from '../data/repo/wrongBookRepo.js';
+import { bossForWeek } from '../theme/ultraman/monsters.js';
+import { rollRandomWeapon } from '../theme/ultraman/weapons.js';
 
 export type SetupPlayer = {
   name: string;
@@ -75,7 +84,8 @@ export type GameEndSummary = {
 export type QuizContext =
   | { kind: 'study' }
   | { kind: 'monster' }
-  | { kind: 'property-buy'; position: number; price: number };
+  | { kind: 'property-buy'; position: number; price: number }
+  | { kind: 'boss-attack'; weaponId?: string };
 
 export type QuizResult = {
   outcome: 'correct' | 'wrong' | 'timeout' | 'help';
@@ -111,6 +121,9 @@ type Store = {
   activeQuiz: ActiveQuiz | null;
   quizResult: QuizResult | null;
   nowMs: number;
+  combatSummary: Record<string, CombatPowerBreakdown> | null;
+  weaponAwardToast: { heroName: string; weaponName: string } | null;
+  pendingEndReason: 'time-up' | 'bankruptcy' | null;
 
   // setup
   goToSetup: () => void;
@@ -127,6 +140,14 @@ type Store = {
   useHelpCard: () => void;
   quizTimeout: () => Promise<void>;
   dismissQuizResult: () => void;
+
+  // weapons
+  dismissWeaponToast: () => void;
+
+  // settle + boss
+  enterBossBattle: () => void;
+  bossAttack: (weaponId?: string) => void;
+  finalizeBossBattle: (reason: 'victory' | 'escaped') => void;
 
   tick: (nowMs: number) => void;
   endGame: (reason: 'time-up') => void;
@@ -304,6 +325,9 @@ export const useGameStore = create<Store>((set, get) => ({
   activeQuiz: null,
   quizResult: null,
   nowMs: Date.now(),
+  combatSummary: null,
+  weaponAwardToast: null,
+  pendingEndReason: null,
 
   goToSetup: () => set({ screen: 'setup' }),
 
@@ -376,16 +400,15 @@ export const useGameStore = create<Store>((set, get) => ({
 
   endGame: (reason) => {
     const { game } = get();
-    if (!game) return;
-    const rankings = rankPlayersByAssets(game.players, game.tiles);
-    const updated: GameState = { ...game, phase: 'ended' as GamePhase };
+    if (!game || game.phase !== 'monopoly') return;
+    const breakdown: Record<string, CombatPowerBreakdown> = {};
+    for (const p of game.players) {
+      breakdown[p.id] = calculateCombatPower(p);
+    }
     set({
-      game: updated,
-      screen: 'result',
-      endSummary: {
-        reason,
-        rankings,
-      },
+      game: { ...game, phase: 'settle' as GamePhase },
+      combatSummary: breakdown,
+      pendingEndReason: reason,
     });
   },
 
@@ -568,15 +591,14 @@ export const useGameStore = create<Store>((set, get) => ({
     if (state.bankruptcy) {
       const { game, bankruptcy } = state;
       if (game && bankruptcy) {
-        const rankings = rankPlayersByAssets(game.players, game.tiles);
+        const breakdown: Record<string, CombatPowerBreakdown> = {};
+        for (const p of game.players) {
+          breakdown[p.id] = calculateCombatPower(p);
+        }
         set({
-          screen: 'result',
-          game: { ...game, phase: 'ended' as GamePhase },
-          endSummary: {
-            reason: 'bankruptcy',
-            rankings,
-            bankruptPlayerId: bankruptcy.playerId,
-          },
+          game: { ...game, phase: 'settle' as GamePhase },
+          combatSummary: breakdown,
+          pendingEndReason: 'bankruptcy',
           landingEvent: null,
           rentNotice: null,
           bankruptcy: null,
@@ -605,10 +627,72 @@ export const useGameStore = create<Store>((set, get) => ({
     let workingGame = game;
     let message = '';
     let outcome: QuizResult['outcome'] = correct ? 'correct' : 'wrong';
+    let weaponToast: Store['weaponAwardToast'] = null;
+
+    if (quiz.context.kind === 'boss-attack') {
+      // damage applied via bossAttack settler
+      const battle = workingGame.bossBattle;
+      if (battle) {
+        const next = applyAttack(
+          battle,
+          {
+            attackerId: quiz.playerId,
+            ...(quiz.context.weaponId ? { weaponId: quiz.context.weaponId } : {}),
+            correct,
+          },
+          workingGame.players.map((p) => p.id),
+        );
+        workingGame = { ...workingGame, bossBattle: next };
+        if (correct) {
+          message = `命中 Boss！造成伤害 ${battle.currentHp - next.currentHp}`;
+          workingGame = updateStreak(workingGame, quiz.playerId, 1);
+        } else {
+          const childId = state.childId;
+          if (childId && !quiz.usedHelp) {
+            try {
+              await recordWrong({
+                childId,
+                question: quiz.question,
+                wrongAnswer: answer,
+                week: game.week,
+              });
+            } catch (err) {
+              console.warn('recordWrong failed', err);
+            }
+          }
+          workingGame = updateStreak(workingGame, quiz.playerId, 0);
+          message = `答错了，伤害减半，已记入错题本`;
+        }
+      }
+      set({
+        game: workingGame,
+        activeQuiz: null,
+        quizResult: { outcome, reward: 0, message },
+      });
+      if (workingGame.bossBattle?.status === 'victory') {
+        setTimeout(() => get().finalizeBossBattle('victory'), 1200);
+      }
+      return;
+    }
 
     if (correct) {
       workingGame = addMoney(workingGame, quiz.playerId, reward.correct);
       workingGame = updateStreak(workingGame, quiz.playerId, 1);
+
+      const attacker = findPlayer(workingGame.players, quiz.playerId);
+      if (attacker.isChild && attacker.streak >= 3) {
+        const owned = new Set(attacker.weaponIds);
+        const next = rollRandomWeapon(attacker.hero.heroId);
+        if (next && !owned.has(next.id)) {
+          const updated = {
+            ...attacker,
+            weaponIds: [...attacker.weaponIds, next.id],
+            streak: 0,
+          };
+          workingGame = { ...workingGame, players: replacePlayer(workingGame.players, updated) };
+          weaponToast = { heroName: attacker.name, weaponName: next.name };
+        }
+      }
 
       if (quiz.context.kind === 'property-buy') {
         workingGame = executePurchase(
@@ -617,9 +701,9 @@ export const useGameStore = create<Store>((set, get) => ({
           quiz.context.position,
           quiz.context.price,
         );
-        message = `答对！买下地产并获得 +¥${reward.correct}`;
+        message = `答对！买下地产 +¥${reward.correct}`;
       } else if (quiz.context.kind === 'monster') {
-        message = `击败怪兽！获得 +¥${reward.correct}`;
+        message = `击败怪兽！+¥${reward.correct}`;
       } else {
         message = `答对！+¥${reward.correct}`;
       }
@@ -648,13 +732,14 @@ export const useGameStore = create<Store>((set, get) => ({
 
     if (quiz.usedHelp && correct) {
       outcome = 'help';
-      message = '求助卡命中！买下地产（本次不加金币）';
+      message = '求助卡命中！（本次不加金币）';
     }
 
     set({
       game: workingGame,
       activeQuiz: null,
       quizResult: { outcome, reward: correct ? reward.correct : reward.wrong, message },
+      weaponAwardToast: weaponToast,
     });
   },
 
@@ -679,11 +764,7 @@ export const useGameStore = create<Store>((set, get) => ({
     const game = state.game;
     if (!quiz || !game) return;
 
-    const reward = rewardFor(quiz.question);
-    const penalty = Math.floor(reward.wrong / 2);
-    let workingGame = addMoney(game, quiz.playerId, penalty);
-    workingGame = updateStreak(workingGame, quiz.playerId, 0);
-
+    let workingGame = game;
     const childId = state.childId;
     if (childId && !quiz.usedHelp) {
       try {
@@ -698,21 +779,126 @@ export const useGameStore = create<Store>((set, get) => ({
       }
     }
 
+    let penalty = 0;
+    if (quiz.context.kind === 'boss-attack') {
+      const battle = workingGame.bossBattle;
+      if (battle) {
+        const next = applyAttack(
+          battle,
+          {
+            attackerId: quiz.playerId,
+            ...(quiz.context.weaponId ? { weaponId: quiz.context.weaponId } : {}),
+            correct: false,
+          },
+          workingGame.players.map((p) => p.id),
+        );
+        workingGame = { ...workingGame, bossBattle: next };
+      }
+    } else {
+      const reward = rewardFor(quiz.question);
+      penalty = Math.floor(reward.wrong / 2);
+      workingGame = addMoney(workingGame, quiz.playerId, penalty);
+    }
+    workingGame = updateStreak(workingGame, quiz.playerId, 0);
+
     set({
       game: workingGame,
       activeQuiz: null,
       quizResult: {
         outcome: 'timeout',
         reward: penalty,
-        message: `时间到，扣 ¥${Math.abs(penalty)}（已记错题本）`,
+        message: penalty !== 0 ? `时间到，扣 ¥${Math.abs(penalty)}（已记错题本）` : '时间到，伤害减半',
       },
     });
+    if (workingGame.bossBattle?.status === 'victory') {
+      setTimeout(() => get().finalizeBossBattle('victory'), 1200);
+    }
   },
 
   dismissQuizResult: () => {
     const state = get();
     if (!state.quizResult) return;
     set({ quizResult: null });
+  },
+
+  dismissWeaponToast: () => set({ weaponAwardToast: null }),
+
+  enterBossBattle: () => {
+    const { game } = get();
+    if (!game || game.phase !== 'settle') return;
+    const totalPower = game.players.reduce((sum, p) => {
+      return sum + calculateCombatPower(p).total;
+    }, 0);
+    const boss = bossForWeek(game.week);
+    const battle = buildInitialBossBattle(boss, game.players, totalPower);
+    set({
+      game: { ...game, phase: 'boss' as GamePhase, bossBattle: battle },
+    });
+  },
+
+  bossAttack: (weaponId) => {
+    const state = get();
+    const game = state.game;
+    if (!game || game.phase !== 'boss' || !game.bossBattle) return;
+    if (state.activeQuiz || state.quizResult) return;
+    const attackerId = game.bossBattle.currentAttackerId;
+    const attacker = findPlayer(game.players, attackerId);
+
+    if (attacker.isChild && state.currentPack) {
+      const question = pickRandomQuestion(state.currentPack, {
+        excludeIds: state.askedQuestionIds,
+      });
+      if (question) {
+        set({
+          ...startQuiz({
+            state,
+            question,
+            context: { kind: 'boss-attack', ...(weaponId ? { weaponId } : {}) },
+            playerId: attackerId,
+          }),
+        });
+        return;
+      }
+    }
+
+    // adult direct attack: treat as correct automatic hit
+    const battle = game.bossBattle;
+    const next = applyAttack(
+      battle,
+      {
+        attackerId,
+        ...(weaponId ? { weaponId } : {}),
+        correct: true,
+      },
+      game.players.map((p) => p.id),
+    );
+    set({
+      game: { ...game, bossBattle: next },
+      quizResult: {
+        outcome: 'correct',
+        reward: 0,
+        message: `${attacker.name} 助攻！`,
+      },
+    });
+    if (next.status === 'victory') {
+      setTimeout(() => get().finalizeBossBattle('victory'), 1200);
+    }
+  },
+
+  finalizeBossBattle: (reason) => {
+    const { game } = get();
+    if (!game || !game.bossBattle) return;
+    const finalBattle: BossBattleState =
+      reason === 'escaped' ? markBossEscaped(game.bossBattle) : game.bossBattle;
+    const rankings = rankPlayersByAssets(game.players, game.tiles);
+    set({
+      game: { ...game, phase: 'ended' as GamePhase, bossBattle: finalBattle },
+      screen: 'result',
+      endSummary: {
+        reason: get().pendingEndReason ?? 'time-up',
+        rankings,
+      },
+    });
   },
 
   currentPlayer: () => {
