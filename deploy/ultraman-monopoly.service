@@ -1,0 +1,24 @@
+[Unit]
+Description=Ultraman Monopoly family API server
+After=network.target
+
+[Service]
+Type=simple
+User=www-data
+Group=www-data
+WorkingDirectory=@INSTALL_DIR@/apps/server
+EnvironmentFile=@INSTALL_DIR@/apps/server/.env
+ExecStart=/usr/bin/node dist/index.js
+Restart=always
+RestartSec=5
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=ultraman-monopoly
+
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=full
+ReadWritePaths=@INSTALL_DIR@/apps/server/data
+
+[Install]
+WantedBy=multi-user.target
