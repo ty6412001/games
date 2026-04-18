@@ -1,0 +1,58 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.33.0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+          cache-dependency-path: pnpm-lock.yaml
+
+      - name: Install dependencies
+        run: pnpm install --no-frozen-lockfile
+
+      - name: Build native modules
+        run: pnpm rebuild better-sqlite3 esbuild
+
+      - name: Typecheck
+        run: pnpm -r run typecheck
+
+      - name: Lint
+        run: pnpm -r run lint
+
+      - name: Test
+        run: pnpm -r run test
+
+      - name: Build
+        run: pnpm -r run build
+
+      - name: Upload coverage artifacts
+        if: always()
+        continue-on-error: true
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-artifacts
+          path: |
+            **/coverage/**
+          if-no-files-found: ignore

@@ -1,0 +1,32 @@
+{
+  "name": "ultraman-monopoly",
+  "version": "0.1.0",
+  "private": true,
+  "description": "奥特曼亲子大富翁学习游戏",
+  "packageManager": "pnpm@10.33.0",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "pnpm -r run build",
+    "dev": "pnpm --filter web run dev",
+    "dev:server": "pnpm --filter server run dev",
+    "typecheck": "pnpm -r run typecheck",
+    "lint": "pnpm -r run lint",
+    "test": "pnpm -r run test",
+    "test:e2e": "pnpm --filter web run test:e2e",
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md,yaml,yml}\"",
+    "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,json,md,yaml,yml}\"",
+    "ci": "pnpm run typecheck && pnpm run lint && pnpm run test"
+  },
+  "devDependencies": {
+    "prettier": "^3.3.3",
+    "typescript": "^5.6.3"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "better-sqlite3",
+      "esbuild"
+    ]
+  }
+}
