@@ -2,6 +2,8 @@ import { Board } from '../board/Board';
 import { DicePanel } from '../board/Dice';
 import { LandingOverlay } from '../board/LandingOverlay';
 import { PlayerPanel } from '../players/PlayerPanel';
+import { QuizModal } from '../quiz/QuizModal';
+import { QuizResultToast } from '../quiz/QuizResultToast';
 import { GameTimer } from './GameTimer';
 import { useGameStore } from '../../stores/gameStore';
 
@@ -25,6 +27,8 @@ export const GameScreen = () => {
         </div>
       </div>
       <LandingOverlay />
+      <QuizModal />
+      <QuizResultToast />
     </div>
   );
 };

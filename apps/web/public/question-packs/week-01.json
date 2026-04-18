@@ -1,0 +1,188 @@
+{
+  "week": 1,
+  "title": "第1周 · 20以内数 / 声母 b p m f / Hello",
+  "boss": {
+    "id": "zetton",
+    "name": "杰顿",
+    "hp": 3000
+  },
+  "questions": [
+    {
+      "id": "m-w01-001",
+      "subject": "math",
+      "difficulty": 1,
+      "topic": "20以内加法",
+      "type": "choice",
+      "stem": "8 + 5 = ?",
+      "options": ["12", "13", "14", "15"],
+      "answer": "13"
+    },
+    {
+      "id": "m-w01-002",
+      "subject": "math",
+      "difficulty": 1,
+      "topic": "20以内加法",
+      "type": "choice",
+      "stem": "7 + 6 = ?",
+      "options": ["12", "13", "14", "15"],
+      "answer": "13"
+    },
+    {
+      "id": "m-w01-003",
+      "subject": "math",
+      "difficulty": 1,
+      "topic": "20以内减法",
+      "type": "choice",
+      "stem": "15 - 8 = ?",
+      "options": ["5", "6", "7", "8"],
+      "answer": "7"
+    },
+    {
+      "id": "m-w01-004",
+      "subject": "math",
+      "difficulty": 2,
+      "topic": "20以内减法",
+      "type": "input",
+      "stem": "18 - 9 = ?",
+      "answer": "9"
+    },
+    {
+      "id": "m-w01-005",
+      "subject": "math",
+      "difficulty": 2,
+      "topic": "数的比较",
+      "type": "choice",
+      "stem": "下面哪个数最大？",
+      "options": ["7", "12", "9", "11"],
+      "answer": "12"
+    },
+    {
+      "id": "m-w01-006",
+      "subject": "math",
+      "difficulty": 1,
+      "topic": "加法",
+      "type": "choice",
+      "stem": "3 + 4 = ?",
+      "options": ["6", "7", "8"],
+      "answer": "7"
+    },
+    {
+      "id": "m-w01-007",
+      "subject": "math",
+      "difficulty": 1,
+      "topic": "减法",
+      "type": "choice",
+      "stem": "10 - 4 = ?",
+      "options": ["5", "6", "7"],
+      "answer": "6"
+    },
+    {
+      "id": "m-w01-008",
+      "subject": "math",
+      "difficulty": 2,
+      "topic": "连加",
+      "type": "input",
+      "stem": "2 + 3 + 4 = ?",
+      "answer": "9"
+    },
+    {
+      "id": "c-w01-001",
+      "subject": "chinese",
+      "difficulty": 1,
+      "topic": "声母",
+      "type": "choice",
+      "stem": "\"妈妈\"的第一个字用哪个声母开头？",
+      "options": ["b", "p", "m", "f"],
+      "answer": "m"
+    },
+    {
+      "id": "c-w01-002",
+      "subject": "chinese",
+      "difficulty": 1,
+      "topic": "声母",
+      "type": "choice",
+      "stem": "\"爸爸\"的第一个字用哪个声母开头？",
+      "options": ["b", "p", "m", "f"],
+      "answer": "b"
+    },
+    {
+      "id": "c-w01-003",
+      "subject": "chinese",
+      "difficulty": 1,
+      "topic": "声母",
+      "type": "choice",
+      "stem": "\"佛\"读音的声母是？",
+      "options": ["b", "p", "m", "f"],
+      "answer": "f"
+    },
+    {
+      "id": "c-w01-004",
+      "subject": "chinese",
+      "difficulty": 2,
+      "topic": "拼音顺序",
+      "type": "ordering",
+      "stem": "把声母按 b p m f 的顺序拖好",
+      "items": ["p", "m", "b", "f"],
+      "correctOrder": [2, 0, 1, 3],
+      "answer": "2,0,1,3"
+    },
+    {
+      "id": "c-w01-005",
+      "subject": "chinese",
+      "difficulty": 1,
+      "topic": "识字",
+      "type": "choice",
+      "stem": "下面哪个字读作 mā？",
+      "options": ["妈", "爸", "哥"],
+      "answer": "妈"
+    },
+    {
+      "id": "c-w01-006",
+      "subject": "chinese",
+      "difficulty": 1,
+      "topic": "识字",
+      "type": "input",
+      "stem": "一二三四的\"三\"用阿拉伯数字写出来",
+      "answer": "3"
+    },
+    {
+      "id": "e-w01-001",
+      "subject": "english",
+      "difficulty": 1,
+      "topic": "问候",
+      "type": "choice",
+      "stem": "What's your ___?",
+      "options": ["name", "age", "color"],
+      "answer": "name"
+    },
+    {
+      "id": "e-w01-002",
+      "subject": "english",
+      "difficulty": 1,
+      "topic": "问候",
+      "type": "choice",
+      "stem": "Which word means 你好?",
+      "options": ["Goodbye", "Hello", "Thanks"],
+      "answer": "Hello"
+    },
+    {
+      "id": "e-w01-003",
+      "subject": "english",
+      "difficulty": 1,
+      "topic": "数字",
+      "type": "choice",
+      "stem": "数字 3 的英文是？",
+      "options": ["two", "three", "four"],
+      "answer": "three"
+    },
+    {
+      "id": "e-w01-004",
+      "subject": "english",
+      "difficulty": 2,
+      "topic": "自我介绍",
+      "type": "input",
+      "stem": "填空：My ___ is Tom. (我叫 Tom)",
+      "answer": "name"
+    }
+  ]
+}
