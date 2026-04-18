@@ -409,6 +409,11 @@ export const useGameStore = create<Store>((set, get) => ({
       game: { ...game, phase: 'settle' as GamePhase },
       combatSummary: breakdown,
       pendingEndReason: reason,
+      landingEvent: null,
+      buyPrompt: null,
+      rentNotice: null,
+      activeQuiz: null,
+      quizResult: null,
     });
   },
 

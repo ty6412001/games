@@ -2,14 +2,14 @@ import { useGameStore } from '../../stores/gameStore';
 
 const titleByKind: Record<string, string> = {
   start: '🏠 绕圈工资 +¥200',
-  study: '📚 学习格 +¥80（答题系统待接入）',
+  study: '📚 学习格',
   'property-unowned': '🏙️ 想买这块地吗？',
   'property-owned-self': '🏙️ 这是你的地产',
   'property-owned-other': '💸 交租！',
-  chance: '🎲 机会来了（待接入）',
-  monster: '⚔️ 小怪兽挑战（待接入）',
+  chance: '🎲 机会来了（后续版本）',
+  monster: '⚔️ 怪兽挑战',
   'reward-vault': '🎁 宝库奖励 +¥300',
-  'boss-outpost': '🧟 Boss 前哨',
+  'boss-outpost': '🧟 Boss 前哨 — 本周 Boss 已就位',
 };
 
 export const LandingOverlay = () => {
