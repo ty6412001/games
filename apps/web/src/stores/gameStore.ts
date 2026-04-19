@@ -8,6 +8,7 @@ import type {
   Player,
   Question,
   QuestionPack,
+  Subject,
   Tile,
 } from '@ultraman/shared';
 import { BOARD_SIZE } from '@ultraman/shared';
@@ -109,11 +110,24 @@ export type ActiveQuiz = {
   deadlineAt: number;
 };
 
+export type PendingQuiz = {
+  context: QuizContext;
+  playerId: string;
+};
+
 export type MovementAnimation = {
   playerId: string;
   path: readonly number[];
   stepIndex: number;
 };
+
+type AskedBySubject = Record<Subject, Set<string>>;
+
+const emptyAsked = (): AskedBySubject => ({
+  math: new Set(),
+  chinese: new Set(),
+  english: new Set(),
+});
 
 type Store = {
   screen: 'menu' | 'setup' | 'playing' | 'result';
@@ -122,7 +136,7 @@ type Store = {
   currentPack: QuestionPack | null;
   packLoading: boolean;
   packError: string | null;
-  askedQuestionIds: Set<string>;
+  askedQuestionIds: AskedBySubject;
   lastDice: DiceRoll | null;
   isRolling: boolean;
   isMoving: boolean;
@@ -132,6 +146,7 @@ type Store = {
   rentNotice: RentNotice | null;
   bankruptcy: BankruptcyNotice | null;
   endSummary: GameEndSummary | null;
+  pendingQuiz: PendingQuiz | null;
   activeQuiz: ActiveQuiz | null;
   quizResult: QuizResult | null;
   nowMs: number;
@@ -150,6 +165,9 @@ type Store = {
   confirmBuy: () => void;
   declineBuy: () => void;
   dismissLanding: () => void;
+
+  selectSubject: (subject: Subject) => void;
+  cancelPendingQuiz: () => void;
 
   submitAnswer: (answer: string) => Promise<void>;
   useHelpCard: () => void;
@@ -312,8 +330,29 @@ const executePurchase = (
   return { ...game, players: replacePlayer(game.players, updated) };
 };
 
+const pickQuestionForSubject = (
+  pack: QuestionPack,
+  asked: AskedBySubject,
+  subject: Subject,
+): { question: Question; asked: AskedBySubject } | null => {
+  const subjectAsked = asked[subject];
+  const fresh = pickRandomQuestion(pack, { subject, excludeIds: subjectAsked });
+  if (fresh) {
+    return {
+      question: fresh,
+      asked: { ...asked, [subject]: new Set([...subjectAsked, fresh.id]) },
+    };
+  }
+  const reshuffled = pickRandomQuestion(pack, { subject, excludeIds: new Set() });
+  if (!reshuffled) return null;
+  return {
+    question: reshuffled,
+    asked: { ...asked, [subject]: new Set([reshuffled.id]) },
+  };
+};
+
 const startQuiz = (params: {
-  state: Store;
+  asked: AskedBySubject;
   question: Question;
   context: QuizContext;
   playerId: string;
@@ -328,20 +367,9 @@ const startQuiz = (params: {
       startedAt: now,
       deadlineAt: now + countdownSeconds(params.question) * 1000,
     },
-    askedQuestionIds: new Set([...params.state.askedQuestionIds, params.question.id]),
+    askedQuestionIds: params.asked,
+    pendingQuiz: null,
   };
-};
-
-const pickQuestionWithReshuffle = (
-  pack: QuestionPack,
-  askedIds: Set<string>,
-): { question: Question; askedIds: Set<string> } | null => {
-  const fresh = pickRandomQuestion(pack, { excludeIds: askedIds });
-  if (fresh) return { question: fresh, askedIds };
-  if (askedIds.size === 0) return null;
-  const reshuffled = pickRandomQuestion(pack, { excludeIds: new Set() });
-  if (!reshuffled) return null;
-  return { question: reshuffled, askedIds: new Set() };
 };
 
 const shouldRecordWrong = (state: Store, quiz: ActiveQuiz): boolean => {
@@ -371,7 +399,7 @@ export const useGameStore = create<Store>((set, get) => ({
   currentPack: null,
   packLoading: false,
   packError: null,
-  askedQuestionIds: new Set(),
+  askedQuestionIds: emptyAsked(),
   lastDice: null,
   isRolling: false,
   isMoving: false,
@@ -381,6 +409,7 @@ export const useGameStore = create<Store>((set, get) => ({
   rentNotice: null,
   bankruptcy: null,
   endSummary: null,
+  pendingQuiz: null,
   activeQuiz: null,
   quizResult: null,
   nowMs: Date.now(),
@@ -411,7 +440,7 @@ export const useGameStore = create<Store>((set, get) => ({
       currentPack: null,
       packLoading: true,
       packError: null,
-      askedQuestionIds: new Set(),
+      askedQuestionIds: emptyAsked(),
       lastDice: null,
       isRolling: false,
       isMoving: false,
@@ -421,6 +450,7 @@ export const useGameStore = create<Store>((set, get) => ({
       rentNotice: null,
       bankruptcy: null,
       endSummary: null,
+      pendingQuiz: null,
       activeQuiz: null,
       quizResult: null,
       nowMs: Date.now(),
@@ -479,6 +509,7 @@ export const useGameStore = create<Store>((set, get) => ({
       landingEvent: null,
       buyPrompt: null,
       rentNotice: null,
+      pendingQuiz: null,
       activeQuiz: null,
       quizResult: null,
       movementAnim: null,
@@ -493,6 +524,7 @@ export const useGameStore = create<Store>((set, get) => ({
       state.isMoving ||
       state.buyPrompt ||
       state.landingEvent ||
+      state.pendingQuiz ||
       state.activeQuiz ||
       state.quizResult ||
       state.movementAnim
@@ -570,7 +602,7 @@ export const useGameStore = create<Store>((set, get) => ({
 
     let nextBuyPrompt: BuyPrompt | null = null;
     let nextRentNotice: RentNotice | null = null;
-    let nextActiveQuiz: Partial<Store> = {};
+    let nextPendingQuiz: PendingQuiz | null = null;
 
     if (landing.kind === 'property-owned-other') {
       workingGame = triggerRentSettlement(workingGame, movedPlayer, landing.ownerId, landing.rent);
@@ -606,33 +638,13 @@ export const useGameStore = create<Store>((set, get) => ({
       }
     } else if (landing.kind === 'study') {
       if (afterWalk.currentPack) {
-        const picked = pickQuestionWithReshuffle(afterWalk.currentPack, afterWalk.askedQuestionIds);
-        if (picked) {
-          nextActiveQuiz = startQuiz({
-            state: { ...get(), askedQuestionIds: picked.askedIds },
-            question: picked.question,
-            context: { kind: 'study' },
-            playerId: movedPlayer.id,
-          });
-        } else {
-          workingGame = applyStudyAutoReward(workingGame, movedPlayer.id);
-        }
+        nextPendingQuiz = { context: { kind: 'study' }, playerId: movedPlayer.id };
       } else {
         workingGame = applyStudyAutoReward(workingGame, movedPlayer.id);
       }
     } else if (landing.kind === 'monster') {
       if (afterWalk.currentPack) {
-        const picked = pickQuestionWithReshuffle(afterWalk.currentPack, afterWalk.askedQuestionIds);
-        if (picked) {
-          nextActiveQuiz = startQuiz({
-            state: { ...get(), askedQuestionIds: picked.askedIds },
-            question: picked.question,
-            context: { kind: 'monster' },
-            playerId: movedPlayer.id,
-          });
-        } else {
-          workingGame = addMoney(workingGame, movedPlayer.id, STUDY_REWARD_CORRECT);
-        }
+        nextPendingQuiz = { context: { kind: 'monster' }, playerId: movedPlayer.id };
       } else {
         workingGame = addMoney(workingGame, movedPlayer.id, STUDY_REWARD_CORRECT);
       }
@@ -647,7 +659,7 @@ export const useGameStore = create<Store>((set, get) => ({
       landingEvent: landing,
       buyPrompt: nextBuyPrompt,
       rentNotice: nextRentNotice,
-      ...nextActiveQuiz,
+      pendingQuiz: nextPendingQuiz,
     });
   },
 
@@ -658,19 +670,14 @@ export const useGameStore = create<Store>((set, get) => ({
     if (!prompt || !game) return;
 
     if (state.currentPack) {
-      const picked = pickQuestionWithReshuffle(state.currentPack, state.askedQuestionIds);
-      if (picked) {
-        set({
-          buyPrompt: null,
-          ...startQuiz({
-            state: { ...state, askedQuestionIds: picked.askedIds },
-            question: picked.question,
-            context: { kind: 'property-buy', position: prompt.position, price: prompt.price },
-            playerId: prompt.playerId,
-          }),
-        });
-        return;
-      }
+      set({
+        buyPrompt: null,
+        pendingQuiz: {
+          context: { kind: 'property-buy', position: prompt.position, price: prompt.price },
+          playerId: prompt.playerId,
+        },
+      });
+      return;
     }
 
     const player = findPlayer(game.players, prompt.playerId);
@@ -688,7 +695,7 @@ export const useGameStore = create<Store>((set, get) => ({
 
   dismissLanding: () => {
     const state = get();
-    if (state.buyPrompt || state.activeQuiz || state.quizResult) return;
+    if (state.buyPrompt || state.pendingQuiz || state.activeQuiz || state.quizResult) return;
     if (state.bankruptcy) {
       const { game, bankruptcy } = state;
       if (game && bankruptcy) {
@@ -715,6 +722,36 @@ export const useGameStore = create<Store>((set, get) => ({
       rentNotice: null,
       lastDice: null,
     });
+  },
+
+  selectSubject: (subject) => {
+    const state = get();
+    const pending = state.pendingQuiz;
+    const pack = state.currentPack;
+    if (!pending || !pack) return;
+    const picked = pickQuestionForSubject(pack, state.askedQuestionIds, subject);
+    if (!picked) {
+      set({ pendingQuiz: null });
+      return;
+    }
+    set(
+      startQuiz({
+        asked: picked.asked,
+        question: picked.question,
+        context: pending.context,
+        playerId: pending.playerId,
+      }),
+    );
+  },
+
+  cancelPendingQuiz: () => {
+    const state = get();
+    const pending = state.pendingQuiz;
+    const game = state.game;
+    if (!pending || !game) return;
+    // only study/monster can be skipped; others are committed actions
+    if (pending.context.kind !== 'study' && pending.context.kind !== 'monster') return;
+    set({ pendingQuiz: null });
   },
 
   submitAnswer: async (answer) => {
@@ -944,23 +981,18 @@ export const useGameStore = create<Store>((set, get) => ({
     const state = get();
     const game = state.game;
     if (!game || game.phase !== 'boss' || !game.bossBattle) return;
-    if (state.activeQuiz || state.quizResult) return;
+    if (state.pendingQuiz || state.activeQuiz || state.quizResult) return;
     const attackerId = game.bossBattle.currentAttackerId;
 
     if (!state.currentPack) {
       return;
     }
 
-    const picked = pickQuestionWithReshuffle(state.currentPack, state.askedQuestionIds);
-    if (!picked) return;
-
     set({
-      ...startQuiz({
-        state: { ...state, askedQuestionIds: picked.askedIds },
-        question: picked.question,
+      pendingQuiz: {
         context: { kind: 'boss-attack', ...(weaponId ? { weaponId } : {}) },
         playerId: attackerId,
-      }),
+      },
     });
   },
 

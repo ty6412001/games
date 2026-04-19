@@ -16,10 +16,10 @@ type Props = {
 };
 
 const SIZE_PX: Record<HeroAvatarSize, number> = {
-  sm: 32,
-  md: 48,
-  lg: 72,
-  xl: 128,
+  sm: 48,
+  md: 80,
+  lg: 144,
+  xl: 224,
 };
 
 const FONT_RATIO = 0.5;

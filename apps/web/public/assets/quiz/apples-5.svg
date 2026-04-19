@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 120" fill="none">
+  <g id="apple5" transform="translate(0,0)">
+    <circle cx="22" cy="60" r="18" fill="#e53935" stroke="#5d1a0a" stroke-width="2"/>
+    <path d="M22 42 L20 32 L26 36" stroke="#5d4037" stroke-width="2" fill="none"/>
+    <ellipse cx="26" cy="34" rx="4" ry="2" fill="#66bb6a"/>
+  </g>
+  <use href="#apple5" x="44"/>
+  <use href="#apple5" x="88"/>
+  <use href="#apple5" x="132"/>
+  <use href="#apple5" x="176"/>
+</svg>

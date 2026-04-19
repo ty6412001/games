@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 100" fill="none">
+  <circle cx="40" cy="50" r="32" fill="#42a5f5" stroke="#0d47a1" stroke-width="3"/>
+  <text x="40" y="98" text-anchor="middle" font-size="14" fill="#0d47a1" font-weight="bold">圆形</text>
+  <path d="M120 18 L152 78 L88 78 Z" fill="#66bb6a" stroke="#1b5e20" stroke-width="3"/>
+  <text x="120" y="98" text-anchor="middle" font-size="14" fill="#1b5e20" font-weight="bold">三角形</text>
+  <rect x="170" y="22" width="54" height="54" fill="#ef5350" stroke="#8a1f1a" stroke-width="3"/>
+  <text x="197" y="98" text-anchor="middle" font-size="14" fill="#8a1f1a" font-weight="bold">正方形</text>
+</svg>

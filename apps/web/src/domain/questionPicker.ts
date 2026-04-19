@@ -27,6 +27,9 @@ export const findQuestion = (pack: QuestionPack, id: string): Question | null =>
 };
 
 export const isAnswerCorrect = (question: Question, submitted: string): boolean => {
+  if (question.subject === 'english') {
+    return submitted.trim().toLowerCase() === question.answer.trim().toLowerCase();
+  }
   return submitted.trim() === question.answer.trim();
 };
 

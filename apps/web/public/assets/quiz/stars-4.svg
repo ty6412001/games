@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 80" fill="none">
+  <g id="star4" transform="translate(0,0)">
+    <path d="M30 10 L36 26 L54 26 L40 36 L46 54 L30 44 L14 54 L20 36 L6 26 L24 26 Z" fill="#ffc107" stroke="#6d4c0a" stroke-width="2"/>
+  </g>
+  <use href="#star4" x="0"/>
+  <use href="#star4" x="52"/>
+  <use href="#star4" x="104"/>
+  <use href="#star4" x="156"/>
+</svg>

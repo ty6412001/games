@@ -1,18 +1,39 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="none">
   <defs>
-    <radialGradient id="belialBg" cx="50%" cy="40%" r="70%">
-      <stop offset="0%" stop-color="#ea80fc"/>
-      <stop offset="100%" stop-color="#4a148c"/>
-    </radialGradient>
+    <linearGradient id="belialBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#7b1fa2"/>
+      <stop offset="100%" stop-color="#1a0033"/>
+    </linearGradient>
+    <linearGradient id="belialBody" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#616161"/>
+      <stop offset="100%" stop-color="#212121"/>
+    </linearGradient>
   </defs>
-  <rect width="120" height="120" rx="18" fill="url(#belialBg)"/>
-  <path d="M40 26 L46 38 L52 24 L58 38 L64 22 L70 38 L76 24 L82 36" stroke="#ff9100" stroke-width="3" fill="none" stroke-linejoin="round"/>
-  <ellipse cx="60" cy="54" rx="18" ry="22" fill="#fce4ec"/>
-  <path d="M50 50 L55 46 L55 54 Z" fill="#d500f9"/>
-  <path d="M70 50 L65 46 L65 54 Z" fill="#d500f9"/>
-  <circle cx="53" cy="54" r="3" fill="#ff9100"/>
-  <circle cx="67" cy="54" r="3" fill="#ff9100"/>
-  <path d="M48 66 L60 62 L72 66" stroke="#ff9100" stroke-width="3" fill="none" stroke-linecap="round"/>
-  <rect x="48" y="78" width="24" height="30" rx="6" fill="#fce4ec"/>
-  <path d="M54 84 L60 94 L66 84 L63 102 L57 102 Z" fill="#ff9100"/>
+  <rect width="256" height="256" rx="32" fill="url(#belialBg)"/>
+  <path d="M84 22 L98 50 L80 44 Z" fill="#ffc400" stroke="#3e2723" stroke-width="2"/>
+  <path d="M172 22 L158 50 L176 44 Z" fill="#ffc400" stroke="#3e2723" stroke-width="2"/>
+  <path d="M96 48 L112 14 L122 40" fill="#ffc400" stroke="#3e2723" stroke-width="2"/>
+  <path d="M160 48 L144 14 L134 40" fill="#ffc400" stroke="#3e2723" stroke-width="2"/>
+  <ellipse cx="128" cy="82" rx="44" ry="50" fill="url(#belialBody)" stroke="#ff9100" stroke-width="2"/>
+  <path d="M112 110 L118 124 L124 110 Z" fill="#fafafa" stroke="#3e2723" stroke-width="1"/>
+  <path d="M132 110 L138 124 L144 110 Z" fill="#fafafa" stroke="#3e2723" stroke-width="1"/>
+  <path d="M96 74 L120 68 L116 92 L98 88 Z" fill="#ff9100" stroke="#3e2723" stroke-width="2"/>
+  <path d="M160 74 L136 68 L140 92 L158 88 Z" fill="#ff9100" stroke="#3e2723" stroke-width="2"/>
+  <circle cx="108" cy="80" r="3" fill="#d50000"/>
+  <circle cx="148" cy="80" r="3" fill="#d50000"/>
+  <rect x="116" y="130" width="24" height="10" fill="#212121"/>
+  <path d="M78 142 L178 142 L188 182 L172 226 L84 226 L68 182 Z" fill="url(#belialBody)" stroke="#ff9100" stroke-width="2"/>
+  <path d="M92 148 L100 170 L108 148" fill="#ffc400" stroke="#3e2723" stroke-width="2"/>
+  <path d="M148 148 L156 170 L164 148" fill="#ffc400" stroke="#3e2723" stroke-width="2"/>
+  <path d="M128 168 L144 176 L144 194 L128 202 L112 194 L112 176 Z" fill="#ff9100" stroke="#fafafa" stroke-width="3"/>
+  <circle cx="128" cy="185" r="6" fill="#d50000"/>
+  <rect x="80" y="214" width="96" height="14" fill="#ffc400"/>
+  <path d="M64 140 L78 130 L92 144 L82 152 Z" fill="#ffc400" stroke="#3e2723" stroke-width="2"/>
+  <path d="M192 140 L178 130 L164 144 L174 152 Z" fill="#ffc400" stroke="#3e2723" stroke-width="2"/>
+  <rect x="60" y="154" width="18" height="62" rx="6" fill="url(#belialBody)" stroke="#ff9100" stroke-width="2"/>
+  <rect x="178" y="154" width="18" height="62" rx="6" fill="url(#belialBody)" stroke="#ff9100" stroke-width="2"/>
+  <path d="M60 216 L68 226 L76 218" stroke="#ffc400" stroke-width="3" fill="none"/>
+  <path d="M180 216 L188 226 L196 218" stroke="#ffc400" stroke-width="3" fill="none"/>
+  <rect x="94" y="230" width="24" height="22" rx="6" fill="url(#belialBody)" stroke="#ff9100" stroke-width="2"/>
+  <rect x="138" y="230" width="24" height="22" rx="6" fill="url(#belialBody)" stroke="#ff9100" stroke-width="2"/>
 </svg>

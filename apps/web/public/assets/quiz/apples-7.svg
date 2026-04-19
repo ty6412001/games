@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 120" fill="none">
+  <g id="apple" transform="translate(0,0)">
+    <circle cx="18" cy="60" r="16" fill="#e53935" stroke="#5d1a0a" stroke-width="2"/>
+    <path d="M18 44 L16 34 L22 38" stroke="#5d4037" stroke-width="2" fill="none"/>
+    <ellipse cx="22" cy="36" rx="4" ry="2" fill="#66bb6a"/>
+  </g>
+  <use href="#apple" x="40"/>
+  <use href="#apple" x="80"/>
+  <use href="#apple" x="120"/>
+  <use href="#apple" x="160"/>
+  <use href="#apple" x="200"/>
+  <use href="#apple" x="240"/>
+</svg>
