@@ -151,15 +151,15 @@ const ReviewShell = ({
   onExit: () => void;
   children: React.ReactNode;
 }) => (
-  <div className="min-h-screen bg-slate-950 px-8 py-10 text-slate-50">
-    <div className="mx-auto max-w-2xl space-y-6">
+  <div className="h-[100svh] overflow-hidden bg-slate-950 px-6 py-6 text-slate-50">
+    <div className="mx-auto flex h-full max-w-2xl flex-col gap-4">
       <header className="flex items-center justify-between">
         <h2 className="text-2xl font-black">📚 错题本复习</h2>
         <button type="button" onClick={onExit} className="rounded-xl bg-slate-800 px-4 py-2 text-sm">
           退出
         </button>
       </header>
-      <div>{children}</div>
+      <div className="min-h-0 flex-1 overflow-y-auto">{children}</div>
     </div>
   </div>
 );

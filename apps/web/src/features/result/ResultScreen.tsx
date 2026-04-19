@@ -1,4 +1,5 @@
 import { useGameStore } from '../../stores/gameStore';
+import { HeroAvatar } from '../../theme/ultraman/HeroAvatar';
 import { getHero } from '../../theme/ultraman/heroes';
 
 export const ResultScreen = () => {
@@ -11,19 +12,17 @@ export const ResultScreen = () => {
   const playersById = new Map(game.players.map((p) => [p.id, p]));
 
   const heading =
-    summary.reason === 'time-up'
-      ? '⏱️ 时间到，本局结算'
-      : '💥 有玩家破产，本局提前结束';
+    summary.reason === 'time-up' ? '⏱️ 时间到，本局结算' : '💥 有玩家破产，本局提前结束';
 
   return (
-    <div className="min-h-screen bg-slate-950 px-8 py-12 text-slate-50">
-      <div className="mx-auto max-w-3xl space-y-8">
+    <div className="h-[100svh] overflow-hidden bg-slate-950 px-4 py-4 text-slate-50 md:px-6 md:py-6">
+      <div className="mx-auto grid h-full max-w-3xl grid-rows-[auto_1fr_auto] gap-4">
         <header className="text-center">
-          <h1 className="text-4xl font-black md:text-5xl">{heading}</h1>
-          <p className="mt-2 text-slate-400">战力结算 + Boss 战将在 M4 接入</p>
+          <h1 className="text-3xl font-black md:text-4xl">{heading}</h1>
+          <p className="mt-1 text-sm text-slate-400">按总资产排名 · 冠军 = 最强光之战士</p>
         </header>
 
-        <section className="space-y-3">
+        <section className="min-h-0 space-y-2 overflow-y-auto pr-1">
           {summary.rankings.map(({ playerId, rank, totalAssets }) => {
             const player = playersById.get(playerId);
             if (!player) return null;
@@ -31,28 +30,23 @@ export const ResultScreen = () => {
             return (
               <div
                 key={playerId}
-                className={`flex items-center gap-4 rounded-2xl border-2 p-4 ${
+                className={`flex items-center gap-3 rounded-2xl border-2 p-3 ${
                   rank === 1
                     ? 'border-amber-400 bg-amber-400/10'
                     : 'border-slate-700 bg-slate-900/50'
                 }`}
               >
-                <div className="text-3xl font-black text-amber-300">#{rank}</div>
-                <div
-                  className="flex h-14 w-14 items-center justify-center rounded-full text-3xl font-black"
-                  style={{ backgroundColor: hero.color, color: hero.accent }}
-                >
-                  {hero.name.slice(0, 1)}
-                </div>
-                <div className="flex-1">
-                  <div className="text-xl font-bold">
+                <div className="text-2xl font-black text-amber-300">#{rank}</div>
+                <HeroAvatar heroId={player.hero.heroId} size="md" badge={player.hero.badge} />
+                <div className="flex-1 min-w-0">
+                  <div className="truncate text-lg font-bold">
                     {player.name} ({hero.name})
                   </div>
-                  <div className="text-sm text-slate-300">
+                  <div className="text-xs text-slate-300">
                     💰 ¥{player.money} · 🏠 {player.ownedTiles.length}
                   </div>
                 </div>
-                <div className="text-2xl font-black">¥{totalAssets}</div>
+                <div className="text-xl font-black">¥{totalAssets}</div>
               </div>
             );
           })}
@@ -62,7 +56,7 @@ export const ResultScreen = () => {
           <button
             type="button"
             onClick={goToSetup}
-            className="min-h-[64px] rounded-2xl bg-amber-400 px-10 py-3 text-xl font-black text-slate-900 shadow-xl"
+            className="min-h-[56px] rounded-2xl bg-amber-400 px-10 py-3 text-xl font-black text-slate-900 shadow-xl"
           >
             🔁 再来一局
           </button>

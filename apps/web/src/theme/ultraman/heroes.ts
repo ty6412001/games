@@ -6,6 +6,7 @@ export type HeroProfile = {
   color: string;
   accent: string;
   tagline: string;
+  imageUrl?: string;
 };
 
 export const HEROES: readonly HeroProfile[] = [

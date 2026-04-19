@@ -10,6 +10,7 @@ import type {
   QuestionPack,
   Tile,
 } from '@ultraman/shared';
+import { BOARD_SIZE } from '@ultraman/shared';
 
 import {
   SALARY_ON_LAP,
@@ -32,7 +33,6 @@ import {
   rewardFor,
 } from '../domain/questionPicker.js';
 import {
-  advancePosition,
   crossedStart,
   resolveLanding,
   rollDice,
@@ -49,6 +49,7 @@ import { loadQuestionPack } from '../data/packs/questionPackLoader.js';
 import { recordWrong } from '../data/repo/wrongBookRepo.js';
 import { bossForWeek } from '../theme/ultraman/monsters.js';
 import { rollRandomWeapon } from '../theme/ultraman/weapons.js';
+import { BATTLE_EFFECT_DURATION_MS, MOVEMENT_STEP_MS, features } from '../config/features.js';
 
 export type SetupPlayer = {
   name: string;
@@ -81,6 +82,8 @@ export type GameEndSummary = {
   bankruptPlayerId?: string;
 };
 
+export type QuizContextKind = 'study' | 'monster' | 'property-buy' | 'boss-attack';
+
 export type QuizContext =
   | { kind: 'study' }
   | { kind: 'monster' }
@@ -91,6 +94,10 @@ export type QuizResult = {
   outcome: 'correct' | 'wrong' | 'timeout' | 'help';
   reward: number;
   message: string;
+  correct: boolean;
+  contextKind: QuizContextKind;
+  playerId: string;
+  bossId?: string;
 };
 
 export type ActiveQuiz = {
@@ -100,6 +107,12 @@ export type ActiveQuiz = {
   usedHelp: boolean;
   startedAt: number;
   deadlineAt: number;
+};
+
+export type MovementAnimation = {
+  playerId: string;
+  path: readonly number[];
+  stepIndex: number;
 };
 
 type Store = {
@@ -113,6 +126,7 @@ type Store = {
   lastDice: DiceRoll | null;
   isRolling: boolean;
   isMoving: boolean;
+  movementAnim: MovementAnimation | null;
   landingEvent: LandingEvent | null;
   buyPrompt: BuyPrompt | null;
   rentNotice: RentNotice | null;
@@ -125,26 +139,25 @@ type Store = {
   weaponAwardToast: { heroName: string; weaponName: string } | null;
   pendingEndReason: 'time-up' | 'bankruptcy' | null;
 
-  // setup
   goToSetup: () => void;
-  startGame: (params: { duration: DurationMinutes; week: number; players: SetupPlayer[] }) => Promise<void>;
+  startGame: (params: {
+    duration: DurationMinutes;
+    week: number;
+    players: SetupPlayer[];
+  }) => Promise<void>;
 
-  // turn
   rollAndMove: () => Promise<void>;
   confirmBuy: () => void;
   declineBuy: () => void;
   dismissLanding: () => void;
 
-  // quiz
   submitAnswer: (answer: string) => Promise<void>;
   useHelpCard: () => void;
   quizTimeout: () => Promise<void>;
   dismissQuizResult: () => void;
 
-  // weapons
   dismissWeaponToast: () => void;
 
-  // settle + boss
   enterBossBattle: () => void;
   bossAttack: (weaponId?: string) => void;
   finalizeBossBattle: (reason: 'victory' | 'escaped') => void;
@@ -156,10 +169,8 @@ type Store = {
   tiles: () => readonly Tile[];
 };
 
-const generateGameId = (): string => {
-  return `g-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`;
-};
-
+const generateGameId = (): string =>
+  `g-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`;
 const generatePlayerId = (index: number): string => `p${index + 1}`;
 
 const buildInitialPlayers = (setups: SetupPlayer[]): Player[] =>
@@ -199,6 +210,16 @@ const findPlayer = (players: readonly Player[], id: string): Player => {
 };
 
 const sleep = (ms: number): Promise<void> => new Promise((r) => setTimeout(r, ms));
+
+const buildWalkPath = (start: number, steps: number): number[] => {
+  const path: number[] = [start];
+  let cur = start;
+  for (let i = 0; i < steps; i += 1) {
+    cur = (cur + 1) % BOARD_SIZE;
+    path.push(cur);
+  }
+  return path;
+};
 
 const triggerRentSettlement = (
   state: GameState,
@@ -275,7 +296,12 @@ const applyVaultReward = (game: GameState, playerId: string): GameState => {
   return addMoney(game, playerId, 300);
 };
 
-const executePurchase = (game: GameState, playerId: string, position: number, price: number): GameState => {
+const executePurchase = (
+  game: GameState,
+  playerId: string,
+  position: number,
+  price: number,
+): GameState => {
   const player = findPlayer(game.players, playerId);
   if (player.money < price) return game;
   const updated: Player = {
@@ -306,6 +332,38 @@ const startQuiz = (params: {
   };
 };
 
+const pickQuestionWithReshuffle = (
+  pack: QuestionPack,
+  askedIds: Set<string>,
+): { question: Question; askedIds: Set<string> } | null => {
+  const fresh = pickRandomQuestion(pack, { excludeIds: askedIds });
+  if (fresh) return { question: fresh, askedIds };
+  if (askedIds.size === 0) return null;
+  const reshuffled = pickRandomQuestion(pack, { excludeIds: new Set() });
+  if (!reshuffled) return null;
+  return { question: reshuffled, askedIds: new Set() };
+};
+
+const shouldRecordWrong = (state: Store, quiz: ActiveQuiz): boolean => {
+  if (!state.childId) return false;
+  if (quiz.playerId !== state.childId) return false;
+  if (quiz.usedHelp) return false;
+  return true;
+};
+
+const recordWrongSafe = async (
+  childId: string,
+  question: Question,
+  wrongAnswer: string,
+  week: number,
+): Promise<void> => {
+  try {
+    await recordWrong({ childId, question, wrongAnswer, week });
+  } catch (err) {
+    console.warn('recordWrong failed', err);
+  }
+};
+
 export const useGameStore = create<Store>((set, get) => ({
   screen: 'menu',
   game: null,
@@ -317,6 +375,7 @@ export const useGameStore = create<Store>((set, get) => ({
   lastDice: null,
   isRolling: false,
   isMoving: false,
+  movementAnim: null,
   landingEvent: null,
   buyPrompt: null,
   rentNotice: null,
@@ -356,6 +415,7 @@ export const useGameStore = create<Store>((set, get) => ({
       lastDice: null,
       isRolling: false,
       isMoving: false,
+      movementAnim: null,
       landingEvent: null,
       buyPrompt: null,
       rentNotice: null,
@@ -379,15 +439,22 @@ export const useGameStore = create<Store>((set, get) => ({
 
   tick: (nowMs) => {
     const { game, activeQuiz } = get();
-    if (!game || game.phase !== 'monopoly') {
+    if (!game) {
       set({ nowMs });
       return;
     }
-    if (activeQuiz && nowMs >= activeQuiz.deadlineAt) {
+
+    if (features.quizTimer && activeQuiz && nowMs >= activeQuiz.deadlineAt) {
       set({ nowMs });
       void get().quizTimeout();
       return;
     }
+
+    if (game.phase !== 'monopoly') {
+      set({ nowMs });
+      return;
+    }
+
     const elapsed = (nowMs - game.startedAt) / 1000;
     const budget = game.durationMin * 60;
     if (elapsed >= budget) {
@@ -414,6 +481,7 @@ export const useGameStore = create<Store>((set, get) => ({
       rentNotice: null,
       activeQuiz: null,
       quizResult: null,
+      movementAnim: null,
     });
   },
 
@@ -426,7 +494,8 @@ export const useGameStore = create<Store>((set, get) => ({
       state.buyPrompt ||
       state.landingEvent ||
       state.activeQuiz ||
-      state.quizResult
+      state.quizResult ||
+      state.movementAnim
     ) {
       return;
     }
@@ -436,24 +505,48 @@ export const useGameStore = create<Store>((set, get) => ({
     await sleep(800);
 
     const current = get();
-    if (!current.game) return;
+    if (!current.game || current.game.phase !== 'monopoly') return;
     const currentPlayer = current.game.players[current.game.currentTurn];
     if (!currentPlayer) return;
 
     const oldPosition = currentPlayer.position;
-    const newPosition = advancePosition(oldPosition, roll);
-    const lapBonus = crossedStart(oldPosition, newPosition, roll) ? SALARY_ON_LAP : 0;
+    const path = buildWalkPath(oldPosition, roll);
 
-    set({ isRolling: false, isMoving: true });
-    await sleep(200 + roll * 150);
+    set({
+      isRolling: false,
+      isMoving: true,
+      movementAnim: { playerId: currentPlayer.id, path, stepIndex: 0 },
+    });
 
-    const movedPlayer: Player = {
-      ...currentPlayer,
-      position: newPosition,
-      money: currentPlayer.money + lapBonus,
-    };
-    const players = replacePlayer(current.game.players, movedPlayer);
-    let workingGame: GameState = { ...current.game, players };
+    for (let i = 1; i < path.length; i += 1) {
+      const snapshot = get();
+      if (!snapshot.game || snapshot.game.phase !== 'monopoly') {
+        set({ movementAnim: null, isMoving: false });
+        return;
+      }
+      const stepPos = path[i]!;
+      const player = findPlayer(snapshot.game.players, currentPlayer.id);
+      const updatedPlayer = { ...player, position: stepPos };
+      const updatedPlayers = replacePlayer(snapshot.game.players, updatedPlayer);
+      set({
+        game: { ...snapshot.game, players: updatedPlayers },
+        movementAnim: { playerId: currentPlayer.id, path, stepIndex: i },
+      });
+      await sleep(MOVEMENT_STEP_MS);
+    }
+
+    const afterWalk = get();
+    if (!afterWalk.game || afterWalk.game.phase !== 'monopoly') {
+      set({ movementAnim: null, isMoving: false });
+      return;
+    }
+
+    const lapBonus = crossedStart(oldPosition, path[path.length - 1]!, roll) ? SALARY_ON_LAP : 0;
+    let workingGame = afterWalk.game;
+    if (lapBonus > 0) {
+      workingGame = addMoney(workingGame, currentPlayer.id, lapBonus);
+    }
+    const movedPlayer = findPlayer(workingGame.players, currentPlayer.id);
 
     const ownerMap = buildOwnerIndex(workingGame.players);
     const findOwner = (pos: number): string | null => ownerMap.get(pos) ?? null;
@@ -468,7 +561,7 @@ export const useGameStore = create<Store>((set, get) => ({
     };
 
     const landing = resolveLanding(
-      newPosition,
+      movedPlayer.position,
       workingGame.tiles,
       movedPlayer.id,
       findOwner,
@@ -495,6 +588,7 @@ export const useGameStore = create<Store>((set, get) => ({
           set({
             game: workingGame,
             isMoving: false,
+            movementAnim: null,
             landingEvent: landing,
             rentNotice: nextRentNotice,
             bankruptcy: { playerId: paid.id, playerName: paid.name },
@@ -511,14 +605,12 @@ export const useGameStore = create<Store>((set, get) => ({
         };
       }
     } else if (landing.kind === 'study') {
-      if (movedPlayer.isChild && current.currentPack) {
-        const question = pickRandomQuestion(current.currentPack, {
-          excludeIds: current.askedQuestionIds,
-        });
-        if (question) {
+      if (afterWalk.currentPack) {
+        const picked = pickQuestionWithReshuffle(afterWalk.currentPack, afterWalk.askedQuestionIds);
+        if (picked) {
           nextActiveQuiz = startQuiz({
-            state: get(),
-            question,
+            state: { ...get(), askedQuestionIds: picked.askedIds },
+            question: picked.question,
             context: { kind: 'study' },
             playerId: movedPlayer.id,
           });
@@ -529,18 +621,20 @@ export const useGameStore = create<Store>((set, get) => ({
         workingGame = applyStudyAutoReward(workingGame, movedPlayer.id);
       }
     } else if (landing.kind === 'monster') {
-      if (movedPlayer.isChild && current.currentPack) {
-        const question = pickRandomQuestion(current.currentPack, {
-          excludeIds: current.askedQuestionIds,
-        });
-        if (question) {
+      if (afterWalk.currentPack) {
+        const picked = pickQuestionWithReshuffle(afterWalk.currentPack, afterWalk.askedQuestionIds);
+        if (picked) {
           nextActiveQuiz = startQuiz({
-            state: get(),
-            question,
+            state: { ...get(), askedQuestionIds: picked.askedIds },
+            question: picked.question,
             context: { kind: 'monster' },
             playerId: movedPlayer.id,
           });
+        } else {
+          workingGame = addMoney(workingGame, movedPlayer.id, STUDY_REWARD_CORRECT);
         }
+      } else {
+        workingGame = addMoney(workingGame, movedPlayer.id, STUDY_REWARD_CORRECT);
       }
     } else if (landing.kind === 'reward-vault') {
       workingGame = applyVaultReward(workingGame, movedPlayer.id);
@@ -549,6 +643,7 @@ export const useGameStore = create<Store>((set, get) => ({
     set({
       game: workingGame,
       isMoving: false,
+      movementAnim: null,
       landingEvent: landing,
       buyPrompt: nextBuyPrompt,
       rentNotice: nextRentNotice,
@@ -561,18 +656,15 @@ export const useGameStore = create<Store>((set, get) => ({
     const prompt = state.buyPrompt;
     const game = state.game;
     if (!prompt || !game) return;
-    const player = findPlayer(game.players, prompt.playerId);
 
-    if (player.isChild && state.currentPack) {
-      const question = pickRandomQuestion(state.currentPack, {
-        excludeIds: state.askedQuestionIds,
-      });
-      if (question) {
+    if (state.currentPack) {
+      const picked = pickQuestionWithReshuffle(state.currentPack, state.askedQuestionIds);
+      if (picked) {
         set({
           buyPrompt: null,
           ...startQuiz({
-            state,
-            question,
+            state: { ...state, askedQuestionIds: picked.askedIds },
+            question: picked.question,
             context: { kind: 'property-buy', position: prompt.position, price: prompt.price },
             playerId: prompt.playerId,
           }),
@@ -581,11 +673,15 @@ export const useGameStore = create<Store>((set, get) => ({
       }
     }
 
+    const player = findPlayer(game.players, prompt.playerId);
     if (player.money < prompt.price) {
       set({ buyPrompt: null });
       return;
     }
-    set({ game: executePurchase(game, prompt.playerId, prompt.position, prompt.price), buyPrompt: null });
+    set({
+      game: executePurchase(game, prompt.playerId, prompt.position, prompt.price),
+      buyPrompt: null,
+    });
   },
 
   declineBuy: () => set({ buyPrompt: null }),
@@ -635,7 +731,6 @@ export const useGameStore = create<Store>((set, get) => ({
     let weaponToast: Store['weaponAwardToast'] = null;
 
     if (quiz.context.kind === 'boss-attack') {
-      // damage applied via bossAttack settler
       const battle = workingGame.bossBattle;
       if (battle) {
         const next = applyAttack(
@@ -652,30 +747,33 @@ export const useGameStore = create<Store>((set, get) => ({
           message = `命中 Boss！造成伤害 ${battle.currentHp - next.currentHp}`;
           workingGame = updateStreak(workingGame, quiz.playerId, 1);
         } else {
-          const childId = state.childId;
-          if (childId && !quiz.usedHelp) {
-            try {
-              await recordWrong({
-                childId,
-                question: quiz.question,
-                wrongAnswer: answer,
-                week: game.week,
-              });
-            } catch (err) {
-              console.warn('recordWrong failed', err);
-            }
+          if (shouldRecordWrong(state, quiz)) {
+            await recordWrongSafe(state.childId!, quiz.question, answer, game.week);
           }
           workingGame = updateStreak(workingGame, quiz.playerId, 0);
-          message = `答错了，伤害减半，已记入错题本`;
+          message = quiz.playerId === state.childId
+            ? '答错了，伤害减半（已记入错题本）'
+            : '答错了，伤害减半';
         }
+      }
+      if (quiz.usedHelp && correct) {
+        outcome = 'help';
       }
       set({
         game: workingGame,
         activeQuiz: null,
-        quizResult: { outcome, reward: 0, message },
+        quizResult: {
+          outcome,
+          reward: 0,
+          message,
+          correct,
+          contextKind: 'boss-attack',
+          playerId: quiz.playerId,
+          ...(workingGame.bossBattle ? { bossId: workingGame.bossBattle.bossId } : {}),
+        },
       });
       if (workingGame.bossBattle?.status === 'victory') {
-        setTimeout(() => get().finalizeBossBattle('victory'), 1200);
+        setTimeout(() => get().finalizeBossBattle('victory'), BATTLE_EFFECT_DURATION_MS);
       }
       return;
     }
@@ -694,7 +792,10 @@ export const useGameStore = create<Store>((set, get) => ({
             weaponIds: [...attacker.weaponIds, next.id],
             streak: 0,
           };
-          workingGame = { ...workingGame, players: replacePlayer(workingGame.players, updated) };
+          workingGame = {
+            ...workingGame,
+            players: replacePlayer(workingGame.players, updated),
+          };
           weaponToast = { heroName: attacker.name, weaponName: next.name };
         }
       }
@@ -713,25 +814,18 @@ export const useGameStore = create<Store>((set, get) => ({
         message = `答对！+¥${reward.correct}`;
       }
     } else {
-      const childId = state.childId;
-      if (childId && !quiz.usedHelp) {
-        try {
-          await recordWrong({
-            childId,
-            question: quiz.question,
-            wrongAnswer: answer,
-            week: game.week,
-          });
-        } catch (err) {
-          console.warn('recordWrong failed', err);
-        }
+      if (shouldRecordWrong(state, quiz)) {
+        await recordWrongSafe(state.childId!, quiz.question, answer, game.week);
       }
       workingGame = addMoney(workingGame, quiz.playerId, reward.wrong);
       workingGame = updateStreak(workingGame, quiz.playerId, 0);
+      const isChildPlayer = quiz.playerId === state.childId;
       if (quiz.context.kind === 'property-buy') {
         message = `答错了，这次不能买地，扣 ¥${Math.abs(reward.wrong)}`;
       } else {
-        message = `答错了，扣 ¥${Math.abs(reward.wrong)}（已记入错题本）`;
+        message = isChildPlayer
+          ? `答错了，扣 ¥${Math.abs(reward.wrong)}（已记入错题本）`
+          : `答错了，扣 ¥${Math.abs(reward.wrong)}`;
       }
     }
 
@@ -743,7 +837,14 @@ export const useGameStore = create<Store>((set, get) => ({
     set({
       game: workingGame,
       activeQuiz: null,
-      quizResult: { outcome, reward: correct ? reward.correct : reward.wrong, message },
+      quizResult: {
+        outcome,
+        reward: correct ? reward.correct : reward.wrong,
+        message,
+        correct,
+        contextKind: quiz.context.kind,
+        playerId: quiz.playerId,
+      },
       weaponAwardToast: weaponToast,
     });
   },
@@ -770,18 +871,8 @@ export const useGameStore = create<Store>((set, get) => ({
     if (!quiz || !game) return;
 
     let workingGame = game;
-    const childId = state.childId;
-    if (childId && !quiz.usedHelp) {
-      try {
-        await recordWrong({
-          childId,
-          question: quiz.question,
-          wrongAnswer: '(超时)',
-          week: game.week,
-        });
-      } catch (err) {
-        console.warn('recordWrong failed', err);
-      }
+    if (shouldRecordWrong(state, quiz)) {
+      await recordWrongSafe(state.childId!, quiz.question, '(超时)', game.week);
     }
 
     let penalty = 0;
@@ -812,11 +903,18 @@ export const useGameStore = create<Store>((set, get) => ({
       quizResult: {
         outcome: 'timeout',
         reward: penalty,
-        message: penalty !== 0 ? `时间到，扣 ¥${Math.abs(penalty)}（已记错题本）` : '时间到，伤害减半',
+        message:
+          penalty !== 0
+            ? `时间到，扣 ¥${Math.abs(penalty)}（已记错题本）`
+            : '时间到，伤害减半',
+        correct: false,
+        contextKind: quiz.context.kind,
+        playerId: quiz.playerId,
+        ...(workingGame.bossBattle ? { bossId: workingGame.bossBattle.bossId } : {}),
       },
     });
     if (workingGame.bossBattle?.status === 'victory') {
-      setTimeout(() => get().finalizeBossBattle('victory'), 1200);
+      setTimeout(() => get().finalizeBossBattle('victory'), BATTLE_EFFECT_DURATION_MS);
     }
   },
 
@@ -831,9 +929,10 @@ export const useGameStore = create<Store>((set, get) => ({
   enterBossBattle: () => {
     const { game } = get();
     if (!game || game.phase !== 'settle') return;
-    const totalPower = game.players.reduce((sum, p) => {
-      return sum + calculateCombatPower(p).total;
-    }, 0);
+    const totalPower = game.players.reduce(
+      (sum, p) => sum + calculateCombatPower(p).total,
+      0,
+    );
     const boss = bossForWeek(game.week);
     const battle = buildInitialBossBattle(boss, game.players, totalPower);
     set({
@@ -847,47 +946,22 @@ export const useGameStore = create<Store>((set, get) => ({
     if (!game || game.phase !== 'boss' || !game.bossBattle) return;
     if (state.activeQuiz || state.quizResult) return;
     const attackerId = game.bossBattle.currentAttackerId;
-    const attacker = findPlayer(game.players, attackerId);
 
-    if (attacker.isChild && state.currentPack) {
-      const question = pickRandomQuestion(state.currentPack, {
-        excludeIds: state.askedQuestionIds,
-      });
-      if (question) {
-        set({
-          ...startQuiz({
-            state,
-            question,
-            context: { kind: 'boss-attack', ...(weaponId ? { weaponId } : {}) },
-            playerId: attackerId,
-          }),
-        });
-        return;
-      }
+    if (!state.currentPack) {
+      return;
     }
 
-    // adult direct attack: treat as correct automatic hit
-    const battle = game.bossBattle;
-    const next = applyAttack(
-      battle,
-      {
-        attackerId,
-        ...(weaponId ? { weaponId } : {}),
-        correct: true,
-      },
-      game.players.map((p) => p.id),
-    );
+    const picked = pickQuestionWithReshuffle(state.currentPack, state.askedQuestionIds);
+    if (!picked) return;
+
     set({
-      game: { ...game, bossBattle: next },
-      quizResult: {
-        outcome: 'correct',
-        reward: 0,
-        message: `${attacker.name} 助攻！`,
-      },
+      ...startQuiz({
+        state: { ...state, askedQuestionIds: picked.askedIds },
+        question: picked.question,
+        context: { kind: 'boss-attack', ...(weaponId ? { weaponId } : {}) },
+        playerId: attackerId,
+      }),
     });
-    if (next.status === 'victory') {
-      setTimeout(() => get().finalizeBossBattle('victory'), 1200);
-    }
   },
 
   finalizeBossBattle: (reason) => {

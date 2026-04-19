@@ -83,6 +83,7 @@ const findOwner = (position: number, players: readonly Player[]): Player | null 
 
 export const Board = () => {
   const game = useGameStore((s) => s.game);
+  const movementAnim = useGameStore((s) => s.movementAnim);
   if (!game) return null;
 
   return (
@@ -100,11 +101,14 @@ export const Board = () => {
         const owner = findOwner(position, game.players);
         const playersHere = game.players.filter((p) => p.position === position);
         const isPropertyTile = tile.type === 'property';
+        const pathIncludes = movementAnim?.path.slice(0, movementAnim.stepIndex + 1).includes(position);
 
         return (
           <div
             key={position}
-            className={`relative flex aspect-square flex-col items-center justify-between rounded-lg border-2 p-1 text-[10px] font-bold md:text-xs ${tileBackgroundClass(tile)}`}
+            className={`relative flex aspect-square flex-col items-center justify-between rounded-lg border-2 p-1 text-[10px] font-bold md:text-xs ${tileBackgroundClass(tile)} ${
+              pathIncludes ? 'ring-2 ring-amber-300' : ''
+            }`}
             style={{ gridRow: row + 1, gridColumn: col + 1 }}
           >
             <div className="text-center leading-tight text-slate-100">{tileLabel(tile)}</div>
@@ -120,19 +124,24 @@ export const Board = () => {
             ) : null}
             {playersHere.length > 0 ? (
               <div className="flex flex-wrap justify-center gap-0.5">
-                {playersHere.map((p) => (
-                  <div
-                    key={p.id}
-                    className="flex h-5 w-5 items-center justify-center rounded-full text-[10px] font-black shadow"
-                    style={{
-                      backgroundColor: getHero(p.hero.heroId).color,
-                      color: getHero(p.hero.heroId).accent,
-                    }}
-                    title={p.name}
-                  >
-                    {p.name.slice(0, 1)}
-                  </div>
-                ))}
+                {playersHere.map((p) => {
+                  const isMoving = movementAnim?.playerId === p.id;
+                  return (
+                    <div
+                      key={p.id}
+                      className={`flex h-5 w-5 items-center justify-center rounded-full text-[10px] font-black shadow ${
+                        isMoving ? 'animate-pawn-hop' : ''
+                      }`}
+                      style={{
+                        backgroundColor: getHero(p.hero.heroId).color,
+                        color: getHero(p.hero.heroId).accent,
+                      }}
+                      title={p.name}
+                    >
+                      {p.name.slice(0, 1)}
+                    </div>
+                  );
+                })}
               </div>
             ) : null}
           </div>

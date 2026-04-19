@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import type { Question } from '@ultraman/shared';
 
+import { features } from '../../config/features';
 import { useGameStore } from '../../stores/gameStore';
 import { CountdownBar } from './CountdownBar';
 
@@ -33,12 +34,15 @@ export const QuizModal = () => {
   const submit = useGameStore((s) => s.submitAnswer);
   const useHelp = useGameStore((s) => s.useHelpCard);
   const game = useGameStore((s) => s.game);
+  const childId = useGameStore((s) => s.childId);
 
   if (!quiz || !game) return null;
+  const isChildAnswering = quiz.playerId === childId;
+  const answerer = game.players.find((p) => p.id === quiz.playerId);
 
   return (
-    <div className="fixed inset-0 z-40 flex items-center justify-center bg-slate-950/80 backdrop-blur-sm">
-      <div className="w-full max-w-2xl rounded-3xl bg-slate-900 p-6 shadow-2xl ring-2 ring-amber-500/50">
+    <div className="fixed inset-0 z-40 flex items-center justify-center bg-slate-950/80 p-4 backdrop-blur-sm">
+      <div className="max-h-[100svh] w-full max-w-2xl overflow-y-auto rounded-3xl bg-slate-900 p-5 shadow-2xl ring-2 ring-amber-500/50">
         <header className="flex items-center justify-between gap-3">
           <div className="flex items-center gap-2">
             <span
@@ -51,19 +55,24 @@ export const QuizModal = () => {
             </span>
             <span className="text-sm text-slate-400">{quiz.question.topic}</span>
           </div>
-          <span className="text-xs text-slate-400">{contextLabel(quiz.context.kind)}</span>
+          <div className="text-right text-xs text-slate-400">
+            <div>{contextLabel(quiz.context.kind)}</div>
+            {answerer ? <div className="mt-0.5 text-slate-500">答题人：{answerer.name}</div> : null}
+          </div>
         </header>
 
-        <div className="mt-3">
-          <CountdownBar
-            startedAt={quiz.startedAt}
-            deadlineAt={quiz.deadlineAt}
-            nowMs={nowMs}
-            difficulty={quiz.question.difficulty}
-          />
-        </div>
+        {features.quizTimer ? (
+          <div className="mt-3">
+            <CountdownBar
+              startedAt={quiz.startedAt}
+              deadlineAt={quiz.deadlineAt}
+              nowMs={nowMs}
+              difficulty={quiz.question.difficulty}
+            />
+          </div>
+        ) : null}
 
-        <div className="mt-5 min-h-[80px] rounded-2xl bg-slate-800/60 p-4 text-xl leading-relaxed">
+        <div className="mt-4 min-h-[80px] rounded-2xl bg-slate-800/60 p-4 text-xl leading-relaxed">
           {quiz.question.stemImage ? (
             <img
               src={quiz.question.stemImage}
@@ -74,13 +83,14 @@ export const QuizModal = () => {
           <div>{quiz.question.stem}</div>
         </div>
 
-        <div className="mt-6">
+        <div className="mt-5">
           <AnswerArea question={quiz.question} onSubmit={submit} />
         </div>
 
-        <footer className="mt-5 flex items-center justify-between text-sm text-slate-400">
+        <footer className="mt-4 flex items-center justify-between text-sm text-slate-400">
           <span>
-            求助卡：{findHelpCards(game.players, quiz.playerId)} · 答错会进错题本
+            求助卡：{findHelpCards(game.players, quiz.playerId)} ·{' '}
+            {isChildAnswering ? '答错进错题本' : '大人答错不记错题本'}
           </span>
           <button
             type="button"
