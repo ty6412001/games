@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <defs>
+    <radialGradient id="belialBg" cx="50%" cy="40%" r="70%">
+      <stop offset="0%" stop-color="#ea80fc"/>
+      <stop offset="100%" stop-color="#4a148c"/>
+    </radialGradient>
+  </defs>
+  <rect width="120" height="120" rx="18" fill="url(#belialBg)"/>
+  <path d="M40 26 L46 38 L52 24 L58 38 L64 22 L70 38 L76 24 L82 36" stroke="#ff9100" stroke-width="3" fill="none" stroke-linejoin="round"/>
+  <ellipse cx="60" cy="54" rx="18" ry="22" fill="#fce4ec"/>
+  <path d="M50 50 L55 46 L55 54 Z" fill="#d500f9"/>
+  <path d="M70 50 L65 46 L65 54 Z" fill="#d500f9"/>
+  <circle cx="53" cy="54" r="3" fill="#ff9100"/>
+  <circle cx="67" cy="54" r="3" fill="#ff9100"/>
+  <path d="M48 66 L60 62 L72 66" stroke="#ff9100" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <rect x="48" y="78" width="24" height="30" rx="6" fill="#fce4ec"/>
+  <path d="M54 84 L60 94 L66 84 L63 102 L57 102 Z" fill="#ff9100"/>
+</svg>

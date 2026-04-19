@@ -1,27 +1,38 @@
 import { useEffect, useState, type ReactNode } from 'react';
 
 type Props = {
-  src: string;
+  src: string | readonly string[];
   alt: string;
   className?: string;
   fallback: ReactNode;
 };
 
+const normalize = (src: string | readonly string[]): string[] => {
+  return Array.isArray(src) ? [...src] : [src as string];
+};
+
 export const ImageWithFallback = ({ src, alt, className, fallback }: Props) => {
-  const [failed, setFailed] = useState(false);
+  const candidates = normalize(src);
+  const key = candidates.join('|');
+  const [index, setIndex] = useState(0);
 
   useEffect(() => {
-    setFailed(false);
-  }, [src]);
+    setIndex(0);
+  }, [key]);
 
-  if (failed) return <>{fallback}</>;
+  if (candidates.length === 0 || index >= candidates.length) {
+    return <>{fallback}</>;
+  }
+
+  const currentSrc = candidates[index]!;
 
   return (
     <img
-      src={src}
+      key={currentSrc}
+      src={currentSrc}
       alt={alt}
       className={className}
-      onError={() => setFailed(true)}
+      onError={() => setIndex((i) => i + 1)}
       loading="lazy"
       draggable={false}
     />

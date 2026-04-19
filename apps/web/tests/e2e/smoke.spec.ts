@@ -15,11 +15,12 @@ test('setup screen shows hero selection', async ({ page }) => {
   await expect(page.getByRole('button', { name: '⚡ 开始游戏' })).toBeVisible();
 });
 
-test('game starts and shows board', async ({ page }) => {
+test('game starts and shows board with center controls', async ({ page }) => {
   await page.goto('/');
   await page.getByRole('button', { name: '▶ 开始游戏' }).click();
   await page.getByRole('button', { name: '⚡ 开始游戏' }).click();
   await expect(page.getByText(/第 1 周/).first()).toBeVisible();
-  await expect(page.getByText(/奥特曼大富翁/).first()).toBeVisible();
+  // center controls now show the dice button and players
   await expect(page.getByRole('button', { name: /🎲 掷骰/ })).toBeVisible();
+  await expect(page.getByText('爸爸', { exact: true }).first()).toBeVisible();
 });

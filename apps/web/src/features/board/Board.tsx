@@ -81,14 +81,18 @@ const findOwner = (position: number, players: readonly Player[]): Player | null 
   return players.find((p) => p.ownedTiles.includes(position)) ?? null;
 };
 
-export const Board = () => {
+type BoardProps = {
+  centerContent?: React.ReactNode;
+};
+
+export const Board = ({ centerContent }: BoardProps = {}) => {
   const game = useGameStore((s) => s.game);
   const movementAnim = useGameStore((s) => s.movementAnim);
   if (!game) return null;
 
   return (
     <div
-      className="grid gap-1 rounded-2xl bg-slate-950/80 p-3"
+      className="grid aspect-square h-full max-h-full w-full gap-1 rounded-2xl bg-slate-950/80 p-2"
       style={{
         gridTemplateColumns: `repeat(${SIDE_LENGTH}, minmax(0, 1fr))`,
         gridTemplateRows: `repeat(${SIDE_LENGTH}, minmax(0, 1fr))`,
@@ -147,11 +151,17 @@ export const Board = () => {
           </div>
         );
       })}
-      <div className="col-span-6 col-start-2 row-span-6 row-start-2 flex items-center justify-center rounded-2xl bg-gradient-to-br from-indigo-900 to-slate-900">
-        <div className="text-center text-slate-200">
-          <div className="text-4xl font-black">奥特曼大富翁</div>
-          <div className="mt-2 text-lg">第 {game.week} 周 · {game.durationMin} 分钟</div>
-        </div>
+      <div className="col-span-6 col-start-2 row-span-6 row-start-2 overflow-hidden rounded-2xl bg-gradient-to-br from-indigo-950 to-slate-900">
+        {centerContent ?? (
+          <div className="flex h-full items-center justify-center text-center text-slate-200">
+            <div>
+              <div className="text-3xl font-black">奥特曼大富翁</div>
+              <div className="mt-2 text-sm">
+                第 {game.week} 周 · {game.durationMin} 分钟
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

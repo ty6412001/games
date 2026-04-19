@@ -84,14 +84,14 @@ export const HeroSelect = () => {
   };
 
   return (
-    <div className="h-[100svh] overflow-hidden bg-slate-950 px-4 py-4 text-slate-50 md:px-6 md:py-5">
-      <div className="mx-auto grid h-full max-w-[1180px] grid-rows-[auto_1fr_auto] gap-4">
+    <div className="min-h-[100svh] bg-slate-950 px-4 py-4 text-slate-50 md:px-6 md:py-5">
+      <div className="mx-auto flex min-h-[calc(100svh-2rem)] max-w-[1180px] flex-col gap-4">
         <header className="space-y-1 text-center">
-          <h1 className="text-4xl font-black tracking-tight md:text-5xl">奥特曼亲子大富翁</h1>
-          <p className="text-sm text-slate-300 md:text-base">选好家人和英雄，一屏内直接开局</p>
+          <h1 className="text-3xl font-black tracking-tight md:text-4xl">奥特曼亲子大富翁</h1>
+          <p className="text-sm text-slate-300">选好家人和英雄，开始冒险</p>
         </header>
 
-        <section className="grid min-h-0 grid-rows-[auto_1fr] gap-4 overflow-hidden">
+        <section className="flex flex-1 flex-col gap-4">
           <div className="grid gap-4 md:grid-cols-[minmax(0,1fr)_auto] md:items-end">
             <div className="space-y-2">
               <div className="flex items-center justify-between gap-3">
@@ -155,13 +155,13 @@ export const HeroSelect = () => {
             </div>
           </div>
 
-          <div className={`grid min-h-0 auto-rows-fr content-start gap-3 ${playerGridClass}`}>
+          <div className={`grid auto-rows-fr content-start gap-3 ${playerGridClass}`}>
             {drafts.map((draft, index) => {
               const childLabel = draft.name.trim() || `玩家${index + 1}`;
               return (
                 <article
                   key={index}
-                  className="flex min-h-0 max-h-[170px] flex-col overflow-hidden rounded-3xl border border-slate-800 bg-slate-900/70 p-3"
+                  className="flex flex-col rounded-3xl border border-slate-800 bg-slate-900/70 p-3"
                 >
                   <div className="flex items-center gap-2">
                     <input
@@ -219,7 +219,7 @@ export const HeroSelect = () => {
           </div>
         </section>
 
-        <div className="flex items-center justify-between gap-4 rounded-3xl border border-slate-800 bg-slate-900/70 px-4 py-3">
+        <div className="sticky bottom-0 flex items-center justify-between gap-4 rounded-3xl border border-slate-800 bg-slate-900/95 px-4 py-3 shadow-2xl backdrop-blur">
           <p className={`text-sm ${needsChildSelection ? 'text-amber-200' : 'text-slate-400'}`}>
             {needsChildSelection ? '请选择且仅选择 1 位小朋友后开始游戏' : '阵容已就绪，立即进入第 1 周'}
           </p>

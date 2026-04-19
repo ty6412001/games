@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <defs>
+    <radialGradient id="tigaBg" cx="50%" cy="40%" r="70%">
+      <stop offset="0%" stop-color="#b388ff"/>
+      <stop offset="100%" stop-color="#4527a0"/>
+    </radialGradient>
+  </defs>
+  <rect width="120" height="120" rx="18" fill="url(#tigaBg)"/>
+  <ellipse cx="60" cy="52" rx="18" ry="22" fill="#ede7f6"/>
+  <path d="M42 43 L60 28 L78 43" stroke="#ffd740" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <circle cx="53" cy="52" r="3" fill="#311b92"/>
+  <circle cx="67" cy="52" r="3" fill="#311b92"/>
+  <path d="M50 60 Q60 66 70 60" stroke="#311b92" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <rect x="48" y="76" width="24" height="30" rx="6" fill="#ede7f6"/>
+  <circle cx="60" cy="89" r="6" fill="#ffd740"/>
+</svg>

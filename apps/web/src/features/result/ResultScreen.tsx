@@ -15,14 +15,14 @@ export const ResultScreen = () => {
     summary.reason === 'time-up' ? '⏱️ 时间到，本局结算' : '💥 有玩家破产，本局提前结束';
 
   return (
-    <div className="h-[100svh] overflow-hidden bg-slate-950 px-4 py-4 text-slate-50 md:px-6 md:py-6">
-      <div className="mx-auto grid h-full max-w-3xl grid-rows-[auto_1fr_auto] gap-4">
+    <div className="min-h-[100svh] bg-slate-950 px-4 py-4 text-slate-50 md:px-6 md:py-6">
+      <div className="mx-auto flex min-h-[calc(100svh-2rem)] max-w-3xl flex-col gap-4">
         <header className="text-center">
           <h1 className="text-3xl font-black md:text-4xl">{heading}</h1>
           <p className="mt-1 text-sm text-slate-400">按总资产排名 · 冠军 = 最强光之战士</p>
         </header>
 
-        <section className="min-h-0 space-y-2 overflow-y-auto pr-1">
+        <section className="flex-1 space-y-2">
           {summary.rankings.map(({ playerId, rank, totalAssets }) => {
             const player = playersById.get(playerId);
             if (!player) return null;
@@ -52,7 +52,7 @@ export const ResultScreen = () => {
           })}
         </section>
 
-        <div className="flex justify-center">
+        <div className="sticky bottom-0 flex justify-center py-2">
           <button
             type="button"
             onClick={goToSetup}
