@@ -4,6 +4,11 @@ import {
   BossBattleStateSchema,
   GameStateSchema,
   HeroIdSchema,
+  KnowledgeAnswerLogSchema,
+  KnowledgeExportBundleSchema,
+  KnowledgeMasteryRecordSchema,
+  KnowledgeQuestionItemSchema,
+  KnowledgeWrongBookRecordSchema,
   PlayerSchema,
   QuestionPackSchema,
   QuestionSchema,
@@ -164,6 +169,183 @@ describe('QuestionPackSchema', () => {
         questions: [],
       }).success,
     ).toBe(false);
+  });
+});
+
+describe('KnowledgeQuestionItemSchema', () => {
+  it('accepts a published grade-1 lower-semester item', () => {
+    const item = KnowledgeQuestionItemSchema.parse({
+      id: 'kb-math-001',
+      subject: 'math',
+      grade: 'grade1',
+      semester: 'lower',
+      difficulty: 1,
+      topic: '20以内加法',
+      stem: '9 + 4 = ?',
+      type: 'choice',
+      options: ['12', '13', '14'],
+      answer: '13',
+      knowledgePoints: ['10以内进位'],
+      gameModes: ['monopoly', 'review'],
+      status: 'published',
+      metadata: {
+        source: 'manual',
+        tags: ['grade1', 'semester-lower'],
+        textbookUnit: '第一单元',
+      },
+      createdBy: 'family',
+      createdAt: 1,
+      updatedAt: 2,
+    });
+    expect(item.metadata.textbookUnit).toBe('第一单元');
+  });
+});
+
+describe('Knowledge progress schemas', () => {
+  it('accepts answer log, mastery record, and wrong-book record', () => {
+    expect(
+      KnowledgeAnswerLogSchema.parse({
+        id: 'log-1',
+        learnerId: 'child-1',
+        questionId: 'kb-math-001',
+        subject: 'math',
+        grade: 'grade1',
+        semester: 'lower',
+        gameMode: 'review',
+        outcome: 'wrong',
+        questionStem: '9 + 4 = ?',
+        submittedAnswer: '12',
+        correctAnswer: '13',
+        answeredAt: 1,
+      }).outcome,
+    ).toBe('wrong');
+
+    expect(
+      KnowledgeMasteryRecordSchema.parse({
+        id: 'mastery-1',
+        learnerId: 'child-1',
+        questionId: 'kb-math-001',
+        subject: 'math',
+        grade: 'grade1',
+        semester: 'lower',
+        gameModes: ['monopoly', 'review'],
+        masteryScore: 60,
+        totalAttempts: 5,
+        correctAttempts: 3,
+        wrongAttempts: 2,
+        updatedAt: 2,
+      }).masteryScore,
+    ).toBe(60);
+
+    expect(
+      KnowledgeWrongBookRecordSchema.parse({
+        id: 'wrong-1',
+        learnerId: 'child-1',
+        questionId: 'kb-math-001',
+        subject: 'math',
+        grade: 'grade1',
+        semester: 'lower',
+        questionStem: '9 + 4 = ?',
+        wrongAnswer: '12',
+        correctAnswer: '13',
+        firstWrongAt: 1,
+        lastWrongAt: 2,
+        wrongCount: 2,
+        isMastered: false,
+        sourceMode: 'monopoly',
+      }).wrongCount,
+    ).toBe(2);
+  });
+
+  it('accepts an export bundle', () => {
+    const bundle = KnowledgeExportBundleSchema.parse({
+      metadata: {
+        exportId: 'exp-1',
+        exportedAt: 10,
+        exportScope: 'full',
+        format: 'json',
+        grade: 'grade1',
+        semester: 'lower',
+        questionCount: 1,
+        answerLogCount: 1,
+        wrongBookCount: 1,
+        masteryRecordCount: 1,
+      },
+      questions: [
+        {
+          id: 'kb-math-001',
+          subject: 'math',
+          grade: 'grade1',
+          semester: 'lower',
+          difficulty: 1,
+          topic: '20以内加法',
+          stem: '9 + 4 = ?',
+          type: 'input',
+          answer: '13',
+          knowledgePoints: ['10以内进位'],
+          gameModes: ['practice'],
+          status: 'draft',
+          metadata: {
+            source: 'manual',
+            tags: [],
+          },
+          createdBy: 'family',
+          createdAt: 1,
+          updatedAt: 1,
+        },
+      ],
+      answerLogs: [
+        {
+          id: 'log-1',
+          learnerId: 'child-1',
+          questionId: 'kb-math-001',
+          subject: 'math',
+          grade: 'grade1',
+          semester: 'lower',
+          gameMode: 'practice',
+          outcome: 'correct',
+          questionStem: '9 + 4 = ?',
+          submittedAnswer: '13',
+          correctAnswer: '13',
+          answeredAt: 2,
+        },
+      ],
+      wrongBookRecords: [
+        {
+          id: 'wrong-1',
+          learnerId: 'child-1',
+          questionId: 'kb-math-001',
+          subject: 'math',
+          grade: 'grade1',
+          semester: 'lower',
+          questionStem: '9 + 4 = ?',
+          wrongAnswer: '12',
+          correctAnswer: '13',
+          firstWrongAt: 1,
+          lastWrongAt: 2,
+          wrongCount: 1,
+          isMastered: false,
+          sourceMode: 'practice',
+        },
+      ],
+      masteryRecords: [
+        {
+          id: 'mastery-1',
+          learnerId: 'child-1',
+          questionId: 'kb-math-001',
+          subject: 'math',
+          grade: 'grade1',
+          semester: 'lower',
+          gameModes: ['practice'],
+          masteryScore: 80,
+          totalAttempts: 5,
+          correctAttempts: 4,
+          wrongAttempts: 1,
+          updatedAt: 3,
+        },
+      ],
+    });
+    expect(bundle.metadata.exportScope).toBe('full');
   });
 });
 

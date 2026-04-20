@@ -1,15 +1,25 @@
 import { useState } from 'react';
 
 import { DEFAULT_CHILD_ID } from '../../config/childIdentity';
+import { ExportCenter } from '../export/ExportCenter';
+import { KnowledgeBankCenter } from '../knowledgeBank/KnowledgeBankCenter';
 import { ReviewMode } from '../review/ReviewMode';
 import { useGameStore } from '../../stores/gameStore';
 
 export const MainMenu = () => {
   const goToSetup = useGameStore((s) => s.goToSetup);
-  const [showReview, setShowReview] = useState(false);
+  const [activePanel, setActivePanel] = useState<'home' | 'review' | 'knowledge' | 'export'>('home');
 
-  if (showReview) {
-    return <ReviewMode childId={DEFAULT_CHILD_ID} onExit={() => setShowReview(false)} />;
+  if (activePanel === 'review') {
+    return <ReviewMode childId={DEFAULT_CHILD_ID} onExit={() => setActivePanel('home')} />;
+  }
+
+  if (activePanel === 'knowledge') {
+    return <KnowledgeBankCenter onExit={() => setActivePanel('home')} />;
+  }
+
+  if (activePanel === 'export') {
+    return <ExportCenter onExit={() => setActivePanel('home')} />;
   }
 
   return (
@@ -28,10 +38,30 @@ export const MainMenu = () => {
           </button>
           <button
             type="button"
-            onClick={() => setShowReview(true)}
+            onClick={() => setActivePanel('review')}
             className="min-h-[72px] rounded-2xl bg-sky-500 px-12 py-4 text-2xl font-black text-white shadow-2xl transition hover:scale-105"
           >
             📚 每日复习
+          </button>
+        </div>
+        <div className="mt-4 grid w-full max-w-2xl gap-4 md:grid-cols-2">
+          <button
+            type="button"
+            onClick={() => setActivePanel('knowledge')}
+            className="rounded-2xl border border-white/10 bg-white/5 px-6 py-4 text-left shadow-xl transition hover:-translate-y-0.5 hover:bg-white/10"
+          >
+            <div className="text-sm font-semibold uppercase tracking-[0.3em] text-sky-200">Phase 1</div>
+            <div className="mt-2 text-xl font-black">知识库中心</div>
+            <div className="mt-2 text-sm text-slate-300">查看独立题库、学习记录与多模式复用骨架。</div>
+          </button>
+          <button
+            type="button"
+            onClick={() => setActivePanel('export')}
+            className="rounded-2xl border border-white/10 bg-white/5 px-6 py-4 text-left shadow-xl transition hover:-translate-y-0.5 hover:bg-white/10"
+          >
+            <div className="text-sm font-semibold uppercase tracking-[0.3em] text-amber-200">Phase 1</div>
+            <div className="mt-2 text-xl font-black">导出中心</div>
+            <div className="mt-2 text-sm text-slate-300">预览错题、答题日志和 JSON 导出入口结构。</div>
           </button>
         </div>
       </div>

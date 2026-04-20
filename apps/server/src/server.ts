@@ -5,6 +5,7 @@ import { AppError, errorHandler } from './middleware/errorHandler.js';
 import authRouter from './routes/auth.js';
 import bossLogRouter from './routes/bossLog.js';
 import healthRouter from './routes/health.js';
+import knowledgeBankRouter from './routes/knowledgeBank.js';
 import weaponsRouter from './routes/weapons.js';
 import wrongBookRouter from './routes/wrongBook.js';
 
@@ -27,6 +28,7 @@ export const createServer = (): Express => {
   });
   app.use(healthRouter);
   app.use(authRouter);
+  app.use(knowledgeBankRouter);
   app.use(wrongBookRouter);
   app.use(weaponsRouter);
   app.use(bossLogRouter);
