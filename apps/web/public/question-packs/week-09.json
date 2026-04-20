@@ -1,0 +1,751 @@
+{
+  "week": 9,
+  "title": "第9周 · 人民币与应用 / 近义反义与判断 / Weather and clothes · 55题综合卷",
+  "boss": {
+    "id": "jamila",
+    "name": "杰米拉",
+    "hp": 4600
+  },
+  "questions": [
+    {
+      "id": "m-w09-001",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "1 元 = 多少角？",
+      "options": [
+        "1",
+        "10",
+        "100",
+        "5"
+      ],
+      "answer": "10",
+      "subject": "math",
+      "topic": "人民币与应用"
+    },
+    {
+      "id": "m-w09-002",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "10 角 = 多少元？",
+      "options": [
+        "10",
+        "1",
+        "100",
+        "2"
+      ],
+      "answer": "1",
+      "subject": "math",
+      "topic": "人民币与应用"
+    },
+    {
+      "id": "m-w09-003",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "5 角 + 5 角 = ?",
+      "options": [
+        "1 元",
+        "5 元",
+        "10 元",
+        "2 元"
+      ],
+      "answer": "1 元",
+      "subject": "math",
+      "topic": "人民币与应用"
+    },
+    {
+      "id": "m-w09-004",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "2 元 + 3 元 = ?",
+      "options": [
+        "4 元",
+        "5 元",
+        "6 元",
+        "3 元"
+      ],
+      "answer": "5 元",
+      "subject": "math",
+      "topic": "人民币与应用"
+    },
+    {
+      "id": "m-w09-005",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "1 元 2 角 写成角是？",
+      "options": [
+        "12 角",
+        "102 角",
+        "20 角",
+        "2 角"
+      ],
+      "answer": "12 角",
+      "subject": "math",
+      "topic": "人民币与应用"
+    },
+    {
+      "id": "m-w09-006",
+      "difficulty": 1,
+      "type": "input",
+      "stem": "8 角 + 2 角 = 多少元？只写数字",
+      "answer": "1",
+      "subject": "math",
+      "topic": "人民币与应用"
+    },
+    {
+      "id": "m-w09-007",
+      "difficulty": 1,
+      "type": "input",
+      "stem": "1 元 - 4 角 = 多少角？",
+      "answer": "6",
+      "subject": "math",
+      "topic": "人民币与应用"
+    },
+    {
+      "id": "m-w09-008",
+      "difficulty": 1,
+      "type": "input",
+      "stem": "2 元 + 5 角 = 多少角？",
+      "answer": "25",
+      "subject": "math",
+      "topic": "人民币与应用"
+    },
+    {
+      "id": "m-w09-009",
+      "difficulty": 1,
+      "type": "input",
+      "stem": "3 元 = 多少角？",
+      "answer": "30",
+      "subject": "math",
+      "topic": "人民币与应用"
+    },
+    {
+      "id": "m-w09-010",
+      "difficulty": 2,
+      "type": "input",
+      "stem": "15 角 = 几元几角？只写元数",
+      "answer": "1",
+      "subject": "math",
+      "topic": "人民币与应用"
+    },
+    {
+      "id": "m-w09-011",
+      "difficulty": 2,
+      "type": "choice",
+      "stem": "买一个 6 角的本子，给 1 元，应找回？",
+      "options": [
+        "4 角",
+        "5 角",
+        "6 角",
+        "1 角"
+      ],
+      "answer": "4 角",
+      "subject": "math",
+      "topic": "人民币与应用"
+    },
+    {
+      "id": "m-w09-012",
+      "difficulty": 2,
+      "type": "choice",
+      "stem": "下面哪个钱数最多？",
+      "options": [
+        "9 角",
+        "1 元",
+        "8 角",
+        "5 角"
+      ],
+      "answer": "1 元",
+      "subject": "math",
+      "topic": "人民币与应用"
+    },
+    {
+      "id": "m-w09-013",
+      "difficulty": 1,
+      "type": "image-choice",
+      "stem": "图里有 5 个苹果，每个 1 角，一共多少角？",
+      "stemImage": "/assets/quiz/apples-5.svg",
+      "options": [
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "answer": "5",
+      "subject": "math",
+      "topic": "人民币与应用"
+    },
+    {
+      "id": "m-w09-014",
+      "difficulty": 1,
+      "type": "image-choice",
+      "stem": "图里有 4 颗星星，每颗 2 角，一共多少角？",
+      "stemImage": "/assets/quiz/stars-4.svg",
+      "options": [
+        "6",
+        "8",
+        "10",
+        "12"
+      ],
+      "answer": "8",
+      "subject": "math",
+      "topic": "人民币与应用"
+    },
+    {
+      "id": "m-w09-015",
+      "difficulty": 2,
+      "type": "choice",
+      "stem": "1 元 5 角 比 1 元？",
+      "options": [
+        "多 5 角",
+        "少 5 角",
+        "一样多"
+      ],
+      "answer": "多 5 角",
+      "subject": "math",
+      "topic": "人民币与应用"
+    },
+    {
+      "id": "m-w09-016",
+      "difficulty": 2,
+      "type": "ordering",
+      "stem": "把这些钱数从小到大排好：8角，1元，5角，1元5角",
+      "items": [
+        "8角",
+        "1元",
+        "5角",
+        "1元5角"
+      ],
+      "correctOrder": [
+        2,
+        0,
+        1,
+        3
+      ],
+      "answer": "2,0,1,3",
+      "subject": "math",
+      "topic": "人民币与应用"
+    },
+    {
+      "id": "m-w09-017",
+      "difficulty": 2,
+      "type": "ordering",
+      "stem": "把这些钱数从大到小排好：2元，9角，1元5角，1元",
+      "items": [
+        "2元",
+        "9角",
+        "1元5角",
+        "1元"
+      ],
+      "correctOrder": [
+        0,
+        2,
+        3,
+        1
+      ],
+      "answer": "0,2,3,1",
+      "subject": "math",
+      "topic": "人民币与应用"
+    },
+    {
+      "id": "m-w09-018",
+      "difficulty": 3,
+      "type": "input",
+      "stem": "一本练习本 7 角，一支铅笔 2 角，一共多少钱？写角数",
+      "answer": "9",
+      "subject": "math",
+      "topic": "人民币与应用"
+    },
+    {
+      "id": "m-w09-019",
+      "difficulty": 3,
+      "type": "input",
+      "stem": "妈妈给你 2 元，买了 1 元 2 角的东西，还剩多少角？",
+      "answer": "8",
+      "subject": "math",
+      "topic": "人民币与应用"
+    },
+    {
+      "id": "m-w09-020",
+      "difficulty": 3,
+      "type": "choice",
+      "stem": "下面哪个买法正好用 1 元？",
+      "options": [
+        "6角+4角",
+        "5角+3角",
+        "2角+7角",
+        "8角+3角"
+      ],
+      "answer": "6角+4角",
+      "subject": "math",
+      "topic": "人民币与应用"
+    },
+    {
+      "id": "c-w09-001",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "“高兴”的意思接近？",
+      "options": [
+        "快乐",
+        "难过",
+        "安静"
+      ],
+      "answer": "快乐",
+      "subject": "chinese",
+      "topic": "近义反义与判断"
+    },
+    {
+      "id": "c-w09-002",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "“伤心”的反义词是？",
+      "options": [
+        "快乐",
+        "难过",
+        "生气"
+      ],
+      "answer": "快乐",
+      "subject": "chinese",
+      "topic": "近义反义与判断"
+    },
+    {
+      "id": "c-w09-003",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "“大”的近义词常见是？",
+      "options": [
+        "高",
+        "巨",
+        "小"
+      ],
+      "answer": "巨",
+      "subject": "chinese",
+      "topic": "近义反义与判断"
+    },
+    {
+      "id": "c-w09-004",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "“快”的反义词是？",
+      "options": [
+        "慢",
+        "远",
+        "多"
+      ],
+      "answer": "慢",
+      "subject": "chinese",
+      "topic": "近义反义与判断"
+    },
+    {
+      "id": "c-w09-005",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "“明亮”的意思接近？",
+      "options": [
+        "很亮",
+        "很暗",
+        "很冷"
+      ],
+      "answer": "很亮",
+      "subject": "chinese",
+      "topic": "近义反义与判断"
+    },
+    {
+      "id": "c-w09-006",
+      "difficulty": 1,
+      "type": "input",
+      "stem": "“高兴”的近义词，写一个常见词",
+      "answer": "快乐",
+      "subject": "chinese",
+      "topic": "近义反义与判断"
+    },
+    {
+      "id": "c-w09-007",
+      "difficulty": 1,
+      "type": "input",
+      "stem": "“慢”的反义词写出来",
+      "answer": "快",
+      "subject": "chinese",
+      "topic": "近义反义与判断"
+    },
+    {
+      "id": "c-w09-008",
+      "difficulty": 1,
+      "type": "input",
+      "stem": "“黑”的反义词写出来",
+      "answer": "白",
+      "subject": "chinese",
+      "topic": "近义反义与判断"
+    },
+    {
+      "id": "c-w09-009",
+      "difficulty": 1,
+      "type": "input",
+      "stem": "“近”的反义词写出来",
+      "answer": "远",
+      "subject": "chinese",
+      "topic": "近义反义与判断"
+    },
+    {
+      "id": "c-w09-010",
+      "difficulty": 2,
+      "type": "choice",
+      "stem": "“我今天很高兴。”表示心情？",
+      "options": [
+        "开心",
+        "难过",
+        "害怕"
+      ],
+      "answer": "开心",
+      "subject": "chinese",
+      "topic": "近义反义与判断"
+    },
+    {
+      "id": "c-w09-011",
+      "difficulty": 2,
+      "type": "choice",
+      "stem": "“太阳出来了，教室很明亮。”这句话对吗？",
+      "options": [
+        "对",
+        "不对"
+      ],
+      "answer": "对",
+      "subject": "chinese",
+      "topic": "近义反义与判断"
+    },
+    {
+      "id": "c-w09-012",
+      "difficulty": 1,
+      "type": "image-choice",
+      "stem": "看图选词语：",
+      "stemImage": "/assets/quiz/sunflower.svg",
+      "options": [
+        "美丽",
+        "难过",
+        "安静"
+      ],
+      "answer": "美丽",
+      "subject": "chinese",
+      "topic": "近义反义与判断"
+    },
+    {
+      "id": "c-w09-013",
+      "difficulty": 1,
+      "type": "image-choice",
+      "stem": "看图选词语：",
+      "stemImage": "/assets/quiz/apple.svg",
+      "options": [
+        "红红的",
+        "黑黑的",
+        "高高的"
+      ],
+      "answer": "红红的",
+      "subject": "chinese",
+      "topic": "近义反义与判断"
+    },
+    {
+      "id": "c-w09-014",
+      "difficulty": 1,
+      "type": "image-choice",
+      "stem": "看图选词语：",
+      "stemImage": "/assets/quiz/horse.svg",
+      "options": [
+        "快快地跑",
+        "慢慢地睡",
+        "安静地坐"
+      ],
+      "answer": "快快地跑",
+      "subject": "chinese",
+      "topic": "近义反义与判断"
+    },
+    {
+      "id": "c-w09-015",
+      "difficulty": 2,
+      "type": "choice",
+      "stem": "“小兔跑得很快。”这句话里“快”的反义词是？",
+      "options": [
+        "慢",
+        "高",
+        "大"
+      ],
+      "answer": "慢",
+      "subject": "chinese",
+      "topic": "近义反义与判断"
+    },
+    {
+      "id": "c-w09-016",
+      "difficulty": 2,
+      "type": "ordering",
+      "stem": "把词语排成句子：今天 / 我 / 很高兴",
+      "items": [
+        "很高兴",
+        "我",
+        "今天"
+      ],
+      "correctOrder": [
+        2,
+        1,
+        0
+      ],
+      "answer": "2,1,0",
+      "subject": "chinese",
+      "topic": "近义反义与判断"
+    },
+    {
+      "id": "c-w09-017",
+      "difficulty": 2,
+      "type": "ordering",
+      "stem": "把词语排成句子：教室 / 明亮 / 很",
+      "items": [
+        "明亮",
+        "教室",
+        "很"
+      ],
+      "correctOrder": [
+        1,
+        2,
+        0
+      ],
+      "answer": "1,2,0",
+      "subject": "chinese",
+      "topic": "近义反义与判断"
+    },
+    {
+      "id": "c-w09-018",
+      "difficulty": 3,
+      "type": "input",
+      "stem": "“快乐”还能说成“很___”",
+      "answer": "高兴",
+      "subject": "chinese",
+      "topic": "近义反义与判断"
+    },
+    {
+      "id": "c-w09-019",
+      "difficulty": 3,
+      "type": "input",
+      "stem": "“远”的反义词是“___”",
+      "answer": "近",
+      "subject": "chinese",
+      "topic": "近义反义与判断"
+    },
+    {
+      "id": "c-w09-020",
+      "difficulty": 3,
+      "type": "choice",
+      "stem": "下面哪句话最通顺？",
+      "options": [
+        "雨停了，天边出现了彩虹。",
+        "彩虹出现了天边雨停了。",
+        "天边雨停了出现了彩虹。"
+      ],
+      "answer": "雨停了，天边出现了彩虹。",
+      "subject": "chinese",
+      "topic": "近义反义与判断"
+    },
+    {
+      "id": "e-w09-001",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "When it is hot, we wear a ___.",
+      "options": [
+        "T-shirt",
+        "coat",
+        "scarf"
+      ],
+      "answer": "T-shirt",
+      "subject": "english",
+      "topic": "weather and clothes"
+    },
+    {
+      "id": "e-w09-002",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "When it is cold, we wear a ___.",
+      "options": [
+        "coat",
+        "cap only",
+        "apple"
+      ],
+      "answer": "coat",
+      "subject": "english",
+      "topic": "weather and clothes"
+    },
+    {
+      "id": "e-w09-003",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "Sunny means ___.",
+      "options": [
+        "晴朗的",
+        "下雨的",
+        "下雪的"
+      ],
+      "answer": "晴朗的",
+      "subject": "english",
+      "topic": "weather and clothes"
+    },
+    {
+      "id": "e-w09-004",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "Rainy means ___.",
+      "options": [
+        "多雨的",
+        "晴朗的",
+        "刮风的"
+      ],
+      "answer": "多雨的",
+      "subject": "english",
+      "topic": "weather and clothes"
+    },
+    {
+      "id": "e-w09-005",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "A hat is for your ___.",
+      "options": [
+        "head",
+        "foot",
+        "hand"
+      ],
+      "answer": "head",
+      "subject": "english",
+      "topic": "weather and clothes"
+    },
+    {
+      "id": "e-w09-006",
+      "difficulty": 1,
+      "type": "input",
+      "stem": "Write the English word: 晴朗的",
+      "answer": "sunny",
+      "subject": "english",
+      "topic": "weather and clothes"
+    },
+    {
+      "id": "e-w09-007",
+      "difficulty": 1,
+      "type": "input",
+      "stem": "Write the English word: 下雨的",
+      "answer": "rainy",
+      "subject": "english",
+      "topic": "weather and clothes"
+    },
+    {
+      "id": "e-w09-008",
+      "difficulty": 1,
+      "type": "input",
+      "stem": "Write the English word: 外套",
+      "answer": "coat",
+      "subject": "english",
+      "topic": "weather and clothes"
+    },
+    {
+      "id": "e-w09-009",
+      "difficulty": 2,
+      "type": "input",
+      "stem": "Write the English word: 帽子",
+      "answer": "hat",
+      "subject": "english",
+      "topic": "weather and clothes"
+    },
+    {
+      "id": "e-w09-010",
+      "difficulty": 2,
+      "type": "choice",
+      "stem": "Which one is clothes?",
+      "options": [
+        "coat",
+        "bus",
+        "apple",
+        "dog"
+      ],
+      "answer": "coat",
+      "subject": "english",
+      "topic": "weather and clothes"
+    },
+    {
+      "id": "e-w09-011",
+      "difficulty": 2,
+      "type": "choice",
+      "stem": "On a rainy day, I need an ___.",
+      "options": [
+        "umbrella",
+        "apple",
+        "book"
+      ],
+      "answer": "umbrella",
+      "subject": "english",
+      "topic": "weather and clothes"
+    },
+    {
+      "id": "e-w09-012",
+      "difficulty": 1,
+      "type": "image-choice",
+      "stem": "What color is the apple?",
+      "stemImage": "/assets/quiz/apple.svg",
+      "options": [
+        "red",
+        "rainy",
+        "coat"
+      ],
+      "answer": "red",
+      "subject": "english",
+      "topic": "weather and clothes"
+    },
+    {
+      "id": "e-w09-013",
+      "difficulty": 1,
+      "type": "image-choice",
+      "stem": "What is this?",
+      "stemImage": "/assets/quiz/bus.svg",
+      "options": [
+        "bus",
+        "hat",
+        "sunny"
+      ],
+      "answer": "bus",
+      "subject": "english",
+      "topic": "weather and clothes"
+    },
+    {
+      "id": "e-w09-014",
+      "difficulty": 2,
+      "type": "ordering",
+      "stem": "Sort the letters to make “coat”",
+      "items": [
+        "a",
+        "c",
+        "t",
+        "o"
+      ],
+      "correctOrder": [
+        1,
+        3,
+        0,
+        2
+      ],
+      "answer": "1,3,0,2",
+      "subject": "english",
+      "topic": "weather and clothes"
+    },
+    {
+      "id": "e-w09-015",
+      "difficulty": 2,
+      "type": "ordering",
+      "stem": "Sort the letters in ABC order: u / w / v / t",
+      "items": [
+        "u",
+        "w",
+        "v",
+        "t"
+      ],
+      "correctOrder": [
+        3,
+        0,
+        2,
+        1
+      ],
+      "answer": "3,0,2,1",
+      "subject": "english",
+      "topic": "weather and clothes"
+    }
+  ]
+}

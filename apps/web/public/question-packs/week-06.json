@@ -1,0 +1,760 @@
+{
+  "week": 6,
+  "title": "第6周 · 100以内不退位减法 / 同音字与阅读 / Food · 55题综合卷",
+  "boss": {
+    "id": "alien-mephilas",
+    "name": "美菲拉斯星人",
+    "hp": 4000
+  },
+  "questions": [
+    {
+      "id": "m-w06-001",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "46 - 3 = ?",
+      "options": [
+        "42",
+        "43",
+        "44",
+        "45"
+      ],
+      "answer": "43",
+      "subject": "math",
+      "topic": "100以内不退位减法"
+    },
+    {
+      "id": "m-w06-002",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "58 - 4 = ?",
+      "options": [
+        "54",
+        "53",
+        "52",
+        "55"
+      ],
+      "answer": "54",
+      "subject": "math",
+      "topic": "100以内不退位减法"
+    },
+    {
+      "id": "m-w06-003",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "79 - 7 = ?",
+      "options": [
+        "71",
+        "72",
+        "73",
+        "74"
+      ],
+      "answer": "72",
+      "subject": "math",
+      "topic": "100以内不退位减法"
+    },
+    {
+      "id": "m-w06-004",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "65 - 5 = ?",
+      "options": [
+        "60",
+        "61",
+        "62",
+        "63"
+      ],
+      "answer": "60",
+      "subject": "math",
+      "topic": "100以内不退位减法"
+    },
+    {
+      "id": "m-w06-005",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "83 - 2 = ?",
+      "options": [
+        "80",
+        "81",
+        "82",
+        "83"
+      ],
+      "answer": "81",
+      "subject": "math",
+      "topic": "100以内不退位减法"
+    },
+    {
+      "id": "m-w06-006",
+      "difficulty": 1,
+      "type": "input",
+      "stem": "57 - 6 = ?",
+      "answer": "51",
+      "subject": "math",
+      "topic": "100以内不退位减法"
+    },
+    {
+      "id": "m-w06-007",
+      "difficulty": 1,
+      "type": "input",
+      "stem": "94 - 3 = ?",
+      "answer": "91",
+      "subject": "math",
+      "topic": "100以内不退位减法"
+    },
+    {
+      "id": "m-w06-008",
+      "difficulty": 1,
+      "type": "input",
+      "stem": "68 - 4 = ?",
+      "answer": "64",
+      "subject": "math",
+      "topic": "100以内不退位减法"
+    },
+    {
+      "id": "m-w06-009",
+      "difficulty": 1,
+      "type": "input",
+      "stem": "72 - 1 = ?",
+      "answer": "71",
+      "subject": "math",
+      "topic": "100以内不退位减法"
+    },
+    {
+      "id": "m-w06-010",
+      "difficulty": 2,
+      "type": "input",
+      "stem": "45 - 5 = ?",
+      "answer": "40",
+      "subject": "math",
+      "topic": "100以内不退位减法"
+    },
+    {
+      "id": "m-w06-011",
+      "difficulty": 2,
+      "type": "choice",
+      "stem": "下面哪个算式得数是 52？",
+      "options": [
+        "55 - 3",
+        "54 - 2",
+        "53 - 2",
+        "60 - 7"
+      ],
+      "answer": "55 - 3",
+      "subject": "math",
+      "topic": "100以内不退位减法"
+    },
+    {
+      "id": "m-w06-012",
+      "difficulty": 2,
+      "type": "choice",
+      "stem": "80 - 0 = ?",
+      "options": [
+        "0",
+        "8",
+        "80",
+        "100"
+      ],
+      "answer": "80",
+      "subject": "math",
+      "topic": "100以内不退位减法"
+    },
+    {
+      "id": "m-w06-013",
+      "difficulty": 1,
+      "type": "image-choice",
+      "stem": "图里有 5 个苹果，拿走 2 个，还剩几个？",
+      "stemImage": "/assets/quiz/apples-5.svg",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "answer": "3",
+      "subject": "math",
+      "topic": "100以内不退位减法"
+    },
+    {
+      "id": "m-w06-014",
+      "difficulty": 1,
+      "type": "image-choice",
+      "stem": "图里有 4 颗星星，去掉 1 颗，还剩几颗？",
+      "stemImage": "/assets/quiz/stars-4.svg",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "answer": "3",
+      "subject": "math",
+      "topic": "100以内不退位减法"
+    },
+    {
+      "id": "m-w06-015",
+      "difficulty": 2,
+      "type": "choice",
+      "stem": "63 - 2 和下面哪个数相等？",
+      "options": [
+        "60",
+        "61",
+        "62",
+        "63"
+      ],
+      "answer": "61",
+      "subject": "math",
+      "topic": "100以内不退位减法"
+    },
+    {
+      "id": "m-w06-016",
+      "difficulty": 2,
+      "type": "ordering",
+      "stem": "把这些得数从小到大排好：64-3，53-2，72-1，45-5",
+      "items": [
+        "61",
+        "51",
+        "71",
+        "40"
+      ],
+      "correctOrder": [
+        3,
+        1,
+        0,
+        2
+      ],
+      "answer": "3,1,0,2",
+      "subject": "math",
+      "topic": "100以内不退位减法"
+    },
+    {
+      "id": "m-w06-017",
+      "difficulty": 2,
+      "type": "ordering",
+      "stem": "把这些数从大到小排好：61，50，72，43",
+      "items": [
+        "61",
+        "50",
+        "72",
+        "43"
+      ],
+      "correctOrder": [
+        2,
+        0,
+        1,
+        3
+      ],
+      "answer": "2,0,1,3",
+      "subject": "math",
+      "topic": "100以内不退位减法"
+    },
+    {
+      "id": "m-w06-018",
+      "difficulty": 3,
+      "type": "input",
+      "stem": "仓库里有 76 个球，拿走 4 个，还剩多少个？",
+      "answer": "72",
+      "subject": "math",
+      "topic": "100以内不退位减法"
+    },
+    {
+      "id": "m-w06-019",
+      "difficulty": 3,
+      "type": "input",
+      "stem": "小林有 64 张卡片，送给朋友 3 张，还剩多少张？",
+      "answer": "61",
+      "subject": "math",
+      "topic": "100以内不退位减法"
+    },
+    {
+      "id": "m-w06-020",
+      "difficulty": 3,
+      "type": "choice",
+      "stem": "下面哪道算式得数最小？",
+      "options": [
+        "71 - 1",
+        "63 - 2",
+        "52 - 1",
+        "80 - 4"
+      ],
+      "answer": "52 - 1",
+      "subject": "math",
+      "topic": "100以内不退位减法"
+    },
+    {
+      "id": "c-w06-001",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "“木”和“目”读音？",
+      "options": [
+        "相同",
+        "不同",
+        "一个高一个低"
+      ],
+      "answer": "相同",
+      "subject": "chinese",
+      "topic": "同音字与阅读"
+    },
+    {
+      "id": "c-w06-002",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "“禾”和“河”读音？",
+      "options": [
+        "相同",
+        "不同",
+        "不能比较"
+      ],
+      "answer": "相同",
+      "subject": "chinese",
+      "topic": "同音字与阅读"
+    },
+    {
+      "id": "c-w06-003",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "“生”和“声”读音？",
+      "options": [
+        "相同",
+        "不同",
+        "完全相反"
+      ],
+      "answer": "相同",
+      "subject": "chinese",
+      "topic": "同音字与阅读"
+    },
+    {
+      "id": "c-w06-004",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "下面哪组是同音字？",
+      "options": [
+        "木-目",
+        "大-小",
+        "山-水"
+      ],
+      "answer": "木-目",
+      "subject": "chinese",
+      "topic": "同音字与阅读"
+    },
+    {
+      "id": "c-w06-005",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "“河水清清。”这里“河”指什么？",
+      "options": [
+        "小河",
+        "火",
+        "树"
+      ],
+      "answer": "小河",
+      "subject": "chinese",
+      "topic": "同音字与阅读"
+    },
+    {
+      "id": "c-w06-006",
+      "difficulty": 1,
+      "type": "input",
+      "stem": "“看见”的“见”和“白天”的“___”可以组成同音字“见/件”中的另一个字，填常见字",
+      "answer": "件",
+      "subject": "chinese",
+      "topic": "同音字与阅读"
+    },
+    {
+      "id": "c-w06-007",
+      "difficulty": 1,
+      "type": "input",
+      "stem": "和“木”同音的常见字，写一个",
+      "answer": "目",
+      "subject": "chinese",
+      "topic": "同音字与阅读"
+    },
+    {
+      "id": "c-w06-008",
+      "difficulty": 1,
+      "type": "input",
+      "stem": "和“生”同音的常见字，写一个",
+      "answer": "声",
+      "subject": "chinese",
+      "topic": "同音字与阅读"
+    },
+    {
+      "id": "c-w06-009",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "“我用眼睛看书。”句子里表示眼睛的是哪个字？",
+      "options": [
+        "木",
+        "目",
+        "日"
+      ],
+      "answer": "目",
+      "subject": "chinese",
+      "topic": "同音字与阅读"
+    },
+    {
+      "id": "c-w06-010",
+      "difficulty": 2,
+      "type": "choice",
+      "stem": "“河里有小鱼。”这句话说的是哪里有小鱼？",
+      "options": [
+        "河里",
+        "树上",
+        "天上"
+      ],
+      "answer": "河里",
+      "subject": "chinese",
+      "topic": "同音字与阅读"
+    },
+    {
+      "id": "c-w06-011",
+      "difficulty": 1,
+      "type": "image-choice",
+      "stem": "看图选词语：",
+      "stemImage": "/assets/quiz/apple.svg",
+      "options": [
+        "苹果",
+        "桌子",
+        "白云"
+      ],
+      "answer": "苹果",
+      "subject": "chinese",
+      "topic": "同音字与阅读"
+    },
+    {
+      "id": "c-w06-012",
+      "difficulty": 1,
+      "type": "image-choice",
+      "stem": "看图选词语：",
+      "stemImage": "/assets/quiz/dog.svg",
+      "options": [
+        "小狗",
+        "大树",
+        "河水"
+      ],
+      "answer": "小狗",
+      "subject": "chinese",
+      "topic": "同音字与阅读"
+    },
+    {
+      "id": "c-w06-013",
+      "difficulty": 1,
+      "type": "image-choice",
+      "stem": "看图选词语：",
+      "stemImage": "/assets/quiz/bus.svg",
+      "options": [
+        "汽车",
+        "花朵",
+        "小鸟"
+      ],
+      "answer": "汽车",
+      "subject": "chinese",
+      "topic": "同音字与阅读"
+    },
+    {
+      "id": "c-w06-014",
+      "difficulty": 2,
+      "type": "choice",
+      "stem": "短句“妈妈在看书。”谁在看书？",
+      "options": [
+        "妈妈",
+        "我",
+        "小狗"
+      ],
+      "answer": "妈妈",
+      "subject": "chinese",
+      "topic": "同音字与阅读"
+    },
+    {
+      "id": "c-w06-015",
+      "difficulty": 2,
+      "type": "choice",
+      "stem": "短句“河边有树。”哪里有树？",
+      "options": [
+        "河边",
+        "天上",
+        "书里"
+      ],
+      "answer": "河边",
+      "subject": "chinese",
+      "topic": "同音字与阅读"
+    },
+    {
+      "id": "c-w06-016",
+      "difficulty": 2,
+      "type": "ordering",
+      "stem": "把词语排成句子：小鱼 / 河里 / 有",
+      "items": [
+        "有",
+        "河里",
+        "小鱼"
+      ],
+      "correctOrder": [
+        2,
+        0,
+        1
+      ],
+      "answer": "2,0,1",
+      "subject": "chinese",
+      "topic": "同音字与阅读"
+    },
+    {
+      "id": "c-w06-017",
+      "difficulty": 2,
+      "type": "ordering",
+      "stem": "把词语排成句子：我们 / 教室里 / 在 / 读书",
+      "items": [
+        "在",
+        "教室里",
+        "我们",
+        "读书"
+      ],
+      "correctOrder": [
+        2,
+        0,
+        1,
+        3
+      ],
+      "answer": "2,0,1,3",
+      "subject": "chinese",
+      "topic": "同音字与阅读"
+    },
+    {
+      "id": "c-w06-018",
+      "difficulty": 3,
+      "type": "input",
+      "stem": "“目”字常表示人的什么？写一个字",
+      "answer": "眼",
+      "subject": "chinese",
+      "topic": "同音字与阅读"
+    },
+    {
+      "id": "c-w06-019",
+      "difficulty": 3,
+      "type": "input",
+      "stem": "“河水清清”里，重复出现表示状态的字是？",
+      "answer": "清",
+      "subject": "chinese",
+      "topic": "同音字与阅读"
+    },
+    {
+      "id": "c-w06-020",
+      "difficulty": 3,
+      "type": "choice",
+      "stem": "下面哪句话最通顺？",
+      "options": [
+        "小鱼在河里游。",
+        "河里小鱼在游。",
+        "游小鱼河里在。"
+      ],
+      "answer": "小鱼在河里游。",
+      "subject": "chinese",
+      "topic": "同音字与阅读"
+    },
+    {
+      "id": "e-w06-001",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "An apple is a kind of ___.",
+      "options": [
+        "fruit",
+        "animal",
+        "toy"
+      ],
+      "answer": "fruit",
+      "subject": "english",
+      "topic": "food"
+    },
+    {
+      "id": "e-w06-002",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "Rice is ___.",
+      "options": [
+        "food",
+        "schoolbag",
+        "animal"
+      ],
+      "answer": "food",
+      "subject": "english",
+      "topic": "food"
+    },
+    {
+      "id": "e-w06-003",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "Which word means “鸡蛋”?",
+      "options": [
+        "egg",
+        "milk",
+        "rice"
+      ],
+      "answer": "egg",
+      "subject": "english",
+      "topic": "food"
+    },
+    {
+      "id": "e-w06-004",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "Which word means “牛奶”?",
+      "options": [
+        "juice",
+        "milk",
+        "bread"
+      ],
+      "answer": "milk",
+      "subject": "english",
+      "topic": "food"
+    },
+    {
+      "id": "e-w06-005",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "I eat ___.",
+      "options": [
+        "bread",
+        "blue",
+        "dog"
+      ],
+      "answer": "bread",
+      "subject": "english",
+      "topic": "food"
+    },
+    {
+      "id": "e-w06-006",
+      "difficulty": 1,
+      "type": "input",
+      "stem": "Write the English word: 苹果",
+      "answer": "apple",
+      "subject": "english",
+      "topic": "food"
+    },
+    {
+      "id": "e-w06-007",
+      "difficulty": 1,
+      "type": "input",
+      "stem": "Write the English word: 鸡蛋",
+      "answer": "egg",
+      "subject": "english",
+      "topic": "food"
+    },
+    {
+      "id": "e-w06-008",
+      "difficulty": 1,
+      "type": "input",
+      "stem": "Write the English word: 牛奶",
+      "answer": "milk",
+      "subject": "english",
+      "topic": "food"
+    },
+    {
+      "id": "e-w06-009",
+      "difficulty": 2,
+      "type": "input",
+      "stem": "Write the English word: 面包",
+      "answer": "bread",
+      "subject": "english",
+      "topic": "food"
+    },
+    {
+      "id": "e-w06-010",
+      "difficulty": 2,
+      "type": "choice",
+      "stem": "Which one is NOT food?",
+      "options": [
+        "rice",
+        "book",
+        "egg",
+        "bread"
+      ],
+      "answer": "book",
+      "subject": "english",
+      "topic": "food"
+    },
+    {
+      "id": "e-w06-011",
+      "difficulty": 2,
+      "type": "choice",
+      "stem": "Juice is a ___.",
+      "options": [
+        "drink",
+        "color",
+        "pet"
+      ],
+      "answer": "drink",
+      "subject": "english",
+      "topic": "food"
+    },
+    {
+      "id": "e-w06-012",
+      "difficulty": 1,
+      "type": "image-choice",
+      "stem": "What is this food?",
+      "stemImage": "/assets/quiz/apple.svg",
+      "options": [
+        "apple",
+        "egg",
+        "milk"
+      ],
+      "answer": "apple",
+      "subject": "english",
+      "topic": "food"
+    },
+    {
+      "id": "e-w06-013",
+      "difficulty": 1,
+      "type": "image-choice",
+      "stem": "What is this?",
+      "stemImage": "/assets/quiz/bus.svg",
+      "options": [
+        "bus",
+        "bread",
+        "rice"
+      ],
+      "answer": "bus",
+      "subject": "english",
+      "topic": "food"
+    },
+    {
+      "id": "e-w06-014",
+      "difficulty": 2,
+      "type": "ordering",
+      "stem": "Sort the letters to make “milk”",
+      "items": [
+        "l",
+        "i",
+        "m",
+        "k"
+      ],
+      "correctOrder": [
+        2,
+        1,
+        0,
+        3
+      ],
+      "answer": "2,1,0,3",
+      "subject": "english",
+      "topic": "food"
+    },
+    {
+      "id": "e-w06-015",
+      "difficulty": 2,
+      "type": "ordering",
+      "stem": "Sort the letters in ABC order: m / k / l / j",
+      "items": [
+        "m",
+        "k",
+        "l",
+        "j"
+      ],
+      "correctOrder": [
+        3,
+        1,
+        2,
+        0
+      ],
+      "answer": "3,1,2,0",
+      "subject": "english",
+      "topic": "food"
+    }
+  ]
+}

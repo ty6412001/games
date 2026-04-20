@@ -68,6 +68,151 @@ describe('pickRandomQuestion', () => {
     const result = pickRandomQuestion(pack, { excludeIds: ['m1', 'c1', 'e1'] });
     expect(result).toBeNull();
   });
+
+  it('returns null when a subject pool is fully excluded', () => {
+    const result = pickRandomQuestion(pack, { subject: 'math', excludeIds: ['m1'] });
+    expect(result).toBeNull();
+  });
+
+  it('prefers a different topic when another candidate exists', () => {
+    const result = pickRandomQuestion(
+      {
+        ...pack,
+        questions: [
+          pack.questions[0]!,
+          {
+            id: 'm2',
+            subject: 'math',
+            difficulty: 2,
+            topic: '乘法',
+            stem: '2x2',
+            type: 'choice',
+            options: ['2', '4'],
+            answer: '4',
+          },
+        ],
+      },
+      {
+        recentQuestions: [
+          { questionId: 'prev', topic: '加法', type: 'choice', difficulty: 1 },
+        ],
+        rand: () => 0,
+      },
+    );
+
+    expect(result?.id).toBe('m2');
+  });
+
+  it('falls back to the same topic when no other topic exists', () => {
+    const result = pickRandomQuestion(
+      {
+        ...pack,
+        questions: [
+          {
+            id: 'm3',
+            subject: 'math',
+            difficulty: 2,
+            topic: '加法',
+            stem: '2+2',
+            type: 'choice',
+            options: ['3', '4'],
+            answer: '4',
+          },
+        ],
+      },
+      {
+        recentQuestions: [
+          { questionId: 'prev', topic: '加法', type: 'choice', difficulty: 1 },
+        ],
+        rand: () => 0,
+      },
+    );
+
+    expect(result?.id).toBe('m3');
+  });
+
+  it('prefers a different type after topic is already varied', () => {
+    const result = pickRandomQuestion(
+      {
+        ...pack,
+        questions: [
+          {
+            id: 'm4',
+            subject: 'math',
+            difficulty: 2,
+            topic: '乘法',
+            stem: '2x3',
+            type: 'choice',
+            options: ['5', '6'],
+            answer: '6',
+          },
+          {
+            id: 'm5',
+            subject: 'math',
+            difficulty: 2,
+            topic: '除法',
+            stem: '6/2',
+            type: 'input',
+            answer: '3',
+          },
+        ],
+      },
+      {
+        recentQuestions: [
+          { questionId: 'prev', topic: '加法', type: 'choice', difficulty: 1 },
+        ],
+        rand: () => 0,
+      },
+    );
+
+    expect(result?.id).toBe('m5');
+  });
+
+  it('prefers a different difficulty when topic and type can both vary', () => {
+    const result = pickRandomQuestion(
+      {
+        ...pack,
+        questions: [
+          {
+            id: 'm6',
+            subject: 'math',
+            difficulty: 1,
+            topic: '乘法',
+            stem: '2x1',
+            type: 'input',
+            answer: '2',
+          },
+          {
+            id: 'm7',
+            subject: 'math',
+            difficulty: 3,
+            topic: '除法',
+            stem: '6/2',
+            type: 'input',
+            answer: '3',
+          },
+          {
+            id: 'm8',
+            subject: 'math',
+            difficulty: 3,
+            topic: '几何',
+            stem: '2+2',
+            type: 'choice',
+            options: ['3', '4'],
+            answer: '4',
+          },
+        ],
+      },
+      {
+        recentQuestions: [
+          { questionId: 'prev', topic: '加法', type: 'choice', difficulty: 1 },
+        ],
+        rand: () => 0,
+      },
+    );
+
+    expect(result?.id).toBe('m7');
+  });
 });
 
 describe('findQuestion', () => {

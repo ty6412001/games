@@ -1,11 +1,13 @@
 import { useMemo, useState } from 'react';
 import type { DurationMinutes, HeroId } from '@ultraman/shared';
 
+import packIndex from '../../../public/question-packs/index.json';
 import { useGameStore, type SetupPlayer } from '../../stores/gameStore';
 import { HeroAvatar } from '../../theme/ultraman/HeroAvatar';
 import { HEROES } from '../../theme/ultraman/heroes';
 
 const DURATIONS: DurationMinutes[] = [20, 30, 45];
+const WEEKS = packIndex.packs.map((pack) => pack.week).sort((a, b) => a - b);
 const MIN_PLAYERS = 2;
 const MAX_PLAYERS = 5;
 const DEFAULT_WEEK = 1;
@@ -18,8 +20,8 @@ type DraftPlayer = {
 
 const DEFAULT_PLAYERS: DraftPlayer[] = [
   { name: '爸爸', heroId: 'zero', isChild: false },
-  { name: '妈妈', heroId: 'decker', isChild: false },
-  { name: '小朋友', heroId: 'tiga', isChild: true },
+  { name: '妈妈', heroId: 'tiga', isChild: false },
+  { name: '小朋友', heroId: 'decker', isChild: true },
   { name: '爷爷', heroId: 'belial', isChild: false },
   { name: '奶奶', heroId: 'zero', isChild: false },
 ];
@@ -43,6 +45,7 @@ const computeBadges = (players: readonly DraftPlayer[]): number[] => {
 export const HeroSelect = () => {
   const startGame = useGameStore((s) => s.startGame);
   const [duration, setDuration] = useState<DurationMinutes>(30);
+  const [week, setWeek] = useState<number>(DEFAULT_WEEK);
   const [drafts, setDrafts] = useState<DraftPlayer[]>(() => [
     makeDraftPlayer(0),
     makeDraftPlayer(1),
@@ -80,7 +83,7 @@ export const HeroSelect = () => {
       badge: (badges[i] === 2 ? 2 : 1) as 1 | 2,
       isChild: d.isChild,
     }));
-    void startGame({ duration, week: DEFAULT_WEEK, players });
+    void startGame({ duration, week, players });
   };
 
   return (
@@ -155,6 +158,33 @@ export const HeroSelect = () => {
             </div>
           </div>
 
+            <div className="space-y-2">
+              <div className="flex items-center justify-between gap-3">
+                <h2 className="text-lg font-bold">📚 选择周目</h2>
+                <span className="text-sm font-medium text-slate-400">默认第 1 周，基于题库索引</span>
+              </div>
+            <div className="grid grid-cols-2 gap-3 md:grid-cols-5">
+              {WEEKS.map((value) => {
+                const selected = week === value;
+                return (
+                  <button
+                    key={value}
+                    type="button"
+                    onClick={() => setWeek(value)}
+                    aria-pressed={selected}
+                    className={`min-h-[56px] rounded-2xl border px-4 text-lg font-black transition ${
+                      selected
+                        ? 'border-amber-300 bg-amber-400 text-slate-950 ring-4 ring-amber-400'
+                        : 'border-slate-700 bg-slate-900/70 text-slate-100 hover:border-slate-500'
+                    }`}
+                  >
+                    第{value}周
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
           <div className={`grid auto-rows-fr content-start gap-3 ${playerGridClass}`}>
             {drafts.map((draft, index) => {
               const childLabel = draft.name.trim() || `玩家${index + 1}`;
@@ -221,7 +251,9 @@ export const HeroSelect = () => {
 
         <div className="sticky bottom-0 flex items-center justify-between gap-4 rounded-3xl border border-slate-800 bg-slate-900/95 px-4 py-3 shadow-2xl backdrop-blur">
           <p className={`text-sm ${needsChildSelection ? 'text-amber-200' : 'text-slate-400'}`}>
-            {needsChildSelection ? '请选择且仅选择 1 位小朋友后开始游戏' : '阵容已就绪，立即进入第 1 周'}
+            {needsChildSelection
+              ? '请选择且仅选择 1 位小朋友后开始游戏'
+              : `阵容已就绪，立即进入第 ${week} 周`}
           </p>
           <button
             type="button"

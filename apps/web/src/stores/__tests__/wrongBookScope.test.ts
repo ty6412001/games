@@ -18,6 +18,23 @@ vi.mock('../../data/packs/questionPackLoader.js', () => ({
       },
     ],
   })),
+  loadBrainPack: vi.fn(async () => ({
+    week: 1,
+    title: 'brain',
+    boss: { id: 'zetton', name: 'z', hp: 3000 },
+    questions: [
+      {
+        id: 'b1',
+        subject: 'brain',
+        difficulty: 1,
+        topic: 't',
+        type: 'choice',
+        stem: '什么门永远关不上？',
+        options: ['球门', '车门'],
+        answer: '球门',
+      },
+    ],
+  })),
 }));
 
 const recordWrongMock = vi.fn((_args: unknown) => Promise.resolve({ id: 'mock' }));

@@ -9,7 +9,7 @@ import {
   salvageValue,
   totalAssetValue,
 } from '../economy.js';
-import { createBoardTiles } from '../tiles.js';
+import { FALLBACK_LAYOUT } from '../tiles.js';
 
 const makePlayer = (overrides: Partial<Player>): Player => ({
   id: 'p1',
@@ -40,10 +40,13 @@ describe('calculateRent', () => {
 });
 
 describe('countDistrictTilesOwned', () => {
-  const tiles = createBoardTiles();
+  const tiles = FALLBACK_LAYOUT;
+  const monsterForestPositions = tiles
+    .filter((t) => t.type === 'property' && t.district === 'monster-forest')
+    .map((t) => t.position);
 
   it('counts properties by district', () => {
-    const player = makePlayer({ ownedTiles: [1, 2] });
+    const player = makePlayer({ ownedTiles: monsterForestPositions.slice(0, 2) });
     expect(countDistrictTilesOwned(player, tiles, 'monster-forest')).toBe(2);
     expect(countDistrictTilesOwned(player, tiles, 'space-station')).toBe(0);
   });
@@ -57,12 +60,15 @@ describe('canAfford', () => {
 });
 
 describe('totalAssetValue', () => {
-  const tiles = createBoardTiles();
+  const tiles = FALLBACK_LAYOUT;
 
   it('includes cash plus half price of each property', () => {
-    const player = makePlayer({ money: 1000, ownedTiles: [1, 2] });
-    // 1: basePrice 200 → 100, 2: basePrice 220 → 110
-    expect(totalAssetValue(player, tiles)).toBe(1000 + 100 + 110);
+    const properties = tiles.filter((t) => t.type === 'property');
+    const [p1, p2] = properties;
+    const player = makePlayer({ money: 1000, ownedTiles: [p1!.position, p2!.position] });
+    const p1Value = p1!.type === 'property' ? Math.floor(p1!.basePrice / 2) : 0;
+    const p2Value = p2!.type === 'property' ? Math.floor(p2!.basePrice / 2) : 0;
+    expect(totalAssetValue(player, tiles)).toBe(1000 + p1Value + p2Value);
   });
 });
 

@@ -1,6 +1,9 @@
 import { BossScene } from '../boss/BossScene';
 import { Board } from '../board/Board';
 import { LandingOverlay } from '../board/LandingOverlay';
+import { ChanceCardOverlay } from '../chance/ChanceCardOverlay';
+import { DeckerStatusBar } from '../decker/DeckerStatusBar';
+import { FormTransitionOverlay } from '../decker/FormTransitionOverlay';
 import { BattleEffect } from '../effects/BattleEffect';
 import { QuizModal } from '../quiz/QuizModal';
 import { QuizResultToast } from '../quiz/QuizResultToast';
@@ -17,14 +20,15 @@ export const GameScreen = () => {
 
   if (game.phase === 'boss') {
     return (
-      <>
+      <div className="text-slate-50">
         <BossScene />
         <SubjectSelector />
         <QuizModal />
         <BattleEffect />
         <QuizResultToast />
         <WeaponAwardToast />
-      </>
+        <FormTransitionOverlay />
+      </div>
     );
   }
 
@@ -37,7 +41,8 @@ export const GameScreen = () => {
         }}
       >
         <CurrentPlayerSpotlight />
-        <div className="flex min-h-0 min-w-0 items-center justify-center">
+        <div className="flex min-h-0 min-w-0 flex-col items-center justify-center gap-2">
+          <DeckerStatusBar />
           <div className="aspect-square h-full max-h-full max-w-full">
             <Board />
           </div>
@@ -45,11 +50,13 @@ export const GameScreen = () => {
         <Leaderboard />
       </div>
       <LandingOverlay />
+      <ChanceCardOverlay />
       <SubjectSelector />
       <QuizModal />
       <BattleEffect />
       <QuizResultToast />
       <WeaponAwardToast />
+      <FormTransitionOverlay />
       {game.phase === 'settle' ? <SettleScreen /> : null}
     </div>
   );

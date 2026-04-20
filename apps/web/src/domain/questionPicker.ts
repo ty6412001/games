@@ -2,10 +2,26 @@ import type { Question, QuestionPack, Subject } from '@ultraman/shared';
 
 type Rand = () => number;
 
+export type RecentQuestionMeta = {
+  questionId: string;
+  topic: string;
+  type: Question['type'];
+  difficulty: Question['difficulty'];
+};
+
+const preferDifferent = <T>(
+  pool: readonly T[],
+  predicate: (item: T) => boolean,
+): readonly T[] => {
+  const preferred = pool.filter(predicate);
+  return preferred.length > 0 ? preferred : pool;
+};
+
 export const pickRandomQuestion = (
   pack: QuestionPack,
   options: {
     excludeIds?: Iterable<string>;
+    recentQuestions?: readonly RecentQuestionMeta[];
     subject?: Subject;
     rand?: Rand;
   } = {},
@@ -18,8 +34,20 @@ export const pickRandomQuestion = (
     return true;
   });
   if (pool.length === 0) return null;
-  const idx = Math.floor(rand() * pool.length);
-  return pool[idx] ?? null;
+
+  const recent = options.recentQuestions?.[options.recentQuestions.length - 1];
+  const variedPool = recent
+    ? preferDifferent(pool, (q) => q.topic !== recent.topic)
+    : pool;
+  const typeVariedPool = recent
+    ? preferDifferent(variedPool, (q) => q.type !== recent.type)
+    : variedPool;
+  const difficultyVariedPool = recent
+    ? preferDifferent(typeVariedPool, (q) => q.difficulty !== recent.difficulty)
+    : typeVariedPool;
+
+  const idx = Math.floor(rand() * difficultyVariedPool.length);
+  return difficultyVariedPool[idx] ?? null;
 };
 
 export const findQuestion = (pack: QuestionPack, id: string): Question | null => {

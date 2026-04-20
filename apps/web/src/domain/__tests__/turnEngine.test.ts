@@ -4,7 +4,7 @@ import { createBoardTiles } from '../tiles.js';
 import { advancePosition, crossedStart, resolveLanding, rollDice } from '../turnEngine.js';
 
 describe('rollDice', () => {
-  it('always returns 1 to 6', () => {
+  it('always returns 1 to 6 by default', () => {
     for (let i = 0; i < 200; i += 1) {
       const result = rollDice();
       expect(result).toBeGreaterThanOrEqual(1);
@@ -15,6 +15,21 @@ describe('rollDice', () => {
   it('respects injected random', () => {
     expect(rollDice(() => 0)).toBe(1);
     expect(rollDice(() => 0.9999)).toBe(6);
+  });
+
+  it('returns 1 to 7 when max=7', () => {
+    for (let i = 0; i < 200; i += 1) {
+      const result = rollDice(Math.random, 7);
+      expect(result).toBeGreaterThanOrEqual(1);
+      expect(result).toBeLessThanOrEqual(7);
+    }
+    expect(rollDice(() => 0.9999, 7)).toBe(7);
+    expect(rollDice(() => 0, 7)).toBe(1);
+  });
+
+  it('rejects max out of range', () => {
+    expect(() => rollDice(Math.random, 0)).toThrow();
+    expect(() => rollDice(Math.random, 8)).toThrow();
   });
 });
 
@@ -34,9 +49,14 @@ describe('advancePosition', () => {
     expect(() => advancePosition(28, 1)).toThrow();
   });
 
+  it('accepts 7-step moves (miracle form)', () => {
+    expect(advancePosition(0, 7)).toBe(7);
+    expect(advancePosition(25, 7)).toBe(4);
+  });
+
   it('rejects out-of-range steps', () => {
     expect(() => advancePosition(0, 0)).toThrow();
-    expect(() => advancePosition(0, 7)).toThrow();
+    expect(() => advancePosition(0, 8)).toThrow();
   });
 });
 

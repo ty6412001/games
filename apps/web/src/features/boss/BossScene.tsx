@@ -1,7 +1,10 @@
 import { useState } from 'react';
 import type { Weapon } from '@ultraman/shared';
 
+import { DeckerStatusBar } from '../decker/DeckerStatusBar';
+import { FinisherButton } from '../decker/FinisherButton';
 import { useGameStore } from '../../stores/gameStore';
+import { BATTLE_CONTRAST } from '../../theme/contrast';
 import { HeroAvatar } from '../../theme/ultraman/HeroAvatar';
 import { MonsterSprite } from '../../theme/ultraman/MonsterSprite';
 import { getWeapon } from '../../theme/ultraman/weapons';
@@ -34,7 +37,9 @@ export const BossScene = () => {
 
         <section className="grid min-h-0 gap-3 overflow-hidden md:grid-cols-[1fr_320px]">
           <div className="flex min-h-0 flex-col gap-3">
-            <div className="flex min-h-0 flex-1 items-center gap-4 rounded-3xl bg-rose-900/60 p-4 ring-2 ring-rose-400/50">
+            <div
+              className={`flex min-h-0 flex-1 items-center gap-4 rounded-3xl ${BATTLE_CONTRAST.statPanel.bgClass} ${BATTLE_CONTRAST.statPanel.textClass} p-4 ring-2 ring-rose-300`}
+            >
               <MonsterSprite bossId={battle.bossId} size="lg" />
               <div className="flex min-w-0 flex-1 flex-col gap-2">
                 <div className="truncate text-3xl font-black">{battle.bossName}</div>
@@ -51,6 +56,8 @@ export const BossScene = () => {
               </div>
             </div>
 
+            <DeckerStatusBar compact />
+
             {!pendingOverlay && !battleDone ? (
               <div className="rounded-2xl bg-slate-900/70 p-3">
                 <div className="flex items-center gap-3">
@@ -65,7 +72,9 @@ export const BossScene = () => {
                     type="button"
                     onClick={() => setSelectedWeapon(undefined)}
                     className={`rounded-xl px-3 py-2 text-sm font-bold ${
-                      selectedWeapon === undefined ? 'bg-amber-400 text-slate-900' : 'bg-slate-700'
+                      selectedWeapon === undefined
+                        ? `${BATTLE_CONTRAST.primaryAction.bgClass} ${BATTLE_CONTRAST.primaryAction.textClass}`
+                        : `${BATTLE_CONTRAST.secondaryAction.bgClass} ${BATTLE_CONTRAST.secondaryAction.textClass}`
                     }`}
                   >
                     裸拳（300）
@@ -76,7 +85,9 @@ export const BossScene = () => {
                       type="button"
                       onClick={() => setSelectedWeapon(w.id)}
                       className={`rounded-xl px-3 py-2 text-sm font-bold ${
-                        selectedWeapon === w.id ? 'bg-amber-400 text-slate-900' : 'bg-slate-700'
+                        selectedWeapon === w.id
+                          ? `${BATTLE_CONTRAST.primaryAction.bgClass} ${BATTLE_CONTRAST.primaryAction.textClass}`
+                          : `${BATTLE_CONTRAST.secondaryAction.bgClass} ${BATTLE_CONTRAST.secondaryAction.textClass}`
                       }`}
                     >
                       ⚡ {w.name} · +{w.combatPowerBonus}
@@ -86,10 +97,13 @@ export const BossScene = () => {
                 <button
                   type="button"
                   onClick={() => bossAttack(selectedWeapon)}
-                  className="mt-3 w-full rounded-2xl bg-rose-500 py-3 text-xl font-black text-white shadow-xl"
+                  className={`mt-3 w-full rounded-2xl ${BATTLE_CONTRAST.primaryAction.bgClass} ${BATTLE_CONTRAST.primaryAction.textClass} py-3 text-xl font-black shadow-xl`}
                 >
                   💥 出招攻击！
                 </button>
+                <div className="mt-3">
+                  <FinisherButton />
+                </div>
               </div>
             ) : null}
           </div>
@@ -129,9 +143,9 @@ export const BossScene = () => {
               <button
                 type="button"
                 onClick={() => finalize(battle.status === 'victory' ? 'victory' : 'escaped')}
-                className="min-h-[56px] rounded-xl bg-amber-400 px-6 py-3 text-lg font-black text-slate-900"
+                className={`min-h-[56px] rounded-xl ${BATTLE_CONTRAST.primaryAction.bgClass} ${BATTLE_CONTRAST.primaryAction.textClass} px-6 py-3 text-lg font-black`}
               >
-                进入结算
+                进入算钱
               </button>
             </>
           ) : (

@@ -1,6 +1,7 @@
 import { QuestionPackIndexSchema, QuestionPackSchema, type QuestionPack } from '@ultraman/shared';
 
 const cache = new Map<number, QuestionPack>();
+let brainPackCache: QuestionPack | null = null;
 
 export const loadPackIndex = async (): Promise<{ week: number; title: string; path: string }[]> => {
   const res = await fetch('/question-packs/index.json');
@@ -23,5 +24,17 @@ export const loadQuestionPack = async (week: number): Promise<QuestionPack> => {
   const raw = await res.json();
   const pack = QuestionPackSchema.parse(raw);
   cache.set(week, pack);
+  return pack;
+};
+
+export const loadBrainPack = async (): Promise<QuestionPack> => {
+  if (brainPackCache) return brainPackCache;
+  const res = await fetch('/question-packs/brain-pack.json');
+  if (!res.ok) {
+    throw new Error(`failed to load brain pack: ${res.status}`);
+  }
+  const raw = await res.json();
+  const pack = QuestionPackSchema.parse(raw);
+  brainPackCache = pack;
   return pack;
 };

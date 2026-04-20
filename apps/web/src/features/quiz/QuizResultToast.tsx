@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 
 import { BATTLE_EFFECT_DURATION_MS } from '../../config/features';
 import { useGameStore } from '../../stores/gameStore';
+import { BATTLE_CONTRAST } from '../../theme/contrast';
 
 export const QuizResultToast = () => {
   const result = useGameStore((s) => s.quizResult);
@@ -50,7 +51,7 @@ export const QuizResultToast = () => {
         <button
           type="button"
           onClick={dismiss}
-          className="mt-5 w-full rounded-xl bg-white/20 px-4 py-3 text-lg font-bold"
+          className={`mt-5 w-full rounded-xl ${BATTLE_CONTRAST.toastAction.bgClass} ${BATTLE_CONTRAST.toastAction.textClass} px-4 py-3 text-lg font-bold`}
         >
           继续
         </button>

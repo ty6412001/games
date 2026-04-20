@@ -1,0 +1,772 @@
+{
+  "week": 3,
+  "title": "第3周 · 100以内数的认识 / zhchshr与阅读 / Family · 55题综合卷",
+  "boss": {
+    "id": "redking",
+    "name": "雷德王",
+    "hp": 3400
+  },
+  "questions": [
+    {
+      "id": "m-w03-001",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "由 3 个十和 4 个一组成的数是？",
+      "options": [
+        "34",
+        "43",
+        "30",
+        "40"
+      ],
+      "answer": "34",
+      "subject": "math",
+      "topic": "100以内数的认识"
+    },
+    {
+      "id": "m-w03-002",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "89 里面有几个十？",
+      "options": [
+        "8",
+        "9",
+        "7",
+        "6"
+      ],
+      "answer": "8",
+      "subject": "math",
+      "topic": "100以内数的认识"
+    },
+    {
+      "id": "m-w03-003",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "42 里面有几个一？",
+      "options": [
+        "2",
+        "4",
+        "6",
+        "8"
+      ],
+      "answer": "2",
+      "subject": "math",
+      "topic": "100以内数的认识"
+    },
+    {
+      "id": "m-w03-004",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "比 60 大 1 的数是？",
+      "options": [
+        "59",
+        "60",
+        "61",
+        "70"
+      ],
+      "answer": "61",
+      "subject": "math",
+      "topic": "100以内数的认识"
+    },
+    {
+      "id": "m-w03-005",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "和 70 相邻的前一个数是？",
+      "options": [
+        "68",
+        "69",
+        "71",
+        "80"
+      ],
+      "answer": "69",
+      "subject": "math",
+      "topic": "100以内数的认识"
+    },
+    {
+      "id": "m-w03-006",
+      "difficulty": 1,
+      "type": "input",
+      "stem": "写出由 5 个十和 2 个一组成的数",
+      "answer": "52",
+      "subject": "math",
+      "topic": "100以内数的认识"
+    },
+    {
+      "id": "m-w03-007",
+      "difficulty": 1,
+      "type": "input",
+      "stem": "写出 99 后面的一个数",
+      "answer": "100",
+      "subject": "math",
+      "topic": "100以内数的认识"
+    },
+    {
+      "id": "m-w03-008",
+      "difficulty": 1,
+      "type": "input",
+      "stem": "写出 40 前面的一个数",
+      "answer": "39",
+      "subject": "math",
+      "topic": "100以内数的认识"
+    },
+    {
+      "id": "m-w03-009",
+      "difficulty": 1,
+      "type": "input",
+      "stem": "27 里面有几个十？只写数字",
+      "answer": "2",
+      "subject": "math",
+      "topic": "100以内数的认识"
+    },
+    {
+      "id": "m-w03-010",
+      "difficulty": 2,
+      "type": "input",
+      "stem": "27 里面有几个一？只写数字",
+      "answer": "7",
+      "subject": "math",
+      "topic": "100以内数的认识"
+    },
+    {
+      "id": "m-w03-011",
+      "difficulty": 2,
+      "type": "choice",
+      "stem": "下面哪个数最大？",
+      "options": [
+        "56",
+        "65",
+        "46",
+        "59"
+      ],
+      "answer": "65",
+      "subject": "math",
+      "topic": "100以内数的认识"
+    },
+    {
+      "id": "m-w03-012",
+      "difficulty": 2,
+      "type": "choice",
+      "stem": "下面哪个数最小？",
+      "options": [
+        "18",
+        "81",
+        "28",
+        "38"
+      ],
+      "answer": "18",
+      "subject": "math",
+      "topic": "100以内数的认识"
+    },
+    {
+      "id": "m-w03-013",
+      "difficulty": 1,
+      "type": "image-choice",
+      "stem": "图里有 4 颗星星，把它看成个位数，下面哪个两位数个位是 4？",
+      "stemImage": "/assets/quiz/stars-4.svg",
+      "options": [
+        "34",
+        "43",
+        "40",
+        "14"
+      ],
+      "answer": "34",
+      "subject": "math",
+      "topic": "100以内数的认识"
+    },
+    {
+      "id": "m-w03-014",
+      "difficulty": 1,
+      "type": "image-choice",
+      "stem": "图里有 5 个苹果，下面哪个数个位是 5？",
+      "stemImage": "/assets/quiz/apples-5.svg",
+      "options": [
+        "52",
+        "25",
+        "40",
+        "63"
+      ],
+      "answer": "25",
+      "subject": "math",
+      "topic": "100以内数的认识"
+    },
+    {
+      "id": "m-w03-015",
+      "difficulty": 2,
+      "type": "choice",
+      "stem": "7 个十是？",
+      "options": [
+        "7",
+        "17",
+        "70",
+        "77"
+      ],
+      "answer": "70",
+      "subject": "math",
+      "topic": "100以内数的认识"
+    },
+    {
+      "id": "m-w03-016",
+      "difficulty": 2,
+      "type": "ordering",
+      "stem": "把这些数从小到大排好：45，54，40，44",
+      "items": [
+        "45",
+        "54",
+        "40",
+        "44"
+      ],
+      "correctOrder": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "answer": "2,3,0,1",
+      "subject": "math",
+      "topic": "100以内数的认识"
+    },
+    {
+      "id": "m-w03-017",
+      "difficulty": 2,
+      "type": "ordering",
+      "stem": "把这些数从大到小排好：23，32，29，20",
+      "items": [
+        "23",
+        "32",
+        "29",
+        "20"
+      ],
+      "correctOrder": [
+        1,
+        2,
+        0,
+        3
+      ],
+      "answer": "1,2,0,3",
+      "subject": "math",
+      "topic": "100以内数的认识"
+    },
+    {
+      "id": "m-w03-018",
+      "difficulty": 3,
+      "type": "input",
+      "stem": "小棒一捆是 10 根，4 捆再加 6 根，一共多少根？",
+      "answer": "46",
+      "subject": "math",
+      "topic": "100以内数的认识"
+    },
+    {
+      "id": "m-w03-019",
+      "difficulty": 3,
+      "type": "input",
+      "stem": "比 38 多 10 的数是几？",
+      "answer": "48",
+      "subject": "math",
+      "topic": "100以内数的认识"
+    },
+    {
+      "id": "m-w03-020",
+      "difficulty": 3,
+      "type": "choice",
+      "stem": "下面哪个数最接近 50？",
+      "options": [
+        "41",
+        "49",
+        "60",
+        "37"
+      ],
+      "answer": "49",
+      "subject": "math",
+      "topic": "100以内数的认识"
+    },
+    {
+      "id": "c-w03-001",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "“日”字的声母是？",
+      "options": [
+        "r",
+        "sh",
+        "z",
+        "s"
+      ],
+      "answer": "r",
+      "subject": "chinese",
+      "topic": "zh ch sh r与阅读"
+    },
+    {
+      "id": "c-w03-002",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "“车”字的声母是？",
+      "options": [
+        "ch",
+        "c",
+        "sh",
+        "zh"
+      ],
+      "answer": "ch",
+      "subject": "chinese",
+      "topic": "zh ch sh r与阅读"
+    },
+    {
+      "id": "c-w03-003",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "“树”字的声母是？",
+      "options": [
+        "s",
+        "sh",
+        "r",
+        "zh"
+      ],
+      "answer": "sh",
+      "subject": "chinese",
+      "topic": "zh ch sh r与阅读"
+    },
+    {
+      "id": "c-w03-004",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "“站”字的声母是？",
+      "options": [
+        "z",
+        "zh",
+        "ch",
+        "r"
+      ],
+      "answer": "zh",
+      "subject": "chinese",
+      "topic": "zh ch sh r与阅读"
+    },
+    {
+      "id": "c-w03-005",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "下面哪个字的声母是 r？",
+      "options": [
+        "日",
+        "车",
+        "山",
+        "中"
+      ],
+      "answer": "日",
+      "subject": "chinese",
+      "topic": "zh ch sh r与阅读"
+    },
+    {
+      "id": "c-w03-006",
+      "difficulty": 1,
+      "type": "input",
+      "stem": "拼音 rén 的声母写什么？",
+      "answer": "r",
+      "subject": "chinese",
+      "topic": "zh ch sh r与阅读"
+    },
+    {
+      "id": "c-w03-007",
+      "difficulty": 1,
+      "type": "input",
+      "stem": "拼音 chē 的声母写什么？",
+      "answer": "ch",
+      "subject": "chinese",
+      "topic": "zh ch sh r与阅读"
+    },
+    {
+      "id": "c-w03-008",
+      "difficulty": 1,
+      "type": "input",
+      "stem": "拼音 shū 的声母写什么？",
+      "answer": "sh",
+      "subject": "chinese",
+      "topic": "zh ch sh r与阅读"
+    },
+    {
+      "id": "c-w03-009",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "“站在树下”这句话里，带 zh/ch/sh 的字有几个？",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "answer": "3",
+      "subject": "chinese",
+      "topic": "zh ch sh r与阅读"
+    },
+    {
+      "id": "c-w03-010",
+      "difficulty": 2,
+      "type": "choice",
+      "stem": "下面哪个词语写得对？",
+      "options": [
+        "汽车",
+        "书包",
+        "汽水"
+      ],
+      "answer": "汽车",
+      "subject": "chinese",
+      "topic": "zh ch sh r与阅读"
+    },
+    {
+      "id": "c-w03-011",
+      "difficulty": 1,
+      "type": "image-choice",
+      "stem": "看图选汉字：",
+      "stemImage": "/assets/quiz/bus.svg",
+      "options": [
+        "车",
+        "马",
+        "书"
+      ],
+      "answer": "车",
+      "subject": "chinese",
+      "topic": "zh ch sh r与阅读"
+    },
+    {
+      "id": "c-w03-012",
+      "difficulty": 1,
+      "type": "image-choice",
+      "stem": "看图选词语：",
+      "stemImage": "/assets/quiz/sunflower.svg",
+      "options": [
+        "花朵",
+        "大树",
+        "石头"
+      ],
+      "answer": "花朵",
+      "subject": "chinese",
+      "topic": "zh ch sh r与阅读"
+    },
+    {
+      "id": "c-w03-013",
+      "difficulty": 1,
+      "type": "image-choice",
+      "stem": "看图选读音：",
+      "stemImage": "/assets/quiz/horse.svg",
+      "options": [
+        "mǎ",
+        "chē",
+        "rì"
+      ],
+      "answer": "mǎ",
+      "subject": "chinese",
+      "topic": "zh ch sh r与阅读"
+    },
+    {
+      "id": "c-w03-014",
+      "difficulty": 2,
+      "type": "choice",
+      "stem": "“日出”表示什么时候？",
+      "options": [
+        "早上",
+        "中午",
+        "晚上"
+      ],
+      "answer": "早上",
+      "subject": "chinese",
+      "topic": "zh ch sh r与阅读"
+    },
+    {
+      "id": "c-w03-015",
+      "difficulty": 2,
+      "type": "choice",
+      "stem": "“书”常和下面哪个词搭配？",
+      "options": [
+        "看",
+        "跑",
+        "跳"
+      ],
+      "answer": "看",
+      "subject": "chinese",
+      "topic": "zh ch sh r与阅读"
+    },
+    {
+      "id": "c-w03-016",
+      "difficulty": 2,
+      "type": "ordering",
+      "stem": "把声母按 zh ch sh r 的顺序排好",
+      "items": [
+        "sh",
+        "r",
+        "zh",
+        "ch"
+      ],
+      "correctOrder": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "answer": "2,3,0,1",
+      "subject": "chinese",
+      "topic": "zh ch sh r与阅读"
+    },
+    {
+      "id": "c-w03-017",
+      "difficulty": 2,
+      "type": "ordering",
+      "stem": "把词语排成通顺句子：我 / 书 / 看 / 在家",
+      "items": [
+        "书",
+        "在家",
+        "我",
+        "看"
+      ],
+      "correctOrder": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "answer": "2,3,0,1",
+      "subject": "chinese",
+      "topic": "zh ch sh r与阅读"
+    },
+    {
+      "id": "c-w03-018",
+      "difficulty": 3,
+      "type": "input",
+      "stem": "“日”可以组词“日___”，填一个常见字",
+      "answer": "出",
+      "subject": "chinese",
+      "topic": "zh ch sh r与阅读"
+    },
+    {
+      "id": "c-w03-019",
+      "difficulty": 3,
+      "type": "input",
+      "stem": "“书”字的部首通常叫“___字旁”",
+      "answer": "乛",
+      "subject": "chinese",
+      "topic": "zh ch sh r与阅读"
+    },
+    {
+      "id": "c-w03-020",
+      "difficulty": 3,
+      "type": "choice",
+      "stem": "下面哪句话最通顺？",
+      "options": [
+        "我在树下看书。",
+        "树下我书在看。",
+        "看书树下我在。"
+      ],
+      "answer": "我在树下看书。",
+      "subject": "chinese",
+      "topic": "zh ch sh r与阅读"
+    },
+    {
+      "id": "e-w03-001",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "My mother is my ___.",
+      "options": [
+        "mother",
+        "brother",
+        "dog"
+      ],
+      "answer": "mother",
+      "subject": "english",
+      "topic": "family"
+    },
+    {
+      "id": "e-w03-002",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "Which word means “爸爸”?",
+      "options": [
+        "father",
+        "sister",
+        "teacher"
+      ],
+      "answer": "father",
+      "subject": "english",
+      "topic": "family"
+    },
+    {
+      "id": "e-w03-003",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "Tom is a boy. He may be a ___.",
+      "options": [
+        "brother",
+        "mother",
+        "grandma"
+      ],
+      "answer": "brother",
+      "subject": "english",
+      "topic": "family"
+    },
+    {
+      "id": "e-w03-004",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "My father and mother are my ___.",
+      "options": [
+        "parents",
+        "pencils",
+        "apples"
+      ],
+      "answer": "parents",
+      "subject": "english",
+      "topic": "family"
+    },
+    {
+      "id": "e-w03-005",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "Which word means “姐姐/妹妹”?",
+      "options": [
+        "sister",
+        "brother",
+        "grandpa"
+      ],
+      "answer": "sister",
+      "subject": "english",
+      "topic": "family"
+    },
+    {
+      "id": "e-w03-006",
+      "difficulty": 1,
+      "type": "input",
+      "stem": "Write the English word: 妈妈",
+      "answer": "mother",
+      "subject": "english",
+      "topic": "family"
+    },
+    {
+      "id": "e-w03-007",
+      "difficulty": 1,
+      "type": "input",
+      "stem": "Write the English word: 爸爸",
+      "answer": "father",
+      "subject": "english",
+      "topic": "family"
+    },
+    {
+      "id": "e-w03-008",
+      "difficulty": 1,
+      "type": "input",
+      "stem": "My grandpa is my ___.",
+      "answer": "grandpa",
+      "subject": "english",
+      "topic": "family"
+    },
+    {
+      "id": "e-w03-009",
+      "difficulty": 2,
+      "type": "input",
+      "stem": "My grandma is my ___.",
+      "answer": "grandma",
+      "subject": "english",
+      "topic": "family"
+    },
+    {
+      "id": "e-w03-010",
+      "difficulty": 2,
+      "type": "choice",
+      "stem": "Which one is a family member?",
+      "options": [
+        "sister",
+        "book",
+        "bus",
+        "apple"
+      ],
+      "answer": "sister",
+      "subject": "english",
+      "topic": "family"
+    },
+    {
+      "id": "e-w03-011",
+      "difficulty": 2,
+      "type": "choice",
+      "stem": "This is my brother. “brother” means ___.",
+      "options": [
+        "哥哥/弟弟",
+        "妈妈",
+        "奶奶"
+      ],
+      "answer": "哥哥/弟弟",
+      "subject": "english",
+      "topic": "family"
+    },
+    {
+      "id": "e-w03-012",
+      "difficulty": 1,
+      "type": "image-choice",
+      "stem": "What is this?",
+      "stemImage": "/assets/quiz/dog.svg",
+      "options": [
+        "dog",
+        "father",
+        "book"
+      ],
+      "answer": "dog",
+      "subject": "english",
+      "topic": "family"
+    },
+    {
+      "id": "e-w03-013",
+      "difficulty": 1,
+      "type": "image-choice",
+      "stem": "What is this?",
+      "stemImage": "/assets/quiz/horse.svg",
+      "options": [
+        "horse",
+        "mother",
+        "desk"
+      ],
+      "answer": "horse",
+      "subject": "english",
+      "topic": "family"
+    },
+    {
+      "id": "e-w03-014",
+      "difficulty": 2,
+      "type": "ordering",
+      "stem": "Sort the letters to make “father”",
+      "items": [
+        "t",
+        "f",
+        "h",
+        "a",
+        "e",
+        "r"
+      ],
+      "correctOrder": [
+        1,
+        3,
+        0,
+        2,
+        4,
+        5
+      ],
+      "answer": "1,3,0,2,4,5",
+      "subject": "english",
+      "topic": "family"
+    },
+    {
+      "id": "e-w03-015",
+      "difficulty": 2,
+      "type": "ordering",
+      "stem": "Sort the letters in ABC order: f / c / e / d",
+      "items": [
+        "f",
+        "c",
+        "e",
+        "d"
+      ],
+      "correctOrder": [
+        1,
+        3,
+        2,
+        0
+      ],
+      "answer": "1,3,2,0",
+      "subject": "english",
+      "topic": "family"
+    }
+  ]
+}

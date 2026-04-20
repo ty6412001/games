@@ -1,0 +1,752 @@
+{
+  "week": 7,
+  "title": "第7周 · 100以内进位加法 / 词语搭配与排序 / Body parts · 55题综合卷",
+  "boss": {
+    "id": "king-of-mons",
+    "name": "怪兽之王",
+    "hp": 4200
+  },
+  "questions": [
+    {
+      "id": "m-w07-001",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "28 + 7 = ?",
+      "options": [
+        "34",
+        "35",
+        "36",
+        "37"
+      ],
+      "answer": "35",
+      "subject": "math",
+      "topic": "100以内进位加法"
+    },
+    {
+      "id": "m-w07-002",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "36 + 8 = ?",
+      "options": [
+        "42",
+        "43",
+        "44",
+        "45"
+      ],
+      "answer": "44",
+      "subject": "math",
+      "topic": "100以内进位加法"
+    },
+    {
+      "id": "m-w07-003",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "47 + 6 = ?",
+      "options": [
+        "52",
+        "53",
+        "54",
+        "55"
+      ],
+      "answer": "53",
+      "subject": "math",
+      "topic": "100以内进位加法"
+    },
+    {
+      "id": "m-w07-004",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "59 + 4 = ?",
+      "options": [
+        "62",
+        "63",
+        "64",
+        "65"
+      ],
+      "answer": "63",
+      "subject": "math",
+      "topic": "100以内进位加法"
+    },
+    {
+      "id": "m-w07-005",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "18 + 5 = ?",
+      "options": [
+        "22",
+        "23",
+        "24",
+        "25"
+      ],
+      "answer": "23",
+      "subject": "math",
+      "topic": "100以内进位加法"
+    },
+    {
+      "id": "m-w07-006",
+      "difficulty": 1,
+      "type": "input",
+      "stem": "27 + 8 = ?",
+      "answer": "35",
+      "subject": "math",
+      "topic": "100以内进位加法"
+    },
+    {
+      "id": "m-w07-007",
+      "difficulty": 1,
+      "type": "input",
+      "stem": "48 + 5 = ?",
+      "answer": "53",
+      "subject": "math",
+      "topic": "100以内进位加法"
+    },
+    {
+      "id": "m-w07-008",
+      "difficulty": 1,
+      "type": "input",
+      "stem": "56 + 7 = ?",
+      "answer": "63",
+      "subject": "math",
+      "topic": "100以内进位加法"
+    },
+    {
+      "id": "m-w07-009",
+      "difficulty": 1,
+      "type": "input",
+      "stem": "39 + 4 = ?",
+      "answer": "43",
+      "subject": "math",
+      "topic": "100以内进位加法"
+    },
+    {
+      "id": "m-w07-010",
+      "difficulty": 2,
+      "type": "input",
+      "stem": "68 + 6 = ?",
+      "answer": "74",
+      "subject": "math",
+      "topic": "100以内进位加法"
+    },
+    {
+      "id": "m-w07-011",
+      "difficulty": 2,
+      "type": "choice",
+      "stem": "下面哪个算式得数是 41？",
+      "options": [
+        "34 + 7",
+        "35 + 5",
+        "33 + 7",
+        "28 + 9"
+      ],
+      "answer": "34 + 7",
+      "subject": "math",
+      "topic": "100以内进位加法"
+    },
+    {
+      "id": "m-w07-012",
+      "difficulty": 2,
+      "type": "choice",
+      "stem": "29 + 3 的计算要先怎样想？",
+      "options": [
+        "先凑成 30",
+        "先减 1",
+        "先数到 100"
+      ],
+      "answer": "先凑成 30",
+      "subject": "math",
+      "topic": "100以内进位加法"
+    },
+    {
+      "id": "m-w07-013",
+      "difficulty": 1,
+      "type": "image-choice",
+      "stem": "图中有 7 个苹果，再加 3 个，一共几个？",
+      "stemImage": "/assets/quiz/apples-7.svg",
+      "options": [
+        "9",
+        "10",
+        "11",
+        "12"
+      ],
+      "answer": "10",
+      "subject": "math",
+      "topic": "100以内进位加法"
+    },
+    {
+      "id": "m-w07-014",
+      "difficulty": 1,
+      "type": "image-choice",
+      "stem": "图中有 4 颗星星，再加 7 颗，一共几颗？",
+      "stemImage": "/assets/quiz/stars-4.svg",
+      "options": [
+        "9",
+        "10",
+        "11",
+        "12"
+      ],
+      "answer": "11",
+      "subject": "math",
+      "topic": "100以内进位加法"
+    },
+    {
+      "id": "m-w07-015",
+      "difficulty": 2,
+      "type": "choice",
+      "stem": "下面哪个得数最大？",
+      "options": [
+        "28 + 7",
+        "36 + 8",
+        "47 + 6",
+        "18 + 5"
+      ],
+      "answer": "47 + 6",
+      "subject": "math",
+      "topic": "100以内进位加法"
+    },
+    {
+      "id": "m-w07-016",
+      "difficulty": 2,
+      "type": "ordering",
+      "stem": "把这些得数从小到大排好：18+5，28+7，36+8，47+6",
+      "items": [
+        "23",
+        "35",
+        "44",
+        "53"
+      ],
+      "correctOrder": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "answer": "0,1,2,3",
+      "subject": "math",
+      "topic": "100以内进位加法"
+    },
+    {
+      "id": "m-w07-017",
+      "difficulty": 2,
+      "type": "ordering",
+      "stem": "把这些数从大到小排好：35，44，53，23",
+      "items": [
+        "35",
+        "44",
+        "53",
+        "23"
+      ],
+      "correctOrder": [
+        2,
+        1,
+        0,
+        3
+      ],
+      "answer": "2,1,0,3",
+      "subject": "math",
+      "topic": "100以内进位加法"
+    },
+    {
+      "id": "m-w07-018",
+      "difficulty": 3,
+      "type": "input",
+      "stem": "一班有 28 人，二班有 7 人，两个班一共有多少人？",
+      "answer": "35",
+      "subject": "math",
+      "topic": "100以内进位加法"
+    },
+    {
+      "id": "m-w07-019",
+      "difficulty": 3,
+      "type": "input",
+      "stem": "盒子里有 39 个球，又放进 4 个，现在有多少个？",
+      "answer": "43",
+      "subject": "math",
+      "topic": "100以内进位加法"
+    },
+    {
+      "id": "m-w07-020",
+      "difficulty": 3,
+      "type": "choice",
+      "stem": "下面哪道算式得数最接近 50？",
+      "options": [
+        "28 + 7",
+        "36 + 8",
+        "47 + 6",
+        "39 + 4"
+      ],
+      "answer": "47 + 6",
+      "subject": "math",
+      "topic": "100以内进位加法"
+    },
+    {
+      "id": "c-w07-001",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "下面哪个搭配最合适？",
+      "options": [
+        "明亮的教室",
+        "明亮的苹果",
+        "明亮的跑步"
+      ],
+      "answer": "明亮的教室",
+      "subject": "chinese",
+      "topic": "词语搭配与句子排序"
+    },
+    {
+      "id": "c-w07-002",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "下面哪个搭配最合适？",
+      "options": [
+        "绿色的草地",
+        "绿色的声音",
+        "绿色的读书"
+      ],
+      "answer": "绿色的草地",
+      "subject": "chinese",
+      "topic": "词语搭配与句子排序"
+    },
+    {
+      "id": "c-w07-003",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "下面哪个搭配最合适？",
+      "options": [
+        "清清的河水",
+        "清清的桌子",
+        "清清的书包"
+      ],
+      "answer": "清清的河水",
+      "subject": "chinese",
+      "topic": "词语搭配与句子排序"
+    },
+    {
+      "id": "c-w07-004",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "“高高的”后面常接什么？",
+      "options": [
+        "大树",
+        "声音",
+        "跑步"
+      ],
+      "answer": "大树",
+      "subject": "chinese",
+      "topic": "词语搭配与句子排序"
+    },
+    {
+      "id": "c-w07-005",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "“认真地”后面常接什么？",
+      "options": [
+        "读书",
+        "小鸟",
+        "苹果"
+      ],
+      "answer": "读书",
+      "subject": "chinese",
+      "topic": "词语搭配与句子排序"
+    },
+    {
+      "id": "c-w07-006",
+      "difficulty": 1,
+      "type": "input",
+      "stem": "补充词语：蓝蓝的___",
+      "answer": "天空",
+      "subject": "chinese",
+      "topic": "词语搭配与句子排序"
+    },
+    {
+      "id": "c-w07-007",
+      "difficulty": 1,
+      "type": "input",
+      "stem": "补充词语：弯弯的___",
+      "answer": "小路",
+      "subject": "chinese",
+      "topic": "词语搭配与句子排序"
+    },
+    {
+      "id": "c-w07-008",
+      "difficulty": 1,
+      "type": "input",
+      "stem": "补充词语：快乐地___",
+      "answer": "唱歌",
+      "subject": "chinese",
+      "topic": "词语搭配与句子排序"
+    },
+    {
+      "id": "c-w07-009",
+      "difficulty": 1,
+      "type": "input",
+      "stem": "补充词语：轻轻地___",
+      "answer": "走",
+      "subject": "chinese",
+      "topic": "词语搭配与句子排序"
+    },
+    {
+      "id": "c-w07-010",
+      "difficulty": 2,
+      "type": "choice",
+      "stem": "下面哪句话词语搭配正确？",
+      "options": [
+        "小鸟在天空飞。",
+        "天空在小鸟飞。",
+        "飞小鸟在天空。"
+      ],
+      "answer": "小鸟在天空飞。",
+      "subject": "chinese",
+      "topic": "词语搭配与句子排序"
+    },
+    {
+      "id": "c-w07-011",
+      "difficulty": 2,
+      "type": "choice",
+      "stem": "“红红的”最适合搭配什么？",
+      "options": [
+        "苹果",
+        "河水",
+        "草地"
+      ],
+      "answer": "苹果",
+      "subject": "chinese",
+      "topic": "词语搭配与句子排序"
+    },
+    {
+      "id": "c-w07-012",
+      "difficulty": 1,
+      "type": "image-choice",
+      "stem": "看图选词语：",
+      "stemImage": "/assets/quiz/apple.svg",
+      "options": [
+        "红红的苹果",
+        "蓝蓝的苹果",
+        "高高的苹果"
+      ],
+      "answer": "红红的苹果",
+      "subject": "chinese",
+      "topic": "词语搭配与句子排序"
+    },
+    {
+      "id": "c-w07-013",
+      "difficulty": 1,
+      "type": "image-choice",
+      "stem": "看图选词语：",
+      "stemImage": "/assets/quiz/sunflower.svg",
+      "options": [
+        "美丽的花",
+        "弯弯的小路",
+        "安静的教室"
+      ],
+      "answer": "美丽的花",
+      "subject": "chinese",
+      "topic": "词语搭配与句子排序"
+    },
+    {
+      "id": "c-w07-014",
+      "difficulty": 1,
+      "type": "image-choice",
+      "stem": "看图选句子：",
+      "stemImage": "/assets/quiz/horse.svg",
+      "options": [
+        "小马在跑。",
+        "小马在看书。",
+        "小马在睡觉。"
+      ],
+      "answer": "小马在跑。",
+      "subject": "chinese",
+      "topic": "词语搭配与句子排序"
+    },
+    {
+      "id": "c-w07-015",
+      "difficulty": 2,
+      "type": "choice",
+      "stem": "“我们认真地写字。”句中表示动作的是？",
+      "options": [
+        "我们",
+        "认真地",
+        "写字"
+      ],
+      "answer": "写字",
+      "subject": "chinese",
+      "topic": "词语搭配与句子排序"
+    },
+    {
+      "id": "c-w07-016",
+      "difficulty": 2,
+      "type": "ordering",
+      "stem": "把词语排成句子：我们 / 在操场上 / 做游戏",
+      "items": [
+        "做游戏",
+        "在操场上",
+        "我们"
+      ],
+      "correctOrder": [
+        2,
+        1,
+        0
+      ],
+      "answer": "2,1,0",
+      "subject": "chinese",
+      "topic": "词语搭配与句子排序"
+    },
+    {
+      "id": "c-w07-017",
+      "difficulty": 2,
+      "type": "ordering",
+      "stem": "把词语排成句子：小鱼 / 在河里 / 游来游去",
+      "items": [
+        "游来游去",
+        "小鱼",
+        "在河里"
+      ],
+      "correctOrder": [
+        1,
+        2,
+        0
+      ],
+      "answer": "1,2,0",
+      "subject": "chinese",
+      "topic": "词语搭配与句子排序"
+    },
+    {
+      "id": "c-w07-018",
+      "difficulty": 3,
+      "type": "input",
+      "stem": "“高高的___”填一个常见词语",
+      "answer": "大树",
+      "subject": "chinese",
+      "topic": "词语搭配与句子排序"
+    },
+    {
+      "id": "c-w07-019",
+      "difficulty": 3,
+      "type": "input",
+      "stem": "“认真地___”填一个常见动作",
+      "answer": "写字",
+      "subject": "chinese",
+      "topic": "词语搭配与句子排序"
+    },
+    {
+      "id": "c-w07-020",
+      "difficulty": 3,
+      "type": "choice",
+      "stem": "下面哪句话最通顺？",
+      "options": [
+        "同学们在教室里认真地读书。",
+        "读书同学们认真地教室里。",
+        "教室里认真同学们读书地。"
+      ],
+      "answer": "同学们在教室里认真地读书。",
+      "subject": "chinese",
+      "topic": "词语搭配与句子排序"
+    },
+    {
+      "id": "e-w07-001",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "We see with our ___.",
+      "options": [
+        "eyes",
+        "ears",
+        "hands"
+      ],
+      "answer": "eyes",
+      "subject": "english",
+      "topic": "body parts"
+    },
+    {
+      "id": "e-w07-002",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "We hear with our ___.",
+      "options": [
+        "ears",
+        "eyes",
+        "legs"
+      ],
+      "answer": "ears",
+      "subject": "english",
+      "topic": "body parts"
+    },
+    {
+      "id": "e-w07-003",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "We walk with our ___.",
+      "options": [
+        "legs",
+        "nose",
+        "mouth"
+      ],
+      "answer": "legs",
+      "subject": "english",
+      "topic": "body parts"
+    },
+    {
+      "id": "e-w07-004",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "We clap with our ___.",
+      "options": [
+        "hands",
+        "feet",
+        "hair"
+      ],
+      "answer": "hands",
+      "subject": "english",
+      "topic": "body parts"
+    },
+    {
+      "id": "e-w07-005",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "We smell with our ___.",
+      "options": [
+        "nose",
+        "mouth",
+        "eyes"
+      ],
+      "answer": "nose",
+      "subject": "english",
+      "topic": "body parts"
+    },
+    {
+      "id": "e-w07-006",
+      "difficulty": 1,
+      "type": "input",
+      "stem": "Write the English word: 眼睛",
+      "answer": "eyes",
+      "subject": "english",
+      "topic": "body parts"
+    },
+    {
+      "id": "e-w07-007",
+      "difficulty": 1,
+      "type": "input",
+      "stem": "Write the English word: 耳朵",
+      "answer": "ears",
+      "subject": "english",
+      "topic": "body parts"
+    },
+    {
+      "id": "e-w07-008",
+      "difficulty": 1,
+      "type": "input",
+      "stem": "Write the English word: 手",
+      "answer": "hands",
+      "subject": "english",
+      "topic": "body parts"
+    },
+    {
+      "id": "e-w07-009",
+      "difficulty": 2,
+      "type": "input",
+      "stem": "Write the English word: 腿",
+      "answer": "legs",
+      "subject": "english",
+      "topic": "body parts"
+    },
+    {
+      "id": "e-w07-010",
+      "difficulty": 2,
+      "type": "choice",
+      "stem": "Which one is a body part?",
+      "options": [
+        "nose",
+        "book",
+        "apple",
+        "bus"
+      ],
+      "answer": "nose",
+      "subject": "english",
+      "topic": "body parts"
+    },
+    {
+      "id": "e-w07-011",
+      "difficulty": 2,
+      "type": "choice",
+      "stem": "I eat with my ___.",
+      "options": [
+        "mouth",
+        "ears",
+        "eyes"
+      ],
+      "answer": "mouth",
+      "subject": "english",
+      "topic": "body parts"
+    },
+    {
+      "id": "e-w07-012",
+      "difficulty": 1,
+      "type": "image-choice",
+      "stem": "What animal is this?",
+      "stemImage": "/assets/quiz/dog.svg",
+      "options": [
+        "dog",
+        "nose",
+        "book"
+      ],
+      "answer": "dog",
+      "subject": "english",
+      "topic": "body parts"
+    },
+    {
+      "id": "e-w07-013",
+      "difficulty": 1,
+      "type": "image-choice",
+      "stem": "What animal is this?",
+      "stemImage": "/assets/quiz/horse.svg",
+      "options": [
+        "horse",
+        "hands",
+        "eyes"
+      ],
+      "answer": "horse",
+      "subject": "english",
+      "topic": "body parts"
+    },
+    {
+      "id": "e-w07-014",
+      "difficulty": 2,
+      "type": "ordering",
+      "stem": "Sort the letters to make “nose”",
+      "items": [
+        "s",
+        "n",
+        "e",
+        "o"
+      ],
+      "correctOrder": [
+        1,
+        3,
+        0,
+        2
+      ],
+      "answer": "1,3,0,2",
+      "subject": "english",
+      "topic": "body parts"
+    },
+    {
+      "id": "e-w07-015",
+      "difficulty": 2,
+      "type": "ordering",
+      "stem": "Sort the letters in ABC order: n / q / p / o",
+      "items": [
+        "n",
+        "q",
+        "p",
+        "o"
+      ],
+      "correctOrder": [
+        0,
+        3,
+        2,
+        1
+      ],
+      "answer": "0,3,2,1",
+      "subject": "english",
+      "topic": "body parts"
+    }
+  ]
+}

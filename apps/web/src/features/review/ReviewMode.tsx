@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import type { Question, WrongBookEntry } from '@ultraman/shared';
 
 import { listActive, markMastered } from '../../data/repo/wrongBookRepo';
+import { useGameStore } from '../../stores/gameStore';
 
 type Props = {
   childId: string;
@@ -160,6 +161,68 @@ const ReviewShell = ({
         </button>
       </header>
       <div className="min-h-0 flex-1 overflow-y-auto">{children}</div>
+      <ResetProgressFooter />
     </div>
   </div>
 );
+
+const ResetProgressFooter = () => {
+  const resetCorrectBook = useGameStore((s) => s.resetCorrectBook);
+  const [confirming, setConfirming] = useState(false);
+  const [resetting, setResetting] = useState(false);
+
+  const handleConfirm = async () => {
+    if (resetting) return;
+    setResetting(true);
+    try {
+      await resetCorrectBook();
+    } finally {
+      setResetting(false);
+      setConfirming(false);
+    }
+  };
+
+  if (!confirming) {
+    return (
+      <button
+        type="button"
+        onClick={() => setConfirming(true)}
+        className="mt-2 self-end rounded-xl bg-slate-900/80 px-4 py-2 text-xs text-slate-400 hover:bg-slate-800"
+      >
+        🗑️ 清除学习进度
+      </button>
+    );
+  }
+
+  return (
+    <div
+      role="dialog"
+      aria-label="确认清除学习进度"
+      className="mt-2 rounded-2xl bg-slate-900/90 p-4 ring-1 ring-rose-500/60"
+    >
+      <p className="text-sm text-slate-200">
+        这会清空本孩子所有答对记录，下次开局题目会重新出现。确定吗？
+      </p>
+      <div className="mt-3 flex justify-end gap-2">
+        <button
+          type="button"
+          onClick={() => setConfirming(false)}
+          disabled={resetting}
+          className="rounded-xl bg-slate-800 px-4 py-2 text-sm"
+        >
+          取消
+        </button>
+        <button
+          type="button"
+          onClick={() => {
+            void handleConfirm();
+          }}
+          disabled={resetting}
+          className="rounded-xl bg-rose-600 px-4 py-2 text-sm font-bold text-white disabled:opacity-60"
+        >
+          {resetting ? '清除中…' : '确定清除'}
+        </button>
+      </div>
+    </div>
+  );
+};

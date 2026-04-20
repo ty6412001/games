@@ -1,7 +1,9 @@
 import type { Tile } from '@ultraman/shared';
 import { BOARD_SIZE } from '@ultraman/shared';
 
-export type DiceRoll = 1 | 2 | 3 | 4 | 5 | 6;
+export type DiceRoll = 1 | 2 | 3 | 4 | 5 | 6 | 7;
+
+export const MAX_DICE_FACES = 7;
 
 export type LandingEvent =
   | { kind: 'start' }
@@ -16,9 +18,12 @@ export type LandingEvent =
 
 type RandomFn = () => number;
 
-export const rollDice = (rand: RandomFn = Math.random): DiceRoll => {
-  const n = Math.floor(rand() * 6) + 1;
-  if (n < 1 || n > 6) {
+export const rollDice = (rand: RandomFn = Math.random, max: number = 6): DiceRoll => {
+  if (max < 1 || max > MAX_DICE_FACES) {
+    throw new Error(`dice max out of range: ${max}`);
+  }
+  const n = Math.floor(rand() * max) + 1;
+  if (n < 1 || n > max) {
     throw new Error(`dice roll out of range: ${n}`);
   }
   return n as DiceRoll;
@@ -28,7 +33,7 @@ export const advancePosition = (current: number, steps: number): number => {
   if (current < 0 || current >= BOARD_SIZE) {
     throw new Error(`invalid current position: ${current}`);
   }
-  if (steps < 1 || steps > 6) {
+  if (steps < 1 || steps > MAX_DICE_FACES) {
     throw new Error(`invalid step count: ${steps}`);
   }
   return (current + steps) % BOARD_SIZE;

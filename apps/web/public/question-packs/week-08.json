@@ -1,0 +1,752 @@
+{
+  "week": 8,
+  "title": "第8周 · 100以内退位减法 / 标点与看图说话 / Daily actions · 55题综合卷",
+  "boss": {
+    "id": "skydon",
+    "name": "斯卡伊冬",
+    "hp": 4400
+  },
+  "questions": [
+    {
+      "id": "m-w08-001",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "52 - 7 = ?",
+      "options": [
+        "44",
+        "45",
+        "46",
+        "47"
+      ],
+      "answer": "45",
+      "subject": "math",
+      "topic": "100以内退位减法"
+    },
+    {
+      "id": "m-w08-002",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "61 - 8 = ?",
+      "options": [
+        "52",
+        "53",
+        "54",
+        "55"
+      ],
+      "answer": "53",
+      "subject": "math",
+      "topic": "100以内退位减法"
+    },
+    {
+      "id": "m-w08-003",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "70 - 9 = ?",
+      "options": [
+        "60",
+        "61",
+        "62",
+        "63"
+      ],
+      "answer": "61",
+      "subject": "math",
+      "topic": "100以内退位减法"
+    },
+    {
+      "id": "m-w08-004",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "43 - 5 = ?",
+      "options": [
+        "37",
+        "38",
+        "39",
+        "40"
+      ],
+      "answer": "38",
+      "subject": "math",
+      "topic": "100以内退位减法"
+    },
+    {
+      "id": "m-w08-005",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "84 - 6 = ?",
+      "options": [
+        "76",
+        "77",
+        "78",
+        "79"
+      ],
+      "answer": "78",
+      "subject": "math",
+      "topic": "100以内退位减法"
+    },
+    {
+      "id": "m-w08-006",
+      "difficulty": 1,
+      "type": "input",
+      "stem": "53 - 8 = ?",
+      "answer": "45",
+      "subject": "math",
+      "topic": "100以内退位减法"
+    },
+    {
+      "id": "m-w08-007",
+      "difficulty": 1,
+      "type": "input",
+      "stem": "62 - 7 = ?",
+      "answer": "55",
+      "subject": "math",
+      "topic": "100以内退位减法"
+    },
+    {
+      "id": "m-w08-008",
+      "difficulty": 1,
+      "type": "input",
+      "stem": "71 - 6 = ?",
+      "answer": "65",
+      "subject": "math",
+      "topic": "100以内退位减法"
+    },
+    {
+      "id": "m-w08-009",
+      "difficulty": 1,
+      "type": "input",
+      "stem": "44 - 9 = ?",
+      "answer": "35",
+      "subject": "math",
+      "topic": "100以内退位减法"
+    },
+    {
+      "id": "m-w08-010",
+      "difficulty": 2,
+      "type": "input",
+      "stem": "90 - 8 = ?",
+      "answer": "82",
+      "subject": "math",
+      "topic": "100以内退位减法"
+    },
+    {
+      "id": "m-w08-011",
+      "difficulty": 2,
+      "type": "choice",
+      "stem": "下面哪个算式得数是 36？",
+      "options": [
+        "45 - 9",
+        "43 - 6",
+        "52 - 8",
+        "61 - 7"
+      ],
+      "answer": "45 - 9",
+      "subject": "math",
+      "topic": "100以内退位减法"
+    },
+    {
+      "id": "m-w08-012",
+      "difficulty": 2,
+      "type": "choice",
+      "stem": "70 - 9 的结果比 60？",
+      "options": [
+        "大",
+        "小",
+        "一样大"
+      ],
+      "answer": "大",
+      "subject": "math",
+      "topic": "100以内退位减法"
+    },
+    {
+      "id": "m-w08-013",
+      "difficulty": 1,
+      "type": "image-choice",
+      "stem": "图里有 7 个苹果，拿走 4 个，还剩几个？",
+      "stemImage": "/assets/quiz/apples-7.svg",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "answer": "3",
+      "subject": "math",
+      "topic": "100以内退位减法"
+    },
+    {
+      "id": "m-w08-014",
+      "difficulty": 1,
+      "type": "image-choice",
+      "stem": "图里有 4 颗星星，去掉 3 颗，还剩几颗？",
+      "stemImage": "/assets/quiz/stars-4.svg",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "answer": "1",
+      "subject": "math",
+      "topic": "100以内退位减法"
+    },
+    {
+      "id": "m-w08-015",
+      "difficulty": 2,
+      "type": "choice",
+      "stem": "下面哪道算式得数最小？",
+      "options": [
+        "52 - 7",
+        "61 - 8",
+        "43 - 5",
+        "84 - 6"
+      ],
+      "answer": "43 - 5",
+      "subject": "math",
+      "topic": "100以内退位减法"
+    },
+    {
+      "id": "m-w08-016",
+      "difficulty": 2,
+      "type": "ordering",
+      "stem": "把这些得数从小到大排好：52-7，61-8，43-5，84-6",
+      "items": [
+        "45",
+        "53",
+        "38",
+        "78"
+      ],
+      "correctOrder": [
+        2,
+        0,
+        1,
+        3
+      ],
+      "answer": "2,0,1,3",
+      "subject": "math",
+      "topic": "100以内退位减法"
+    },
+    {
+      "id": "m-w08-017",
+      "difficulty": 2,
+      "type": "ordering",
+      "stem": "把这些数从大到小排好：45，53，38，78",
+      "items": [
+        "45",
+        "53",
+        "38",
+        "78"
+      ],
+      "correctOrder": [
+        3,
+        1,
+        0,
+        2
+      ],
+      "answer": "3,1,0,2",
+      "subject": "math",
+      "topic": "100以内退位减法"
+    },
+    {
+      "id": "m-w08-018",
+      "difficulty": 3,
+      "type": "input",
+      "stem": "车上原来有 61 人，下去 8 人，还剩多少人？",
+      "answer": "53",
+      "subject": "math",
+      "topic": "100以内退位减法"
+    },
+    {
+      "id": "m-w08-019",
+      "difficulty": 3,
+      "type": "input",
+      "stem": "书架上有 52 本书，借走 7 本，还剩多少本？",
+      "answer": "45",
+      "subject": "math",
+      "topic": "100以内退位减法"
+    },
+    {
+      "id": "m-w08-020",
+      "difficulty": 3,
+      "type": "choice",
+      "stem": "下面哪个数离 50 最近？",
+      "options": [
+        "52 - 7",
+        "61 - 8",
+        "70 - 9",
+        "84 - 6"
+      ],
+      "answer": "61 - 8",
+      "subject": "math",
+      "topic": "100以内退位减法"
+    },
+    {
+      "id": "c-w08-001",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "说一句完整的话，句末一般用？",
+      "options": [
+        "。",
+        "，",
+        "、"
+      ],
+      "answer": "。",
+      "subject": "chinese",
+      "topic": "标点与看图说话"
+    },
+    {
+      "id": "c-w08-002",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "表示疑问时，句末常用？",
+      "options": [
+        "？",
+        "。",
+        "！"
+      ],
+      "answer": "？",
+      "subject": "chinese",
+      "topic": "标点与看图说话"
+    },
+    {
+      "id": "c-w08-003",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "表示感叹时，句末常用？",
+      "options": [
+        "！",
+        "？",
+        "。"
+      ],
+      "answer": "！",
+      "subject": "chinese",
+      "topic": "标点与看图说话"
+    },
+    {
+      "id": "c-w08-004",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "“今天天气真好___”句末应填？",
+      "options": [
+        "！",
+        "？",
+        "，"
+      ],
+      "answer": "！",
+      "subject": "chinese",
+      "topic": "标点与看图说话"
+    },
+    {
+      "id": "c-w08-005",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "“你吃饭了吗___”句末应填？",
+      "options": [
+        "？",
+        "。",
+        "！"
+      ],
+      "answer": "？",
+      "subject": "chinese",
+      "topic": "标点与看图说话"
+    },
+    {
+      "id": "c-w08-006",
+      "difficulty": 1,
+      "type": "input",
+      "stem": "“我爱读书”句末加什么标点？",
+      "answer": "。",
+      "subject": "chinese",
+      "topic": "标点与看图说话"
+    },
+    {
+      "id": "c-w08-007",
+      "difficulty": 1,
+      "type": "input",
+      "stem": "“这朵花多美呀”句末加什么标点？",
+      "answer": "！",
+      "subject": "chinese",
+      "topic": "标点与看图说话"
+    },
+    {
+      "id": "c-w08-008",
+      "difficulty": 1,
+      "type": "input",
+      "stem": "“你叫什么名字”句末加什么标点？",
+      "answer": "？",
+      "subject": "chinese",
+      "topic": "标点与看图说话"
+    },
+    {
+      "id": "c-w08-009",
+      "difficulty": 1,
+      "type": "input",
+      "stem": "“小鱼在河里游”句末加什么标点？",
+      "answer": "。",
+      "subject": "chinese",
+      "topic": "标点与看图说话"
+    },
+    {
+      "id": "c-w08-010",
+      "difficulty": 2,
+      "type": "choice",
+      "stem": "下面哪句标点用得对？",
+      "options": [
+        "你好吗？",
+        "你好吗。",
+        "你好吗！"
+      ],
+      "answer": "你好吗？",
+      "subject": "chinese",
+      "topic": "标点与看图说话"
+    },
+    {
+      "id": "c-w08-011",
+      "difficulty": 2,
+      "type": "choice",
+      "stem": "下面哪句标点用得对？",
+      "options": [
+        "花儿真美啊！",
+        "花儿真美啊。",
+        "花儿真美啊？"
+      ],
+      "answer": "花儿真美啊！",
+      "subject": "chinese",
+      "topic": "标点与看图说话"
+    },
+    {
+      "id": "c-w08-012",
+      "difficulty": 1,
+      "type": "image-choice",
+      "stem": "看图选句子：",
+      "stemImage": "/assets/quiz/horse.svg",
+      "options": [
+        "小马在跑。",
+        "小马在看书？",
+        "小马真快！"
+      ],
+      "answer": "小马在跑。",
+      "subject": "chinese",
+      "topic": "标点与看图说话"
+    },
+    {
+      "id": "c-w08-013",
+      "difficulty": 1,
+      "type": "image-choice",
+      "stem": "看图选句子：",
+      "stemImage": "/assets/quiz/sunflower.svg",
+      "options": [
+        "花开了。",
+        "花开了吗？",
+        "花真美啊！"
+      ],
+      "answer": "花真美啊！",
+      "subject": "chinese",
+      "topic": "标点与看图说话"
+    },
+    {
+      "id": "c-w08-014",
+      "difficulty": 1,
+      "type": "image-choice",
+      "stem": "看图选句子：",
+      "stemImage": "/assets/quiz/apple.svg",
+      "options": [
+        "这是苹果。",
+        "这是苹果？",
+        "这是苹果！"
+      ],
+      "answer": "这是苹果。",
+      "subject": "chinese",
+      "topic": "标点与看图说话"
+    },
+    {
+      "id": "c-w08-015",
+      "difficulty": 2,
+      "type": "choice",
+      "stem": "“今天下雨了吗？”这句话是在？",
+      "options": [
+        "提问",
+        "介绍",
+        "命令"
+      ],
+      "answer": "提问",
+      "subject": "chinese",
+      "topic": "标点与看图说话"
+    },
+    {
+      "id": "c-w08-016",
+      "difficulty": 2,
+      "type": "ordering",
+      "stem": "把词语排成句子：我们 / 一起 / 去春游",
+      "items": [
+        "一起",
+        "去春游",
+        "我们"
+      ],
+      "correctOrder": [
+        2,
+        0,
+        1
+      ],
+      "answer": "2,0,1",
+      "subject": "chinese",
+      "topic": "标点与看图说话"
+    },
+    {
+      "id": "c-w08-017",
+      "difficulty": 2,
+      "type": "ordering",
+      "stem": "把词语排成句子：小鸟 / 在树上 / 唱歌",
+      "items": [
+        "唱歌",
+        "小鸟",
+        "在树上"
+      ],
+      "correctOrder": [
+        1,
+        2,
+        0
+      ],
+      "answer": "1,2,0",
+      "subject": "chinese",
+      "topic": "标点与看图说话"
+    },
+    {
+      "id": "c-w08-018",
+      "difficulty": 3,
+      "type": "input",
+      "stem": "看见美丽的花，你会说“花真美啊”句末用什么标点？",
+      "answer": "！",
+      "subject": "chinese",
+      "topic": "标点与看图说话"
+    },
+    {
+      "id": "c-w08-019",
+      "difficulty": 3,
+      "type": "input",
+      "stem": "想问别人“你是谁”，句末用什么标点？",
+      "answer": "？",
+      "subject": "chinese",
+      "topic": "标点与看图说话"
+    },
+    {
+      "id": "c-w08-020",
+      "difficulty": 3,
+      "type": "choice",
+      "stem": "下面哪句话最合适做看图说话？",
+      "options": [
+        "草地上有一匹小马，它在快乐地奔跑。",
+        "小马草地上。",
+        "奔跑小马快乐地。"
+      ],
+      "answer": "草地上有一匹小马，它在快乐地奔跑。",
+      "subject": "chinese",
+      "topic": "标点与看图说话"
+    },
+    {
+      "id": "e-w08-001",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "I ___ in the morning.",
+      "options": [
+        "get up",
+        "apple",
+        "blue"
+      ],
+      "answer": "get up",
+      "subject": "english",
+      "topic": "daily actions"
+    },
+    {
+      "id": "e-w08-002",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "We ___ books at school.",
+      "options": [
+        "read",
+        "eat with eyes",
+        "sleep on the bus"
+      ],
+      "answer": "read",
+      "subject": "english",
+      "topic": "daily actions"
+    },
+    {
+      "id": "e-w08-003",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "I ___ to school.",
+      "options": [
+        "go",
+        "milk",
+        "dog"
+      ],
+      "answer": "go",
+      "subject": "english",
+      "topic": "daily actions"
+    },
+    {
+      "id": "e-w08-004",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "Before bed, I ___.",
+      "options": [
+        "sleep",
+        "run to school",
+        "draw a bus"
+      ],
+      "answer": "sleep",
+      "subject": "english",
+      "topic": "daily actions"
+    },
+    {
+      "id": "e-w08-005",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "I ___ my hands before eating.",
+      "options": [
+        "wash",
+        "book",
+        "horse"
+      ],
+      "answer": "wash",
+      "subject": "english",
+      "topic": "daily actions"
+    },
+    {
+      "id": "e-w08-006",
+      "difficulty": 1,
+      "type": "input",
+      "stem": "Write the phrase: 起床",
+      "answer": "get up",
+      "subject": "english",
+      "topic": "daily actions"
+    },
+    {
+      "id": "e-w08-007",
+      "difficulty": 1,
+      "type": "input",
+      "stem": "Write the word: 读",
+      "answer": "read",
+      "subject": "english",
+      "topic": "daily actions"
+    },
+    {
+      "id": "e-w08-008",
+      "difficulty": 1,
+      "type": "input",
+      "stem": "Write the word: 睡觉",
+      "answer": "sleep",
+      "subject": "english",
+      "topic": "daily actions"
+    },
+    {
+      "id": "e-w08-009",
+      "difficulty": 2,
+      "type": "input",
+      "stem": "Write the word: 去",
+      "answer": "go",
+      "subject": "english",
+      "topic": "daily actions"
+    },
+    {
+      "id": "e-w08-010",
+      "difficulty": 2,
+      "type": "choice",
+      "stem": "Which one is an action?",
+      "options": [
+        "run",
+        "apple",
+        "blue",
+        "desk"
+      ],
+      "answer": "run",
+      "subject": "english",
+      "topic": "daily actions"
+    },
+    {
+      "id": "e-w08-011",
+      "difficulty": 2,
+      "type": "choice",
+      "stem": "I wash my ___.",
+      "options": [
+        "hands",
+        "book",
+        "schoolbag"
+      ],
+      "answer": "hands",
+      "subject": "english",
+      "topic": "daily actions"
+    },
+    {
+      "id": "e-w08-012",
+      "difficulty": 1,
+      "type": "image-choice",
+      "stem": "What is this?",
+      "stemImage": "/assets/quiz/bus.svg",
+      "options": [
+        "bus",
+        "run",
+        "sleep"
+      ],
+      "answer": "bus",
+      "subject": "english",
+      "topic": "daily actions"
+    },
+    {
+      "id": "e-w08-013",
+      "difficulty": 1,
+      "type": "image-choice",
+      "stem": "What is this animal?",
+      "stemImage": "/assets/quiz/dog.svg",
+      "options": [
+        "dog",
+        "read",
+        "wash"
+      ],
+      "answer": "dog",
+      "subject": "english",
+      "topic": "daily actions"
+    },
+    {
+      "id": "e-w08-014",
+      "difficulty": 2,
+      "type": "ordering",
+      "stem": "Sort the letters to make “read”",
+      "items": [
+        "e",
+        "r",
+        "d",
+        "a"
+      ],
+      "correctOrder": [
+        1,
+        0,
+        3,
+        2
+      ],
+      "answer": "1,0,3,2",
+      "subject": "english",
+      "topic": "daily actions"
+    },
+    {
+      "id": "e-w08-015",
+      "difficulty": 2,
+      "type": "ordering",
+      "stem": "Sort the letters in ABC order: s / q / r / p",
+      "items": [
+        "s",
+        "q",
+        "r",
+        "p"
+      ],
+      "correctOrder": [
+        3,
+        1,
+        2,
+        0
+      ],
+      "answer": "3,1,2,0",
+      "subject": "english",
+      "topic": "daily actions"
+    }
+  ]
+}

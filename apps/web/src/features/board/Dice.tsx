@@ -20,8 +20,10 @@ export const DicePanel = () => {
   const movementAnim = useGameStore((s) => s.movementAnim);
   const buyPrompt = useGameStore((s) => s.buyPrompt);
   const landingEvent = useGameStore((s) => s.landingEvent);
+  const pendingQuiz = useGameStore((s) => s.pendingQuiz);
   const activeQuiz = useGameStore((s) => s.activeQuiz);
   const quizResult = useGameStore((s) => s.quizResult);
+  const chanceResult = useGameStore((s) => s.chanceResult);
   const rollAndMove = useGameStore((s) => s.rollAndMove);
 
   const [displayFace, setDisplayFace] = useState<number | null>(lastDice);
@@ -60,8 +62,10 @@ export const DicePanel = () => {
     Boolean(movementAnim) ||
     Boolean(buyPrompt) ||
     Boolean(landingEvent) ||
+    Boolean(pendingQuiz) ||
     Boolean(activeQuiz) ||
-    Boolean(quizResult);
+    Boolean(quizResult) ||
+    Boolean(chanceResult);
 
   const face = displayFace ? PIPS[displayFace] : '🎲';
   const label = lastDice ? `掷出 ${lastDice} 点` : '骰子';

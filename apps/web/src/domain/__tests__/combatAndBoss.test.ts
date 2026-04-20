@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest';
 
 import {
   applyAttack,
+  applyFinisher,
   buildInitialBossBattle,
   computeAttackDamage,
   deriveBossMaxHp,
@@ -65,6 +66,60 @@ describe('computeAttackDamage', () => {
 
   it('uses fallback damage when no weapon', () => {
     expect(computeAttackDamage({ attackerId: 'p1', correct: true })).toBe(300);
+  });
+
+  it('applies damageMultiplier on correct hit', () => {
+    expect(
+      computeAttackDamage({
+        attackerId: 'p1',
+        weaponId: 'tiga-blade',
+        correct: true,
+        damageMultiplier: 2,
+      }),
+    ).toBe(1800);
+  });
+
+  it('applies damageMultiplier on wrong hit too', () => {
+    expect(
+      computeAttackDamage({
+        attackerId: 'p1',
+        weaponId: 'tiga-blade',
+        correct: false,
+        damageMultiplier: 2,
+      }),
+    ).toBe(900);
+  });
+
+  it('defaults multiplier to 1', () => {
+    expect(
+      computeAttackDamage({ attackerId: 'p1', weaponId: 'tiga-blade', correct: true }),
+    ).toBe(900);
+  });
+});
+
+describe('applyFinisher', () => {
+  const players = [makePlayer({ id: 'p1' }), makePlayer({ id: 'p2' })];
+  const initial = buildInitialBossBattle({ id: 'zetton', name: '杰顿' }, players, 4000);
+
+  it('halves current HP floored', () => {
+    const next = applyFinisher({ ...initial, currentHp: 2000 });
+    expect(next.currentHp).toBe(1000);
+  });
+
+  it('keeps status in-progress when HP > 0', () => {
+    const next = applyFinisher({ ...initial, currentHp: 501 });
+    expect(next.status).toBe('in-progress');
+    expect(next.currentHp).toBe(250);
+  });
+
+  it('floors to 1 HP minimum (no insta-victory)', () => {
+    const next = applyFinisher({ ...initial, currentHp: 1 });
+    expect(next.currentHp).toBe(1);
+  });
+
+  it('no-ops when battle already ended', () => {
+    const escaped = markBossEscaped(initial);
+    expect(applyFinisher(escaped)).toEqual(escaped);
   });
 });
 

@@ -1,0 +1,759 @@
+{
+  "week": 4,
+  "title": "第4周 · 整十数与数位 / 偏旁与反义词 / Colors · 55题综合卷",
+  "boss": {
+    "id": "baltan",
+    "name": "巴尔坦星人",
+    "hp": 3600
+  },
+  "questions": [
+    {
+      "id": "m-w04-001",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "3 个十是？",
+      "options": [
+        "3",
+        "13",
+        "30",
+        "33"
+      ],
+      "answer": "30",
+      "subject": "math",
+      "topic": "整十数与数位"
+    },
+    {
+      "id": "m-w04-002",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "90 里面有几个十？",
+      "options": [
+        "9",
+        "8",
+        "10",
+        "0"
+      ],
+      "answer": "9",
+      "subject": "math",
+      "topic": "整十数与数位"
+    },
+    {
+      "id": "m-w04-003",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "和 40 相邻的后一个整十数是？",
+      "options": [
+        "30",
+        "50",
+        "41",
+        "60"
+      ],
+      "answer": "50",
+      "subject": "math",
+      "topic": "整十数与数位"
+    },
+    {
+      "id": "m-w04-004",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "下面哪个数是整十数？",
+      "options": [
+        "44",
+        "50",
+        "61",
+        "72"
+      ],
+      "answer": "50",
+      "subject": "math",
+      "topic": "整十数与数位"
+    },
+    {
+      "id": "m-w04-005",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "80 的个位上是几？",
+      "options": [
+        "8",
+        "0",
+        "1",
+        "9"
+      ],
+      "answer": "0",
+      "subject": "math",
+      "topic": "整十数与数位"
+    },
+    {
+      "id": "m-w04-006",
+      "difficulty": 1,
+      "type": "input",
+      "stem": "写出 6 个十组成的数",
+      "answer": "60",
+      "subject": "math",
+      "topic": "整十数与数位"
+    },
+    {
+      "id": "m-w04-007",
+      "difficulty": 1,
+      "type": "input",
+      "stem": "写出比 70 少 10 的数",
+      "answer": "60",
+      "subject": "math",
+      "topic": "整十数与数位"
+    },
+    {
+      "id": "m-w04-008",
+      "difficulty": 1,
+      "type": "input",
+      "stem": "写出比 20 多 10 的数",
+      "answer": "30",
+      "subject": "math",
+      "topic": "整十数与数位"
+    },
+    {
+      "id": "m-w04-009",
+      "difficulty": 1,
+      "type": "input",
+      "stem": "50 里面有几个十？",
+      "answer": "5",
+      "subject": "math",
+      "topic": "整十数与数位"
+    },
+    {
+      "id": "m-w04-010",
+      "difficulty": 2,
+      "type": "input",
+      "stem": "写出最小的两位整十数",
+      "answer": "10",
+      "subject": "math",
+      "topic": "整十数与数位"
+    },
+    {
+      "id": "m-w04-011",
+      "difficulty": 2,
+      "type": "choice",
+      "stem": "下面哪个数比 40 大，比 60 小？",
+      "options": [
+        "30",
+        "50",
+        "60",
+        "70"
+      ],
+      "answer": "50",
+      "subject": "math",
+      "topic": "整十数与数位"
+    },
+    {
+      "id": "m-w04-012",
+      "difficulty": 2,
+      "type": "choice",
+      "stem": "数位表中，整十数个位上都是？",
+      "options": [
+        "0",
+        "1",
+        "5",
+        "9"
+      ],
+      "answer": "0",
+      "subject": "math",
+      "topic": "整十数与数位"
+    },
+    {
+      "id": "m-w04-013",
+      "difficulty": 1,
+      "type": "image-choice",
+      "stem": "图里有 4 颗星星，把“4 个十”写成数是多少？",
+      "stemImage": "/assets/quiz/stars-4.svg",
+      "options": [
+        "4",
+        "40",
+        "44",
+        "14"
+      ],
+      "answer": "40",
+      "subject": "math",
+      "topic": "整十数与数位"
+    },
+    {
+      "id": "m-w04-014",
+      "difficulty": 1,
+      "type": "image-choice",
+      "stem": "图里有 5 个苹果，如果表示“5 个十”，这个数是？",
+      "stemImage": "/assets/quiz/apples-5.svg",
+      "options": [
+        "5",
+        "50",
+        "55",
+        "15"
+      ],
+      "answer": "50",
+      "subject": "math",
+      "topic": "整十数与数位"
+    },
+    {
+      "id": "m-w04-015",
+      "difficulty": 2,
+      "type": "choice",
+      "stem": "10，20，30，后面一个数是？",
+      "options": [
+        "31",
+        "40",
+        "50",
+        "60"
+      ],
+      "answer": "40",
+      "subject": "math",
+      "topic": "整十数与数位"
+    },
+    {
+      "id": "m-w04-016",
+      "difficulty": 2,
+      "type": "ordering",
+      "stem": "把这些整十数从小到大排好：50，20，80，10",
+      "items": [
+        "50",
+        "20",
+        "80",
+        "10"
+      ],
+      "correctOrder": [
+        3,
+        1,
+        0,
+        2
+      ],
+      "answer": "3,1,0,2",
+      "subject": "math",
+      "topic": "整十数与数位"
+    },
+    {
+      "id": "m-w04-017",
+      "difficulty": 2,
+      "type": "ordering",
+      "stem": "把这些数从大到小排好：70，90，40，60",
+      "items": [
+        "70",
+        "90",
+        "40",
+        "60"
+      ],
+      "correctOrder": [
+        1,
+        0,
+        3,
+        2
+      ],
+      "answer": "1,0,3,2",
+      "subject": "math",
+      "topic": "整十数与数位"
+    },
+    {
+      "id": "m-w04-018",
+      "difficulty": 3,
+      "type": "input",
+      "stem": "小华有 3 捆小棒，每捆 10 根，一共有几根？",
+      "answer": "30",
+      "subject": "math",
+      "topic": "整十数与数位"
+    },
+    {
+      "id": "m-w04-019",
+      "difficulty": 3,
+      "type": "input",
+      "stem": "从 10 数到 100，一共能数出几个整十数？",
+      "answer": "10",
+      "subject": "math",
+      "topic": "整十数与数位"
+    },
+    {
+      "id": "m-w04-020",
+      "difficulty": 3,
+      "type": "choice",
+      "stem": "下面哪个说法对？",
+      "options": [
+        "60 里面有 6 个十",
+        "60 里面有 60 个十",
+        "60 的个位是 6"
+      ],
+      "answer": "60 里面有 6 个十",
+      "subject": "math",
+      "topic": "整十数与数位"
+    },
+    {
+      "id": "c-w04-001",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "“河”字和什么有关？",
+      "options": [
+        "水",
+        "火",
+        "木",
+        "口"
+      ],
+      "answer": "水",
+      "subject": "chinese",
+      "topic": "偏旁与反义词"
+    },
+    {
+      "id": "c-w04-002",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "“林”字和什么有关？",
+      "options": [
+        "树木",
+        "太阳",
+        "口说",
+        "下雨"
+      ],
+      "answer": "树木",
+      "subject": "chinese",
+      "topic": "偏旁与反义词"
+    },
+    {
+      "id": "c-w04-003",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "“明”的反义词常写作？",
+      "options": [
+        "暗",
+        "白",
+        "大",
+        "长"
+      ],
+      "answer": "暗",
+      "subject": "chinese",
+      "topic": "偏旁与反义词"
+    },
+    {
+      "id": "c-w04-004",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "“大”的反义词是？",
+      "options": [
+        "多",
+        "小",
+        "高",
+        "远"
+      ],
+      "answer": "小",
+      "subject": "chinese",
+      "topic": "偏旁与反义词"
+    },
+    {
+      "id": "c-w04-005",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "“上”的反义词是？",
+      "options": [
+        "左",
+        "右",
+        "下",
+        "前"
+      ],
+      "answer": "下",
+      "subject": "chinese",
+      "topic": "偏旁与反义词"
+    },
+    {
+      "id": "c-w04-006",
+      "difficulty": 1,
+      "type": "input",
+      "stem": "“河”字的偏旁写出来",
+      "answer": "氵",
+      "subject": "chinese",
+      "topic": "偏旁与反义词"
+    },
+    {
+      "id": "c-w04-007",
+      "difficulty": 1,
+      "type": "input",
+      "stem": "“树”字通常和什么有关？填一个字",
+      "answer": "木",
+      "subject": "chinese",
+      "topic": "偏旁与反义词"
+    },
+    {
+      "id": "c-w04-008",
+      "difficulty": 1,
+      "type": "input",
+      "stem": "“小”的反义词写出来",
+      "answer": "大",
+      "subject": "chinese",
+      "topic": "偏旁与反义词"
+    },
+    {
+      "id": "c-w04-009",
+      "difficulty": 1,
+      "type": "input",
+      "stem": "“左”的反义词写出来",
+      "answer": "右",
+      "subject": "chinese",
+      "topic": "偏旁与反义词"
+    },
+    {
+      "id": "c-w04-010",
+      "difficulty": 2,
+      "type": "choice",
+      "stem": "下面哪一组是反义词？",
+      "options": [
+        "大-小",
+        "白-亮",
+        "山-水"
+      ],
+      "answer": "大-小",
+      "subject": "chinese",
+      "topic": "偏旁与反义词"
+    },
+    {
+      "id": "c-w04-011",
+      "difficulty": 2,
+      "type": "choice",
+      "stem": "“拍”字的偏旁是？",
+      "options": [
+        "扌",
+        "氵",
+        "木",
+        "口"
+      ],
+      "answer": "扌",
+      "subject": "chinese",
+      "topic": "偏旁与反义词"
+    },
+    {
+      "id": "c-w04-012",
+      "difficulty": 1,
+      "type": "image-choice",
+      "stem": "看图选词语：",
+      "stemImage": "/assets/quiz/sunflower.svg",
+      "options": [
+        "花朵",
+        "河水",
+        "大树"
+      ],
+      "answer": "花朵",
+      "subject": "chinese",
+      "topic": "偏旁与反义词"
+    },
+    {
+      "id": "c-w04-013",
+      "difficulty": 1,
+      "type": "image-choice",
+      "stem": "看图选汉字：",
+      "stemImage": "/assets/quiz/apple.svg",
+      "options": [
+        "果",
+        "叶",
+        "云"
+      ],
+      "answer": "果",
+      "subject": "chinese",
+      "topic": "偏旁与反义词"
+    },
+    {
+      "id": "c-w04-014",
+      "difficulty": 1,
+      "type": "image-choice",
+      "stem": "看图选词语：",
+      "stemImage": "/assets/quiz/horse.svg",
+      "options": [
+        "大马",
+        "小船",
+        "白云"
+      ],
+      "answer": "大马",
+      "subject": "chinese",
+      "topic": "偏旁与反义词"
+    },
+    {
+      "id": "c-w04-015",
+      "difficulty": 2,
+      "type": "choice",
+      "stem": "“高”的反义词是？",
+      "options": [
+        "低",
+        "远",
+        "长",
+        "新"
+      ],
+      "answer": "低",
+      "subject": "chinese",
+      "topic": "偏旁与反义词"
+    },
+    {
+      "id": "c-w04-016",
+      "difficulty": 2,
+      "type": "ordering",
+      "stem": "把词语排成通顺句子：小鸟 / 飞 / 在天上",
+      "items": [
+        "飞",
+        "小鸟",
+        "在天上"
+      ],
+      "correctOrder": [
+        1,
+        0,
+        2
+      ],
+      "answer": "1,0,2",
+      "subject": "chinese",
+      "topic": "偏旁与反义词"
+    },
+    {
+      "id": "c-w04-017",
+      "difficulty": 2,
+      "type": "ordering",
+      "stem": "把这组反义词配对顺序排好：大 小 / 上 下 / 左 右",
+      "items": [
+        "左-右",
+        "上-下",
+        "大-小"
+      ],
+      "correctOrder": [
+        2,
+        1,
+        0
+      ],
+      "answer": "2,1,0",
+      "subject": "chinese",
+      "topic": "偏旁与反义词"
+    },
+    {
+      "id": "c-w04-018",
+      "difficulty": 3,
+      "type": "input",
+      "stem": "“明亮”的“明”还能组词“明___”",
+      "answer": "天",
+      "subject": "chinese",
+      "topic": "偏旁与反义词"
+    },
+    {
+      "id": "c-w04-019",
+      "difficulty": 3,
+      "type": "input",
+      "stem": "“木”字旁的字，写一个常见字",
+      "answer": "树",
+      "subject": "chinese",
+      "topic": "偏旁与反义词"
+    },
+    {
+      "id": "c-w04-020",
+      "difficulty": 3,
+      "type": "choice",
+      "stem": "下面哪句话最通顺？",
+      "options": [
+        "小河边有一棵大树。",
+        "一棵小河边大树有。",
+        "大树小河边有一棵。"
+      ],
+      "answer": "小河边有一棵大树。",
+      "subject": "chinese",
+      "topic": "偏旁与反义词"
+    },
+    {
+      "id": "e-w04-001",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "Red means ___.",
+      "options": [
+        "红色",
+        "蓝色",
+        "黄色"
+      ],
+      "answer": "红色",
+      "subject": "english",
+      "topic": "colors"
+    },
+    {
+      "id": "e-w04-002",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "Blue means ___.",
+      "options": [
+        "绿色",
+        "蓝色",
+        "黑色"
+      ],
+      "answer": "蓝色",
+      "subject": "english",
+      "topic": "colors"
+    },
+    {
+      "id": "e-w04-003",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "Yellow means ___.",
+      "options": [
+        "白色",
+        "黄色",
+        "紫色"
+      ],
+      "answer": "黄色",
+      "subject": "english",
+      "topic": "colors"
+    },
+    {
+      "id": "e-w04-004",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "Grass is usually ___.",
+      "options": [
+        "green",
+        "red",
+        "black"
+      ],
+      "answer": "green",
+      "subject": "english",
+      "topic": "colors"
+    },
+    {
+      "id": "e-w04-005",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "Milk is usually ___.",
+      "options": [
+        "white",
+        "blue",
+        "brown"
+      ],
+      "answer": "white",
+      "subject": "english",
+      "topic": "colors"
+    },
+    {
+      "id": "e-w04-006",
+      "difficulty": 1,
+      "type": "input",
+      "stem": "Write the English word: 红色",
+      "answer": "red",
+      "subject": "english",
+      "topic": "colors"
+    },
+    {
+      "id": "e-w04-007",
+      "difficulty": 1,
+      "type": "input",
+      "stem": "Write the English word: 蓝色",
+      "answer": "blue",
+      "subject": "english",
+      "topic": "colors"
+    },
+    {
+      "id": "e-w04-008",
+      "difficulty": 1,
+      "type": "input",
+      "stem": "Write the English word: 黄色",
+      "answer": "yellow",
+      "subject": "english",
+      "topic": "colors"
+    },
+    {
+      "id": "e-w04-009",
+      "difficulty": 2,
+      "type": "input",
+      "stem": "Write the English word: 绿色",
+      "answer": "green",
+      "subject": "english",
+      "topic": "colors"
+    },
+    {
+      "id": "e-w04-010",
+      "difficulty": 2,
+      "type": "choice",
+      "stem": "Which one is a color?",
+      "options": [
+        "red",
+        "apple",
+        "book",
+        "bus"
+      ],
+      "answer": "red",
+      "subject": "english",
+      "topic": "colors"
+    },
+    {
+      "id": "e-w04-011",
+      "difficulty": 2,
+      "type": "choice",
+      "stem": "The sun is often ___.",
+      "options": [
+        "yellow",
+        "purple",
+        "black"
+      ],
+      "answer": "yellow",
+      "subject": "english",
+      "topic": "colors"
+    },
+    {
+      "id": "e-w04-012",
+      "difficulty": 1,
+      "type": "image-choice",
+      "stem": "What color is the sunflower usually?",
+      "stemImage": "/assets/quiz/sunflower.svg",
+      "options": [
+        "yellow",
+        "blue",
+        "black"
+      ],
+      "answer": "yellow",
+      "subject": "english",
+      "topic": "colors"
+    },
+    {
+      "id": "e-w04-013",
+      "difficulty": 1,
+      "type": "image-choice",
+      "stem": "What color are many apples?",
+      "stemImage": "/assets/quiz/apple.svg",
+      "options": [
+        "red",
+        "green",
+        "purple"
+      ],
+      "answer": "red",
+      "subject": "english",
+      "topic": "colors"
+    },
+    {
+      "id": "e-w04-014",
+      "difficulty": 2,
+      "type": "ordering",
+      "stem": "Sort the letters to make “blue”",
+      "items": [
+        "u",
+        "b",
+        "l",
+        "e"
+      ],
+      "correctOrder": [
+        1,
+        2,
+        0,
+        3
+      ],
+      "answer": "1,2,0,3",
+      "subject": "english",
+      "topic": "colors"
+    },
+    {
+      "id": "e-w04-015",
+      "difficulty": 2,
+      "type": "ordering",
+      "stem": "Sort the letters in ABC order: y / w / z / x",
+      "items": [
+        "y",
+        "w",
+        "z",
+        "x"
+      ],
+      "correctOrder": [
+        1,
+        3,
+        0,
+        2
+      ],
+      "answer": "1,3,0,2",
+      "subject": "english",
+      "topic": "colors"
+    }
+  ]
+}

@@ -29,12 +29,15 @@ export type AttackInput = {
   attackerId: string;
   weaponId?: string;
   correct: boolean;
+  damageMultiplier?: number;
 };
 
 export const computeAttackDamage = (input: AttackInput): number => {
   const weapon = input.weaponId ? getWeapon(input.weaponId) : null;
   const base = weapon?.combatPowerBonus ?? 300;
-  return input.correct ? base : Math.floor(base / 2);
+  const raw = input.correct ? base : Math.floor(base / 2);
+  const multiplier = input.damageMultiplier ?? 1;
+  return Math.floor(raw * multiplier);
 };
 
 export const applyAttack = (
@@ -61,6 +64,15 @@ export const applyAttack = (
     status: nextStatus,
     currentAttackerId: nextAttackerId,
     ...(topContributorId ? { topContributorId } : {}),
+  };
+};
+
+export const applyFinisher = (state: BossBattleState): BossBattleState => {
+  if (state.status !== 'in-progress') return state;
+  const nextHp = Math.max(1, Math.floor(state.currentHp * 0.5));
+  return {
+    ...state,
+    currentHp: nextHp,
   };
 };
 

@@ -19,9 +19,9 @@ export const SettleScreen = () => {
       <div className="max-h-[100svh] w-full max-w-3xl overflow-y-auto rounded-3xl bg-slate-900/90 p-5 shadow-2xl ring-2 ring-amber-400/40">
         <header className="text-center">
           <h2 className="text-2xl font-black text-amber-300 md:text-3xl">
-            {pendingReason === 'bankruptcy' ? '💥 有玩家能量耗尽' : '⏱️ 时间到！'}
+            {pendingReason === 'bankruptcy' ? '💥 有玩家钱用光了' : '⏱️ 时间到！'}
           </h2>
-          <p className="mt-1 text-slate-300">第 {game.week} 周战力结算</p>
+          <p className="mt-1 text-slate-300">第 {game.week} 周战力算钱</p>
         </header>
 
         <section className="mt-4 space-y-2">

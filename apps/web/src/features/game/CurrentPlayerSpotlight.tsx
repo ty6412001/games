@@ -36,7 +36,7 @@ export const CurrentPlayerSpotlight = () => {
 
       <div className="grid grid-cols-2 gap-2 text-sm">
         <Stat icon="💰" label="金币" value={current.money} />
-        <Stat icon="🏠" label="地产" value={current.ownedTiles.length} />
+        <Stat icon="🏠" label="地" value={current.ownedTiles.length} />
         <Stat icon="🎫" label="求助卡" value={current.helpCards} />
         <Stat icon="🔥" label="连对" value={current.streak} />
       </div>

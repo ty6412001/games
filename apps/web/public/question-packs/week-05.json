@@ -1,0 +1,759 @@
+{
+  "week": 5,
+  "title": "第5周 · 100以内不进位加法 / 量词与句式 / Animals · 55题综合卷",
+  "boss": {
+    "id": "eleking",
+    "name": "艾雷王",
+    "hp": 3800
+  },
+  "questions": [
+    {
+      "id": "m-w05-001",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "23 + 4 = ?",
+      "options": [
+        "26",
+        "27",
+        "28",
+        "29"
+      ],
+      "answer": "27",
+      "subject": "math",
+      "topic": "100以内不进位加法"
+    },
+    {
+      "id": "m-w05-002",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "35 + 2 = ?",
+      "options": [
+        "36",
+        "37",
+        "38",
+        "39"
+      ],
+      "answer": "37",
+      "subject": "math",
+      "topic": "100以内不进位加法"
+    },
+    {
+      "id": "m-w05-003",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "41 + 8 = ?",
+      "options": [
+        "48",
+        "49",
+        "50",
+        "51"
+      ],
+      "answer": "49",
+      "subject": "math",
+      "topic": "100以内不进位加法"
+    },
+    {
+      "id": "m-w05-004",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "52 + 6 = ?",
+      "options": [
+        "56",
+        "57",
+        "58",
+        "59"
+      ],
+      "answer": "58",
+      "subject": "math",
+      "topic": "100以内不进位加法"
+    },
+    {
+      "id": "m-w05-005",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "60 + 9 = ?",
+      "options": [
+        "67",
+        "68",
+        "69",
+        "70"
+      ],
+      "answer": "69",
+      "subject": "math",
+      "topic": "100以内不进位加法"
+    },
+    {
+      "id": "m-w05-006",
+      "difficulty": 1,
+      "type": "input",
+      "stem": "24 + 5 = ?",
+      "answer": "29",
+      "subject": "math",
+      "topic": "100以内不进位加法"
+    },
+    {
+      "id": "m-w05-007",
+      "difficulty": 1,
+      "type": "input",
+      "stem": "43 + 6 = ?",
+      "answer": "49",
+      "subject": "math",
+      "topic": "100以内不进位加法"
+    },
+    {
+      "id": "m-w05-008",
+      "difficulty": 1,
+      "type": "input",
+      "stem": "71 + 8 = ?",
+      "answer": "79",
+      "subject": "math",
+      "topic": "100以内不进位加法"
+    },
+    {
+      "id": "m-w05-009",
+      "difficulty": 1,
+      "type": "input",
+      "stem": "32 + 7 = ?",
+      "answer": "39",
+      "subject": "math",
+      "topic": "100以内不进位加法"
+    },
+    {
+      "id": "m-w05-010",
+      "difficulty": 2,
+      "type": "input",
+      "stem": "54 + 3 = ?",
+      "answer": "57",
+      "subject": "math",
+      "topic": "100以内不进位加法"
+    },
+    {
+      "id": "m-w05-011",
+      "difficulty": 2,
+      "type": "choice",
+      "stem": "下面哪个算式得数是 46？",
+      "options": [
+        "40 + 6",
+        "41 + 6",
+        "45 + 2",
+        "38 + 7"
+      ],
+      "answer": "40 + 6",
+      "subject": "math",
+      "topic": "100以内不进位加法"
+    },
+    {
+      "id": "m-w05-012",
+      "difficulty": 2,
+      "type": "choice",
+      "stem": "29 再加 0，结果是？",
+      "options": [
+        "0",
+        "20",
+        "29",
+        "30"
+      ],
+      "answer": "29",
+      "subject": "math",
+      "topic": "100以内不进位加法"
+    },
+    {
+      "id": "m-w05-013",
+      "difficulty": 1,
+      "type": "image-choice",
+      "stem": "图里有 5 个苹果，再来 2 个，一共几个？",
+      "stemImage": "/assets/quiz/apples-5.svg",
+      "options": [
+        "6",
+        "7",
+        "8",
+        "9"
+      ],
+      "answer": "7",
+      "subject": "math",
+      "topic": "100以内不进位加法"
+    },
+    {
+      "id": "m-w05-014",
+      "difficulty": 1,
+      "type": "image-choice",
+      "stem": "图里有 4 颗星星，再加 3 颗，一共几颗？",
+      "stemImage": "/assets/quiz/stars-4.svg",
+      "options": [
+        "6",
+        "7",
+        "8",
+        "9"
+      ],
+      "answer": "7",
+      "subject": "math",
+      "topic": "100以内不进位加法"
+    },
+    {
+      "id": "m-w05-015",
+      "difficulty": 2,
+      "type": "choice",
+      "stem": "47 + 2 和下面哪个数相等？",
+      "options": [
+        "48",
+        "49",
+        "50",
+        "51"
+      ],
+      "answer": "49",
+      "subject": "math",
+      "topic": "100以内不进位加法"
+    },
+    {
+      "id": "m-w05-016",
+      "difficulty": 2,
+      "type": "ordering",
+      "stem": "把这些得数从小到大排好：32+4，41+5，23+3，51+2",
+      "items": [
+        "36",
+        "46",
+        "26",
+        "53"
+      ],
+      "correctOrder": [
+        2,
+        0,
+        1,
+        3
+      ],
+      "answer": "2,0,1,3",
+      "subject": "math",
+      "topic": "100以内不进位加法"
+    },
+    {
+      "id": "m-w05-017",
+      "difficulty": 2,
+      "type": "ordering",
+      "stem": "把这些数从大到小排好：29，37，46，55",
+      "items": [
+        "29",
+        "37",
+        "46",
+        "55"
+      ],
+      "correctOrder": [
+        3,
+        2,
+        1,
+        0
+      ],
+      "answer": "3,2,1,0",
+      "subject": "math",
+      "topic": "100以内不进位加法"
+    },
+    {
+      "id": "m-w05-018",
+      "difficulty": 3,
+      "type": "input",
+      "stem": "书架上有 42 本书，又放上 5 本，现在有多少本？",
+      "answer": "47",
+      "subject": "math",
+      "topic": "100以内不进位加法"
+    },
+    {
+      "id": "m-w05-019",
+      "difficulty": 3,
+      "type": "input",
+      "stem": "停车场有 31 辆车，又开来 6 辆，一共有几辆？",
+      "answer": "37",
+      "subject": "math",
+      "topic": "100以内不进位加法"
+    },
+    {
+      "id": "m-w05-020",
+      "difficulty": 3,
+      "type": "choice",
+      "stem": "下面哪道算式得数最大？",
+      "options": [
+        "43 + 2",
+        "51 + 4",
+        "36 + 3",
+        "24 + 5"
+      ],
+      "answer": "51 + 4",
+      "subject": "math",
+      "topic": "100以内不进位加法"
+    },
+    {
+      "id": "c-w05-001",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "一___书",
+      "options": [
+        "本",
+        "只",
+        "朵",
+        "条"
+      ],
+      "answer": "本",
+      "subject": "chinese",
+      "topic": "量词与句式"
+    },
+    {
+      "id": "c-w05-002",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "一___小鸟",
+      "options": [
+        "本",
+        "只",
+        "朵",
+        "张"
+      ],
+      "answer": "只",
+      "subject": "chinese",
+      "topic": "量词与句式"
+    },
+    {
+      "id": "c-w05-003",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "一___花",
+      "options": [
+        "条",
+        "朵",
+        "本",
+        "辆"
+      ],
+      "answer": "朵",
+      "subject": "chinese",
+      "topic": "量词与句式"
+    },
+    {
+      "id": "c-w05-004",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "一___桌子",
+      "options": [
+        "张",
+        "朵",
+        "本",
+        "只"
+      ],
+      "answer": "张",
+      "subject": "chinese",
+      "topic": "量词与句式"
+    },
+    {
+      "id": "c-w05-005",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "“我有一本书。”这是一个什么句子？",
+      "options": [
+        "完整句子",
+        "词语",
+        "拼音"
+      ],
+      "answer": "完整句子",
+      "subject": "chinese",
+      "topic": "量词与句式"
+    },
+    {
+      "id": "c-w05-006",
+      "difficulty": 1,
+      "type": "input",
+      "stem": "一___马，填量词",
+      "answer": "匹",
+      "subject": "chinese",
+      "topic": "量词与句式"
+    },
+    {
+      "id": "c-w05-007",
+      "difficulty": 1,
+      "type": "input",
+      "stem": "一___苹果，填量词",
+      "answer": "个",
+      "subject": "chinese",
+      "topic": "量词与句式"
+    },
+    {
+      "id": "c-w05-008",
+      "difficulty": 1,
+      "type": "input",
+      "stem": "一___车，填量词",
+      "answer": "辆",
+      "subject": "chinese",
+      "topic": "量词与句式"
+    },
+    {
+      "id": "c-w05-009",
+      "difficulty": 1,
+      "type": "input",
+      "stem": "一___鱼，填量词",
+      "answer": "条",
+      "subject": "chinese",
+      "topic": "量词与句式"
+    },
+    {
+      "id": "c-w05-010",
+      "difficulty": 2,
+      "type": "choice",
+      "stem": "下面哪个句子通顺？",
+      "options": [
+        "我有一只小狗。",
+        "一只我有小狗。",
+        "小狗一只有我。"
+      ],
+      "answer": "我有一只小狗。",
+      "subject": "chinese",
+      "topic": "量词与句式"
+    },
+    {
+      "id": "c-w05-011",
+      "difficulty": 2,
+      "type": "choice",
+      "stem": "“校园里有一___花。”填什么最合适？",
+      "options": [
+        "朵",
+        "本",
+        "辆",
+        "只"
+      ],
+      "answer": "朵",
+      "subject": "chinese",
+      "topic": "量词与句式"
+    },
+    {
+      "id": "c-w05-012",
+      "difficulty": 1,
+      "type": "image-choice",
+      "stem": "看图选量词：一___马",
+      "stemImage": "/assets/quiz/horse.svg",
+      "options": [
+        "匹",
+        "本",
+        "张"
+      ],
+      "answer": "匹",
+      "subject": "chinese",
+      "topic": "量词与句式"
+    },
+    {
+      "id": "c-w05-013",
+      "difficulty": 1,
+      "type": "image-choice",
+      "stem": "看图选词语：一___花",
+      "stemImage": "/assets/quiz/sunflower.svg",
+      "options": [
+        "朵",
+        "只",
+        "条"
+      ],
+      "answer": "朵",
+      "subject": "chinese",
+      "topic": "量词与句式"
+    },
+    {
+      "id": "c-w05-014",
+      "difficulty": 1,
+      "type": "image-choice",
+      "stem": "看图选句子：",
+      "stemImage": "/assets/quiz/apple.svg",
+      "options": [
+        "一个苹果",
+        "一只苹果",
+        "一朵苹果"
+      ],
+      "answer": "一个苹果",
+      "subject": "chinese",
+      "topic": "量词与句式"
+    },
+    {
+      "id": "c-w05-015",
+      "difficulty": 2,
+      "type": "choice",
+      "stem": "“书包里有一本书。”这句话里量词是？",
+      "options": [
+        "里",
+        "一",
+        "本",
+        "书"
+      ],
+      "answer": "本",
+      "subject": "chinese",
+      "topic": "量词与句式"
+    },
+    {
+      "id": "c-w05-016",
+      "difficulty": 2,
+      "type": "ordering",
+      "stem": "把词语排成句子：我 / 有 / 一支铅笔",
+      "items": [
+        "有",
+        "一支铅笔",
+        "我"
+      ],
+      "correctOrder": [
+        2,
+        0,
+        1
+      ],
+      "answer": "2,0,1",
+      "subject": "chinese",
+      "topic": "量词与句式"
+    },
+    {
+      "id": "c-w05-017",
+      "difficulty": 2,
+      "type": "ordering",
+      "stem": "把词语排成句子：树上 / 有 / 一只小鸟",
+      "items": [
+        "有",
+        "一只小鸟",
+        "树上"
+      ],
+      "correctOrder": [
+        2,
+        0,
+        1
+      ],
+      "answer": "2,0,1",
+      "subject": "chinese",
+      "topic": "量词与句式"
+    },
+    {
+      "id": "c-w05-018",
+      "difficulty": 3,
+      "type": "input",
+      "stem": "“一___白云”，填一个常见量词",
+      "answer": "朵",
+      "subject": "chinese",
+      "topic": "量词与句式"
+    },
+    {
+      "id": "c-w05-019",
+      "difficulty": 3,
+      "type": "input",
+      "stem": "“我在教室里___书”，填一个字，使句子通顺",
+      "answer": "看",
+      "subject": "chinese",
+      "topic": "量词与句式"
+    },
+    {
+      "id": "c-w05-020",
+      "difficulty": 3,
+      "type": "choice",
+      "stem": "下面哪句话最完整？",
+      "options": [
+        "草地上有两只小羊。",
+        "草地上两只。",
+        "有小羊草地。"
+      ],
+      "answer": "草地上有两只小羊。",
+      "subject": "chinese",
+      "topic": "量词与句式"
+    },
+    {
+      "id": "e-w05-001",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "What animal says “wang wang”?",
+      "options": [
+        "dog",
+        "cat",
+        "fish"
+      ],
+      "answer": "dog",
+      "subject": "english",
+      "topic": "animals"
+    },
+    {
+      "id": "e-w05-002",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "A cat is a ___.",
+      "options": [
+        "animal",
+        "fruit",
+        "color"
+      ],
+      "answer": "animal",
+      "subject": "english",
+      "topic": "animals"
+    },
+    {
+      "id": "e-w05-003",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "Which word means “马”?",
+      "options": [
+        "horse",
+        "bird",
+        "pig"
+      ],
+      "answer": "horse",
+      "subject": "english",
+      "topic": "animals"
+    },
+    {
+      "id": "e-w05-004",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "Fish can ___.",
+      "options": [
+        "swim",
+        "run",
+        "read"
+      ],
+      "answer": "swim",
+      "subject": "english",
+      "topic": "animals"
+    },
+    {
+      "id": "e-w05-005",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "Birds can usually ___.",
+      "options": [
+        "fly",
+        "sleep in water",
+        "drive"
+      ],
+      "answer": "fly",
+      "subject": "english",
+      "topic": "animals"
+    },
+    {
+      "id": "e-w05-006",
+      "difficulty": 1,
+      "type": "input",
+      "stem": "Write the English word: 狗",
+      "answer": "dog",
+      "subject": "english",
+      "topic": "animals"
+    },
+    {
+      "id": "e-w05-007",
+      "difficulty": 1,
+      "type": "input",
+      "stem": "Write the English word: 猫",
+      "answer": "cat",
+      "subject": "english",
+      "topic": "animals"
+    },
+    {
+      "id": "e-w05-008",
+      "difficulty": 1,
+      "type": "input",
+      "stem": "Write the English word: 马",
+      "answer": "horse",
+      "subject": "english",
+      "topic": "animals"
+    },
+    {
+      "id": "e-w05-009",
+      "difficulty": 2,
+      "type": "input",
+      "stem": "Write the English word: 鱼",
+      "answer": "fish",
+      "subject": "english",
+      "topic": "animals"
+    },
+    {
+      "id": "e-w05-010",
+      "difficulty": 2,
+      "type": "choice",
+      "stem": "Which one is NOT an animal?",
+      "options": [
+        "pig",
+        "bird",
+        "apple",
+        "dog"
+      ],
+      "answer": "apple",
+      "subject": "english",
+      "topic": "animals"
+    },
+    {
+      "id": "e-w05-011",
+      "difficulty": 2,
+      "type": "choice",
+      "stem": "A rabbit has two long ___.",
+      "options": [
+        "ears",
+        "books",
+        "buses"
+      ],
+      "answer": "ears",
+      "subject": "english",
+      "topic": "animals"
+    },
+    {
+      "id": "e-w05-012",
+      "difficulty": 1,
+      "type": "image-choice",
+      "stem": "What is this animal?",
+      "stemImage": "/assets/quiz/dog.svg",
+      "options": [
+        "dog",
+        "cat",
+        "pig"
+      ],
+      "answer": "dog",
+      "subject": "english",
+      "topic": "animals"
+    },
+    {
+      "id": "e-w05-013",
+      "difficulty": 1,
+      "type": "image-choice",
+      "stem": "What is this animal?",
+      "stemImage": "/assets/quiz/horse.svg",
+      "options": [
+        "horse",
+        "bird",
+        "fish"
+      ],
+      "answer": "horse",
+      "subject": "english",
+      "topic": "animals"
+    },
+    {
+      "id": "e-w05-014",
+      "difficulty": 2,
+      "type": "ordering",
+      "stem": "Sort the letters to make “fish”",
+      "items": [
+        "s",
+        "f",
+        "h",
+        "i"
+      ],
+      "correctOrder": [
+        1,
+        3,
+        0,
+        2
+      ],
+      "answer": "1,3,0,2",
+      "subject": "english",
+      "topic": "animals"
+    },
+    {
+      "id": "e-w05-015",
+      "difficulty": 2,
+      "type": "ordering",
+      "stem": "Sort the letters in ABC order: h / f / g / e",
+      "items": [
+        "h",
+        "f",
+        "g",
+        "e"
+      ],
+      "correctOrder": [
+        3,
+        1,
+        2,
+        0
+      ],
+      "answer": "3,1,2,0",
+      "subject": "english",
+      "topic": "animals"
+    }
+  ]
+}

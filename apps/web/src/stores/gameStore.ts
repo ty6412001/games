@@ -32,6 +32,7 @@ import {
   isAnswerCorrect,
   pickRandomQuestion,
   rewardFor,
+  type RecentQuestionMeta,
 } from '../domain/questionPicker.js';
 import {
   crossedStart,
@@ -42,12 +43,35 @@ import {
 } from '../domain/turnEngine.js';
 import { calculateCombatPower, type CombatPowerBreakdown } from '../domain/combatPower.js';
 import {
+  applyChanceCard,
+  drawChanceCard,
+  type ChanceActualDelta,
+  type ChanceCardDef,
+} from '../domain/chanceDeck.js';
+import {
   applyAttack,
+  applyFinisher,
   buildInitialBossBattle,
   markBossEscaped,
 } from '../domain/bossBattle.js';
-import { loadQuestionPack } from '../data/packs/questionPackLoader.js';
+import {
+  formFromEnergy,
+  isAtLeast,
+  type DeckerForm,
+} from '../domain/decker/forms.js';
+import {
+  applyDeckerEvent,
+  applyFinisherEvent,
+  type DeckerEvent,
+} from '../domain/decker/energy.js';
+import { loadBrainPack, loadQuestionPack } from '../data/packs/questionPackLoader.js';
 import { recordWrong } from '../data/repo/wrongBookRepo.js';
+import {
+  clearCorrectForChild,
+  listCorrectIdsByChild,
+  recordCorrect,
+} from '../data/repo/correctBookRepo.js';
+import { DEFAULT_CHILD_ID } from '../config/childIdentity.js';
 import { bossForWeek } from '../theme/ultraman/monsters.js';
 import { rollRandomWeapon } from '../theme/ultraman/weapons.js';
 import { BATTLE_EFFECT_DURATION_MS, MOVEMENT_STEP_MS, features } from '../config/features.js';
@@ -83,12 +107,20 @@ export type GameEndSummary = {
   bankruptPlayerId?: string;
 };
 
-export type QuizContextKind = 'study' | 'monster' | 'property-buy' | 'boss-attack';
+export type QuizContextKind =
+  | 'study'
+  | 'monster'
+  | 'property-buy'
+  | 'property-rent'
+  | 'property-bonus'
+  | 'boss-attack';
 
 export type QuizContext =
   | { kind: 'study' }
   | { kind: 'monster' }
   | { kind: 'property-buy'; position: number; price: number }
+  | { kind: 'property-rent'; position: number; ownerId: string; rent: number }
+  | { kind: 'property-bonus'; position: number; bonus: number }
   | { kind: 'boss-attack'; weaponId?: string };
 
 export type QuizResult = {
@@ -115,18 +147,86 @@ export type PendingQuiz = {
   playerId: string;
 };
 
+export type ChanceResult = {
+  readonly playerId: string;
+  readonly card: ChanceCardDef;
+  readonly actualDelta: ChanceActualDelta;
+  readonly converted: { readonly helpCardToMoney: number };
+};
+
 export type MovementAnimation = {
   playerId: string;
   path: readonly number[];
   stepIndex: number;
 };
 
-type AskedBySubject = Record<Subject, Set<string>>;
+type CorrectBySubject = Record<Subject, Set<string>>;
+type RecentBySubject = Record<Subject, RecentQuestionMeta[]>;
 
-const emptyAsked = (): AskedBySubject => ({
+export type DeckerState = {
+  currentForm: DeckerForm;
+  energy: number;
+  finisherEnergy: number;
+  finisherUsedThisBoss: boolean;
+  lastTransitionAt: number | null;
+};
+
+const INITIAL_DECKER_STATE: DeckerState = {
+  currentForm: 'flash',
+  energy: 0,
+  finisherEnergy: 0,
+  finisherUsedThisBoss: false,
+  lastTransitionAt: null,
+};
+
+const nowForTransition = (): number =>
+  typeof performance !== 'undefined' ? performance.now() : Date.now();
+
+const deriveNextDecker = (
+  current: DeckerState,
+  event: DeckerEvent,
+): DeckerState => {
+  const prevForm = current.currentForm;
+  const nextEnergy = applyDeckerEvent(current.energy, event);
+  const nextForm = formFromEnergy(nextEnergy, prevForm);
+  const dynamicUnlocked = isAtLeast(nextForm, 'dynamic');
+  const nextFinisher = applyFinisherEvent(current.finisherEnergy, event, dynamicUnlocked);
+  return {
+    ...current,
+    currentForm: nextForm,
+    energy: nextEnergy,
+    finisherEnergy: nextFinisher,
+    lastTransitionAt: nextForm !== prevForm ? nowForTransition() : current.lastTransitionAt,
+  };
+};
+
+const emptyCorrect = (): CorrectBySubject => ({
   math: new Set(),
   chinese: new Set(),
   english: new Set(),
+  brain: new Set(),
+});
+
+const emptyRecentHistory = (): RecentBySubject => ({
+  math: [],
+  chinese: [],
+  english: [],
+  brain: [],
+});
+
+const toRecentQuestionMeta = (question: Question): RecentQuestionMeta => ({
+  questionId: question.id,
+  topic: question.topic,
+  type: question.type,
+  difficulty: question.difficulty,
+});
+
+const pushRecentQuestion = (
+  recentHistory: RecentBySubject,
+  question: Question,
+): RecentBySubject => ({
+  ...recentHistory,
+  [question.subject]: [...recentHistory[question.subject], toRecentQuestionMeta(question)].slice(-2),
 });
 
 type Store = {
@@ -134,9 +234,11 @@ type Store = {
   game: GameState | null;
   childId: string | null;
   currentPack: QuestionPack | null;
+  brainQuestionCount: number;
   packLoading: boolean;
   packError: string | null;
-  askedQuestionIds: AskedBySubject;
+  correctQuestionIds: CorrectBySubject;
+  recentQuestionHistory: RecentBySubject;
   lastDice: DiceRoll | null;
   isRolling: boolean;
   isMoving: boolean;
@@ -149,10 +251,13 @@ type Store = {
   pendingQuiz: PendingQuiz | null;
   activeQuiz: ActiveQuiz | null;
   quizResult: QuizResult | null;
+  chanceResult: ChanceResult | null;
+  lastChildSubject: Subject | null;
   nowMs: number;
   combatSummary: Record<string, CombatPowerBreakdown> | null;
   weaponAwardToast: { heroName: string; weaponName: string } | null;
   pendingEndReason: 'time-up' | 'bankruptcy' | null;
+  deckerState: DeckerState;
 
   goToSetup: () => void;
   startGame: (params: {
@@ -175,9 +280,18 @@ type Store = {
   dismissQuizResult: () => void;
 
   dismissWeaponToast: () => void;
+  dismissChanceResult: () => void;
+  resetCorrectBook: () => Promise<void>;
+
+  chooseRentQuiz: () => void;
+  acceptRentPayment: () => void;
+  chooseSelfPropertyQuiz: () => void;
+  dismissSelfPropertyLanding: () => void;
 
   enterBossBattle: () => void;
   bossAttack: (weaponId?: string) => void;
+  fireFinisher: () => void;
+  clearTransitionMark: () => void;
   finalizeBossBattle: (reason: 'victory' | 'escaped') => void;
 
   tick: (nowMs: number) => void;
@@ -225,6 +339,17 @@ const findPlayer = (players: readonly Player[], id: string): Player => {
     throw new Error(`player not found: ${id}`);
   }
   return p;
+};
+
+const ADULT_ONLY_SUBJECTS: ReadonlySet<Subject> = new Set<Subject>(['brain']);
+
+const isSubjectAllowedForPlayer = (
+  childId: string | null,
+  playerId: string,
+  subject: Subject,
+): boolean => {
+  if (!ADULT_ONLY_SUBJECTS.has(subject)) return true;
+  return childId === null || playerId !== childId;
 };
 
 const sleep = (ms: number): Promise<void> => new Promise((r) => setTimeout(r, ms));
@@ -306,6 +431,40 @@ const autoLiquidate = (
   return { workingGame, bankrupt: isBankrupt(player) };
 };
 
+type RentSettlement = {
+  workingGame: GameState;
+  rentNotice: RentNotice;
+  bankruptcy: BankruptcyNotice | null;
+};
+
+const settlePropertyRent = (
+  game: GameState,
+  payerId: string,
+  context: { position: number; ownerId: string; rent: number },
+): RentSettlement => {
+  const payer = findPlayer(game.players, payerId);
+  let workingGame = triggerRentSettlement(game, payer, context.ownerId, context.rent);
+  const rentNotice: RentNotice = {
+    payerId,
+    ownerId: context.ownerId,
+    position: context.position,
+    amount: context.rent,
+  };
+  const paid = findPlayer(workingGame.players, payerId);
+  if (paid.money < 0) {
+    const { workingGame: liquidated, bankrupt } = autoLiquidate(workingGame, paid.id);
+    workingGame = liquidated;
+    if (bankrupt) {
+      return {
+        workingGame,
+        rentNotice,
+        bankruptcy: { playerId: paid.id, playerName: paid.name },
+      };
+    }
+  }
+  return { workingGame, rentNotice, bankruptcy: null };
+};
+
 const applyStudyAutoReward = (game: GameState, playerId: string): GameState => {
   return addMoney(game, playerId, STUDY_REWARD_CORRECT);
 };
@@ -332,30 +491,25 @@ const executePurchase = (
 
 const pickQuestionForSubject = (
   pack: QuestionPack,
-  asked: AskedBySubject,
+  correctIds: CorrectBySubject,
+  recentHistory: RecentBySubject,
   subject: Subject,
-): { question: Question; asked: AskedBySubject } | null => {
-  const subjectAsked = asked[subject];
-  const fresh = pickRandomQuestion(pack, { subject, excludeIds: subjectAsked });
-  if (fresh) {
-    return {
-      question: fresh,
-      asked: { ...asked, [subject]: new Set([...subjectAsked, fresh.id]) },
-    };
-  }
-  const reshuffled = pickRandomQuestion(pack, { subject, excludeIds: new Set() });
-  if (!reshuffled) return null;
-  return {
-    question: reshuffled,
-    asked: { ...asked, [subject]: new Set([reshuffled.id]) },
-  };
+): { question: Question } | null => {
+  const subjectCorrect = correctIds[subject];
+  const fresh = pickRandomQuestion(pack, {
+    subject,
+    excludeIds: subjectCorrect,
+    recentQuestions: recentHistory[subject],
+  });
+  if (!fresh) return null;
+  return { question: fresh };
 };
 
 const startQuiz = (params: {
-  asked: AskedBySubject;
   question: Question;
   context: QuizContext;
   playerId: string;
+  recentQuestionHistory: RecentBySubject;
 }): Partial<Store> => {
   const now = Date.now();
   return {
@@ -367,8 +521,19 @@ const startQuiz = (params: {
       startedAt: now,
       deadlineAt: now + countdownSeconds(params.question) * 1000,
     },
-    askedQuestionIds: params.asked,
     pendingQuiz: null,
+    recentQuestionHistory: pushRecentQuestion(params.recentQuestionHistory, params.question),
+  };
+};
+
+const markQuestionCorrect = (
+  correctIds: CorrectBySubject,
+  question: Question,
+): CorrectBySubject => {
+  const subjectCorrect = correctIds[question.subject];
+  return {
+    ...correctIds,
+    [question.subject]: new Set([...subjectCorrect, question.id]),
   };
 };
 
@@ -392,14 +557,49 @@ const recordWrongSafe = async (
   }
 };
 
+const CORE_SUBJECTS: ReadonlySet<Subject> = new Set(['math', 'chinese', 'english']);
+
+const recordCorrectSafe = (question: Question, week: number): void => {
+  void recordCorrect({ childId: DEFAULT_CHILD_ID, question, week }).catch((err) => {
+    console.warn('recordCorrect failed', err);
+  });
+};
+
+const loadPackForSubject = async (subject: Subject, week: number): Promise<QuestionPack> => {
+  if (subject === 'brain') {
+    return loadBrainPack();
+  }
+  return loadQuestionPack(week);
+};
+
+const isSameQuizContext = (a: QuizContext, b: QuizContext): boolean => {
+  if (a.kind !== b.kind) return false;
+  if (a.kind === 'study' || a.kind === 'monster') return true;
+  if (a.kind === 'property-buy' && b.kind === 'property-buy') {
+    return a.position === b.position && a.price === b.price;
+  }
+  if (a.kind === 'property-rent' && b.kind === 'property-rent') {
+    return a.position === b.position && a.ownerId === b.ownerId && a.rent === b.rent;
+  }
+  if (a.kind === 'property-bonus' && b.kind === 'property-bonus') {
+    return a.position === b.position && a.bonus === b.bonus;
+  }
+  if (a.kind === 'boss-attack' && b.kind === 'boss-attack') {
+    return a.weaponId === b.weaponId;
+  }
+  return false;
+};
+
 export const useGameStore = create<Store>((set, get) => ({
   screen: 'menu',
   game: null,
   childId: null,
   currentPack: null,
+  brainQuestionCount: 0,
   packLoading: false,
   packError: null,
-  askedQuestionIds: emptyAsked(),
+  correctQuestionIds: emptyCorrect(),
+  recentQuestionHistory: emptyRecentHistory(),
   lastDice: null,
   isRolling: false,
   isMoving: false,
@@ -412,10 +612,13 @@ export const useGameStore = create<Store>((set, get) => ({
   pendingQuiz: null,
   activeQuiz: null,
   quizResult: null,
+  chanceResult: null,
+  lastChildSubject: null,
   nowMs: Date.now(),
   combatSummary: null,
   weaponAwardToast: null,
   pendingEndReason: null,
+  deckerState: INITIAL_DECKER_STATE,
 
   goToSetup: () => set({ screen: 'setup' }),
 
@@ -438,9 +641,11 @@ export const useGameStore = create<Store>((set, get) => ({
       game,
       childId: child?.id ?? null,
       currentPack: null,
+      brainQuestionCount: 0,
       packLoading: true,
       packError: null,
-      askedQuestionIds: emptyAsked(),
+      correctQuestionIds: emptyCorrect(),
+      recentQuestionHistory: emptyRecentHistory(),
       lastDice: null,
       isRolling: false,
       isMoving: false,
@@ -453,12 +658,33 @@ export const useGameStore = create<Store>((set, get) => ({
       pendingQuiz: null,
       activeQuiz: null,
       quizResult: null,
+      chanceResult: null,
+      lastChildSubject: null,
       nowMs: Date.now(),
+      deckerState: INITIAL_DECKER_STATE,
     });
 
     try {
-      const pack = await loadQuestionPack(week);
-      set({ currentPack: pack, packLoading: false });
+      const [pack, hydratedCorrect] = await Promise.all([
+        loadQuestionPack(week),
+        listCorrectIdsByChild(DEFAULT_CHILD_ID).catch(() => emptyCorrect()),
+      ]);
+      if (get().game?.id !== game.id) return;
+      set({
+        currentPack: pack,
+        brainQuestionCount: 0,
+        packLoading: false,
+        correctQuestionIds: hydratedCorrect,
+      });
+      void loadBrainPack()
+        .then((brainPack) => {
+          if (get().game?.id !== game.id) return;
+          set({ brainQuestionCount: brainPack.questions.length });
+        })
+        .catch(() => {
+          if (get().game?.id !== game.id) return;
+          set({ brainQuestionCount: 0 });
+        });
     } catch (err) {
       set({
         packLoading: false,
@@ -488,6 +714,12 @@ export const useGameStore = create<Store>((set, get) => ({
     const elapsed = (nowMs - game.startedAt) / 1000;
     const budget = game.durationMin * 60;
     if (elapsed >= budget) {
+      const { chanceResult } = get();
+      if (chanceResult) {
+        // 让机会卡完整展示完，避免展示中途被算钱截断
+        set({ nowMs });
+        return;
+      }
       set({ nowMs });
       get().endGame('time-up');
       return;
@@ -512,6 +744,8 @@ export const useGameStore = create<Store>((set, get) => ({
       pendingQuiz: null,
       activeQuiz: null,
       quizResult: null,
+      chanceResult: null,
+      lastChildSubject: null,
       movementAnim: null,
     });
   },
@@ -527,12 +761,14 @@ export const useGameStore = create<Store>((set, get) => ({
       state.pendingQuiz ||
       state.activeQuiz ||
       state.quizResult ||
+      state.chanceResult ||
       state.movementAnim
     ) {
       return;
     }
 
-    const roll = rollDice();
+    const rollMax = isAtLeast(state.deckerState.currentForm, 'miracle') ? 7 : 6;
+    const roll = rollDice(Math.random, rollMax);
     set({ isRolling: true, lastDice: roll });
     await sleep(800);
 
@@ -601,34 +837,10 @@ export const useGameStore = create<Store>((set, get) => ({
     );
 
     let nextBuyPrompt: BuyPrompt | null = null;
-    let nextRentNotice: RentNotice | null = null;
+    const nextRentNotice: RentNotice | null = null;
     let nextPendingQuiz: PendingQuiz | null = null;
 
-    if (landing.kind === 'property-owned-other') {
-      workingGame = triggerRentSettlement(workingGame, movedPlayer, landing.ownerId, landing.rent);
-      nextRentNotice = {
-        payerId: movedPlayer.id,
-        ownerId: landing.ownerId,
-        position: landing.position,
-        amount: landing.rent,
-      };
-      const paid = findPlayer(workingGame.players, movedPlayer.id);
-      if (paid.money < 0) {
-        const { workingGame: liquidated, bankrupt } = autoLiquidate(workingGame, paid.id);
-        workingGame = liquidated;
-        if (bankrupt) {
-          set({
-            game: workingGame,
-            isMoving: false,
-            movementAnim: null,
-            landingEvent: landing,
-            rentNotice: nextRentNotice,
-            bankruptcy: { playerId: paid.id, playerName: paid.name },
-          });
-          return;
-        }
-      }
-    } else if (landing.kind === 'property-unowned') {
+    if (landing.kind === 'property-unowned') {
       if (movedPlayer.money >= landing.price) {
         nextBuyPrompt = {
           playerId: movedPlayer.id,
@@ -650,6 +862,30 @@ export const useGameStore = create<Store>((set, get) => ({
       }
     } else if (landing.kind === 'reward-vault') {
       workingGame = applyVaultReward(workingGame, movedPlayer.id);
+    } else if (landing.kind === 'chance') {
+      const { card } = drawChanceCard();
+      const playerBefore = findPlayer(workingGame.players, movedPlayer.id);
+      const applied = applyChanceCard(playerBefore, card);
+      workingGame = {
+        ...workingGame,
+        players: replacePlayer(workingGame.players, applied.player),
+      };
+      set({
+        game: workingGame,
+        isMoving: false,
+        movementAnim: null,
+        landingEvent: landing,
+        buyPrompt: null,
+        rentNotice: null,
+        pendingQuiz: null,
+        chanceResult: {
+          playerId: movedPlayer.id,
+          card,
+          actualDelta: applied.actualDelta,
+          converted: applied.converted,
+        },
+      });
+      return;
     }
 
     set({
@@ -693,9 +929,126 @@ export const useGameStore = create<Store>((set, get) => ({
 
   declineBuy: () => set({ buyPrompt: null }),
 
+  chooseRentQuiz: () => {
+    const state = get();
+    const game = state.game;
+    const landing = state.landingEvent;
+    if (
+      !game ||
+      !state.currentPack ||
+      !landing ||
+      landing.kind !== 'property-owned-other' ||
+      state.pendingQuiz ||
+      state.activeQuiz ||
+      state.quizResult ||
+      state.chanceResult
+    ) {
+      return;
+    }
+    const player = game.players[game.currentTurn];
+    if (!player) return;
+    set({
+      pendingQuiz: {
+        context: {
+          kind: 'property-rent',
+          position: landing.position,
+          ownerId: landing.ownerId,
+          rent: landing.rent,
+        },
+        playerId: player.id,
+      },
+      rentNotice: null,
+    });
+  },
+
+  acceptRentPayment: () => {
+    const state = get();
+    const game = state.game;
+    const landing = state.landingEvent;
+    if (
+      !game ||
+      !landing ||
+      landing.kind !== 'property-owned-other' ||
+      state.activeQuiz ||
+      state.quizResult ||
+      state.chanceResult
+    ) {
+      return;
+    }
+    const settled = settlePropertyRent(game, game.players[game.currentTurn]!.id, landing);
+    set({
+      game: settled.workingGame,
+      pendingQuiz: null,
+      rentNotice: settled.rentNotice,
+      bankruptcy: settled.bankruptcy,
+    });
+  },
+
+  chooseSelfPropertyQuiz: () => {
+    const state = get();
+    const game = state.game;
+    const landing = state.landingEvent;
+    if (
+      !game ||
+      !state.currentPack ||
+      !landing ||
+      landing.kind !== 'property-owned-self' ||
+      state.pendingQuiz ||
+      state.activeQuiz ||
+      state.quizResult ||
+      state.chanceResult
+    ) {
+      return;
+    }
+    const player = game.players[game.currentTurn];
+    const tile = game.tiles[landing.position];
+    if (!player || !tile || tile.type !== 'property') return;
+    set({
+      pendingQuiz: {
+        context: {
+          kind: 'property-bonus',
+          position: landing.position,
+          bonus: Math.min(80, Math.floor(tile.baseRent * 0.5)),
+        },
+        playerId: player.id,
+      },
+    });
+  },
+
+  dismissSelfPropertyLanding: () => {
+    const state = get();
+    const game = state.game;
+    const landing = state.landingEvent;
+    if (
+      !game ||
+      !landing ||
+      landing.kind !== 'property-owned-self' ||
+      state.buyPrompt ||
+      state.pendingQuiz ||
+      state.activeQuiz ||
+      state.quizResult ||
+      state.chanceResult
+    ) {
+      return;
+    }
+    set({
+      game: advanceTurn(game),
+      landingEvent: null,
+      rentNotice: null,
+      lastDice: null,
+    });
+  },
+
   dismissLanding: () => {
     const state = get();
-    if (state.buyPrompt || state.pendingQuiz || state.activeQuiz || state.quizResult) return;
+    if (
+      state.buyPrompt ||
+      state.pendingQuiz ||
+      state.activeQuiz ||
+      state.quizResult ||
+      state.chanceResult
+    )
+      return;
     if (state.bankruptcy) {
       const { game, bankruptcy } = state;
       if (game && bankruptcy) {
@@ -724,24 +1077,49 @@ export const useGameStore = create<Store>((set, get) => ({
     });
   },
 
-  selectSubject: (subject) => {
-    const state = get();
-    const pending = state.pendingQuiz;
-    const pack = state.currentPack;
-    if (!pending || !pack) return;
-    const picked = pickQuestionForSubject(pack, state.askedQuestionIds, subject);
+  selectSubject: async (subject) => {
+    const initial = get();
+    const pending = initial.pendingQuiz;
+    const game = initial.game;
+    const currentPack = initial.currentPack;
+    if (!pending || !game || !currentPack) return;
+    if (!isSubjectAllowedForPlayer(initial.childId, pending.playerId, subject)) return;
+
+    const pack = subject === 'brain' ? await loadPackForSubject(subject, game.week) : null;
+    const latest = get();
+    if (
+      !latest.pendingQuiz ||
+      latest.pendingQuiz.playerId !== pending.playerId ||
+      !isSameQuizContext(latest.pendingQuiz.context, pending.context) ||
+      latest.activeQuiz ||
+      latest.quizResult ||
+      latest.chanceResult
+    ) {
+      return;
+    }
+
+    const packForSubject = subject === 'brain' ? pack : latest.currentPack;
+    if (!packForSubject) return;
+
+    const picked = pickQuestionForSubject(
+      packForSubject,
+      latest.correctQuestionIds,
+      latest.recentQuestionHistory,
+      subject,
+    );
     if (!picked) {
       set({ pendingQuiz: null });
       return;
     }
-    set(
-      startQuiz({
-        asked: picked.asked,
+
+    set({
+      ...startQuiz({
         question: picked.question,
-        context: pending.context,
-        playerId: pending.playerId,
+        context: latest.pendingQuiz.context,
+        playerId: latest.pendingQuiz.playerId,
+        recentQuestionHistory: latest.recentQuestionHistory,
       }),
-    );
+    });
   },
 
   cancelPendingQuiz: () => {
@@ -749,9 +1127,20 @@ export const useGameStore = create<Store>((set, get) => ({
     const pending = state.pendingQuiz;
     const game = state.game;
     if (!pending || !game) return;
-    // only study/monster can be skipped; others are committed actions
-    if (pending.context.kind !== 'study' && pending.context.kind !== 'monster') return;
-    set({ pendingQuiz: null });
+    const kind = pending.context.kind;
+    if (kind === 'study' || kind === 'monster' || kind === 'property-bonus') {
+      set({ pendingQuiz: null });
+      return;
+    }
+    if (kind === 'property-rent') {
+      const settled = settlePropertyRent(game, pending.playerId, pending.context);
+      set({
+        game: settled.workingGame,
+        pendingQuiz: null,
+        rentNotice: settled.rentNotice,
+        bankruptcy: settled.bankruptcy,
+      });
+    }
   },
 
   submitAnswer: async (answer) => {
@@ -766,26 +1155,139 @@ export const useGameStore = create<Store>((set, get) => ({
     let message = '';
     let outcome: QuizResult['outcome'] = correct ? 'correct' : 'wrong';
     let weaponToast: Store['weaponAwardToast'] = null;
+    let nextCorrectIds = state.correctQuestionIds;
+    const isChildAnswering = state.childId !== null && quiz.playerId === state.childId;
+    const deckerEvent: DeckerEvent | null = isChildAnswering
+      ? correct
+        ? quiz.context.kind === 'monster' || quiz.context.kind === 'boss-attack'
+          ? 'monster-defeat'
+          : 'correct'
+        : 'wrong'
+      : null;
+    const nextDecker =
+      deckerEvent !== null ? deriveNextDecker(state.deckerState, deckerEvent) : state.deckerState;
+    const strongBuff =
+      isChildAnswering && correct && isAtLeast(nextDecker.currentForm, 'strong');
+
+    if (quiz.context.kind === 'property-rent') {
+      const ctx = quiz.context;
+      if (correct) {
+        nextCorrectIds = markQuestionCorrect(nextCorrectIds, quiz.question);
+        workingGame = updateStreak(workingGame, quiz.playerId, 1);
+        if (quiz.playerId === state.childId && CORE_SUBJECTS.has(quiz.question.subject)) {
+          recordCorrectSafe(quiz.question, game.week);
+        }
+        const nextLastChildSubject =
+          quiz.playerId === state.childId && CORE_SUBJECTS.has(quiz.question.subject)
+            ? quiz.question.subject
+            : state.lastChildSubject;
+        set({
+          game: workingGame,
+          activeQuiz: null,
+          correctQuestionIds: nextCorrectIds,
+          lastChildSubject: nextLastChildSubject,
+          deckerState: nextDecker,
+          quizResult: {
+            outcome: 'correct',
+            reward: 0,
+            message: `答对！不用交过路费 ¥${ctx.rent}`,
+            correct: true,
+            contextKind: 'property-rent',
+            playerId: quiz.playerId,
+          },
+        });
+        return;
+      }
+      if (shouldRecordWrong(state, quiz)) {
+        void recordWrongSafe(state.childId!, quiz.question, answer, game.week);
+      }
+      const settled = settlePropertyRent(workingGame, quiz.playerId, ctx);
+      workingGame = updateStreak(settled.workingGame, quiz.playerId, 0);
+      const isChildPlayer = quiz.playerId === state.childId;
+      const nextLastChildSubject =
+        isChildPlayer && CORE_SUBJECTS.has(quiz.question.subject)
+          ? quiz.question.subject
+          : state.lastChildSubject;
+      set({
+        game: workingGame,
+        activeQuiz: null,
+        rentNotice: settled.rentNotice,
+        bankruptcy: settled.bankruptcy,
+        correctQuestionIds: nextCorrectIds,
+        lastChildSubject: nextLastChildSubject,
+        deckerState: nextDecker,
+        quizResult: {
+          outcome: 'wrong',
+          reward: -ctx.rent,
+          message: isChildPlayer
+            ? `答错了，交过路费 ¥${ctx.rent}（已记入错题本）`
+            : `答错了，交过路费 ¥${ctx.rent}`,
+          correct: false,
+          contextKind: 'property-rent',
+          playerId: quiz.playerId,
+        },
+      });
+      return;
+    }
+
+    if (quiz.context.kind === 'property-bonus') {
+      const ctx = quiz.context;
+      const bonusReward = strongBuff ? Math.floor(ctx.bonus * 1.5) : ctx.bonus;
+      if (correct) {
+        nextCorrectIds = markQuestionCorrect(nextCorrectIds, quiz.question);
+        workingGame = addMoney(workingGame, quiz.playerId, bonusReward);
+        workingGame = updateStreak(workingGame, quiz.playerId, 1);
+        if (quiz.playerId === state.childId && CORE_SUBJECTS.has(quiz.question.subject)) {
+          recordCorrectSafe(quiz.question, game.week);
+        }
+        message = `答对！这块地奖励 +¥${bonusReward}`;
+      } else {
+        workingGame = updateStreak(workingGame, quiz.playerId, 0);
+        message = '答错了，这次没有奖励';
+      }
+      const isChildCore =
+        quiz.playerId === state.childId && CORE_SUBJECTS.has(quiz.question.subject);
+      set({
+        game: workingGame,
+        activeQuiz: null,
+        correctQuestionIds: nextCorrectIds,
+        lastChildSubject: isChildCore ? quiz.question.subject : state.lastChildSubject,
+        deckerState: nextDecker,
+        quizResult: {
+          outcome: correct ? 'correct' : 'wrong',
+          reward: correct ? bonusReward : 0,
+          message,
+          correct,
+          contextKind: 'property-bonus',
+          playerId: quiz.playerId,
+        },
+      });
+      return;
+    }
 
     if (quiz.context.kind === 'boss-attack') {
       const battle = workingGame.bossBattle;
       if (battle) {
+        const damageMultiplier =
+          isChildAnswering && isAtLeast(nextDecker.currentForm, 'dynamic') ? 2 : 1;
         const next = applyAttack(
           battle,
           {
             attackerId: quiz.playerId,
             ...(quiz.context.weaponId ? { weaponId: quiz.context.weaponId } : {}),
             correct,
+            damageMultiplier,
           },
           workingGame.players.map((p) => p.id),
         );
         workingGame = { ...workingGame, bossBattle: next };
         if (correct) {
+          nextCorrectIds = markQuestionCorrect(nextCorrectIds, quiz.question);
           message = `命中 Boss！造成伤害 ${battle.currentHp - next.currentHp}`;
           workingGame = updateStreak(workingGame, quiz.playerId, 1);
         } else {
           if (shouldRecordWrong(state, quiz)) {
-            await recordWrongSafe(state.childId!, quiz.question, answer, game.week);
+            void recordWrongSafe(state.childId!, quiz.question, answer, game.week);
           }
           workingGame = updateStreak(workingGame, quiz.playerId, 0);
           message = quiz.playerId === state.childId
@@ -799,6 +1301,8 @@ export const useGameStore = create<Store>((set, get) => ({
       set({
         game: workingGame,
         activeQuiz: null,
+        correctQuestionIds: nextCorrectIds,
+        deckerState: nextDecker,
         quizResult: {
           outcome,
           reward: 0,
@@ -815,8 +1319,14 @@ export const useGameStore = create<Store>((set, get) => ({
       return;
     }
 
+    const correctReward =
+      quiz.context.kind === 'property-buy' && strongBuff
+        ? Math.floor(reward.correct * 1.5)
+        : reward.correct;
+
     if (correct) {
-      workingGame = addMoney(workingGame, quiz.playerId, reward.correct);
+      nextCorrectIds = markQuestionCorrect(nextCorrectIds, quiz.question);
+      workingGame = addMoney(workingGame, quiz.playerId, correctReward);
       workingGame = updateStreak(workingGame, quiz.playerId, 1);
 
       const attacker = findPlayer(workingGame.players, quiz.playerId);
@@ -844,21 +1354,21 @@ export const useGameStore = create<Store>((set, get) => ({
           quiz.context.position,
           quiz.context.price,
         );
-        message = `答对！买下地产 +¥${reward.correct}`;
+        message = `答对！买下这块地 +¥${correctReward}`;
       } else if (quiz.context.kind === 'monster') {
-        message = `击败怪兽！+¥${reward.correct}`;
+        message = `击败怪兽！+¥${correctReward}`;
       } else {
-        message = `答对！+¥${reward.correct}`;
+        message = `答对！+¥${correctReward}`;
       }
     } else {
       if (shouldRecordWrong(state, quiz)) {
-        await recordWrongSafe(state.childId!, quiz.question, answer, game.week);
+        void recordWrongSafe(state.childId!, quiz.question, answer, game.week);
       }
       workingGame = addMoney(workingGame, quiz.playerId, reward.wrong);
       workingGame = updateStreak(workingGame, quiz.playerId, 0);
       const isChildPlayer = quiz.playerId === state.childId;
       if (quiz.context.kind === 'property-buy') {
-        message = `答错了，这次不能买地，扣 ¥${Math.abs(reward.wrong)}`;
+        message = `答错了，这次不能买下这块地，扣 ¥${Math.abs(reward.wrong)}`;
       } else {
         message = isChildPlayer
           ? `答错了，扣 ¥${Math.abs(reward.wrong)}（已记入错题本）`
@@ -871,12 +1381,23 @@ export const useGameStore = create<Store>((set, get) => ({
       message = '求助卡命中！（本次不加金币）';
     }
 
+    const isChildCore =
+      quiz.playerId === state.childId && CORE_SUBJECTS.has(quiz.question.subject);
+    if (correct && isChildCore) {
+      recordCorrectSafe(quiz.question, game.week);
+    }
+    const nextLastChildSubject =
+      isChildCore ? quiz.question.subject : state.lastChildSubject;
+
     set({
       game: workingGame,
       activeQuiz: null,
+      correctQuestionIds: nextCorrectIds,
+      lastChildSubject: nextLastChildSubject,
+      deckerState: nextDecker,
       quizResult: {
         outcome,
-        reward: correct ? reward.correct : reward.wrong,
+        reward: correct ? correctReward : reward.wrong,
         message,
         correct,
         contextKind: quiz.context.kind,
@@ -907,21 +1428,72 @@ export const useGameStore = create<Store>((set, get) => ({
     const game = state.game;
     if (!quiz || !game) return;
 
+    const isChildAnswering = state.childId !== null && quiz.playerId === state.childId;
+    const nextDecker = isChildAnswering
+      ? deriveNextDecker(state.deckerState, 'wrong')
+      : state.deckerState;
+
     let workingGame = game;
     if (shouldRecordWrong(state, quiz)) {
-      await recordWrongSafe(state.childId!, quiz.question, '(超时)', game.week);
+      void recordWrongSafe(state.childId!, quiz.question, '(超时)', game.week);
+    }
+
+    if (quiz.context.kind === 'property-rent') {
+      const ctx = quiz.context;
+      const settled = settlePropertyRent(workingGame, quiz.playerId, ctx);
+      workingGame = updateStreak(settled.workingGame, quiz.playerId, 0);
+      const isChildPlayer = quiz.playerId === state.childId;
+      set({
+        game: workingGame,
+        activeQuiz: null,
+        rentNotice: settled.rentNotice,
+        bankruptcy: settled.bankruptcy,
+        deckerState: nextDecker,
+        quizResult: {
+          outcome: 'timeout',
+          reward: -ctx.rent,
+          message: isChildPlayer
+            ? `时间到，交过路费 ¥${ctx.rent}（已记错题本）`
+            : `时间到，交过路费 ¥${ctx.rent}`,
+          correct: false,
+          contextKind: 'property-rent',
+          playerId: quiz.playerId,
+        },
+      });
+      return;
+    }
+
+    if (quiz.context.kind === 'property-bonus') {
+      workingGame = updateStreak(workingGame, quiz.playerId, 0);
+      set({
+        game: workingGame,
+        activeQuiz: null,
+        deckerState: nextDecker,
+        quizResult: {
+          outcome: 'timeout',
+          reward: 0,
+          message: '时间到，这次没有奖励',
+          correct: false,
+          contextKind: 'property-bonus',
+          playerId: quiz.playerId,
+        },
+      });
+      return;
     }
 
     let penalty = 0;
     if (quiz.context.kind === 'boss-attack') {
       const battle = workingGame.bossBattle;
       if (battle) {
+        const damageMultiplier =
+          isChildAnswering && isAtLeast(nextDecker.currentForm, 'dynamic') ? 2 : 1;
         const next = applyAttack(
           battle,
           {
             attackerId: quiz.playerId,
             ...(quiz.context.weaponId ? { weaponId: quiz.context.weaponId } : {}),
             correct: false,
+            damageMultiplier,
           },
           workingGame.players.map((p) => p.id),
         );
@@ -937,6 +1509,7 @@ export const useGameStore = create<Store>((set, get) => ({
     set({
       game: workingGame,
       activeQuiz: null,
+      deckerState: nextDecker,
       quizResult: {
         outcome: 'timeout',
         reward: penalty,
@@ -957,14 +1530,70 @@ export const useGameStore = create<Store>((set, get) => ({
 
   dismissQuizResult: () => {
     const state = get();
-    if (!state.quizResult) return;
+    const result = state.quizResult;
+    const game = state.game;
+    if (!result) return;
+    const shouldAdvance =
+      game !== null &&
+      game.phase === 'monopoly' &&
+      (result.contextKind === 'property-bonus' ||
+        (result.contextKind === 'property-rent' && result.correct));
+    if (shouldAdvance) {
+      set({
+        game: advanceTurn(game),
+        quizResult: null,
+        landingEvent: null,
+        rentNotice: null,
+        lastDice: null,
+      });
+      return;
+    }
     set({ quizResult: null });
   },
 
   dismissWeaponToast: () => set({ weaponAwardToast: null }),
 
+  resetCorrectBook: async () => {
+    try {
+      await clearCorrectForChild(DEFAULT_CHILD_ID);
+    } catch (err) {
+      console.warn('clearCorrectForChild failed', err);
+    }
+    set({
+      correctQuestionIds: emptyCorrect(),
+      recentQuestionHistory: emptyRecentHistory(),
+    });
+  },
+
+  dismissChanceResult: () => {
+    const state = get();
+    const game = state.game;
+    if (!game || !state.chanceResult) return;
+    const nowMs = Math.max(state.nowMs, Date.now());
+    const elapsed = (nowMs - game.startedAt) / 1000;
+    const budget = game.durationMin * 60;
+    if (elapsed >= budget) {
+      set({
+        chanceResult: null,
+        landingEvent: null,
+        rentNotice: null,
+        lastDice: null,
+      });
+      get().endGame('time-up');
+      return;
+    }
+    set({
+      chanceResult: null,
+      game: advanceTurn(game),
+      landingEvent: null,
+      rentNotice: null,
+      lastDice: null,
+    });
+  },
+
   enterBossBattle: () => {
-    const { game } = get();
+    const state = get();
+    const { game } = state;
     if (!game || game.phase !== 'settle') return;
     const totalPower = game.players.reduce(
       (sum, p) => sum + calculateCombatPower(p).total,
@@ -974,7 +1603,27 @@ export const useGameStore = create<Store>((set, get) => ({
     const battle = buildInitialBossBattle(boss, game.players, totalPower);
     set({
       game: { ...game, phase: 'boss' as GamePhase, bossBattle: battle },
+      deckerState: { ...state.deckerState, finisherUsedThisBoss: false },
     });
+  },
+
+  fireFinisher: () => {
+    const s = get();
+    if (!s.game || s.game.phase !== 'boss' || !s.game.bossBattle) return;
+    if (s.deckerState.currentForm !== 'dynamic') return;
+    if (s.deckerState.finisherEnergy < 100) return;
+    if (s.deckerState.finisherUsedThisBoss) return;
+    const nextBattle = applyFinisher(s.game.bossBattle);
+    set({
+      game: { ...s.game, bossBattle: nextBattle },
+      deckerState: { ...s.deckerState, finisherEnergy: 0, finisherUsedThisBoss: true },
+    });
+  },
+
+  clearTransitionMark: () => {
+    const s = get();
+    if (s.deckerState.lastTransitionAt === null) return;
+    set({ deckerState: { ...s.deckerState, lastTransitionAt: null } });
   },
 
   bossAttack: (weaponId) => {

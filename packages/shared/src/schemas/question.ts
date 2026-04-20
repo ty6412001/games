@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-export const SubjectSchema = z.enum(['math', 'chinese', 'english']);
+export const SubjectSchema = z.enum(['math', 'chinese', 'english', 'brain']);
 export type Subject = z.infer<typeof SubjectSchema>;
 
 export const DifficultySchema = z.union([z.literal(1), z.literal(2), z.literal(3)]);
@@ -15,13 +15,20 @@ export const QuestionRewardSchema = z.object({
 });
 export type QuestionReward = z.infer<typeof QuestionRewardSchema>;
 
+const QuizStemImageSchema = z
+  .string()
+  .regex(
+    /^\/assets\/quiz\/[A-Za-z0-9/_-]+\.(?:svg|png|jpe?g|webp)$/i,
+    'stemImage must point to a local quiz asset',
+  );
+
 const questionBaseShape = {
   id: QuestionIdSchema,
   subject: SubjectSchema,
   difficulty: DifficultySchema,
   topic: z.string().min(1),
   stem: z.string().min(1),
-  stemImage: z.string().optional(),
+  stemImage: QuizStemImageSchema.optional(),
   reward: QuestionRewardSchema.optional(),
 };
 

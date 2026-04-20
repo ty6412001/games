@@ -1,63 +1,1393 @@
 {
   "week": 1,
-  "title": "第1周 · 20以内数 / 声母 b p m f / Hello · 50题综合卷",
+  "title": "第1周 · 当前教材进度包 / 语文至练习4 / 数学前三单元 / 英语1B Unit1-4",
   "boss": {
     "id": "zetton",
     "name": "杰顿",
     "hp": 3000
   },
   "questions": [
-    { "id": "m-w01-001", "subject": "math", "difficulty": 1, "topic": "20以内加法", "type": "choice", "stem": "8 + 5 = ?", "options": ["12", "13", "14", "15"], "answer": "13" },
-    { "id": "m-w01-002", "subject": "math", "difficulty": 1, "topic": "20以内加法", "type": "choice", "stem": "7 + 6 = ?", "options": ["12", "13", "14", "15"], "answer": "13" },
-    { "id": "m-w01-003", "subject": "math", "difficulty": 1, "topic": "20以内减法", "type": "choice", "stem": "15 - 8 = ?", "options": ["5", "6", "7", "8"], "answer": "7" },
-    { "id": "m-w01-004", "subject": "math", "difficulty": 1, "topic": "加法", "type": "choice", "stem": "3 + 4 = ?", "options": ["6", "7", "8"], "answer": "7" },
-    { "id": "m-w01-005", "subject": "math", "difficulty": 1, "topic": "减法", "type": "choice", "stem": "10 - 4 = ?", "options": ["5", "6", "7"], "answer": "6" },
-    { "id": "m-w01-006", "subject": "math", "difficulty": 2, "topic": "填空", "type": "input", "stem": "18 - 9 = ?", "answer": "9" },
-    { "id": "m-w01-007", "subject": "math", "difficulty": 2, "topic": "连加", "type": "input", "stem": "2 + 3 + 4 = ?", "answer": "9" },
-    { "id": "m-w01-008", "subject": "math", "difficulty": 2, "topic": "凑数填空", "type": "input", "stem": "9 + ? = 15，问号处填几？", "answer": "6" },
-    { "id": "m-w01-009", "subject": "math", "difficulty": 2, "topic": "凑数填空", "type": "input", "stem": "12 - ? = 7", "answer": "5" },
-    { "id": "m-w01-010", "subject": "math", "difficulty": 1, "topic": "连减", "type": "input", "stem": "10 - 3 - 2 = ?", "answer": "5" },
-    { "id": "m-w01-011", "subject": "math", "difficulty": 2, "topic": "数的比较", "type": "choice", "stem": "下面哪个数最大？", "options": ["7", "12", "9", "11"], "answer": "12" },
-    { "id": "m-w01-012", "subject": "math", "difficulty": 1, "topic": "数数", "type": "image-choice", "stem": "图中有几个苹果？", "stemImage": "/assets/quiz/apples-7.svg", "options": ["5", "6", "7", "8"], "answer": "7" },
-    { "id": "m-w01-013", "subject": "math", "difficulty": 1, "topic": "数数", "type": "image-choice", "stem": "图中有几个苹果？", "stemImage": "/assets/quiz/apples-5.svg", "options": ["3", "4", "5", "6"], "answer": "5" },
-    { "id": "m-w01-014", "subject": "math", "difficulty": 1, "topic": "数数", "type": "image-choice", "stem": "图中一共有几颗星星？", "stemImage": "/assets/quiz/stars-4.svg", "options": ["3", "4", "5", "6"], "answer": "4" },
-    { "id": "m-w01-015", "subject": "math", "difficulty": 1, "topic": "图形识别", "type": "image-choice", "stem": "看图，三角形的颜色是？", "stemImage": "/assets/quiz/shapes.svg", "options": ["蓝色", "绿色", "红色"], "answer": "绿色" },
-    { "id": "m-w01-016", "subject": "math", "difficulty": 2, "topic": "认钟表", "type": "image-choice", "stem": "钟表显示的时间是？", "stemImage": "/assets/quiz/clock-3-30.svg", "options": ["3 时", "3 时半", "6 时", "12 时"], "answer": "3 时半" },
-    { "id": "m-w01-017", "subject": "math", "difficulty": 2, "topic": "数字排序", "type": "ordering", "stem": "把下列数字从小到大排好：7 / 2 / 9 / 4", "items": ["7", "2", "9", "4"], "correctOrder": [1, 3, 0, 2], "answer": "1,3,0,2" },
-    { "id": "m-w01-018", "subject": "math", "difficulty": 2, "topic": "数字排序", "type": "ordering", "stem": "把下列数字从大到小排好：5 / 12 / 3 / 8", "items": ["5", "12", "3", "8"], "correctOrder": [1, 3, 0, 2], "answer": "1,3,0,2" },
-    { "id": "m-w01-019", "subject": "math", "difficulty": 1, "topic": "加法应用", "type": "input", "stem": "小明有 6 只铅笔，妈妈又给他 5 只，他现在有几只？", "answer": "11" },
-    { "id": "m-w01-020", "subject": "math", "difficulty": 2, "topic": "减法应用", "type": "input", "stem": "树上有 14 只鸟，飞走 6 只，还剩几只？", "answer": "8" },
-
-    { "id": "c-w01-001", "subject": "chinese", "difficulty": 1, "topic": "声母", "type": "choice", "stem": "\"妈妈\"的第一个字用哪个声母开头？", "options": ["b", "p", "m", "f"], "answer": "m" },
-    { "id": "c-w01-002", "subject": "chinese", "difficulty": 1, "topic": "声母", "type": "choice", "stem": "\"爸爸\"的第一个字用哪个声母开头？", "options": ["b", "p", "m", "f"], "answer": "b" },
-    { "id": "c-w01-003", "subject": "chinese", "difficulty": 1, "topic": "声母", "type": "choice", "stem": "\"佛\"读音的声母是？", "options": ["b", "p", "m", "f"], "answer": "f" },
-    { "id": "c-w01-004", "subject": "chinese", "difficulty": 1, "topic": "声母", "type": "choice", "stem": "\"泡泡\"的首字声母是？", "options": ["b", "p", "m", "f"], "answer": "p" },
-    { "id": "c-w01-005", "subject": "chinese", "difficulty": 1, "topic": "识字", "type": "choice", "stem": "下面哪个字读作 mā？", "options": ["妈", "爸", "哥"], "answer": "妈" },
-    { "id": "c-w01-006", "subject": "chinese", "difficulty": 1, "topic": "识字", "type": "choice", "stem": "表示\"行走\"意思的字是？", "options": ["跑", "走", "睡"], "answer": "走" },
-    { "id": "c-w01-007", "subject": "chinese", "difficulty": 2, "topic": "韵母填空", "type": "input", "stem": "拼音 b_ 读作 bā（八），下划线处填什么韵母？", "answer": "a" },
-    { "id": "c-w01-008", "subject": "chinese", "difficulty": 2, "topic": "韵母填空", "type": "input", "stem": "拼音 m_ 读作 mō（摸），下划线处填什么韵母？", "answer": "o" },
-    { "id": "c-w01-009", "subject": "chinese", "difficulty": 1, "topic": "识字", "type": "input", "stem": "\"三\"字用阿拉伯数字写出来是几？", "answer": "3" },
-    { "id": "c-w01-010", "subject": "chinese", "difficulty": 2, "topic": "看图拼音", "type": "image-choice", "stem": "看图选拼音：", "stemImage": "/assets/quiz/bee.svg", "options": ["mì fēng", "mǎ", "niú", "yáng"], "answer": "mì fēng" },
-    { "id": "c-w01-011", "subject": "chinese", "difficulty": 1, "topic": "看图选字", "type": "image-choice", "stem": "看图选汉字：", "stemImage": "/assets/quiz/horse.svg", "options": ["牛", "马", "羊", "狗"], "answer": "马" },
-    { "id": "c-w01-012", "subject": "chinese", "difficulty": 1, "topic": "看图选字", "type": "image-choice", "stem": "这个花叫什么？", "stemImage": "/assets/quiz/sunflower.svg", "options": ["玫瑰", "向日葵", "牡丹"], "answer": "向日葵" },
-    { "id": "c-w01-013", "subject": "chinese", "difficulty": 2, "topic": "笔顺", "type": "image-choice", "stem": "\"十\"字的正确笔顺是？", "stemImage": "/assets/quiz/ten-strokes.svg", "options": ["先横后竖", "先竖后横", "同时写"], "answer": "先横后竖" },
-    { "id": "c-w01-014", "subject": "chinese", "difficulty": 2, "topic": "拼音排序", "type": "ordering", "stem": "把声母按 b p m f 的顺序拖好", "items": ["p", "m", "b", "f"], "correctOrder": [2, 0, 1, 3], "answer": "2,0,1,3" },
-    { "id": "c-w01-015", "subject": "chinese", "difficulty": 2, "topic": "拼音排序", "type": "ordering", "stem": "按声母顺序排好：d t n l", "items": ["n", "l", "d", "t"], "correctOrder": [2, 3, 0, 1], "answer": "2,3,0,1" },
-    { "id": "c-w01-016", "subject": "chinese", "difficulty": 1, "topic": "组词", "type": "input", "stem": "\"大\"字组一个常见词语（两个字），如：大___", "answer": "大人" },
-    { "id": "c-w01-017", "subject": "chinese", "difficulty": 1, "topic": "识字", "type": "choice", "stem": "下面哪个字与\"水\"相关？", "options": ["火", "河", "山"], "answer": "河" },
-    { "id": "c-w01-018", "subject": "chinese", "difficulty": 2, "topic": "字音", "type": "input", "stem": "\"一二三\"一共有几个字？", "answer": "3" },
-
-    { "id": "e-w01-001", "subject": "english", "difficulty": 1, "topic": "问候", "type": "choice", "stem": "What's your ___?", "options": ["name", "age", "color"], "answer": "name" },
-    { "id": "e-w01-002", "subject": "english", "difficulty": 1, "topic": "问候", "type": "choice", "stem": "Which word means 你好?", "options": ["Goodbye", "Hello", "Thanks"], "answer": "Hello" },
-    { "id": "e-w01-003", "subject": "english", "difficulty": 1, "topic": "数字", "type": "choice", "stem": "数字 3 的英文是？", "options": ["two", "three", "four"], "answer": "three" },
-    { "id": "e-w01-004", "subject": "english", "difficulty": 1, "topic": "数字", "type": "choice", "stem": "Which is \"five\" (5)?", "options": ["5", "6", "7", "8"], "answer": "5" },
-    { "id": "e-w01-005", "subject": "english", "difficulty": 2, "topic": "自我介绍", "type": "input", "stem": "My ___ is Tom. (我叫 Tom) 填空", "answer": "name" },
-    { "id": "e-w01-006", "subject": "english", "difficulty": 2, "topic": "问候", "type": "input", "stem": "早上好的英文是 Good ___（填一个词）", "answer": "morning" },
-    { "id": "e-w01-007", "subject": "english", "difficulty": 2, "topic": "水果", "type": "input", "stem": "这个水果叫什么？（小写字母作答）", "answer": "apple" },
-    { "id": "e-w01-008", "subject": "english", "difficulty": 1, "topic": "动物", "type": "image-choice", "stem": "What's this animal?", "stemImage": "/assets/quiz/dog.svg", "options": ["cat", "dog", "pig", "horse"], "answer": "dog" },
-    { "id": "e-w01-009", "subject": "english", "difficulty": 1, "topic": "水果", "type": "image-choice", "stem": "What's this fruit?", "stemImage": "/assets/quiz/apple.svg", "options": ["apple", "banana", "orange"], "answer": "apple" },
-    { "id": "e-w01-010", "subject": "english", "difficulty": 1, "topic": "交通工具", "type": "image-choice", "stem": "What's this vehicle?", "stemImage": "/assets/quiz/bus.svg", "options": ["car", "bus", "train", "bike"], "answer": "bus" },
-    { "id": "e-w01-011", "subject": "english", "difficulty": 2, "topic": "字母排序", "type": "ordering", "stem": "Sort the letters in order: c / a / d / b", "items": ["c", "a", "d", "b"], "correctOrder": [1, 3, 0, 2], "answer": "1,3,0,2" },
-    { "id": "e-w01-012", "subject": "english", "difficulty": 1, "topic": "颜色", "type": "choice", "stem": "红色的英文是？", "options": ["blue", "red", "green", "yellow"], "answer": "red" }
+    {
+      "id": "m-w01-001",
+      "subject": "math",
+      "difficulty": 1,
+      "topic": "20以内退位减法",
+      "type": "choice",
+      "stem": "15 - 8 = ?",
+      "options": [
+        "6",
+        "7",
+        "8",
+        "9"
+      ],
+      "answer": "7"
+    },
+    {
+      "id": "m-w01-002",
+      "subject": "math",
+      "difficulty": 1,
+      "topic": "20以内退位减法",
+      "type": "choice",
+      "stem": "14 - 6 = ?",
+      "options": [
+        "7",
+        "8",
+        "9",
+        "10"
+      ],
+      "answer": "8"
+    },
+    {
+      "id": "m-w01-003",
+      "subject": "math",
+      "difficulty": 1,
+      "topic": "20以内退位减法",
+      "type": "choice",
+      "stem": "13 - 5 = ?",
+      "options": [
+        "7",
+        "8",
+        "9",
+        "10"
+      ],
+      "answer": "8"
+    },
+    {
+      "id": "m-w01-004",
+      "subject": "math",
+      "difficulty": 1,
+      "topic": "20以内退位减法",
+      "type": "choice",
+      "stem": "17 - 9 = ?",
+      "options": [
+        "7",
+        "8",
+        "9",
+        "10"
+      ],
+      "answer": "8"
+    },
+    {
+      "id": "m-w01-005",
+      "subject": "math",
+      "difficulty": 1,
+      "topic": "20以内退位减法",
+      "type": "choice",
+      "stem": "16 - 7 = ?",
+      "options": [
+        "8",
+        "9",
+        "10",
+        "11"
+      ],
+      "answer": "9"
+    },
+    {
+      "id": "m-w01-006",
+      "subject": "math",
+      "difficulty": 1,
+      "topic": "20以内退位减法",
+      "type": "choice",
+      "stem": "12 - 4 = ?",
+      "options": [
+        "6",
+        "7",
+        "8",
+        "9"
+      ],
+      "answer": "8"
+    },
+    {
+      "id": "m-w01-007",
+      "subject": "math",
+      "difficulty": 1,
+      "topic": "20以内退位减法",
+      "type": "choice",
+      "stem": "下面哪道算式的结果是 9？",
+      "options": [
+        "16 - 7",
+        "14 - 6",
+        "12 - 5",
+        "11 - 4"
+      ],
+      "answer": "16 - 7"
+    },
+    {
+      "id": "m-w01-008",
+      "subject": "math",
+      "difficulty": 1,
+      "topic": "20以内退位减法",
+      "type": "choice",
+      "stem": "下面哪道算式的结果最大？",
+      "options": [
+        "15 - 8",
+        "16 - 7",
+        "11 - 4",
+        "13 - 6"
+      ],
+      "answer": "16 - 7"
+    },
+    {
+      "id": "m-w01-009",
+      "subject": "math",
+      "difficulty": 2,
+      "topic": "20以内退位减法",
+      "type": "choice",
+      "stem": "15 - 7 和 14 - 7 比较，谁更大？",
+      "options": [
+        "15 - 7",
+        "14 - 7",
+        "一样大"
+      ],
+      "answer": "15 - 7"
+    },
+    {
+      "id": "m-w01-010",
+      "subject": "math",
+      "difficulty": 2,
+      "topic": "20以内退位减法",
+      "type": "choice",
+      "stem": "比 17 少 8 的数是？",
+      "options": [
+        "7",
+        "8",
+        "9",
+        "10"
+      ],
+      "answer": "9"
+    },
+    {
+      "id": "m-w01-011",
+      "subject": "math",
+      "difficulty": 2,
+      "topic": "20以内退位减法",
+      "type": "choice",
+      "stem": "被减数是 16，减数是 9，差是多少？",
+      "options": [
+        "5",
+        "6",
+        "7",
+        "8"
+      ],
+      "answer": "7"
+    },
+    {
+      "id": "m-w01-012",
+      "subject": "math",
+      "difficulty": 2,
+      "topic": "20以内退位减法",
+      "type": "input",
+      "stem": "18 - 9 = ?",
+      "answer": "9"
+    },
+    {
+      "id": "m-w01-013",
+      "subject": "math",
+      "difficulty": 2,
+      "topic": "20以内退位减法",
+      "type": "input",
+      "stem": "11 - 7 = ?",
+      "answer": "4"
+    },
+    {
+      "id": "m-w01-014",
+      "subject": "math",
+      "difficulty": 2,
+      "topic": "20以内退位减法",
+      "type": "image-choice",
+      "stem": "图里有 7 个苹果，拿走 2 个，还剩几个？",
+      "stemImage": "/assets/quiz/apples-7.svg",
+      "options": [
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "answer": "5"
+    },
+    {
+      "id": "m-w01-015",
+      "subject": "math",
+      "difficulty": 2,
+      "topic": "20以内退位减法",
+      "type": "ordering",
+      "stem": "把这些算式按得数从小到大排好",
+      "items": [
+        "16-8",
+        "12-5",
+        "14-6",
+        "18-9"
+      ],
+      "correctOrder": [
+        1,
+        0,
+        2,
+        3
+      ],
+      "answer": "1,0,2,3"
+    },
+    {
+      "id": "m-w01-016",
+      "subject": "math",
+      "difficulty": 3,
+      "topic": "20以内退位减法",
+      "type": "choice",
+      "stem": "小朋友有 17 张卡片，送给同学 8 张，还剩几张？",
+      "options": [
+        "8",
+        "9",
+        "10",
+        "11"
+      ],
+      "answer": "9"
+    },
+    {
+      "id": "m-w01-017",
+      "subject": "math",
+      "difficulty": 1,
+      "topic": "认识图形（二）",
+      "type": "image-choice",
+      "stem": "看图，三角形的颜色是？",
+      "stemImage": "/assets/quiz/shapes.svg",
+      "options": [
+        "蓝色",
+        "绿色",
+        "红色"
+      ],
+      "answer": "绿色"
+    },
+    {
+      "id": "m-w01-018",
+      "subject": "math",
+      "difficulty": 1,
+      "topic": "认识图形（二）",
+      "type": "choice",
+      "stem": "下面哪个图形没有角？",
+      "options": [
+        "圆形",
+        "三角形",
+        "正方形",
+        "长方形"
+      ],
+      "answer": "圆形"
+    },
+    {
+      "id": "m-w01-019",
+      "subject": "math",
+      "difficulty": 1,
+      "topic": "认识图形（二）",
+      "type": "choice",
+      "stem": "红领巾的形状最像？",
+      "options": [
+        "三角形",
+        "圆形",
+        "正方形",
+        "长方形"
+      ],
+      "answer": "三角形"
+    },
+    {
+      "id": "m-w01-020",
+      "subject": "math",
+      "difficulty": 1,
+      "topic": "认识图形（二）",
+      "type": "choice",
+      "stem": "课本封面的形状最像？",
+      "options": [
+        "长方形",
+        "三角形",
+        "圆形",
+        "平行四边形"
+      ],
+      "answer": "长方形"
+    },
+    {
+      "id": "m-w01-021",
+      "subject": "math",
+      "difficulty": 1,
+      "topic": "认识图形（二）",
+      "type": "choice",
+      "stem": "四条边一样长的图形是？",
+      "options": [
+        "正方形",
+        "长方形",
+        "三角形",
+        "圆形"
+      ],
+      "answer": "正方形"
+    },
+    {
+      "id": "m-w01-022",
+      "subject": "math",
+      "difficulty": 2,
+      "topic": "认识图形（二）",
+      "type": "choice",
+      "stem": "篮球正面看起来最像什么图形？",
+      "options": [
+        "圆形",
+        "三角形",
+        "长方形",
+        "正方形"
+      ],
+      "answer": "圆形"
+    },
+    {
+      "id": "m-w01-023",
+      "subject": "math",
+      "difficulty": 2,
+      "topic": "认识图形（二）",
+      "type": "choice",
+      "stem": "下面哪组图形都有角？",
+      "options": [
+        "三角形和长方形",
+        "圆形和正方形",
+        "圆形和长方形"
+      ],
+      "answer": "三角形和长方形"
+    },
+    {
+      "id": "m-w01-024",
+      "subject": "math",
+      "difficulty": 2,
+      "topic": "认识图形（二）",
+      "type": "choice",
+      "stem": "下面哪个图形最容易滚动？",
+      "options": [
+        "圆形",
+        "三角形",
+        "长方形",
+        "正方形"
+      ],
+      "answer": "圆形"
+    },
+    {
+      "id": "m-w01-025",
+      "subject": "math",
+      "difficulty": 2,
+      "topic": "认识图形（二）",
+      "type": "choice",
+      "stem": "一个图形有 3 条边、3 个角，它是？",
+      "options": [
+        "三角形",
+        "正方形",
+        "圆形",
+        "长方形"
+      ],
+      "answer": "三角形"
+    },
+    {
+      "id": "m-w01-026",
+      "subject": "math",
+      "difficulty": 2,
+      "topic": "认识图形（二）",
+      "type": "choice",
+      "stem": "一张方桌的桌面最像什么图形？",
+      "options": [
+        "正方形",
+        "圆形",
+        "三角形",
+        "长方形"
+      ],
+      "answer": "正方形"
+    },
+    {
+      "id": "m-w01-027",
+      "subject": "math",
+      "difficulty": 2,
+      "topic": "认识图形（二）",
+      "type": "input",
+      "stem": "正方形有几条边？",
+      "answer": "4"
+    },
+    {
+      "id": "m-w01-028",
+      "subject": "math",
+      "difficulty": 3,
+      "topic": "认识图形（二）",
+      "type": "ordering",
+      "stem": "把这些图形按角的个数从少到多排好",
+      "items": [
+        "长方形",
+        "圆形",
+        "三角形"
+      ],
+      "correctOrder": [
+        1,
+        2,
+        0
+      ],
+      "answer": "1,2,0"
+    },
+    {
+      "id": "m-w01-029",
+      "subject": "math",
+      "difficulty": 1,
+      "topic": "认识100以内的数",
+      "type": "choice",
+      "stem": "由 3 个十和 5 个一组成的数是？",
+      "options": [
+        "53",
+        "35",
+        "30",
+        "50"
+      ],
+      "answer": "35"
+    },
+    {
+      "id": "m-w01-030",
+      "subject": "math",
+      "difficulty": 1,
+      "topic": "认识100以内的数",
+      "type": "choice",
+      "stem": "67 里面有几个十？",
+      "options": [
+        "5",
+        "6",
+        "7",
+        "8"
+      ],
+      "answer": "6"
+    },
+    {
+      "id": "m-w01-031",
+      "subject": "math",
+      "difficulty": 1,
+      "topic": "认识100以内的数",
+      "type": "choice",
+      "stem": "89 里面有几个一？",
+      "options": [
+        "8",
+        "9",
+        "10",
+        "7"
+      ],
+      "answer": "9"
+    },
+    {
+      "id": "m-w01-032",
+      "subject": "math",
+      "difficulty": 1,
+      "topic": "认识100以内的数",
+      "type": "choice",
+      "stem": "4 个十和 9 个一组成的数是？",
+      "options": [
+        "94",
+        "49",
+        "40",
+        "90"
+      ],
+      "answer": "49"
+    },
+    {
+      "id": "m-w01-033",
+      "subject": "math",
+      "difficulty": 1,
+      "topic": "认识100以内的数",
+      "type": "choice",
+      "stem": "90 前面的一个数是？",
+      "options": [
+        "89",
+        "91",
+        "80",
+        "99"
+      ],
+      "answer": "89"
+    },
+    {
+      "id": "m-w01-034",
+      "subject": "math",
+      "difficulty": 1,
+      "topic": "认识100以内的数",
+      "type": "choice",
+      "stem": "和 39 相邻的后一个数是？",
+      "options": [
+        "38",
+        "39",
+        "40",
+        "41"
+      ],
+      "answer": "40"
+    },
+    {
+      "id": "m-w01-035",
+      "subject": "math",
+      "difficulty": 1,
+      "topic": "认识100以内的数",
+      "type": "input",
+      "stem": "写出比 40 大 1 的数",
+      "answer": "41"
+    },
+    {
+      "id": "m-w01-036",
+      "subject": "math",
+      "difficulty": 1,
+      "topic": "认识100以内的数",
+      "type": "input",
+      "stem": "写出 100 前面的一个数",
+      "answer": "99"
+    },
+    {
+      "id": "m-w01-037",
+      "subject": "math",
+      "difficulty": 2,
+      "topic": "认识100以内的数",
+      "type": "choice",
+      "stem": "下面哪个数最大？",
+      "options": [
+        "56",
+        "65",
+        "46",
+        "59"
+      ],
+      "answer": "65"
+    },
+    {
+      "id": "m-w01-038",
+      "subject": "math",
+      "difficulty": 2,
+      "topic": "认识100以内的数",
+      "type": "choice",
+      "stem": "下面哪个数最接近 50？",
+      "options": [
+        "41",
+        "49",
+        "60",
+        "37"
+      ],
+      "answer": "49"
+    },
+    {
+      "id": "m-w01-039",
+      "subject": "math",
+      "difficulty": 2,
+      "topic": "认识100以内的数",
+      "type": "ordering",
+      "stem": "把这些数从小到大排好",
+      "items": [
+        "45",
+        "54",
+        "40",
+        "49"
+      ],
+      "correctOrder": [
+        2,
+        0,
+        3,
+        1
+      ],
+      "answer": "2,0,3,1"
+    },
+    {
+      "id": "m-w01-040",
+      "subject": "math",
+      "difficulty": 3,
+      "topic": "认识100以内的数",
+      "type": "choice",
+      "stem": "5 捆小棒和 3 根小棒合起来一共有多少根？",
+      "options": [
+        "35",
+        "53",
+        "50",
+        "8"
+      ],
+      "answer": "53"
+    },
+    {
+      "id": "c-w01-001",
+      "subject": "chinese",
+      "difficulty": 1,
+      "topic": "识字1-4",
+      "type": "choice",
+      "stem": "“春风”这个词和哪个季节最有关系？",
+      "options": [
+        "春天",
+        "夏天",
+        "秋天",
+        "冬天"
+      ],
+      "answer": "春天"
+    },
+    {
+      "id": "c-w01-002",
+      "subject": "chinese",
+      "difficulty": 1,
+      "topic": "识字1-4",
+      "type": "choice",
+      "stem": "“春雨”里表示天气现象的字是？",
+      "options": [
+        "春",
+        "雨",
+        "天",
+        "风"
+      ],
+      "answer": "雨"
+    },
+    {
+      "id": "c-w01-003",
+      "subject": "chinese",
+      "difficulty": 1,
+      "topic": "识字1-4",
+      "type": "choice",
+      "stem": "下面哪个词最适合形容春天？",
+      "options": [
+        "温暖",
+        "寒冷",
+        "结冰",
+        "落雪"
+      ],
+      "answer": "温暖"
+    },
+    {
+      "id": "c-w01-004",
+      "subject": "chinese",
+      "difficulty": 1,
+      "topic": "识字1-4",
+      "type": "choice",
+      "stem": "“春笋”里的“笋”一般从哪里长出来？",
+      "options": [
+        "泥土里",
+        "天空中",
+        "河水里",
+        "书本里"
+      ],
+      "answer": "泥土里"
+    },
+    {
+      "id": "c-w01-005",
+      "subject": "chinese",
+      "difficulty": 1,
+      "topic": "识字1-4",
+      "type": "choice",
+      "stem": "“小池塘”里最可能有些什么？",
+      "options": [
+        "水和小鱼",
+        "沙子和雪花",
+        "书本和铅笔",
+        "楼房和汽车"
+      ],
+      "answer": "水和小鱼"
+    },
+    {
+      "id": "c-w01-006",
+      "subject": "chinese",
+      "difficulty": 1,
+      "topic": "识字1-4",
+      "type": "choice",
+      "stem": "“梅花山”里“梅花”属于什么？",
+      "options": [
+        "花",
+        "树",
+        "动物",
+        "天气"
+      ],
+      "answer": "花"
+    },
+    {
+      "id": "c-w01-007",
+      "subject": "chinese",
+      "difficulty": 1,
+      "topic": "识字1-4",
+      "type": "choice",
+      "stem": "下面哪个词和草原关系最大？",
+      "options": [
+        "牛羊",
+        "楼梯",
+        "书桌",
+        "电灯"
+      ],
+      "answer": "牛羊"
+    },
+    {
+      "id": "c-w01-008",
+      "subject": "chinese",
+      "difficulty": 1,
+      "topic": "识字1-4",
+      "type": "choice",
+      "stem": "“早晨”是一天中的什么时候？",
+      "options": [
+        "早上",
+        "中午",
+        "晚上",
+        "半夜"
+      ],
+      "answer": "早上"
+    },
+    {
+      "id": "c-w01-009",
+      "subject": "chinese",
+      "difficulty": 2,
+      "topic": "识字1-4",
+      "type": "choice",
+      "stem": "下面哪个词最像春天的景色？",
+      "options": [
+        "花开了",
+        "下雪了",
+        "结冰了",
+        "北风呼呼"
+      ],
+      "answer": "花开了"
+    },
+    {
+      "id": "c-w01-010",
+      "subject": "chinese",
+      "difficulty": 2,
+      "topic": "识字1-4",
+      "type": "choice",
+      "stem": "“池塘”通常和下面哪个字意思最接近？",
+      "options": [
+        "水",
+        "火",
+        "山",
+        "木"
+      ],
+      "answer": "水"
+    },
+    {
+      "id": "c-w01-011",
+      "subject": "chinese",
+      "difficulty": 1,
+      "topic": "课文1-4",
+      "type": "choice",
+      "stem": "《春笋》写的是谁从泥土里钻出来？",
+      "options": [
+        "春笋",
+        "小鸟",
+        "白云",
+        "太阳"
+      ],
+      "answer": "春笋"
+    },
+    {
+      "id": "c-w01-012",
+      "subject": "chinese",
+      "difficulty": 1,
+      "topic": "课文1-4",
+      "type": "choice",
+      "stem": "《雨点》这篇课文写的是？",
+      "options": [
+        "雨点",
+        "雪花",
+        "风筝",
+        "月亮"
+      ],
+      "answer": "雨点"
+    },
+    {
+      "id": "c-w01-013",
+      "subject": "chinese",
+      "difficulty": 1,
+      "topic": "课文1-4",
+      "type": "choice",
+      "stem": "《小池塘》主要写了哪里？",
+      "options": [
+        "小池塘",
+        "大海",
+        "高山",
+        "学校"
+      ],
+      "answer": "小池塘"
+    },
+    {
+      "id": "c-w01-014",
+      "subject": "chinese",
+      "difficulty": 1,
+      "topic": "课文1-4",
+      "type": "choice",
+      "stem": "《春到梅花山》写的是哪里的春景？",
+      "options": [
+        "梅花山",
+        "操场",
+        "果园",
+        "教室"
+      ],
+      "answer": "梅花山"
+    },
+    {
+      "id": "c-w01-015",
+      "subject": "chinese",
+      "difficulty": 2,
+      "topic": "课文1-4",
+      "type": "choice",
+      "stem": "下面哪个词最适合放进《春到梅花山》这篇课文？",
+      "options": [
+        "花开",
+        "下雪",
+        "雷声",
+        "秋叶"
+      ],
+      "answer": "花开"
+    },
+    {
+      "id": "c-w01-016",
+      "subject": "chinese",
+      "difficulty": 2,
+      "topic": "课文1-4",
+      "type": "choice",
+      "stem": "“雨点”“春笋”“梅花”这些词都和什么有关？",
+      "options": [
+        "春天",
+        "冬天",
+        "夜晚",
+        "教室"
+      ],
+      "answer": "春天"
+    },
+    {
+      "id": "c-w01-017",
+      "subject": "chinese",
+      "difficulty": 1,
+      "topic": "课文5-8",
+      "type": "choice",
+      "stem": "《草原的早晨》写的是哪里的一天开始了？",
+      "options": [
+        "草原",
+        "树林",
+        "校园",
+        "公园"
+      ],
+      "answer": "草原"
+    },
+    {
+      "id": "c-w01-018",
+      "subject": "chinese",
+      "difficulty": 1,
+      "topic": "课文5-8",
+      "type": "choice",
+      "stem": "《蘑菇该奖给谁》题目里提到要奖给什么？",
+      "options": [
+        "蘑菇",
+        "苹果",
+        "书本",
+        "红花"
+      ],
+      "answer": "蘑菇"
+    },
+    {
+      "id": "c-w01-019",
+      "subject": "chinese",
+      "difficulty": 1,
+      "topic": "课文5-8",
+      "type": "choice",
+      "stem": "《骑牛比赛》比的是哪项活动？",
+      "options": [
+        "骑牛",
+        "跑步",
+        "游泳",
+        "跳绳"
+      ],
+      "answer": "骑牛"
+    },
+    {
+      "id": "c-w01-020",
+      "subject": "chinese",
+      "difficulty": 1,
+      "topic": "课文5-8",
+      "type": "choice",
+      "stem": "《小松树和大松树》题目里有哪两棵树？",
+      "options": [
+        "小松树和大松树",
+        "小柳树和大柳树",
+        "小柏树和大柏树"
+      ],
+      "answer": "小松树和大松树"
+    },
+    {
+      "id": "c-w01-021",
+      "subject": "chinese",
+      "difficulty": 1,
+      "topic": "课文5-8",
+      "type": "choice",
+      "stem": "“草原的早晨”里的“早晨”表示什么时间？",
+      "options": [
+        "早上",
+        "中午",
+        "晚上",
+        "夜里"
+      ],
+      "answer": "早上"
+    },
+    {
+      "id": "c-w01-022",
+      "subject": "chinese",
+      "difficulty": 2,
+      "topic": "课文5-8",
+      "type": "choice",
+      "stem": "下面哪个词最可能出现在《骑牛比赛》这篇课文里？",
+      "options": [
+        "牛",
+        "鱼",
+        "船",
+        "雪人"
+      ],
+      "answer": "牛"
+    },
+    {
+      "id": "c-w01-023",
+      "subject": "chinese",
+      "difficulty": 2,
+      "topic": "课文5-8",
+      "type": "choice",
+      "stem": "《蘑菇该奖给谁》更像是在讲什么？",
+      "options": [
+        "奖励和判断",
+        "天气变化",
+        "种树方法",
+        "买东西"
+      ],
+      "answer": "奖励和判断"
+    },
+    {
+      "id": "c-w01-024",
+      "subject": "chinese",
+      "difficulty": 2,
+      "topic": "课文5-8",
+      "type": "choice",
+      "stem": "《小松树和大松树》里，两棵树都是什么树？",
+      "options": [
+        "松树",
+        "柳树",
+        "桃树",
+        "竹子"
+      ],
+      "answer": "松树"
+    },
+    {
+      "id": "c-w01-025",
+      "subject": "chinese",
+      "difficulty": 1,
+      "topic": "课文9-13",
+      "type": "choice",
+      "stem": "《吃水不忘挖井人》告诉我们不忘记谁？",
+      "options": [
+        "挖井人",
+        "卖水人",
+        "种树人",
+        "同学"
+      ],
+      "answer": "挖井人"
+    },
+    {
+      "id": "c-w01-026",
+      "subject": "chinese",
+      "difficulty": 1,
+      "topic": "课文9-13",
+      "type": "choice",
+      "stem": "《他得的红圈圈最多》里，他得到最多的是什么？",
+      "options": [
+        "红圈圈",
+        "五角星",
+        "小红花",
+        "奖章"
+      ],
+      "answer": "红圈圈"
+    },
+    {
+      "id": "c-w01-027",
+      "subject": "chinese",
+      "difficulty": 1,
+      "topic": "课文9-13",
+      "type": "choice",
+      "stem": "《奶奶的白发》写的是谁的头发？",
+      "options": [
+        "奶奶",
+        "妈妈",
+        "姐姐",
+        "老师"
+      ],
+      "answer": "奶奶"
+    },
+    {
+      "id": "c-w01-028",
+      "subject": "chinese",
+      "difficulty": 1,
+      "topic": "课文9-13",
+      "type": "choice",
+      "stem": "《陈毅探母》中的“探母”是去看望谁？",
+      "options": [
+        "母亲",
+        "老师",
+        "同学",
+        "朋友"
+      ],
+      "answer": "母亲"
+    },
+    {
+      "id": "c-w01-029",
+      "subject": "chinese",
+      "difficulty": 1,
+      "topic": "课文9-13",
+      "type": "choice",
+      "stem": "《好学的爸爸》说明爸爸怎么样？",
+      "options": [
+        "爱学习",
+        "爱睡觉",
+        "爱发脾气",
+        "爱玩游戏"
+      ],
+      "answer": "爱学习"
+    },
+    {
+      "id": "c-w01-030",
+      "subject": "chinese",
+      "difficulty": 1,
+      "topic": "课文9-13",
+      "type": "choice",
+      "stem": "“白发”里的“白”表示什么颜色？",
+      "options": [
+        "白色",
+        "黑色",
+        "红色",
+        "绿色"
+      ],
+      "answer": "白色"
+    },
+    {
+      "id": "c-w01-031",
+      "subject": "chinese",
+      "difficulty": 2,
+      "topic": "课文9-13",
+      "type": "choice",
+      "stem": "《陈毅探母》里，“母”字的意思最接近哪个词？",
+      "options": [
+        "妈妈",
+        "朋友",
+        "老师",
+        "哥哥"
+      ],
+      "answer": "妈妈"
+    },
+    {
+      "id": "c-w01-032",
+      "subject": "chinese",
+      "difficulty": 2,
+      "topic": "课文9-13",
+      "type": "choice",
+      "stem": "下面哪句话最符合《好学的爸爸》？",
+      "options": [
+        "爸爸一直坚持学习。",
+        "爸爸从来不看书。",
+        "爸爸总在睡懒觉。"
+      ],
+      "answer": "爸爸一直坚持学习。"
+    },
+    {
+      "id": "c-w01-033",
+      "subject": "chinese",
+      "difficulty": 2,
+      "topic": "课文9-13",
+      "type": "choice",
+      "stem": "《吃水不忘挖井人》这篇课文主要告诉我们什么？",
+      "options": [
+        "要记得感谢帮助过我们的人",
+        "要多吃饭",
+        "要早点睡觉"
+      ],
+      "answer": "要记得感谢帮助过我们的人"
+    },
+    {
+      "id": "c-w01-034",
+      "subject": "chinese",
+      "difficulty": 2,
+      "topic": "课文9-13",
+      "type": "choice",
+      "stem": "“好学”最接近下面哪个意思？",
+      "options": [
+        "爱学习",
+        "爱休息",
+        "爱唱歌",
+        "爱玩耍"
+      ],
+      "answer": "爱学习"
+    },
+    {
+      "id": "c-w01-035",
+      "subject": "chinese",
+      "difficulty": 2,
+      "topic": "练习1-4",
+      "type": "choice",
+      "stem": "“白”的反义词是？",
+      "options": [
+        "黑",
+        "红",
+        "蓝",
+        "绿"
+      ],
+      "answer": "黑"
+    },
+    {
+      "id": "c-w01-036",
+      "subject": "chinese",
+      "difficulty": 2,
+      "topic": "练习1-4",
+      "type": "choice",
+      "stem": "“大”的反义词是？",
+      "options": [
+        "小",
+        "高",
+        "长",
+        "多"
+      ],
+      "answer": "小"
+    },
+    {
+      "id": "c-w01-037",
+      "subject": "chinese",
+      "difficulty": 2,
+      "topic": "练习1-4",
+      "type": "input",
+      "stem": "“好学”的意思是爱___",
+      "answer": "学习"
+    },
+    {
+      "id": "c-w01-038",
+      "subject": "chinese",
+      "difficulty": 2,
+      "topic": "练习1-4",
+      "type": "input",
+      "stem": "“奶奶的白发”里，“白”的反义词写一个字",
+      "answer": "黑"
+    },
+    {
+      "id": "c-w01-039",
+      "subject": "chinese",
+      "difficulty": 3,
+      "topic": "练习1-4",
+      "type": "ordering",
+      "stem": "把词语排成通顺句子：爸爸 / 爱 / 学习",
+      "items": [
+        "爱",
+        "爸爸",
+        "学习"
+      ],
+      "correctOrder": [
+        1,
+        0,
+        2
+      ],
+      "answer": "1,0,2"
+    },
+    {
+      "id": "c-w01-040",
+      "subject": "chinese",
+      "difficulty": 3,
+      "topic": "练习1-4",
+      "type": "ordering",
+      "stem": "把词语排成通顺句子：春风 / 轻轻地 / 吹",
+      "items": [
+        "吹",
+        "春风",
+        "轻轻地"
+      ],
+      "correctOrder": [
+        1,
+        2,
+        0
+      ],
+      "answer": "1,2,0"
+    },
+    {
+      "id": "e-w01-001",
+      "subject": "english",
+      "difficulty": 1,
+      "topic": "Unit 1 Let's count",
+      "type": "choice",
+      "stem": "Which number is “three”?",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "answer": "3"
+    },
+    {
+      "id": "e-w01-002",
+      "subject": "english",
+      "difficulty": 1,
+      "topic": "Unit 1 Let's count",
+      "type": "choice",
+      "stem": "数字 5 的英文是？",
+      "options": [
+        "four",
+        "five",
+        "six",
+        "seven"
+      ],
+      "answer": "five"
+    },
+    {
+      "id": "e-w01-003",
+      "subject": "english",
+      "difficulty": 1,
+      "topic": "Unit 1 Let's count",
+      "type": "input",
+      "stem": "Write the English word for 8",
+      "answer": "eight"
+    },
+    {
+      "id": "e-w01-004",
+      "subject": "english",
+      "difficulty": 2,
+      "topic": "Unit 1 Let's count",
+      "type": "ordering",
+      "stem": "Sort the numbers from small to big",
+      "items": [
+        "three",
+        "one",
+        "two"
+      ],
+      "correctOrder": [
+        1,
+        2,
+        0
+      ],
+      "answer": "1,2,0"
+    },
+    {
+      "id": "e-w01-005",
+      "subject": "english",
+      "difficulty": 1,
+      "topic": "Unit 2 This is my pencil",
+      "type": "choice",
+      "stem": "This is my ___.",
+      "options": [
+        "pencil",
+        "carrot",
+        "spring"
+      ],
+      "answer": "pencil"
+    },
+    {
+      "id": "e-w01-006",
+      "subject": "english",
+      "difficulty": 1,
+      "topic": "Unit 2 This is my pencil",
+      "type": "choice",
+      "stem": "Which word means “尺子”?",
+      "options": [
+        "pen",
+        "ruler",
+        "flower"
+      ],
+      "answer": "ruler"
+    },
+    {
+      "id": "e-w01-007",
+      "subject": "english",
+      "difficulty": 1,
+      "topic": "Unit 2 This is my pencil",
+      "type": "input",
+      "stem": "Write the English word: 钢笔",
+      "answer": "pen"
+    },
+    {
+      "id": "e-w01-008",
+      "subject": "english",
+      "difficulty": 2,
+      "topic": "Unit 2 This is my pencil",
+      "type": "choice",
+      "stem": "Which one is a school thing?",
+      "options": [
+        "pencil",
+        "carrot",
+        "spring"
+      ],
+      "answer": "pencil"
+    },
+    {
+      "id": "e-w01-009",
+      "subject": "english",
+      "difficulty": 1,
+      "topic": "Unit 3 I like carrots",
+      "type": "choice",
+      "stem": "I like ___.",
+      "options": [
+        "carrots",
+        "rulers",
+        "seven"
+      ],
+      "answer": "carrots"
+    },
+    {
+      "id": "e-w01-010",
+      "subject": "english",
+      "difficulty": 1,
+      "topic": "Unit 3 I like carrots",
+      "type": "choice",
+      "stem": "Which word means “胡萝卜”?",
+      "options": [
+        "carrot",
+        "pencil",
+        "spring"
+      ],
+      "answer": "carrot"
+    },
+    {
+      "id": "e-w01-011",
+      "subject": "english",
+      "difficulty": 1,
+      "topic": "Unit 3 I like carrots",
+      "type": "image-choice",
+      "stem": "What's this fruit?",
+      "stemImage": "/assets/quiz/apple.svg",
+      "options": [
+        "apple",
+        "carrot",
+        "pen"
+      ],
+      "answer": "apple"
+    },
+    {
+      "id": "e-w01-012",
+      "subject": "english",
+      "difficulty": 2,
+      "topic": "Unit 3 I like carrots",
+      "type": "input",
+      "stem": "Write the English word: 苹果",
+      "answer": "apple"
+    },
+    {
+      "id": "e-w01-013",
+      "subject": "english",
+      "difficulty": 1,
+      "topic": "Unit 4 Spring",
+      "type": "choice",
+      "stem": "Spring means ___.",
+      "options": [
+        "春天",
+        "夏天",
+        "秋天"
+      ],
+      "answer": "春天"
+    },
+    {
+      "id": "e-w01-014",
+      "subject": "english",
+      "difficulty": 2,
+      "topic": "Unit 4 Spring",
+      "type": "image-choice",
+      "stem": "Which picture is about spring flowers?",
+      "stemImage": "/assets/quiz/sunflower.svg",
+      "options": [
+        "flower",
+        "bus",
+        "dog"
+      ],
+      "answer": "flower"
+    },
+    {
+      "id": "e-w01-015",
+      "subject": "english",
+      "difficulty": 3,
+      "topic": "Unit 4 Spring",
+      "type": "choice",
+      "stem": "Which sentence fits Unit 4 best?",
+      "options": [
+        "Spring is nice.",
+        "This is my ruler.",
+        "I like ten."
+      ],
+      "answer": "Spring is nice."
+    }
   ]
 }

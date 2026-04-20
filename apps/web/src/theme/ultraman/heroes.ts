@@ -11,9 +11,23 @@ export type HeroProfile = {
 
 export const HEROES: readonly HeroProfile[] = [
   { id: 'tiga', name: '迪迦', color: '#7c4dff', accent: '#ffd740', tagline: '光之巨人' },
-  { id: 'zero', name: '赛罗', color: '#2979ff', accent: '#ff1744', tagline: '赛罗战士' },
+  {
+    id: 'zero',
+    name: '赛罗',
+    color: '#2979ff',
+    accent: '#ff1744',
+    tagline: '赛罗战士',
+    imageUrl: '/assets/heroes/zero.jpg',
+  },
   { id: 'decker', name: '德凯', color: '#00c853', accent: '#ffffff', tagline: '新世代闪耀' },
-  { id: 'belial', name: '贝利亚', color: '#d500f9', accent: '#ff9100', tagline: '暗之皇帝' },
+  {
+    id: 'belial',
+    name: '贝利亚',
+    color: '#d500f9',
+    accent: '#ff9100',
+    tagline: '暗之皇帝',
+    imageUrl: '/assets/heroes/belial.jpeg',
+  },
 ];
 
 export const getHero = (id: HeroId): HeroProfile => {

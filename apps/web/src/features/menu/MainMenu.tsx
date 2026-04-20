@@ -1,9 +1,8 @@
 import { useState } from 'react';
 
+import { DEFAULT_CHILD_ID } from '../../config/childIdentity';
 import { ReviewMode } from '../review/ReviewMode';
 import { useGameStore } from '../../stores/gameStore';
-
-const DEFAULT_CHILD_ID = 'child-default';
 
 export const MainMenu = () => {
   const goToSetup = useGameStore((s) => s.goToSetup);

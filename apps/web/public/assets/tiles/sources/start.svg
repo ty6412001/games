@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fde68a"/>
+      <stop offset="1" stop-color="#f59e0b"/>
+    </linearGradient>
+  </defs>
+  <rect x="12" y="12" width="232" height="232" rx="28" fill="url(#bg)" stroke="#78350f" stroke-width="6"/>
+  <rect x="160" y="64" width="22" height="44" fill="#b45309" stroke="#451a03" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M48 148 L128 74 L208 148 L208 200 L48 200 Z" fill="#fef3c7" stroke="#78350f" stroke-width="6" stroke-linejoin="round"/>
+  <rect x="108" y="156" width="40" height="44" fill="#92400e" stroke="#451a03" stroke-width="5"/>
+  <circle cx="140" cy="180" r="3" fill="#451a03"/>
+  <rect x="68" y="156" width="24" height="24" fill="#fbbf24" stroke="#451a03" stroke-width="4"/>
+  <rect x="164" y="156" width="24" height="24" fill="#fbbf24" stroke="#451a03" stroke-width="4"/>
+  <text x="128" y="232" text-anchor="middle" font-family="system-ui, sans-serif" font-weight="900" font-size="28" fill="#78350f">GO</text>
+</svg>

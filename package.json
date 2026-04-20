@@ -17,10 +17,12 @@
     "test:e2e": "pnpm --filter web run test:e2e",
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md,yaml,yml}\"",
     "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,json,md,yaml,yml}\"",
-    "ci": "pnpm run typecheck && pnpm run lint && pnpm run test"
+    "check:terms": "tsx scripts/check-legacy-terms.ts",
+    "ci": "pnpm run typecheck && pnpm run lint && pnpm run test && pnpm run check:terms"
   },
   "devDependencies": {
     "prettier": "^3.3.3",
+    "tsx": "^4.19.2",
     "typescript": "^5.6.3"
   },
   "pnpm": {

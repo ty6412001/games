@@ -44,6 +44,9 @@ jobs:
       - name: Test
         run: pnpm -r run test
 
+      - name: Check legacy wordings
+        run: pnpm run check:terms
+
       - name: Build
         run: pnpm -r run build
 

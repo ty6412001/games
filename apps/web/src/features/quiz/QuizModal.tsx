@@ -1,24 +1,27 @@
 import { useEffect, useState } from 'react';
 import type { Question } from '@ultraman/shared';
 
+import { DigitKeypad } from '../../components/input/DigitKeypad';
 import { features } from '../../config/features';
 import { useGameStore } from '../../stores/gameStore';
+import { BATTLE_CONTRAST } from '../../theme/contrast';
 import { CountdownBar } from './CountdownBar';
 
 const subjectBadge: Record<string, { label: string; color: string }> = {
   math: { label: '数学', color: 'bg-blue-600' },
   chinese: { label: '语文', color: 'bg-rose-600' },
   english: { label: '英语', color: 'bg-green-600' },
+  brain: { label: '挑战题', color: 'bg-amber-600' },
 };
 
 const contextLabel = (kind: string): string => {
   switch (kind) {
     case 'study':
-      return '📚 学习格：答对有奖金';
+      return '📚 学习星：答对有金币';
     case 'monster':
       return '⚔️ 打怪兽：答对击败它';
     case 'property-buy':
-      return '🏙️ 要买这块地，先答对';
+      return '🏙️ 要买下这块地，先答对';
     default:
       return '答题时间';
   }
@@ -39,9 +42,12 @@ export const QuizModal = () => {
   if (!quiz || !game) return null;
   const isChildAnswering = quiz.playerId === childId;
   const answerer = game.players.find((p) => p.id === quiz.playerId);
+  const stemImageSrc = quiz.question.stemImage?.startsWith('/assets/quiz/')
+    ? quiz.question.stemImage
+    : undefined;
 
   return (
-    <div className="fixed inset-0 z-40 flex items-center justify-center bg-slate-950/80 p-4 backdrop-blur-sm">
+    <div className="fixed inset-0 z-40 flex items-center justify-center bg-slate-950/80 p-4 text-slate-50 backdrop-blur-sm">
       <div className="max-h-[100svh] w-full max-w-2xl overflow-y-auto rounded-3xl bg-slate-900 p-5 shadow-2xl ring-2 ring-amber-500/50">
         <header className="flex items-center justify-between gap-3">
           <div className="flex items-center gap-2">
@@ -73,9 +79,9 @@ export const QuizModal = () => {
         ) : null}
 
         <div className="mt-4 min-h-[80px] rounded-2xl bg-slate-800/60 p-4 text-xl leading-relaxed">
-          {quiz.question.stemImage ? (
+          {stemImageSrc ? (
             <img
-              src={quiz.question.stemImage}
+              src={stemImageSrc}
               alt="题目插图"
               className="mb-3 max-h-40 rounded-lg"
             />
@@ -120,8 +126,14 @@ const AnswerArea = ({
     case 'choice':
     case 'image-choice':
       return <ChoiceArea options={question.options} onSubmit={onSubmit} />;
-    case 'input':
-      return <InputArea onSubmit={onSubmit} />;
+    case 'input': {
+      const canUseDigitKeypad = /^\d+$/.test(question.answer.trim());
+      return canUseDigitKeypad ? (
+        <DigitKeypad onSubmit={onSubmit} />
+      ) : (
+        <InputArea onSubmit={onSubmit} />
+      );
+    }
     case 'ordering':
       return <OrderingArea items={question.items} onSubmit={onSubmit} />;
   }
@@ -142,7 +154,7 @@ const ChoiceArea = ({
         onClick={() => {
           void onSubmit(opt);
         }}
-        className="min-h-[64px] rounded-2xl bg-slate-700 px-4 py-3 text-left text-xl font-bold transition hover:bg-amber-500 hover:text-slate-900"
+        className={`min-h-[64px] rounded-2xl ${BATTLE_CONTRAST.secondaryAction.bgClass} ${BATTLE_CONTRAST.secondaryAction.textClass} px-4 py-3 text-left text-xl font-bold transition hover:bg-amber-300 hover:text-slate-950`}
       >
         {opt}
       </button>
@@ -175,7 +187,7 @@ const InputArea = ({
       />
       <button
         type="submit"
-        className="min-h-[64px] rounded-2xl bg-amber-400 px-6 text-xl font-black text-slate-900"
+        className={`min-h-[64px] rounded-2xl ${BATTLE_CONTRAST.primaryAction.bgClass} ${BATTLE_CONTRAST.primaryAction.textClass} px-6 text-xl font-black`}
       >
         确认
       </button>
@@ -206,20 +218,32 @@ const OrderingArea = ({
 
   return (
     <div className="space-y-3">
-      <p className="text-sm text-slate-400">按顺序点击下方选项</p>
-      <div className="flex flex-wrap gap-2">
+      <p className="text-sm text-slate-400">按顺序点击下方选项，点角标可以反选</p>
+      <div className="grid grid-cols-2 gap-3">
         {items.map((item, idx) => {
           const sel = order.indexOf(idx);
+          const selected = sel >= 0;
           return (
             <button
               key={`${item}-${idx}`}
               type="button"
               onClick={() => pick(idx)}
-              className={`min-h-[56px] min-w-[64px] rounded-2xl px-4 py-2 text-xl font-black transition ${
-                sel >= 0 ? 'bg-amber-400 text-slate-900' : 'bg-slate-700'
+              aria-label={selected ? `取消 ${item}（当前第 ${sel + 1} 位）` : `选择 ${item}`}
+              className={`relative min-h-[72px] min-w-[88px] rounded-2xl px-4 py-3 text-2xl font-black transition ${
+                selected
+                  ? `${BATTLE_CONTRAST.primaryAction.bgClass} ${BATTLE_CONTRAST.primaryAction.textClass} ring-4 ring-amber-300`
+                  : `${BATTLE_CONTRAST.secondaryAction.bgClass} ${BATTLE_CONTRAST.secondaryAction.textClass}`
               }`}
             >
-              {sel >= 0 ? `${sel + 1}.${item}` : item}
+              {selected ? (
+                <span
+                  aria-hidden
+                  className="absolute -left-3 -top-3 flex h-10 w-10 items-center justify-center rounded-full bg-amber-400 text-lg font-black text-slate-900 shadow-lg ring-2 ring-white"
+                >
+                  {sel + 1}
+                </span>
+              ) : null}
+              <span>{item}</span>
             </button>
           );
         })}
@@ -236,7 +260,7 @@ const OrderingArea = ({
           type="button"
           disabled={!ready}
           onClick={() => onSubmit(order.join(','))}
-          className="flex-1 rounded-2xl bg-amber-400 px-6 py-3 text-xl font-black text-slate-900 disabled:opacity-40"
+          className={`flex-1 rounded-2xl ${BATTLE_CONTRAST.primaryAction.bgClass} ${BATTLE_CONTRAST.primaryAction.textClass} px-6 py-3 text-xl font-black disabled:opacity-40`}
         >
           提交
         </button>

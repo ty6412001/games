@@ -2,6 +2,7 @@ import type { Player, Tile } from '@ultraman/shared';
 import { BOARD_SIZE } from '@ultraman/shared';
 
 import { useGameStore } from '../../stores/gameStore';
+import { tileAssetPath } from '../../theme/tileAssets';
 import { getHero } from '../../theme/ultraman/heroes';
 
 const SIDE_LENGTH = 8;
@@ -106,24 +107,36 @@ export const Board = ({ centerContent }: BoardProps = {}) => {
         const playersHere = game.players.filter((p) => p.position === position);
         const isPropertyTile = tile.type === 'property';
         const pathIncludes = movementAnim?.path.slice(0, movementAnim.stepIndex + 1).includes(position);
+        const tileId = isPropertyTile ? `property-${tile.district}` : tile.type;
+        const pngPath = tileAssetPath(tile);
 
         return (
           <div
             key={position}
+            data-tile-id={tileId}
             className={`relative flex aspect-square flex-col items-center justify-between rounded-lg border-2 p-1 text-[10px] font-bold md:text-xs ${tileBackgroundClass(tile)} ${
               pathIncludes ? 'ring-2 ring-amber-300' : ''
             }`}
-            style={{ gridRow: row + 1, gridColumn: col + 1 }}
+            style={{
+              gridRow: row + 1,
+              gridColumn: col + 1,
+              backgroundImage: pngPath ? `url(${pngPath})` : undefined,
+              backgroundSize: '82%',
+              backgroundRepeat: 'no-repeat',
+              backgroundPosition: 'center 36%',
+            }}
           >
-            <div className="text-center leading-tight text-slate-100">{tileLabel(tile)}</div>
+            <div className="rounded bg-slate-950/70 px-1 text-center leading-tight text-slate-50">
+              {tileLabel(tile)}
+            </div>
             {isPropertyTile ? (
-              <div className="text-[9px] text-slate-300">¥{tile.basePrice}</div>
+              <div className="rounded bg-slate-950/70 px-1 text-[9px] text-slate-200">¥{tile.basePrice}</div>
             ) : null}
             {owner ? (
               <div
                 className="absolute right-1 top-1 h-3 w-3 rounded-full border border-white/40"
                 style={{ backgroundColor: getHero(owner.hero.heroId).color }}
-                title={`${owner.name} 的地产`}
+                title={`${owner.name} 的地`}
               />
             ) : null}
             {playersHere.length > 0 ? (

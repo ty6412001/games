@@ -1,0 +1,758 @@
+{
+  "week": 10,
+  "title": "第10周 · 综合复习 / 字词句综合 / Review · 55题综合卷",
+  "boss": {
+    "id": "telesdon",
+    "name": "特雷斯顿",
+    "hp": 4800
+  },
+  "questions": [
+    {
+      "id": "m-w10-001",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "18 + 5 = ?",
+      "options": [
+        "22",
+        "23",
+        "24",
+        "25"
+      ],
+      "answer": "23",
+      "subject": "math",
+      "topic": "综合复习"
+    },
+    {
+      "id": "m-w10-002",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "34 + 5 = ?",
+      "options": [
+        "38",
+        "39",
+        "40",
+        "41"
+      ],
+      "answer": "39",
+      "subject": "math",
+      "topic": "综合复习"
+    },
+    {
+      "id": "m-w10-003",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "52 - 7 = ?",
+      "options": [
+        "44",
+        "45",
+        "46",
+        "47"
+      ],
+      "answer": "45",
+      "subject": "math",
+      "topic": "综合复习"
+    },
+    {
+      "id": "m-w10-004",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "80 - 4 = ?",
+      "options": [
+        "74",
+        "75",
+        "76",
+        "77"
+      ],
+      "answer": "76",
+      "subject": "math",
+      "topic": "综合复习"
+    },
+    {
+      "id": "m-w10-005",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "7 个十和 3 个一组成的数是？",
+      "options": [
+        "37",
+        "73",
+        "70",
+        "30"
+      ],
+      "answer": "73",
+      "subject": "math",
+      "topic": "综合复习"
+    },
+    {
+      "id": "m-w10-006",
+      "difficulty": 1,
+      "type": "input",
+      "stem": "29 + 3 = ?",
+      "answer": "32",
+      "subject": "math",
+      "topic": "综合复习"
+    },
+    {
+      "id": "m-w10-007",
+      "difficulty": 1,
+      "type": "input",
+      "stem": "61 - 8 = ?",
+      "answer": "53",
+      "subject": "math",
+      "topic": "综合复习"
+    },
+    {
+      "id": "m-w10-008",
+      "difficulty": 1,
+      "type": "input",
+      "stem": "4 元 = 多少角？",
+      "answer": "40",
+      "subject": "math",
+      "topic": "综合复习"
+    },
+    {
+      "id": "m-w10-009",
+      "difficulty": 1,
+      "type": "input",
+      "stem": "写出比 49 多 10 的数",
+      "answer": "59",
+      "subject": "math",
+      "topic": "综合复习"
+    },
+    {
+      "id": "m-w10-010",
+      "difficulty": 2,
+      "type": "input",
+      "stem": "写出比 60 少 1 的数",
+      "answer": "59",
+      "subject": "math",
+      "topic": "综合复习"
+    },
+    {
+      "id": "m-w10-011",
+      "difficulty": 2,
+      "type": "choice",
+      "stem": "下面哪个算式得数最大？",
+      "options": [
+        "28 + 7",
+        "34 + 5",
+        "52 - 7",
+        "61 - 8"
+      ],
+      "answer": "34 + 5",
+      "subject": "math",
+      "topic": "综合复习"
+    },
+    {
+      "id": "m-w10-012",
+      "difficulty": 2,
+      "type": "choice",
+      "stem": "下面哪个钱数最少？",
+      "options": [
+        "8角",
+        "1元",
+        "1元5角",
+        "2元"
+      ],
+      "answer": "8角",
+      "subject": "math",
+      "topic": "综合复习"
+    },
+    {
+      "id": "m-w10-013",
+      "difficulty": 1,
+      "type": "image-choice",
+      "stem": "图中有 4 颗星星，再加 4 颗，一共有几颗？",
+      "stemImage": "/assets/quiz/stars-4.svg",
+      "options": [
+        "6",
+        "7",
+        "8",
+        "9"
+      ],
+      "answer": "8",
+      "subject": "math",
+      "topic": "综合复习"
+    },
+    {
+      "id": "m-w10-014",
+      "difficulty": 1,
+      "type": "image-choice",
+      "stem": "图中有 5 个苹果，拿走 2 个，还剩几个？",
+      "stemImage": "/assets/quiz/apples-5.svg",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "answer": "3",
+      "subject": "math",
+      "topic": "综合复习"
+    },
+    {
+      "id": "m-w10-015",
+      "difficulty": 2,
+      "type": "choice",
+      "stem": "73 的个位是？",
+      "options": [
+        "7",
+        "3",
+        "0",
+        "10"
+      ],
+      "answer": "3",
+      "subject": "math",
+      "topic": "综合复习"
+    },
+    {
+      "id": "m-w10-016",
+      "difficulty": 2,
+      "type": "ordering",
+      "stem": "把这些数从小到大排好：40，59，32，73",
+      "items": [
+        "40",
+        "59",
+        "32",
+        "73"
+      ],
+      "correctOrder": [
+        2,
+        0,
+        1,
+        3
+      ],
+      "answer": "2,0,1,3",
+      "subject": "math",
+      "topic": "综合复习"
+    },
+    {
+      "id": "m-w10-017",
+      "difficulty": 2,
+      "type": "ordering",
+      "stem": "把这些钱数从大到小排好：2元，8角，1元5角，1元",
+      "items": [
+        "2元",
+        "8角",
+        "1元5角",
+        "1元"
+      ],
+      "correctOrder": [
+        0,
+        2,
+        3,
+        1
+      ],
+      "answer": "0,2,3,1",
+      "subject": "math",
+      "topic": "综合复习"
+    },
+    {
+      "id": "m-w10-018",
+      "difficulty": 3,
+      "type": "input",
+      "stem": "商店里有 52 个气球，卖出 7 个，又进货 5 个，现在有多少个？",
+      "answer": "50",
+      "subject": "math",
+      "topic": "综合复习"
+    },
+    {
+      "id": "m-w10-019",
+      "difficulty": 3,
+      "type": "input",
+      "stem": "你有 2 元，买了 8 角的橡皮，还剩多少角？",
+      "answer": "12",
+      "subject": "math",
+      "topic": "综合复习"
+    },
+    {
+      "id": "m-w10-020",
+      "difficulty": 3,
+      "type": "choice",
+      "stem": "下面哪个数最接近 60？",
+      "options": [
+        "59",
+        "53",
+        "73",
+        "45"
+      ],
+      "answer": "59",
+      "subject": "math",
+      "topic": "综合复习"
+    },
+    {
+      "id": "c-w10-001",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "“草”字的声母是？",
+      "options": [
+        "z",
+        "c",
+        "s",
+        "sh"
+      ],
+      "answer": "c",
+      "subject": "chinese",
+      "topic": "字词句综合"
+    },
+    {
+      "id": "c-w10-002",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "“树”字的声母是？",
+      "options": [
+        "s",
+        "sh",
+        "r",
+        "zh"
+      ],
+      "answer": "sh",
+      "subject": "chinese",
+      "topic": "字词句综合"
+    },
+    {
+      "id": "c-w10-003",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "“大”的反义词是？",
+      "options": [
+        "高",
+        "小",
+        "远"
+      ],
+      "answer": "小",
+      "subject": "chinese",
+      "topic": "字词句综合"
+    },
+    {
+      "id": "c-w10-004",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "一___书",
+      "options": [
+        "本",
+        "只",
+        "条"
+      ],
+      "answer": "本",
+      "subject": "chinese",
+      "topic": "字词句综合"
+    },
+    {
+      "id": "c-w10-005",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "“花真美啊”句末用？",
+      "options": [
+        "！",
+        "？",
+        "。"
+      ],
+      "answer": "！",
+      "subject": "chinese",
+      "topic": "字词句综合"
+    },
+    {
+      "id": "c-w10-006",
+      "difficulty": 1,
+      "type": "input",
+      "stem": "“早”字的声母写出来",
+      "answer": "z",
+      "subject": "chinese",
+      "topic": "字词句综合"
+    },
+    {
+      "id": "c-w10-007",
+      "difficulty": 1,
+      "type": "input",
+      "stem": "“快”的反义词写出来",
+      "answer": "慢",
+      "subject": "chinese",
+      "topic": "字词句综合"
+    },
+    {
+      "id": "c-w10-008",
+      "difficulty": 1,
+      "type": "input",
+      "stem": "“一___鱼”填量词",
+      "answer": "条",
+      "subject": "chinese",
+      "topic": "字词句综合"
+    },
+    {
+      "id": "c-w10-009",
+      "difficulty": 1,
+      "type": "input",
+      "stem": "“你好吗”句末加什么标点？",
+      "answer": "？",
+      "subject": "chinese",
+      "topic": "字词句综合"
+    },
+    {
+      "id": "c-w10-010",
+      "difficulty": 2,
+      "type": "choice",
+      "stem": "下面哪组是同音字？",
+      "options": [
+        "木-目",
+        "大-小",
+        "山-水"
+      ],
+      "answer": "木-目",
+      "subject": "chinese",
+      "topic": "字词句综合"
+    },
+    {
+      "id": "c-w10-011",
+      "difficulty": 2,
+      "type": "choice",
+      "stem": "下面哪个句子通顺？",
+      "options": [
+        "我有一只小狗。",
+        "一只我有小狗。",
+        "小狗我一只有。"
+      ],
+      "answer": "我有一只小狗。",
+      "subject": "chinese",
+      "topic": "字词句综合"
+    },
+    {
+      "id": "c-w10-012",
+      "difficulty": 1,
+      "type": "image-choice",
+      "stem": "看图选词语：",
+      "stemImage": "/assets/quiz/sunflower.svg",
+      "options": [
+        "美丽的花",
+        "高高的树",
+        "安静的书"
+      ],
+      "answer": "美丽的花",
+      "subject": "chinese",
+      "topic": "字词句综合"
+    },
+    {
+      "id": "c-w10-013",
+      "difficulty": 1,
+      "type": "image-choice",
+      "stem": "看图选句子：",
+      "stemImage": "/assets/quiz/horse.svg",
+      "options": [
+        "小马在跑。",
+        "小马在看书。",
+        "小马在睡觉。"
+      ],
+      "answer": "小马在跑。",
+      "subject": "chinese",
+      "topic": "字词句综合"
+    },
+    {
+      "id": "c-w10-014",
+      "difficulty": 1,
+      "type": "image-choice",
+      "stem": "看图选词语：",
+      "stemImage": "/assets/quiz/apple.svg",
+      "options": [
+        "红红的苹果",
+        "蓝蓝的苹果",
+        "高高的苹果"
+      ],
+      "answer": "红红的苹果",
+      "subject": "chinese",
+      "topic": "字词句综合"
+    },
+    {
+      "id": "c-w10-015",
+      "difficulty": 2,
+      "type": "choice",
+      "stem": "“明亮”的意思接近？",
+      "options": [
+        "很亮",
+        "很暗",
+        "很慢"
+      ],
+      "answer": "很亮",
+      "subject": "chinese",
+      "topic": "字词句综合"
+    },
+    {
+      "id": "c-w10-016",
+      "difficulty": 2,
+      "type": "ordering",
+      "stem": "把词语排成句子：我们 / 在教室里 / 读书",
+      "items": [
+        "读书",
+        "我们",
+        "在教室里"
+      ],
+      "correctOrder": [
+        1,
+        2,
+        0
+      ],
+      "answer": "1,2,0",
+      "subject": "chinese",
+      "topic": "字词句综合"
+    },
+    {
+      "id": "c-w10-017",
+      "difficulty": 2,
+      "type": "ordering",
+      "stem": "把词语排成句子：小鱼 / 在河里 / 游",
+      "items": [
+        "游",
+        "小鱼",
+        "在河里"
+      ],
+      "correctOrder": [
+        1,
+        2,
+        0
+      ],
+      "answer": "1,2,0",
+      "subject": "chinese",
+      "topic": "字词句综合"
+    },
+    {
+      "id": "c-w10-018",
+      "difficulty": 3,
+      "type": "input",
+      "stem": "“高高的___”填一个常见词语",
+      "answer": "大树",
+      "subject": "chinese",
+      "topic": "字词句综合"
+    },
+    {
+      "id": "c-w10-019",
+      "difficulty": 3,
+      "type": "input",
+      "stem": "“快乐”的近义词写一个",
+      "answer": "高兴",
+      "subject": "chinese",
+      "topic": "字词句综合"
+    },
+    {
+      "id": "c-w10-020",
+      "difficulty": 3,
+      "type": "choice",
+      "stem": "下面哪句话最通顺？",
+      "options": [
+        "春天到了，花儿都开了。",
+        "花儿春天到了都开了。",
+        "到了春天花儿了都开。"
+      ],
+      "answer": "春天到了，花儿都开了。",
+      "subject": "chinese",
+      "topic": "字词句综合"
+    },
+    {
+      "id": "e-w10-001",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "Which word means “书”?",
+      "options": [
+        "book",
+        "dog",
+        "milk"
+      ],
+      "answer": "book",
+      "subject": "english",
+      "topic": "review"
+    },
+    {
+      "id": "e-w10-002",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "Which word means “妈妈”?",
+      "options": [
+        "mother",
+        "brother",
+        "teacher"
+      ],
+      "answer": "mother",
+      "subject": "english",
+      "topic": "review"
+    },
+    {
+      "id": "e-w10-003",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "Which word means “红色”?",
+      "options": [
+        "red",
+        "blue",
+        "green"
+      ],
+      "answer": "red",
+      "subject": "english",
+      "topic": "review"
+    },
+    {
+      "id": "e-w10-004",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "Which word means “小狗”?",
+      "options": [
+        "dog",
+        "fish",
+        "coat"
+      ],
+      "answer": "dog",
+      "subject": "english",
+      "topic": "review"
+    },
+    {
+      "id": "e-w10-005",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "Which word means “苹果”?",
+      "options": [
+        "apple",
+        "egg",
+        "bus"
+      ],
+      "answer": "apple",
+      "subject": "english",
+      "topic": "review"
+    },
+    {
+      "id": "e-w10-006",
+      "difficulty": 1,
+      "type": "input",
+      "stem": "Write the English word: 书包",
+      "answer": "bag",
+      "subject": "english",
+      "topic": "review"
+    },
+    {
+      "id": "e-w10-007",
+      "difficulty": 1,
+      "type": "input",
+      "stem": "Write the English word: 爸爸",
+      "answer": "father",
+      "subject": "english",
+      "topic": "review"
+    },
+    {
+      "id": "e-w10-008",
+      "difficulty": 1,
+      "type": "input",
+      "stem": "Write the English word: 马",
+      "answer": "horse",
+      "subject": "english",
+      "topic": "review"
+    },
+    {
+      "id": "e-w10-009",
+      "difficulty": 2,
+      "type": "input",
+      "stem": "Write the English word: 起床",
+      "answer": "get up",
+      "subject": "english",
+      "topic": "review"
+    },
+    {
+      "id": "e-w10-010",
+      "difficulty": 2,
+      "type": "choice",
+      "stem": "Which one is a color?",
+      "options": [
+        "yellow",
+        "bread",
+        "bus",
+        "dog"
+      ],
+      "answer": "yellow",
+      "subject": "english",
+      "topic": "review"
+    },
+    {
+      "id": "e-w10-011",
+      "difficulty": 2,
+      "type": "choice",
+      "stem": "Which one is clothes?",
+      "options": [
+        "coat",
+        "apple",
+        "book",
+        "milk"
+      ],
+      "answer": "coat",
+      "subject": "english",
+      "topic": "review"
+    },
+    {
+      "id": "e-w10-012",
+      "difficulty": 1,
+      "type": "image-choice",
+      "stem": "What is this?",
+      "stemImage": "/assets/quiz/dog.svg",
+      "options": [
+        "dog",
+        "cat",
+        "fish"
+      ],
+      "answer": "dog",
+      "subject": "english",
+      "topic": "review"
+    },
+    {
+      "id": "e-w10-013",
+      "difficulty": 1,
+      "type": "image-choice",
+      "stem": "What is this?",
+      "stemImage": "/assets/quiz/apple.svg",
+      "options": [
+        "apple",
+        "egg",
+        "milk"
+      ],
+      "answer": "apple",
+      "subject": "english",
+      "topic": "review"
+    },
+    {
+      "id": "e-w10-014",
+      "difficulty": 2,
+      "type": "ordering",
+      "stem": "Sort the letters to make “apple”",
+      "items": [
+        "p",
+        "a",
+        "p",
+        "l",
+        "e"
+      ],
+      "correctOrder": [
+        1,
+        0,
+        2,
+        3,
+        4
+      ],
+      "answer": "1,0,2,3,4",
+      "subject": "english",
+      "topic": "review"
+    },
+    {
+      "id": "e-w10-015",
+      "difficulty": 2,
+      "type": "ordering",
+      "stem": "Sort the letters in ABC order: c / a / d / b",
+      "items": [
+        "c",
+        "a",
+        "d",
+        "b"
+      ],
+      "correctOrder": [
+        1,
+        3,
+        0,
+        2
+      ],
+      "answer": "1,3,0,2",
+      "subject": "english",
+      "topic": "review"
+    }
+  ]
+}

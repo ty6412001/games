@@ -12,7 +12,9 @@ export const ResultScreen = () => {
   const playersById = new Map(game.players.map((p) => [p.id, p]));
 
   const heading =
-    summary.reason === 'time-up' ? '⏱️ 时间到，本局结算' : '💥 有玩家破产，本局提前结束';
+    summary.reason === 'time-up'
+      ? '⏱️ 时间到，本局算钱'
+      : '💥 有玩家钱用光了，本局提前结束';
 
   return (
     <div className="min-h-[100svh] bg-slate-950 px-4 py-4 text-slate-50 md:px-6 md:py-6">

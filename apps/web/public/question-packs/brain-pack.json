@@ -1,0 +1,1451 @@
+{
+  "week": 1,
+  "title": "通用题库",
+  "boss": {
+    "id": "zetton",
+    "name": "杰顿",
+    "hp": 3000
+  },
+  "questions": [
+    {
+      "id": "b-pack-001",
+      "subject": "brain",
+      "difficulty": 1,
+      "topic": "脑筋急转弯",
+      "type": "choice",
+      "stem": "什么布剪不开也穿不上？",
+      "options": [
+        "瀑布",
+        "球门",
+        "脸蛋",
+        "木马"
+      ],
+      "answer": "瀑布"
+    },
+    {
+      "id": "b-pack-002",
+      "subject": "brain",
+      "difficulty": 1,
+      "topic": "脑筋急转弯",
+      "type": "choice",
+      "stem": "什么门永远关不上？",
+      "options": [
+        "木马",
+        "鹊桥",
+        "天书",
+        "球门"
+      ],
+      "answer": "球门"
+    },
+    {
+      "id": "b-pack-003",
+      "subject": "brain",
+      "difficulty": 1,
+      "topic": "脑筋急转弯",
+      "type": "choice",
+      "stem": "什么蛋不能拿来煎着吃？",
+      "options": [
+        "风车",
+        "蜗牛",
+        "脸蛋",
+        "天书"
+      ],
+      "answer": "脸蛋"
+    },
+    {
+      "id": "b-pack-004",
+      "subject": "brain",
+      "difficulty": 1,
+      "topic": "脑筋急转弯",
+      "type": "choice",
+      "stem": "什么马不会跑却总被人骑？",
+      "options": [
+        "电路",
+        "木马",
+        "蜗牛",
+        "火花"
+      ],
+      "answer": "木马"
+    },
+    {
+      "id": "b-pack-005",
+      "subject": "brain",
+      "difficulty": 1,
+      "topic": "脑筋急转弯",
+      "type": "choice",
+      "stem": "什么桥不能让汽车开过去？",
+      "options": [
+        "鹊桥",
+        "电路",
+        "眉笔",
+        "奖杯"
+      ],
+      "answer": "鹊桥"
+    },
+    {
+      "id": "b-pack-006",
+      "subject": "brain",
+      "difficulty": 1,
+      "topic": "脑筋急转弯",
+      "type": "choice",
+      "stem": "什么书人人都看不懂？",
+      "options": [
+        "奖杯",
+        "木鱼",
+        "雨树",
+        "天书"
+      ],
+      "answer": "天书"
+    },
+    {
+      "id": "b-pack-007",
+      "subject": "brain",
+      "difficulty": 1,
+      "topic": "脑筋急转弯",
+      "type": "choice",
+      "stem": "什么车每天都在转却不往前走？",
+      "options": [
+        "哈哈镜",
+        "成果",
+        "风车",
+        "雨树"
+      ],
+      "answer": "风车"
+    },
+    {
+      "id": "b-pack-008",
+      "subject": "brain",
+      "difficulty": 1,
+      "topic": "脑筋急转弯",
+      "type": "choice",
+      "stem": "什么牛不吃草却喜欢慢慢爬？",
+      "options": [
+        "流星",
+        "蜗牛",
+        "成果",
+        "关系网"
+      ],
+      "answer": "蜗牛"
+    },
+    {
+      "id": "b-pack-009",
+      "subject": "brain",
+      "difficulty": 1,
+      "topic": "脑筋急转弯",
+      "type": "choice",
+      "stem": "什么花一开就看不见了？",
+      "options": [
+        "火花",
+        "流星",
+        "爆竹",
+        "飞船"
+      ],
+      "answer": "火花"
+    },
+    {
+      "id": "b-pack-010",
+      "subject": "brain",
+      "difficulty": 1,
+      "topic": "脑筋急转弯",
+      "type": "choice",
+      "stem": "什么路一点都不能走？",
+      "options": [
+        "飞船",
+        "瀑布",
+        "球门",
+        "电路"
+      ],
+      "answer": "电路"
+    },
+    {
+      "id": "b-pack-011",
+      "subject": "brain",
+      "difficulty": 1,
+      "topic": "脑筋急转弯",
+      "type": "choice",
+      "stem": "什么笔写不出字却人人脸上都有？",
+      "options": [
+        "脸蛋",
+        "木马",
+        "眉笔",
+        "球门"
+      ],
+      "answer": "眉笔"
+    },
+    {
+      "id": "b-pack-012",
+      "subject": "brain",
+      "difficulty": 1,
+      "topic": "脑筋急转弯",
+      "type": "choice",
+      "stem": "什么杯子不能装水却常常拿来比赛？",
+      "options": [
+        "天书",
+        "奖杯",
+        "木马",
+        "鹊桥"
+      ],
+      "answer": "奖杯"
+    },
+    {
+      "id": "b-pack-013",
+      "subject": "brain",
+      "difficulty": 1,
+      "topic": "脑筋急转弯",
+      "type": "choice",
+      "stem": "什么鱼不能在水里游？",
+      "options": [
+        "木鱼",
+        "天书",
+        "风车",
+        "蜗牛"
+      ],
+      "answer": "木鱼"
+    },
+    {
+      "id": "b-pack-014",
+      "subject": "brain",
+      "difficulty": 1,
+      "topic": "脑筋急转弯",
+      "type": "choice",
+      "stem": "什么树最喜欢下雨天？",
+      "options": [
+        "蜗牛",
+        "火花",
+        "电路",
+        "雨树"
+      ],
+      "answer": "雨树"
+    },
+    {
+      "id": "b-pack-015",
+      "subject": "brain",
+      "difficulty": 1,
+      "topic": "脑筋急转弯",
+      "type": "choice",
+      "stem": "什么镜子越照越看不见自己？",
+      "options": [
+        "眉笔",
+        "奖杯",
+        "哈哈镜",
+        "电路"
+      ],
+      "answer": "哈哈镜"
+    },
+    {
+      "id": "b-pack-016",
+      "subject": "brain",
+      "difficulty": 1,
+      "topic": "脑筋急转弯",
+      "type": "choice",
+      "stem": "什么果不能吃却人人都想要？",
+      "options": [
+        "雨树",
+        "成果",
+        "奖杯",
+        "木鱼"
+      ],
+      "answer": "成果"
+    },
+    {
+      "id": "b-pack-017",
+      "subject": "brain",
+      "difficulty": 1,
+      "topic": "脑筋急转弯",
+      "type": "choice",
+      "stem": "什么网看得见却捞不着鱼？",
+      "options": [
+        "关系网",
+        "雨树",
+        "哈哈镜",
+        "成果"
+      ],
+      "answer": "关系网"
+    },
+    {
+      "id": "b-pack-018",
+      "subject": "brain",
+      "difficulty": 1,
+      "topic": "脑筋急转弯",
+      "type": "choice",
+      "stem": "什么星星最怕天亮？",
+      "options": [
+        "成果",
+        "关系网",
+        "爆竹",
+        "流星"
+      ],
+      "answer": "流星"
+    },
+    {
+      "id": "b-pack-019",
+      "subject": "brain",
+      "difficulty": 1,
+      "topic": "脑筋急转弯",
+      "type": "input",
+      "stem": "什么竹子长不在地里而是写在纸上？",
+      "answer": "爆竹"
+    },
+    {
+      "id": "b-pack-020",
+      "subject": "brain",
+      "difficulty": 1,
+      "topic": "脑筋急转弯",
+      "type": "input",
+      "stem": "什么船不用下水却能飞上天？",
+      "answer": "飞船"
+    },
+    {
+      "id": "b-pack-021",
+      "subject": "brain",
+      "difficulty": 1,
+      "topic": "十万个为什么",
+      "type": "choice",
+      "stem": "为什么下雨后常常能看到彩虹？",
+      "options": [
+        "阳光被水滴分散成多种颜色",
+        "水蒸气遇冷凝成小水滴",
+        "与空气和水接触后氧化",
+        "身体运转离不开水"
+      ],
+      "answer": "阳光被水滴分散成多种颜色"
+    },
+    {
+      "id": "b-pack-022",
+      "subject": "brain",
+      "difficulty": 1,
+      "topic": "十万个为什么",
+      "type": "choice",
+      "stem": "为什么早晨草叶上常有小水珠？",
+      "options": [
+        "身体运转离不开水",
+        "帮助我们看清周围",
+        "热气遇冷变成小水滴",
+        "水蒸气遇冷凝成小水滴"
+      ],
+      "answer": "水蒸气遇冷凝成小水滴"
+    },
+    {
+      "id": "b-pack-023",
+      "subject": "brain",
+      "difficulty": 1,
+      "topic": "十万个为什么",
+      "type": "choice",
+      "stem": "为什么铁放久了容易生锈？",
+      "options": [
+        "阳光帮助植物制造养分",
+        "翅膀和轻巧身体帮助飞行",
+        "与空气和水接触后氧化",
+        "热气遇冷变成小水滴"
+      ],
+      "answer": "与空气和水接触后氧化"
+    },
+    {
+      "id": "b-pack-024",
+      "subject": "brain",
+      "difficulty": 1,
+      "topic": "十万个为什么",
+      "type": "choice",
+      "stem": "为什么人要经常喝水？",
+      "options": [
+        "地球在不停自转",
+        "身体运转离不开水",
+        "翅膀和轻巧身体帮助飞行",
+        "鱼鳃能利用水里的氧气"
+      ],
+      "answer": "身体运转离不开水"
+    },
+    {
+      "id": "b-pack-025",
+      "subject": "brain",
+      "difficulty": 1,
+      "topic": "十万个为什么",
+      "type": "choice",
+      "stem": "为什么天黑后要开灯？",
+      "options": [
+        "帮助我们看清周围",
+        "地球在不停自转",
+        "看到的受光部分在变化",
+        "浅色反射更多阳光"
+      ],
+      "answer": "帮助我们看清周围"
+    },
+    {
+      "id": "b-pack-026",
+      "subject": "brain",
+      "difficulty": 1,
+      "topic": "十万个为什么",
+      "type": "choice",
+      "stem": "为什么冬天呼气像白雾？",
+      "options": [
+        "浅色反射更多阳光",
+        "温度升高后冰会化开",
+        "光传播得比声音快",
+        "热气遇冷变成小水滴"
+      ],
+      "answer": "热气遇冷变成小水滴"
+    },
+    {
+      "id": "b-pack-027",
+      "subject": "brain",
+      "difficulty": 1,
+      "topic": "十万个为什么",
+      "type": "choice",
+      "stem": "为什么植物需要阳光？",
+      "options": [
+        "能更好带走污垢和细菌",
+        "更容易利用微弱光线",
+        "阳光帮助植物制造养分",
+        "光传播得比声音快"
+      ],
+      "answer": "阳光帮助植物制造养分"
+    },
+    {
+      "id": "b-pack-028",
+      "subject": "brain",
+      "difficulty": 1,
+      "topic": "十万个为什么",
+      "type": "choice",
+      "stem": "为什么鸟儿能飞？",
+      "options": [
+        "能保护身体减少伤害",
+        "翅膀和轻巧身体帮助飞行",
+        "更容易利用微弱光线",
+        "容易引起危险和烧伤"
+      ],
+      "answer": "翅膀和轻巧身体帮助飞行"
+    },
+    {
+      "id": "b-pack-029",
+      "subject": "brain",
+      "difficulty": 1,
+      "topic": "十万个为什么",
+      "type": "choice",
+      "stem": "为什么鱼能在水里呼吸？",
+      "options": [
+        "鱼鳃能利用水里的氧气",
+        "能保护身体减少伤害",
+        "地球自转",
+        "水分蒸发"
+      ],
+      "answer": "鱼鳃能利用水里的氧气"
+    },
+    {
+      "id": "b-pack-030",
+      "subject": "brain",
+      "difficulty": 1,
+      "topic": "十万个为什么",
+      "type": "choice",
+      "stem": "为什么地球上会有白天和黑夜？",
+      "options": [
+        "水分蒸发",
+        "阳光被水滴分散成多种颜色",
+        "水蒸气遇冷凝成小水滴",
+        "地球在不停自转"
+      ],
+      "answer": "地球在不停自转"
+    },
+    {
+      "id": "b-pack-031",
+      "subject": "brain",
+      "difficulty": 1,
+      "topic": "十万个为什么",
+      "type": "choice",
+      "stem": "为什么月亮看起来会有圆缺变化？",
+      "options": [
+        "与空气和水接触后氧化",
+        "身体运转离不开水",
+        "看到的受光部分在变化",
+        "水蒸气遇冷凝成小水滴"
+      ],
+      "answer": "看到的受光部分在变化"
+    },
+    {
+      "id": "b-pack-032",
+      "subject": "brain",
+      "difficulty": 1,
+      "topic": "十万个为什么",
+      "type": "choice",
+      "stem": "为什么夏天穿浅色衣服更舒服？",
+      "options": [
+        "热气遇冷变成小水滴",
+        "浅色反射更多阳光",
+        "身体运转离不开水",
+        "帮助我们看清周围"
+      ],
+      "answer": "浅色反射更多阳光"
+    },
+    {
+      "id": "b-pack-033",
+      "subject": "brain",
+      "difficulty": 1,
+      "topic": "十万个为什么",
+      "type": "choice",
+      "stem": "为什么冰会融化成水？",
+      "options": [
+        "温度升高后冰会化开",
+        "热气遇冷变成小水滴",
+        "阳光帮助植物制造养分",
+        "翅膀和轻巧身体帮助飞行"
+      ],
+      "answer": "温度升高后冰会化开"
+    },
+    {
+      "id": "b-pack-034",
+      "subject": "brain",
+      "difficulty": 1,
+      "topic": "十万个为什么",
+      "type": "choice",
+      "stem": "为什么雷雨时会先看到闪电后听到雷声？",
+      "options": [
+        "翅膀和轻巧身体帮助飞行",
+        "鱼鳃能利用水里的氧气",
+        "地球在不停自转",
+        "光传播得比声音快"
+      ],
+      "answer": "光传播得比声音快"
+    },
+    {
+      "id": "b-pack-035",
+      "subject": "brain",
+      "difficulty": 1,
+      "topic": "十万个为什么",
+      "type": "choice",
+      "stem": "为什么洗手要用肥皂？",
+      "options": [
+        "看到的受光部分在变化",
+        "浅色反射更多阳光",
+        "能更好带走污垢和细菌",
+        "地球在不停自转"
+      ],
+      "answer": "能更好带走污垢和细菌"
+    },
+    {
+      "id": "b-pack-036",
+      "subject": "brain",
+      "difficulty": 1,
+      "topic": "十万个为什么",
+      "type": "choice",
+      "stem": "为什么猫的眼睛在夜里更亮？",
+      "options": [
+        "光传播得比声音快",
+        "更容易利用微弱光线",
+        "浅色反射更多阳光",
+        "温度升高后冰会化开"
+      ],
+      "answer": "更容易利用微弱光线"
+    },
+    {
+      "id": "b-pack-037",
+      "subject": "brain",
+      "difficulty": 1,
+      "topic": "十万个为什么",
+      "type": "choice",
+      "stem": "为什么火不能随便玩？",
+      "options": [
+        "容易引起危险和烧伤",
+        "光传播得比声音快",
+        "能更好带走污垢和细菌",
+        "更容易利用微弱光线"
+      ],
+      "answer": "容易引起危险和烧伤"
+    },
+    {
+      "id": "b-pack-038",
+      "subject": "brain",
+      "difficulty": 1,
+      "topic": "十万个为什么",
+      "type": "choice",
+      "stem": "为什么坐车要系安全带？",
+      "options": [
+        "更容易利用微弱光线",
+        "容易引起危险和烧伤",
+        "地球自转",
+        "能保护身体减少伤害"
+      ],
+      "answer": "能保护身体减少伤害"
+    },
+    {
+      "id": "b-pack-039",
+      "subject": "brain",
+      "difficulty": 1,
+      "topic": "十万个为什么",
+      "type": "input",
+      "stem": "为什么太阳从东方升起和西方落下？",
+      "answer": "地球自转"
+    },
+    {
+      "id": "b-pack-040",
+      "subject": "brain",
+      "difficulty": 1,
+      "topic": "十万个为什么",
+      "type": "input",
+      "stem": "为什么鞋子湿了要放在通风处晾？",
+      "answer": "水分蒸发"
+    },
+    {
+      "id": "b-pack-041",
+      "subject": "brain",
+      "difficulty": 1,
+      "topic": "历史知识",
+      "type": "choice",
+      "stem": "统一六国的是哪位皇帝？",
+      "options": [
+        "秦始皇",
+        "蔡伦",
+        "司马迁",
+        "李白"
+      ],
+      "answer": "秦始皇"
+    },
+    {
+      "id": "b-pack-042",
+      "subject": "brain",
+      "difficulty": 1,
+      "topic": "历史知识",
+      "type": "choice",
+      "stem": "发明造纸术改进方法而出名的人是谁？",
+      "options": [
+        "李白",
+        "杜甫",
+        "诸葛亮",
+        "蔡伦"
+      ],
+      "answer": "蔡伦"
+    },
+    {
+      "id": "b-pack-043",
+      "subject": "brain",
+      "difficulty": 1,
+      "topic": "历史知识",
+      "type": "choice",
+      "stem": "写《史记》的人是谁？",
+      "options": [
+        "岳飞",
+        "明朝",
+        "司马迁",
+        "诸葛亮"
+      ],
+      "answer": "司马迁"
+    },
+    {
+      "id": "b-pack-044",
+      "subject": "brain",
+      "difficulty": 1,
+      "topic": "历史知识",
+      "type": "choice",
+      "stem": "被称为诗仙的唐代诗人是谁？",
+      "options": [
+        "清朝",
+        "李白",
+        "明朝",
+        "汴京"
+      ],
+      "answer": "李白"
+    },
+    {
+      "id": "b-pack-045",
+      "subject": "brain",
+      "difficulty": 1,
+      "topic": "历史知识",
+      "type": "choice",
+      "stem": "被称为诗圣的唐代诗人是谁？",
+      "options": [
+        "杜甫",
+        "清朝",
+        "勾践",
+        "花木兰"
+      ],
+      "answer": "杜甫"
+    },
+    {
+      "id": "b-pack-046",
+      "subject": "brain",
+      "difficulty": 2,
+      "topic": "历史知识",
+      "type": "choice",
+      "stem": "草船借箭的故事里最关键的人物是谁？",
+      "options": [
+        "花木兰",
+        "航海",
+        "毕昇",
+        "诸葛亮"
+      ],
+      "answer": "诸葛亮"
+    },
+    {
+      "id": "b-pack-047",
+      "subject": "brain",
+      "difficulty": 2,
+      "topic": "历史知识",
+      "type": "choice",
+      "stem": "精忠报国常用来称赞哪位人物？",
+      "options": [
+        "毕昇",
+        "丝绸",
+        "岳飞",
+        "航海"
+      ],
+      "answer": "岳飞"
+    },
+    {
+      "id": "b-pack-048",
+      "subject": "brain",
+      "difficulty": 2,
+      "topic": "历史知识",
+      "type": "choice",
+      "stem": "主持郑和下西洋的是哪位皇帝时期？",
+      "options": [
+        "竹简",
+        "明朝",
+        "丝绸",
+        "匡衡"
+      ],
+      "answer": "明朝"
+    },
+    {
+      "id": "b-pack-049",
+      "subject": "brain",
+      "difficulty": 2,
+      "topic": "历史知识",
+      "type": "choice",
+      "stem": "《清明上河图》描绘的是哪座城市的繁华景象？",
+      "options": [
+        "汴京",
+        "竹简",
+        "孙悟空",
+        "司马光"
+      ],
+      "answer": "汴京"
+    },
+    {
+      "id": "b-pack-050",
+      "subject": "brain",
+      "difficulty": 2,
+      "topic": "历史知识",
+      "type": "choice",
+      "stem": "中国最后一个封建王朝是什么？",
+      "options": [
+        "司马光",
+        "秦始皇",
+        "蔡伦",
+        "清朝"
+      ],
+      "answer": "清朝"
+    },
+    {
+      "id": "b-pack-051",
+      "subject": "brain",
+      "difficulty": 2,
+      "topic": "历史知识",
+      "type": "choice",
+      "stem": "“卧薪尝胆”说的是哪位古代人物？",
+      "options": [
+        "司马迁",
+        "李白",
+        "勾践",
+        "蔡伦"
+      ],
+      "answer": "勾践"
+    },
+    {
+      "id": "b-pack-052",
+      "subject": "brain",
+      "difficulty": 2,
+      "topic": "历史知识",
+      "type": "choice",
+      "stem": "《木兰辞》讲的是谁代父从军？",
+      "options": [
+        "诸葛亮",
+        "花木兰",
+        "李白",
+        "杜甫"
+      ],
+      "answer": "花木兰"
+    },
+    {
+      "id": "b-pack-053",
+      "subject": "brain",
+      "difficulty": 2,
+      "topic": "历史知识",
+      "type": "choice",
+      "stem": "“三顾茅庐”中被请出山的人是谁？",
+      "options": [
+        "诸葛亮",
+        "孙悟空",
+        "司马光",
+        "秦始皇"
+      ],
+      "answer": "诸葛亮"
+    },
+    {
+      "id": "b-pack-054",
+      "subject": "brain",
+      "difficulty": 2,
+      "topic": "历史知识",
+      "type": "choice",
+      "stem": "指南针最早广泛应用在哪一类活动中？",
+      "options": [
+        "明朝",
+        "汴京",
+        "清朝",
+        "航海"
+      ],
+      "answer": "航海"
+    },
+    {
+      "id": "b-pack-055",
+      "subject": "brain",
+      "difficulty": 2,
+      "topic": "历史知识",
+      "type": "choice",
+      "stem": "活字印刷术和谁的名字联系最紧？",
+      "options": [
+        "勾践",
+        "花木兰",
+        "毕昇",
+        "清朝"
+      ],
+      "answer": "毕昇"
+    },
+    {
+      "id": "b-pack-056",
+      "subject": "brain",
+      "difficulty": 2,
+      "topic": "历史知识",
+      "type": "choice",
+      "stem": "丝绸之路主要把中国的什么运往远方？",
+      "options": [
+        "航海",
+        "丝绸",
+        "花木兰",
+        "诸葛亮"
+      ],
+      "answer": "丝绸"
+    },
+    {
+      "id": "b-pack-057",
+      "subject": "brain",
+      "difficulty": 2,
+      "topic": "历史知识",
+      "type": "choice",
+      "stem": "“凿壁偷光”讲的是谁勤奋读书？",
+      "options": [
+        "匡衡",
+        "航海",
+        "毕昇",
+        "丝绸"
+      ],
+      "answer": "匡衡"
+    },
+    {
+      "id": "b-pack-058",
+      "subject": "brain",
+      "difficulty": 2,
+      "topic": "历史知识",
+      "type": "choice",
+      "stem": "古人写字常用什么做主要书写材料之一？",
+      "options": [
+        "丝绸",
+        "匡衡",
+        "孙悟空",
+        "竹简"
+      ],
+      "answer": "竹简"
+    },
+    {
+      "id": "b-pack-059",
+      "subject": "brain",
+      "difficulty": 2,
+      "topic": "历史知识",
+      "type": "input",
+      "stem": "《西游记》里大闹天宫的主角是谁？",
+      "answer": "孙悟空"
+    },
+    {
+      "id": "b-pack-060",
+      "subject": "brain",
+      "difficulty": 2,
+      "topic": "历史知识",
+      "type": "input",
+      "stem": "“司马光砸缸”故事里的主人公是谁？",
+      "answer": "司马光"
+    },
+    {
+      "id": "b-pack-061",
+      "subject": "brain",
+      "difficulty": 2,
+      "topic": "生活常识",
+      "type": "choice",
+      "stem": "过马路遇到红灯应该怎么做？",
+      "options": [
+        "停下来等绿灯",
+        "减少细菌进入身体",
+        "白开水",
+        "整理后只带需要的物品"
+      ],
+      "answer": "停下来等绿灯"
+    },
+    {
+      "id": "b-pack-062",
+      "subject": "brain",
+      "difficulty": 2,
+      "topic": "生活常识",
+      "type": "choice",
+      "stem": "吃饭前洗手最主要是为了什么？",
+      "options": [
+        "整理后只带需要的物品",
+        "先不随便开门",
+        "刷毛旧了就及时更换",
+        "减少细菌进入身体"
+      ],
+      "answer": "减少细菌进入身体"
+    },
+    {
+      "id": "b-pack-063",
+      "subject": "brain",
+      "difficulty": 2,
+      "topic": "生活常识",
+      "type": "choice",
+      "stem": "天气很热时，最适合补充什么？",
+      "options": [
+        "保护头部安全",
+        "用纸巾或手肘遮挡",
+        "白开水",
+        "刷毛旧了就及时更换"
+      ],
+      "answer": "白开水"
+    },
+    {
+      "id": "b-pack-064",
+      "subject": "brain",
+      "difficulty": 2,
+      "topic": "生活常识",
+      "type": "choice",
+      "stem": "书包太重时，最好的做法是什么？",
+      "options": [
+        "赶快远离并告诉大人",
+        "整理后只带需要的物品",
+        "用纸巾或手肘遮挡",
+        "慢慢走稳一点"
+      ],
+      "answer": "整理后只带需要的物品"
+    },
+    {
+      "id": "b-pack-065",
+      "subject": "brain",
+      "difficulty": 2,
+      "topic": "生活常识",
+      "type": "choice",
+      "stem": "陌生人敲门时，一个人在家该怎么做？",
+      "options": [
+        "先不随便开门",
+        "赶快远离并告诉大人",
+        "及时休息并告诉大人",
+        "燃气和热锅"
+      ],
+      "answer": "先不随便开门"
+    },
+    {
+      "id": "b-pack-066",
+      "subject": "brain",
+      "difficulty": 2,
+      "topic": "生活常识",
+      "type": "choice",
+      "stem": "牙刷多久换一次更合适？",
+      "options": [
+        "燃气和热锅",
+        "分类后放进垃圾桶",
+        "按住开门键等一下",
+        "刷毛旧了就及时更换"
+      ],
+      "answer": "刷毛旧了就及时更换"
+    },
+    {
+      "id": "b-pack-067",
+      "subject": "brain",
+      "difficulty": 2,
+      "topic": "生活常识",
+      "type": "choice",
+      "stem": "坐电动车时为什么要戴头盔？",
+      "options": [
+        "会影响冰箱里的温度",
+        "看看远处休息一下",
+        "保护头部安全",
+        "按住开门键等一下"
+      ],
+      "answer": "保护头部安全"
+    },
+    {
+      "id": "b-pack-068",
+      "subject": "brain",
+      "difficulty": 2,
+      "topic": "生活常识",
+      "type": "choice",
+      "stem": "打喷嚏时最好怎么做？",
+      "options": [
+        "大声呼救找大人帮忙",
+        "用纸巾或手肘遮挡",
+        "看看远处休息一下",
+        "先整理书包和洗手"
+      ],
+      "answer": "用纸巾或手肘遮挡"
+    },
+    {
+      "id": "b-pack-069",
+      "subject": "brain",
+      "difficulty": 2,
+      "topic": "生活常识",
+      "type": "choice",
+      "stem": "下雨天地面很滑，走路时应该怎样？",
+      "options": [
+        "慢慢走稳一点",
+        "大声呼救找大人帮忙",
+        "牙",
+        "眼睛"
+      ],
+      "answer": "慢慢走稳一点"
+    },
+    {
+      "id": "b-pack-070",
+      "subject": "brain",
+      "difficulty": 2,
+      "topic": "生活常识",
+      "type": "choice",
+      "stem": "发现插座冒烟时应该怎么做？",
+      "options": [
+        "眼睛",
+        "停下来等绿灯",
+        "减少细菌进入身体",
+        "赶快远离并告诉大人"
+      ],
+      "answer": "赶快远离并告诉大人"
+    },
+    {
+      "id": "b-pack-071",
+      "subject": "brain",
+      "difficulty": 2,
+      "topic": "生活常识",
+      "type": "choice",
+      "stem": "生病发烧时最重要的做法是什么？",
+      "options": [
+        "白开水",
+        "整理后只带需要的物品",
+        "及时休息并告诉大人",
+        "减少细菌进入身体"
+      ],
+      "answer": "及时休息并告诉大人"
+    },
+    {
+      "id": "b-pack-072",
+      "subject": "brain",
+      "difficulty": 2,
+      "topic": "生活常识",
+      "type": "choice",
+      "stem": "厨房里最不能随便碰的东西是什么？",
+      "options": [
+        "刷毛旧了就及时更换",
+        "燃气和热锅",
+        "整理后只带需要的物品",
+        "先不随便开门"
+      ],
+      "answer": "燃气和热锅"
+    },
+    {
+      "id": "b-pack-073",
+      "subject": "brain",
+      "difficulty": 2,
+      "topic": "生活常识",
+      "type": "choice",
+      "stem": "垃圾应该怎么处理更合适？",
+      "options": [
+        "分类后放进垃圾桶",
+        "刷毛旧了就及时更换",
+        "保护头部安全",
+        "用纸巾或手肘遮挡"
+      ],
+      "answer": "分类后放进垃圾桶"
+    },
+    {
+      "id": "b-pack-074",
+      "subject": "brain",
+      "difficulty": 2,
+      "topic": "生活常识",
+      "type": "choice",
+      "stem": "乘电梯时看到人快进来最好怎么做？",
+      "options": [
+        "用纸巾或手肘遮挡",
+        "慢慢走稳一点",
+        "赶快远离并告诉大人",
+        "按住开门键等一下"
+      ],
+      "answer": "按住开门键等一下"
+    },
+    {
+      "id": "b-pack-075",
+      "subject": "brain",
+      "difficulty": 2,
+      "topic": "生活常识",
+      "type": "choice",
+      "stem": "冰箱门为什么不要长时间打开？",
+      "options": [
+        "及时休息并告诉大人",
+        "燃气和热锅",
+        "会影响冰箱里的温度",
+        "赶快远离并告诉大人"
+      ],
+      "answer": "会影响冰箱里的温度"
+    },
+    {
+      "id": "b-pack-076",
+      "subject": "brain",
+      "difficulty": 2,
+      "topic": "生活常识",
+      "type": "choice",
+      "stem": "写作业眼睛累了最适合做什么？",
+      "options": [
+        "按住开门键等一下",
+        "看看远处休息一下",
+        "燃气和热锅",
+        "分类后放进垃圾桶"
+      ],
+      "answer": "看看远处休息一下"
+    },
+    {
+      "id": "b-pack-077",
+      "subject": "brain",
+      "difficulty": 2,
+      "topic": "生活常识",
+      "type": "choice",
+      "stem": "放学回家先做什么比较好？",
+      "options": [
+        "先整理书包和洗手",
+        "按住开门键等一下",
+        "会影响冰箱里的温度",
+        "看看远处休息一下"
+      ],
+      "answer": "先整理书包和洗手"
+    },
+    {
+      "id": "b-pack-078",
+      "subject": "brain",
+      "difficulty": 2,
+      "topic": "生活常识",
+      "type": "choice",
+      "stem": "发现有人落水时最安全的做法是什么？",
+      "options": [
+        "看看远处休息一下",
+        "先整理书包和洗手",
+        "牙",
+        "大声呼救找大人帮忙"
+      ],
+      "answer": "大声呼救找大人帮忙"
+    },
+    {
+      "id": "b-pack-079",
+      "subject": "brain",
+      "difficulty": 2,
+      "topic": "生活常识",
+      "type": "input",
+      "stem": "晚上睡觉前要刷什么？",
+      "answer": "牙"
+    },
+    {
+      "id": "b-pack-080",
+      "subject": "brain",
+      "difficulty": 2,
+      "topic": "生活常识",
+      "type": "input",
+      "stem": "看书写字时要注意保护什么？",
+      "answer": "眼睛"
+    },
+    {
+      "id": "b-pack-081",
+      "subject": "brain",
+      "difficulty": 3,
+      "topic": "百科扩展",
+      "type": "choice",
+      "stem": "世界上最大的海洋是哪一个？",
+      "options": [
+        "太平洋",
+        "寒冷地区",
+        "太阳",
+        "竹子"
+      ],
+      "answer": "太平洋"
+    },
+    {
+      "id": "b-pack-082",
+      "subject": "brain",
+      "difficulty": 3,
+      "topic": "百科扩展",
+      "type": "choice",
+      "stem": "北极熊主要生活在哪种地区？",
+      "options": [
+        "竹子",
+        "哺乳动物",
+        "沙漠",
+        "寒冷地区"
+      ],
+      "answer": "寒冷地区"
+    },
+    {
+      "id": "b-pack-083",
+      "subject": "brain",
+      "difficulty": 3,
+      "topic": "百科扩展",
+      "type": "choice",
+      "stem": "地球围着哪颗星球转动？",
+      "options": [
+        "冰雪附近的海里",
+        "方便吃高处叶子",
+        "太阳",
+        "沙漠"
+      ],
+      "answer": "太阳"
+    },
+    {
+      "id": "b-pack-084",
+      "subject": "brain",
+      "difficulty": 3,
+      "topic": "百科扩展",
+      "type": "choice",
+      "stem": "熊猫最爱吃什么？",
+      "options": [
+        "水",
+        "竹子",
+        "方便吃高处叶子",
+        "岩浆"
+      ],
+      "answer": "竹子"
+    },
+    {
+      "id": "b-pack-085",
+      "subject": "brain",
+      "difficulty": 3,
+      "topic": "百科扩展",
+      "type": "choice",
+      "stem": "蝙蝠属于哪一类动物？",
+      "options": [
+        "哺乳动物",
+        "水",
+        "北方",
+        "机翼"
+      ],
+      "answer": "哺乳动物"
+    },
+    {
+      "id": "b-pack-086",
+      "subject": "brain",
+      "difficulty": 3,
+      "topic": "百科扩展",
+      "type": "choice",
+      "stem": "骆驼最适合在哪种环境中生活？",
+      "options": [
+        "机翼",
+        "制作食物",
+        "夜晚",
+        "沙漠"
+      ],
+      "answer": "沙漠"
+    },
+    {
+      "id": "b-pack-087",
+      "subject": "brain",
+      "difficulty": 3,
+      "topic": "百科扩展",
+      "type": "choice",
+      "stem": "企鹅最擅长在哪里活动？",
+      "options": [
+        "哺乳动物",
+        "叶绿素",
+        "冰雪附近的海里",
+        "夜晚"
+      ],
+      "answer": "冰雪附近的海里"
+    },
+    {
+      "id": "b-pack-088",
+      "subject": "brain",
+      "difficulty": 3,
+      "topic": "百科扩展",
+      "type": "choice",
+      "stem": "长颈鹿脖子长有什么好处？",
+      "options": [
+        "帮助呼吸并保护身体",
+        "方便吃高处叶子",
+        "叶绿素",
+        "先保护自己安全"
+      ],
+      "answer": "方便吃高处叶子"
+    },
+    {
+      "id": "b-pack-089",
+      "subject": "brain",
+      "difficulty": 3,
+      "topic": "百科扩展",
+      "type": "choice",
+      "stem": "火山喷发时流出来的滚热物质叫什么？",
+      "options": [
+        "岩浆",
+        "帮助呼吸并保护身体",
+        "年龄",
+        "太阳"
+      ],
+      "answer": "岩浆"
+    },
+    {
+      "id": "b-pack-090",
+      "subject": "brain",
+      "difficulty": 3,
+      "topic": "百科扩展",
+      "type": "choice",
+      "stem": "地球表面大部分被什么覆盖？",
+      "options": [
+        "太阳",
+        "太平洋",
+        "寒冷地区",
+        "水"
+      ],
+      "answer": "水"
+    },
+    {
+      "id": "b-pack-091",
+      "subject": "brain",
+      "difficulty": 3,
+      "topic": "百科扩展",
+      "type": "choice",
+      "stem": "地图上通常用什么方向表示上方？",
+      "options": [
+        "太阳",
+        "竹子",
+        "北方",
+        "寒冷地区"
+      ],
+      "answer": "北方"
+    },
+    {
+      "id": "b-pack-092",
+      "subject": "brain",
+      "difficulty": 3,
+      "topic": "百科扩展",
+      "type": "choice",
+      "stem": "飞机能飞起来主要依靠什么结构？",
+      "options": [
+        "沙漠",
+        "机翼",
+        "竹子",
+        "哺乳动物"
+      ],
+      "answer": "机翼"
+    },
+    {
+      "id": "b-pack-093",
+      "subject": "brain",
+      "difficulty": 3,
+      "topic": "百科扩展",
+      "type": "choice",
+      "stem": "蜜蜂采花蜜主要是为了什么？",
+      "options": [
+        "制作食物",
+        "沙漠",
+        "冰雪附近的海里",
+        "方便吃高处叶子"
+      ],
+      "answer": "制作食物"
+    },
+    {
+      "id": "b-pack-094",
+      "subject": "brain",
+      "difficulty": 3,
+      "topic": "百科扩展",
+      "type": "choice",
+      "stem": "猫头鹰更喜欢在什么时候活动？",
+      "options": [
+        "方便吃高处叶子",
+        "岩浆",
+        "水",
+        "夜晚"
+      ],
+      "answer": "夜晚"
+    },
+    {
+      "id": "b-pack-095",
+      "subject": "brain",
+      "difficulty": 3,
+      "topic": "百科扩展",
+      "type": "choice",
+      "stem": "海豚虽然生活在海里，但它属于什么动物？",
+      "options": [
+        "太平洋",
+        "寒冷地区",
+        "哺乳动物",
+        "太阳"
+      ],
+      "answer": "哺乳动物"
+    },
+    {
+      "id": "b-pack-096",
+      "subject": "brain",
+      "difficulty": 3,
+      "topic": "百科扩展",
+      "type": "choice",
+      "stem": "树叶大多是绿色，主要和什么有关？",
+      "options": [
+        "夜晚",
+        "叶绿素",
+        "机翼",
+        "制作食物"
+      ],
+      "answer": "叶绿素"
+    },
+    {
+      "id": "b-pack-097",
+      "subject": "brain",
+      "difficulty": 3,
+      "topic": "百科扩展",
+      "type": "choice",
+      "stem": "地震发生时在室内最重要的是什么？",
+      "options": [
+        "先保护自己安全",
+        "夜晚",
+        "哺乳动物",
+        "叶绿素"
+      ],
+      "answer": "先保护自己安全"
+    },
+    {
+      "id": "b-pack-098",
+      "subject": "brain",
+      "difficulty": 3,
+      "topic": "百科扩展",
+      "type": "choice",
+      "stem": "宇航员在太空里行走时为什么要穿宇航服？",
+      "options": [
+        "叶绿素",
+        "先保护自己安全",
+        "年龄",
+        "帮助呼吸并保护身体"
+      ],
+      "answer": "帮助呼吸并保护身体"
+    },
+    {
+      "id": "b-pack-099",
+      "subject": "brain",
+      "difficulty": 3,
+      "topic": "百科扩展",
+      "type": "input",
+      "stem": "树木年轮能帮助人了解树的什么？",
+      "answer": "年龄"
+    },
+    {
+      "id": "b-pack-100",
+      "subject": "brain",
+      "difficulty": 3,
+      "topic": "百科扩展",
+      "type": "input",
+      "stem": "太阳系里离我们最近的恒星是什么？",
+      "answer": "太阳"
+    }
+  ]
+}
