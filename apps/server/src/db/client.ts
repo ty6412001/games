@@ -1,4 +1,4 @@
-import { mkdirSync, readFileSync } from 'node:fs';
+import { existsSync, mkdirSync, readFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -9,7 +9,10 @@ import { getConfig } from '../config.js';
 type DatabaseInstance = InstanceType<typeof Database>;
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const SCHEMA_PATH = resolve(__dirname, 'schema.sql');
+const SCHEMA_PATHS = [
+  resolve(__dirname, 'schema.sql'),
+  resolve(__dirname, '../../src/db/schema.sql'),
+];
 
 let db: DatabaseInstance | null = null;
 
@@ -36,7 +39,11 @@ export const closeDb = (): void => {
 
 const runMigrations = (database: DatabaseInstance): void => {
   try {
-    const schema = readFileSync(SCHEMA_PATH, 'utf-8');
+    const schemaPath = SCHEMA_PATHS.find((candidate) => existsSync(candidate));
+    if (!schemaPath) {
+      throw new Error(`schema.sql not found, looked in: ${SCHEMA_PATHS.join(', ')}`);
+    }
+    const schema = readFileSync(schemaPath, 'utf-8');
     database.exec(schema);
   } catch (err) {
     if (err instanceof Error) {

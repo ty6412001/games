@@ -52,6 +52,10 @@ log "安装依赖"
 cd "${INSTALL_DIR}"
 pnpm install --prod=false
 
+log "构建共享包"
+rm -rf packages/shared/dist packages/shared/tsconfig.tsbuildinfo
+pnpm --filter @ultraman/shared run build
+
 log "构建前端"
 pnpm --filter @ultraman/web run build
 
@@ -61,6 +65,7 @@ pnpm --filter @ultraman/server run build
 log "初始化数据库目录"
 mkdir -p "${INSTALL_DIR}/apps/server/data"
 mkdir -p "${INSTALL_DIR}/apps/server/data/backups"
+chown -R www-data:www-data "${INSTALL_DIR}/apps/server/data"
 
 log "生成环境变量"
 ENV_FILE="${INSTALL_DIR}/apps/server/.env"
