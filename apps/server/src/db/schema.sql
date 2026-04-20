@@ -127,6 +127,20 @@ CREATE TABLE IF NOT EXISTS knowledge_mastery_record (
 CREATE INDEX IF NOT EXISTS idx_knowledge_mastery_lookup
   ON knowledge_mastery_record(learnerId, masteryScore DESC, updatedAt DESC);
 
+CREATE TABLE IF NOT EXISTS learning_reward_event (
+  id TEXT PRIMARY KEY,
+  learnerId TEXT NOT NULL,
+  questionId TEXT,
+  gameMode TEXT NOT NULL,
+  eventType TEXT NOT NULL,
+  amount INTEGER NOT NULL,
+  payloadJson TEXT NOT NULL,
+  createdAt INTEGER NOT NULL
+);
+
+CREATE INDEX IF NOT EXISTS idx_learning_reward_event_lookup
+  ON learning_reward_event(learnerId, createdAt DESC);
+
 CREATE TABLE IF NOT EXISTS auth_attempts (
   ip TEXT PRIMARY KEY,
   failedCount INTEGER NOT NULL DEFAULT 0,

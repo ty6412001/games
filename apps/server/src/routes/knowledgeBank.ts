@@ -1,15 +1,18 @@
 import { randomUUID } from 'node:crypto';
 
 import {
+  KnowledgeAnswerLogCreateSchema,
   KnowledgeExportBundleSchema,
   KnowledgeQuestionCreateSchema,
   KnowledgeQuestionItemSchema,
   KnowledgeQuestionUpdateSchema,
+  LearningRewardEventSchema,
   type KnowledgeAnswerLog,
   type KnowledgeExportBundle,
   type KnowledgeMasteryRecord,
   type KnowledgeQuestionItem,
   type KnowledgeWrongBookRecord,
+  type LearningRewardEvent,
   WrongBookEntrySchema,
 } from '@ultraman/shared';
 import { Router, type Router as ExpressRouter } from 'express';
@@ -89,6 +92,17 @@ type WrongBookRow = {
   wrongCount: number;
   isMastered: number;
   masteredAt: number | null;
+};
+
+type LearningRewardEventRow = {
+  id: string;
+  learnerId: string;
+  questionId: string | null;
+  gameMode: string;
+  eventType: string;
+  amount: number;
+  payloadJson: string;
+  createdAt: number;
 };
 
 const router: ExpressRouter = Router();
@@ -172,6 +186,18 @@ const mapWrongBookRow = (row: WrongBookRow): KnowledgeWrongBookRecord => ({
   ...(row.masteredAt !== null ? { masteredAt: row.masteredAt } : {}),
   sourceMode: 'wrong-book',
 });
+
+const mapLearningRewardEventRow = (row: LearningRewardEventRow): LearningRewardEvent =>
+  LearningRewardEventSchema.parse({
+    id: row.id,
+    learnerId: row.learnerId,
+    ...(row.questionId ? { questionId: row.questionId } : {}),
+    gameMode: row.gameMode,
+    eventType: row.eventType,
+    amount: row.amount,
+    payload: JSON.parse(row.payloadJson) as Record<string, unknown>,
+    createdAt: row.createdAt,
+  });
 
 const buildQuestionItem = (
   input: ReturnType<typeof KnowledgeQuestionCreateSchema.parse>,
@@ -401,6 +427,117 @@ router.get('/api/knowledge-bank/answer-logs', (req, res, next) => {
   }
 });
 
+router.post('/api/knowledge-bank/answer-logs', (req, res, next) => {
+  try {
+    const parsed = KnowledgeAnswerLogCreateSchema.safeParse(req.body ?? {});
+    if (!parsed.success) {
+      throw new AppError(parsed.error.issues[0]?.message ?? 'invalid answer log payload', 400, 'BAD_INPUT');
+    }
+
+    const now = parsed.data.answeredAt;
+    const log: KnowledgeAnswerLog = {
+      id: `alog-${randomUUID()}`,
+      learnerId: parsed.data.learnerId,
+      questionId: parsed.data.questionId,
+      subject: parsed.data.subject,
+      grade: parsed.data.grade,
+      semester: parsed.data.semester,
+      gameMode: parsed.data.gameMode,
+      outcome: parsed.data.outcome,
+      questionStem: parsed.data.questionStem,
+      submittedAnswer: parsed.data.submittedAnswer,
+      correctAnswer: parsed.data.correctAnswer,
+      ...(parsed.data.durationMs !== undefined ? { durationMs: parsed.data.durationMs } : {}),
+      ...(parsed.data.sourceSessionId ? { sourceSessionId: parsed.data.sourceSessionId } : {}),
+      answeredAt: now,
+    };
+
+    const db = getDb();
+    db.prepare(
+      `INSERT INTO knowledge_answer_log
+       (id, learnerId, questionId, subject, grade, semester, gameMode, outcome, questionStem, submittedAnswer, correctAnswer, durationMs, sourceSessionId, answeredAt)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+    ).run(
+      log.id,
+      log.learnerId,
+      log.questionId,
+      log.subject,
+      log.grade,
+      log.semester,
+      log.gameMode,
+      log.outcome,
+      log.questionStem,
+      log.submittedAnswer,
+      log.correctAnswer,
+      log.durationMs ?? null,
+      log.sourceSessionId ?? null,
+      log.answeredAt,
+    );
+
+    const masteryScore = log.outcome === 'correct' ? 100 : 0;
+    const masteredAt = log.outcome === 'correct' ? now : null;
+    db.prepare(
+      `INSERT INTO knowledge_mastery_record
+       (id, learnerId, questionId, subject, grade, semester, gameModesJson, masteryScore, totalAttempts, correctAttempts, wrongAttempts, lastAnsweredAt, masteredAt, updatedAt)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+       ON CONFLICT(learnerId, questionId) DO UPDATE SET
+         gameModesJson = excluded.gameModesJson,
+         masteryScore = CAST(((knowledge_mastery_record.masteryScore * knowledge_mastery_record.totalAttempts) + excluded.masteryScore) / (knowledge_mastery_record.totalAttempts + 1) AS INTEGER),
+         totalAttempts = knowledge_mastery_record.totalAttempts + 1,
+         correctAttempts = knowledge_mastery_record.correctAttempts + excluded.correctAttempts,
+         wrongAttempts = knowledge_mastery_record.wrongAttempts + excluded.wrongAttempts,
+         lastAnsweredAt = excluded.lastAnsweredAt,
+         masteredAt = COALESCE(excluded.masteredAt, knowledge_mastery_record.masteredAt),
+         updatedAt = excluded.updatedAt`,
+    ).run(
+      `mastery-${log.learnerId}-${log.questionId}`,
+      log.learnerId,
+      log.questionId,
+      log.subject,
+      log.grade,
+      log.semester,
+      JSON.stringify([log.gameMode]),
+      masteryScore,
+      1,
+      log.outcome === 'correct' ? 1 : 0,
+      log.outcome === 'correct' ? 0 : 1,
+      now,
+      masteredAt,
+      now,
+    );
+
+    const rewardAmount = log.outcome === 'correct' ? 10 : 0;
+    const rewardEvent: LearningRewardEvent = LearningRewardEventSchema.parse({
+      id: `reward-${randomUUID()}`,
+      learnerId: log.learnerId,
+      questionId: log.questionId,
+      gameMode: log.gameMode,
+      eventType: log.outcome === 'correct' ? 'coins' : 'exp',
+      amount: rewardAmount,
+      payload: { outcome: log.outcome },
+      createdAt: now,
+    });
+    db.prepare(
+      `INSERT INTO learning_reward_event
+       (id, learnerId, questionId, gameMode, eventType, amount, payloadJson, createdAt)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
+    ).run(
+      rewardEvent.id,
+      rewardEvent.learnerId,
+      rewardEvent.questionId ?? null,
+      rewardEvent.gameMode,
+      rewardEvent.eventType,
+      rewardEvent.amount,
+      JSON.stringify(rewardEvent.payload),
+      rewardEvent.createdAt,
+    );
+
+    res.status(201).json({ log, rewardEvent });
+  } catch (err) {
+    next(err);
+  }
+});
+
 router.get('/api/knowledge-bank/wrong-book', (req, res, next) => {
   try {
     const { learnerId, subject, mastered, since, limit } = req.query as Record<string, string | undefined>;
@@ -439,6 +576,31 @@ router.get('/api/knowledge-bank/wrong-book', (req, res, next) => {
       });
     });
     res.json({ records });
+  } catch (err) {
+    next(err);
+  }
+});
+
+router.get('/api/knowledge-bank/reward-events', (req, res, next) => {
+  try {
+    const { learnerId, gameMode, limit } = req.query as Record<string, string | undefined>;
+    let sql = 'SELECT * FROM learning_reward_event WHERE 1 = 1';
+    const params: (string | number)[] = [];
+    if (learnerId) {
+      sql += ' AND learnerId = ?';
+      params.push(learnerId);
+    }
+    if (gameMode) {
+      sql += ' AND gameMode = ?';
+      params.push(gameMode);
+    }
+    sql += ' ORDER BY createdAt DESC';
+    if (limit) {
+      sql += ' LIMIT ?';
+      params.push(Math.max(1, Math.min(500, Number(limit) || 100)));
+    }
+    const rows = getDb().prepare(sql).all(...params) as LearningRewardEventRow[];
+    res.json({ events: rows.map(mapLearningRewardEventRow) });
   } catch (err) {
     next(err);
   }

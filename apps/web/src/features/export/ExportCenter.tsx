@@ -1,75 +1,127 @@
-type ExportCenterProps = {
-  onExit: () => void;
+import { clearToken, getToken, loginFamily } from '../../data/cloud/apiClient';
+import type { KnowledgeExportBundle } from '@ultraman/shared';
+import { useEffect, useMemo, useState } from 'react';
+
+const fetchExport = async (): Promise<KnowledgeExportBundle> => {
+  const token = getToken();
+  const response = await fetch('/api/knowledge-bank/export/health-safe', {
+    headers: {
+      'Content-Type': 'application/json',
+      ...(token ? { Authorization: `Bearer ${token}` } : {}),
+    },
+  });
+  if (!response.ok) {
+    const payload = await response.json().catch(() => ({}));
+    throw new Error(payload?.error?.message ?? `request failed: ${response.status}`);
+  }
+  return (await response.json()) as KnowledgeExportBundle;
 };
 
-const exportPanels = [
-  {
-    title: '错题本导出',
-    detail: '汇总 learnerId、题目、错误答案、掌握状态等字段，适合家长复盘。',
-  },
-  {
-    title: '答题日志导出',
-    detail: '保留答题模式、答题时间、用时、提交答案等信息，便于后续分析。',
-  },
-  {
-    title: '健康检查安全导出',
-    detail: '当前先返回 JSON 数据包，避免一次性做复杂文件生成或下载流程。',
-  },
-];
+export const ExportCenter = ({ onExit }: { onExit: () => void }) => {
+  const [password, setPassword] = useState('');
+  const [bundle, setBundle] = useState<KnowledgeExportBundle | null>(null);
+  const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState(false);
 
-export const ExportCenter = ({ onExit }: ExportCenterProps) => {
+  const hasToken = Boolean(getToken());
+
+  const load = async () => {
+    setLoading(true);
+    setError(null);
+    try {
+      setBundle(await fetchExport());
+    } catch (err) {
+      setError(err instanceof Error ? err.message : '导出加载失败');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    if (hasToken) {
+      void load();
+    }
+  }, [hasToken]);
+
+  const summary = useMemo(() => {
+    if (!bundle) return [];
+    return [
+      ['题目', bundle.metadata.questionCount],
+      ['答题日志', bundle.metadata.answerLogCount],
+      ['错题本', bundle.metadata.wrongBookCount],
+      ['掌握记录', bundle.metadata.masteryRecordCount],
+    ] as const;
+  }, [bundle]);
+
   return (
     <div className="min-h-[100svh] bg-[radial-gradient(circle_at_top_right,_rgba(245,158,11,0.18),_transparent_28%),linear-gradient(160deg,_#1c1917,_#292524_35%,_#0f172a)] text-stone-50">
-      <div className="mx-auto flex min-h-[100svh] max-w-5xl flex-col px-6 py-8 md:px-10">
+      <div className="mx-auto flex min-h-[100svh] max-w-6xl flex-col px-6 py-8 md:px-10">
         <div className="flex items-center justify-between gap-4">
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.35em] text-amber-200">Export Center</p>
             <h1 className="mt-2 text-3xl font-black md:text-5xl">导出中心</h1>
-            <p className="mt-3 max-w-2xl text-sm leading-6 text-stone-300 md:text-base">
-              这里先放稳定骨架，不抢跑做复杂报表。Phase 1 重点是打通可扩展的数据出口，并保持当前游戏继续可玩。
-            </p>
+            <p className="mt-3 max-w-2xl text-sm leading-6 text-stone-300 md:text-base">现在这里能拉真 JSON 了，不再只是摆个漂亮壳子。</p>
           </div>
-          <button
-            type="button"
-            onClick={onExit}
-            className="rounded-full border border-white/15 bg-white/10 px-5 py-2 text-sm font-semibold text-white transition hover:bg-white/15"
-          >
-            返回主菜单
-          </button>
+          <button type="button" onClick={onExit} className="rounded-full border border-white/15 bg-white/10 px-5 py-2 text-sm font-semibold text-white transition hover:bg-white/15">返回主菜单</button>
         </div>
 
-        <div className="mt-10 grid gap-4 md:grid-cols-3">
-          {exportPanels.map((panel) => (
-            <section key={panel.title} className="rounded-3xl border border-white/10 bg-white/5 p-5 backdrop-blur">
-              <h2 className="text-lg font-black text-amber-100">{panel.title}</h2>
-              <p className="mt-3 text-sm leading-6 text-stone-300">{panel.detail}</p>
+        {!hasToken ? (
+          <section className="mt-8 rounded-3xl border border-amber-300/30 bg-amber-500/10 p-6">
+            <h2 className="text-xl font-black text-amber-100">先登录家庭口令</h2>
+            <div className="mt-4 flex flex-col gap-3 md:flex-row">
+              <input value={password} onChange={(e) => setPassword(e.target.value)} className="flex-1 rounded-2xl bg-slate-950/70 px-4 py-3 text-base" placeholder="输入家庭口令" />
+              <button type="button" onClick={() => { void loginFamily(password).then(() => load()).catch((err) => setError(err instanceof Error ? err.message : '登录失败')); }} className="rounded-2xl bg-amber-400 px-6 py-3 font-black text-slate-900">登录并加载</button>
+            </div>
+          </section>
+        ) : null}
+
+        {hasToken ? (
+          <>
+            <section className="mt-8 grid gap-4 md:grid-cols-4">
+              {summary.map(([label, value]) => (
+                <div key={label} className="rounded-3xl border border-white/10 bg-white/5 p-5">
+                  <div className="text-sm text-stone-400">{label}</div>
+                  <div className="mt-2 text-4xl font-black text-white">{value}</div>
+                </div>
+              ))}
             </section>
-          ))}
-        </div>
 
-        <section className="mt-8 rounded-3xl border border-white/10 bg-slate-950/40 p-6">
-          <h2 className="text-xl font-black">当前导出结构</h2>
-          <div className="mt-4 overflow-hidden rounded-2xl border border-white/10 bg-slate-950/70">
-            <pre className="overflow-x-auto p-4 text-xs leading-6 text-slate-200">
-{`{
-  "metadata": {
-    "exportId": "health-safe-...",
-    "format": "json",
-    "grade": "grade1",
-    "semester": "lower"
-  },
-  "questions": [],
-  "answerLogs": [],
-  "wrongBookRecords": [],
-  "masteryRecords": []
-}`}
-            </pre>
-          </div>
-          <p className="mt-4 text-sm leading-6 text-stone-300">
-            下一阶段可在这个骨架上追加文件下载、筛选条件、家长端展示和任务调度，不需要重做已有接口。
-          </p>
-        </section>
+            <section className="mt-6 rounded-3xl border border-white/10 bg-slate-950/40 p-6">
+              <div className="flex flex-wrap items-center gap-3">
+                <button type="button" onClick={() => { void load(); }} className="rounded-2xl bg-amber-400 px-5 py-3 text-sm font-black text-slate-950">{loading ? '加载中…' : '刷新导出数据'}</button>
+                <button type="button" onClick={() => {
+                  if (!bundle) return;
+                  const blob = new Blob([JSON.stringify(bundle, null, 2)], { type: 'application/json' });
+                  const url = URL.createObjectURL(blob);
+                  const anchor = document.createElement('a');
+                  anchor.href = url;
+                  anchor.download = `${bundle.metadata.exportId}.json`;
+                  anchor.click();
+                  URL.revokeObjectURL(url);
+                }} className="rounded-2xl bg-white/10 px-5 py-3 text-sm font-bold">下载 JSON</button>
+                <button type="button" onClick={() => { clearToken(); window.location.reload(); }} className="rounded-2xl bg-white/10 px-5 py-3 text-sm font-bold">退出登录</button>
+              </div>
+              {error ? <div className="mt-4 rounded-2xl bg-rose-500/15 px-4 py-3 text-sm text-rose-100">{error}</div> : null}
+            </section>
+
+            {bundle ? (
+              <div className="mt-6 grid gap-4 md:grid-cols-2">
+                <Panel title="最近题目">{bundle.questions.slice(0, 5).map((item) => <li key={item.id}>{item.topic} · {item.subject} · {item.status}</li>)}</Panel>
+                <Panel title="最近错题">{bundle.wrongBookRecords.slice(0, 5).map((item) => <li key={item.id}>{item.questionStem} · 错 {item.wrongCount} 次</li>)}</Panel>
+                <Panel title="最近答题日志">{bundle.answerLogs.slice(0, 5).map((item) => <li key={item.id}>{item.gameMode} · {item.outcome} · {item.questionStem}</li>)}</Panel>
+                <Panel title="掌握记录">{bundle.masteryRecords.slice(0, 5).map((item) => <li key={item.id}>{item.questionId} · 分数 {item.masteryScore}</li>)}</Panel>
+              </div>
+            ) : null}
+          </>
+        ) : null}
       </div>
     </div>
   );
 };
+
+const Panel = ({ title, children }: { title: string; children: React.ReactNode }) => (
+  <section className="rounded-3xl border border-white/10 bg-white/5 p-5">
+    <h2 className="text-lg font-black text-amber-100">{title}</h2>
+    <ul className="mt-3 space-y-2 text-sm leading-6 text-stone-200">{children}</ul>
+  </section>
+);

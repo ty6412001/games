@@ -171,6 +171,16 @@ export const KnowledgeAnswerLogSchema = z.object({
 });
 export type KnowledgeAnswerLog = z.infer<typeof KnowledgeAnswerLogSchema>;
 
+export const KnowledgeAnswerLogCreateSchema = KnowledgeAnswerLogSchema.omit({
+  id: true,
+  grade: true,
+  semester: true,
+}).extend({
+  grade: LearningGradeSchema.default('grade1'),
+  semester: LearningSemesterSchema.default('lower'),
+});
+export type KnowledgeAnswerLogCreateInput = z.infer<typeof KnowledgeAnswerLogCreateSchema>;
+
 export const KnowledgeMasteryRecordSchema = z.object({
   id: z.string().min(1),
   learnerId: z.string().min(1),
@@ -188,6 +198,18 @@ export const KnowledgeMasteryRecordSchema = z.object({
   updatedAt: z.number().int().nonnegative(),
 });
 export type KnowledgeMasteryRecord = z.infer<typeof KnowledgeMasteryRecordSchema>;
+
+export const LearningRewardEventSchema = z.object({
+  id: z.string().min(1),
+  learnerId: z.string().min(1),
+  questionId: QuestionIdSchema.optional(),
+  gameMode: LearningGameModeSchema,
+  eventType: z.enum(['coins', 'material', 'weapon', 'exp', 'unlock']),
+  amount: z.number().int().nonnegative(),
+  payload: z.record(z.string(), z.unknown()).default({}),
+  createdAt: z.number().int().nonnegative(),
+});
+export type LearningRewardEvent = z.infer<typeof LearningRewardEventSchema>;
 
 export const KnowledgeWrongBookRecordSchema = z.object({
   id: z.string().min(1),
