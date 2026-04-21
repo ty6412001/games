@@ -270,6 +270,7 @@ describe('Knowledge progress schemas', () => {
         answerLogCount: 1,
         wrongBookCount: 1,
         masteryRecordCount: 1,
+        rewardEventCount: 1,
       },
       questions: [
         {
@@ -342,6 +343,18 @@ describe('Knowledge progress schemas', () => {
           correctAttempts: 4,
           wrongAttempts: 1,
           updatedAt: 3,
+        },
+      ],
+      rewardEvents: [
+        {
+          id: 'reward-1',
+          learnerId: 'child-1',
+          questionId: 'kb-math-001',
+          gameMode: 'practice',
+          eventType: 'coins',
+          amount: 10,
+          payload: { outcome: 'correct' },
+          createdAt: 10,
         },
       ],
     });

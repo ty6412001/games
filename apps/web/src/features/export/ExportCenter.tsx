@@ -1,10 +1,15 @@
 import { clearToken, getToken, loginFamily } from '../../data/cloud/apiClient';
+import { ApiError } from '../../data/cloud/apiClient';
 import type { KnowledgeExportBundle } from '@ultraman/shared';
 import { useEffect, useMemo, useState } from 'react';
 
 const fetchExport = async (): Promise<KnowledgeExportBundle> => {
   const token = getToken();
-  const response = await fetch('/api/knowledge-bank/export/health-safe', {
+  const base = (import.meta.env.VITE_API_BASE as string | undefined)?.trim()?.replace(/\/$/, '')
+    ?? (typeof window !== 'undefined' && window.location?.origin
+      ? `${window.location.origin}/api`
+      : 'http://127.0.0.1:3001/api');
+  const response = await fetch(new URL('/knowledge-bank/export/health-safe', `${base}/`).toString(), {
     headers: {
       'Content-Type': 'application/json',
       ...(token ? { Authorization: `Bearer ${token}` } : {}),
@@ -12,7 +17,11 @@ const fetchExport = async (): Promise<KnowledgeExportBundle> => {
   });
   if (!response.ok) {
     const payload = await response.json().catch(() => ({}));
-    throw new Error(payload?.error?.message ?? `request failed: ${response.status}`);
+    throw new ApiError({
+      status: response.status,
+      code: payload?.error?.code,
+      message: payload?.error?.message ?? `request failed: ${response.status}`,
+    });
   }
   return (await response.json()) as KnowledgeExportBundle;
 };

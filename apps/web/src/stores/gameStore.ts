@@ -592,6 +592,9 @@ const syncAnswerLogSafe = async (params: {
       answeredAt,
     });
   } catch (err) {
+    if (err instanceof Error && 'code' in err && err.code === 'API_DISABLED') {
+      return;
+    }
     console.warn('createAnswerLog failed', err);
   }
 };

@@ -9,8 +9,31 @@ type RequestOptions = {
   timeoutMs?: number;
 };
 
-const apiBase = (): string => {
-  return (import.meta.env.VITE_API_BASE as string | undefined) ?? '/api';
+const normalizeApiBase = (value: string | undefined): string | null => {
+  const normalized = value?.trim();
+  if (!normalized) return null;
+  return normalized.replace(/\/$/, '');
+};
+
+const isTestRuntime = (): boolean => {
+  const metaEnv = (import.meta as ImportMeta & { env?: Record<string, string | boolean | undefined> }).env;
+  return Boolean(
+    metaEnv?.MODE === 'test' ||
+      metaEnv?.VITEST ||
+      (typeof process !== 'undefined' && process.env?.VITEST === 'true'),
+  );
+};
+
+const apiBase = (): string | null => {
+  const configured = normalizeApiBase(import.meta.env.VITE_API_BASE as string | undefined);
+  if (configured) return configured;
+  if (isTestRuntime()) {
+    return null;
+  }
+  if (typeof window !== 'undefined' && window.location?.origin) {
+    return `${window.location.origin}/api`;
+  }
+  return 'http://127.0.0.1:3001/api';
 };
 
 export const getToken = (): string | null => {
@@ -55,6 +78,11 @@ export class ApiError extends Error {
 }
 
 const request = async <T>(path: string, options: RequestOptions = {}): Promise<T> => {
+  const base = apiBase();
+  if (!base) {
+    throw new ApiError({ status: 0, code: 'API_DISABLED', message: 'API disabled in test runtime' });
+  }
+
   const controller = new AbortController();
   const timeoutId = window.setTimeout(() => controller.abort(), options.timeoutMs ?? DEFAULT_TIMEOUT_MS);
   const token = getToken();
@@ -70,7 +98,7 @@ const request = async <T>(path: string, options: RequestOptions = {}): Promise<T
     if (options.body !== undefined) {
       init.body = JSON.stringify(options.body);
     }
-    const res = await fetch(`${apiBase()}${path}`, init);
+    const res = await fetch(new URL(path, `${base}/`).toString(), init);
     if (!res.ok) {
       let code: string | undefined;
       let message: string | undefined;
