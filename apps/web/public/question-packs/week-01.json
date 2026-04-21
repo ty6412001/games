@@ -111,15 +111,21 @@
       "subject": "math",
       "difficulty": 1,
       "topic": "20以内退位减法",
-      "type": "choice",
-      "stem": "下面哪道算式的结果最大？",
-      "options": [
+      "type": "ordering",
+      "stem": "把这些算式按得数从大到小排好",
+      "items": [
         "15 - 8",
         "16 - 7",
         "11 - 4",
         "13 - 6"
       ],
-      "answer": "16 - 7"
+      "correctOrder": [
+        1,
+        0,
+        2,
+        3
+      ],
+      "answer": "1,0,2,3"
     },
     {
       "id": "m-w01-009",
@@ -260,29 +266,19 @@
       "subject": "math",
       "difficulty": 1,
       "topic": "认识图形（二）",
-      "type": "choice",
-      "stem": "红领巾的形状最像？",
-      "options": [
-        "三角形",
-        "圆形",
-        "正方形",
-        "长方形"
-      ],
-      "answer": "三角形"
+      "type": "true-false",
+      "stem": "判断：红领巾的形状最像三角形。",
+      "answer": "true",
+      "trueLabel": "对",
+      "falseLabel": "错"
     },
     {
       "id": "m-w01-020",
       "subject": "math",
       "difficulty": 1,
       "topic": "认识图形（二）",
-      "type": "choice",
-      "stem": "课本封面的形状最像？",
-      "options": [
-        "长方形",
-        "三角形",
-        "圆形",
-        "平行四边形"
-      ],
+      "type": "input",
+      "stem": "课本封面的形状最像什么图形？",
       "answer": "长方形"
     },
     {
@@ -305,15 +301,11 @@
       "subject": "math",
       "difficulty": 2,
       "topic": "认识图形（二）",
-      "type": "choice",
-      "stem": "篮球正面看起来最像什么图形？",
-      "options": [
-        "圆形",
-        "三角形",
-        "长方形",
-        "正方形"
-      ],
-      "answer": "圆形"
+      "type": "true-false",
+      "stem": "判断：篮球正面看起来最像圆形。",
+      "answer": "true",
+      "trueLabel": "对",
+      "falseLabel": "错"
     },
     {
       "id": "m-w01-023",
@@ -656,15 +648,11 @@
       "subject": "chinese",
       "difficulty": 1,
       "topic": "识字1-4",
-      "type": "choice",
-      "stem": "“梅花山”里“梅花”属于什么？",
-      "options": [
-        "花",
-        "树",
-        "动物",
-        "天气"
-      ],
-      "answer": "花"
+      "type": "true-false",
+      "stem": "判断：“梅花山”里“梅花”属于花。",
+      "answer": "true",
+      "trueLabel": "对",
+      "falseLabel": "错"
     },
     {
       "id": "c-w01-007",
@@ -772,14 +760,8 @@
       "subject": "chinese",
       "difficulty": 1,
       "topic": "课文1-4",
-      "type": "choice",
+      "type": "input",
       "stem": "《春到梅花山》写的是哪里的春景？",
-      "options": [
-        "梅花山",
-        "操场",
-        "果园",
-        "教室"
-      ],
       "answer": "梅花山"
     },
     {
@@ -871,15 +853,11 @@
       "subject": "chinese",
       "difficulty": 1,
       "topic": "课文5-8",
-      "type": "choice",
-      "stem": "“草原的早晨”里的“早晨”表示什么时间？",
-      "options": [
-        "早上",
-        "中午",
-        "晚上",
-        "夜里"
-      ],
-      "answer": "早上"
+      "type": "true-false",
+      "stem": "判断：“草原的早晨”里的“早晨”表示早上。",
+      "answer": "true",
+      "trueLabel": "对",
+      "falseLabel": "错"
     },
     {
       "id": "c-w01-022",
@@ -976,14 +954,8 @@
       "subject": "chinese",
       "difficulty": 1,
       "topic": "课文9-13",
-      "type": "choice",
+      "type": "input",
       "stem": "《陈毅探母》中的“探母”是去看望谁？",
-      "options": [
-        "母亲",
-        "老师",
-        "同学",
-        "朋友"
-      ],
       "answer": "母亲"
     },
     {
@@ -1161,14 +1133,8 @@
       "subject": "english",
       "difficulty": 1,
       "topic": "Unit 1 Let's count",
-      "type": "choice",
-      "stem": "Which number is “three”?",
-      "options": [
-        "1",
-        "2",
-        "3",
-        "4"
-      ],
+      "type": "input",
+      "stem": "Write the number: three",
       "answer": "3"
     },
     {
