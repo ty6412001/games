@@ -57,14 +57,8 @@
       "subject": "math",
       "difficulty": 1,
       "topic": "20以内退位减法",
-      "type": "choice",
+      "type": "input",
       "stem": "17 - 9 = ?",
-      "options": [
-        "7",
-        "8",
-        "9",
-        "10"
-      ],
       "answer": "8"
     },
     {
@@ -146,14 +140,8 @@
       "subject": "math",
       "difficulty": 2,
       "topic": "20以内退位减法",
-      "type": "choice",
+      "type": "input",
       "stem": "比 17 少 8 的数是？",
-      "options": [
-        "7",
-        "8",
-        "9",
-        "10"
-      ],
       "answer": "9"
     },
     {
@@ -261,15 +249,11 @@
       "subject": "math",
       "difficulty": 1,
       "topic": "认识图形（二）",
-      "type": "choice",
-      "stem": "下面哪个图形没有角？",
-      "options": [
-        "圆形",
-        "三角形",
-        "正方形",
-        "长方形"
-      ],
-      "answer": "圆形"
+      "type": "true-false",
+      "stem": "判断：圆形没有角。",
+      "answer": "true",
+      "trueLabel": "对",
+      "falseLabel": "错"
     },
     {
       "id": "m-w01-019",
@@ -732,15 +716,11 @@
       "subject": "chinese",
       "difficulty": 2,
       "topic": "识字1-4",
-      "type": "choice",
-      "stem": "“池塘”通常和下面哪个字意思最接近？",
-      "options": [
-        "水",
-        "火",
-        "山",
-        "木"
-      ],
-      "answer": "水"
+      "type": "true-false",
+      "stem": "判断：“池塘”通常和“水”有关。",
+      "answer": "true",
+      "trueLabel": "对",
+      "falseLabel": "不对"
     },
     {
       "id": "c-w01-011",
@@ -882,13 +862,8 @@
       "subject": "chinese",
       "difficulty": 1,
       "topic": "课文5-8",
-      "type": "choice",
+      "type": "input",
       "stem": "《小松树和大松树》题目里有哪两棵树？",
-      "options": [
-        "小松树和大松树",
-        "小柳树和大柳树",
-        "小柏树和大柏树"
-      ],
       "answer": "小松树和大松树"
     },
     {
@@ -1119,15 +1094,11 @@
       "subject": "chinese",
       "difficulty": 2,
       "topic": "练习1-4",
-      "type": "choice",
-      "stem": "“大”的反义词是？",
-      "options": [
-        "小",
-        "高",
-        "长",
-        "多"
-      ],
-      "answer": "小"
+      "type": "true-false",
+      "stem": "判断：“大”的反义词是“小”。",
+      "answer": "true",
+      "trueLabel": "对",
+      "falseLabel": "错"
     },
     {
       "id": "c-w01-037",
@@ -1313,13 +1284,8 @@
       "subject": "english",
       "difficulty": 1,
       "topic": "Unit 3 I like carrots",
-      "type": "choice",
-      "stem": "Which word means “胡萝卜”?",
-      "options": [
-        "carrot",
-        "pencil",
-        "spring"
-      ],
+      "type": "input",
+      "stem": "Write the English word: 胡萝卜",
       "answer": "carrot"
     },
     {
@@ -1351,14 +1317,11 @@
       "subject": "english",
       "difficulty": 1,
       "topic": "Unit 4 Spring",
-      "type": "choice",
-      "stem": "Spring means ___.",
-      "options": [
-        "春天",
-        "夏天",
-        "秋天"
-      ],
-      "answer": "春天"
+      "type": "true-false",
+      "stem": "True or false: Spring means 春天.",
+      "answer": "true",
+      "trueLabel": "True",
+      "falseLabel": "False"
     },
     {
       "id": "e-w01-014",
