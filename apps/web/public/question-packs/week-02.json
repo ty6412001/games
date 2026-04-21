@@ -12,7 +12,12 @@
       "difficulty": 1,
       "type": "choice",
       "stem": "18 和 14 比，哪个数更大？",
-      "options": ["14", "15", "18", "20"],
+      "options": [
+        "14",
+        "15",
+        "18",
+        "20"
+      ],
       "answer": "18",
       "subject": "math",
       "topic": "单元1 数的认识"
@@ -22,7 +27,12 @@
       "difficulty": 1,
       "type": "choice",
       "stem": "16 前面的一个数是？",
-      "options": ["14", "15", "17", "18"],
+      "options": [
+        "14",
+        "15",
+        "17",
+        "18"
+      ],
       "answer": "15",
       "subject": "math",
       "topic": "单元1 数的认识"
@@ -32,7 +42,12 @@
       "difficulty": 1,
       "type": "choice",
       "stem": "一个数由 1 个十和 7 个一组成，这个数是？",
-      "options": ["16", "17", "18", "19"],
+      "options": [
+        "16",
+        "17",
+        "18",
+        "19"
+      ],
       "answer": "17",
       "subject": "math",
       "topic": "单元1 数的认识"
@@ -40,9 +55,8 @@
     {
       "id": "m-w02-004",
       "difficulty": 1,
-      "type": "choice",
+      "type": "input",
       "stem": "20 里面有几个十？",
-      "options": ["1", "2", "3", "4"],
       "answer": "2",
       "subject": "math",
       "topic": "单元1 数的认识"
@@ -52,7 +66,12 @@
       "difficulty": 1,
       "type": "choice",
       "stem": "19 后面的一个数是？",
-      "options": ["17", "18", "20", "21"],
+      "options": [
+        "17",
+        "18",
+        "20",
+        "21"
+      ],
       "answer": "20",
       "subject": "math",
       "topic": "单元1 数的认识"
@@ -62,7 +81,12 @@
       "difficulty": 2,
       "type": "choice",
       "stem": "下面哪个数最接近 20？",
-      "options": ["12", "19", "15", "17"],
+      "options": [
+        "12",
+        "19",
+        "15",
+        "17"
+      ],
       "answer": "19",
       "subject": "math",
       "topic": "单元1 数的认识"
@@ -72,7 +96,12 @@
       "difficulty": 1,
       "type": "choice",
       "stem": "7 + 2 = ?",
-      "options": ["8", "9", "10", "11"],
+      "options": [
+        "8",
+        "9",
+        "10",
+        "11"
+      ],
       "answer": "9",
       "subject": "math",
       "topic": "单元2 10以内加减"
@@ -82,7 +111,12 @@
       "difficulty": 1,
       "type": "choice",
       "stem": "9 - 4 = ?",
-      "options": ["3", "4", "5", "6"],
+      "options": [
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
       "answer": "5",
       "subject": "math",
       "topic": "单元2 10以内加减"
@@ -92,7 +126,12 @@
       "difficulty": 2,
       "type": "choice",
       "stem": "□ + 3 = 8，□ 是多少？",
-      "options": ["4", "5", "6", "7"],
+      "options": [
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
       "answer": "5",
       "subject": "math",
       "topic": "单元2 10以内加减"
@@ -100,9 +139,8 @@
     {
       "id": "m-w02-010",
       "difficulty": 2,
-      "type": "choice",
+      "type": "input",
       "stem": "10 可以分成 6 和几？",
-      "options": ["2", "3", "4", "5"],
       "answer": "4",
       "subject": "math",
       "topic": "单元2 10以内加减"
@@ -112,7 +150,12 @@
       "difficulty": 2,
       "type": "choice",
       "stem": "比 8 大 1 的数是？",
-      "options": ["6", "7", "9", "10"],
+      "options": [
+        "6",
+        "7",
+        "9",
+        "10"
+      ],
       "answer": "9",
       "subject": "math",
       "topic": "单元2 10以内加减"
@@ -122,7 +165,12 @@
       "difficulty": 2,
       "type": "choice",
       "stem": "哪道算式的得数是 6？",
-      "options": ["3 + 3", "8 - 1", "5 + 2", "10 - 5"],
+      "options": [
+        "3 + 3",
+        "8 - 1",
+        "5 + 2",
+        "10 - 5"
+      ],
       "answer": "3 + 3",
       "subject": "math",
       "topic": "单元2 10以内加减"
@@ -132,7 +180,12 @@
       "difficulty": 1,
       "type": "choice",
       "stem": "一个图形有 3 条边，最可能是？",
-      "options": ["圆形", "三角形", "正方形", "长方形"],
+      "options": [
+        "圆形",
+        "三角形",
+        "正方形",
+        "长方形"
+      ],
       "answer": "三角形",
       "subject": "math",
       "topic": "单元3 图形与位置"
@@ -142,7 +195,12 @@
       "difficulty": 1,
       "type": "choice",
       "stem": "哪个图形没有角？",
-      "options": ["圆形", "三角形", "正方形", "长方形"],
+      "options": [
+        "圆形",
+        "三角形",
+        "正方形",
+        "长方形"
+      ],
       "answer": "圆形",
       "subject": "math",
       "topic": "单元3 图形与位置"
@@ -152,7 +210,12 @@
       "difficulty": 2,
       "type": "choice",
       "stem": "长方形和正方形都有几条边？",
-      "options": ["2", "3", "4", "5"],
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
       "answer": "4",
       "subject": "math",
       "topic": "单元3 图形与位置"
@@ -160,10 +223,11 @@
     {
       "id": "m-w02-016",
       "difficulty": 2,
-      "type": "choice",
-      "stem": "数一数，正方形有几个角？",
-      "options": ["2", "3", "4", "5"],
-      "answer": "4",
+      "type": "true-false",
+      "stem": "判断：正方形有 4 个角。",
+      "answer": "true",
+      "trueLabel": "对",
+      "falseLabel": "错",
       "subject": "math",
       "topic": "单元3 图形与位置"
     },
@@ -172,7 +236,12 @@
       "difficulty": 2,
       "type": "choice",
       "stem": "8 + 7 = ?",
-      "options": ["13", "14", "15", "16"],
+      "options": [
+        "13",
+        "14",
+        "15",
+        "16"
+      ],
       "answer": "15",
       "subject": "math",
       "topic": "单元4 20以内进位加法"
@@ -182,7 +251,12 @@
       "difficulty": 2,
       "type": "choice",
       "stem": "9 + 6 = ?",
-      "options": ["12", "13", "14", "15"],
+      "options": [
+        "12",
+        "13",
+        "14",
+        "15"
+      ],
       "answer": "15",
       "subject": "math",
       "topic": "单元4 20以内进位加法"
@@ -192,7 +266,12 @@
       "difficulty": 2,
       "type": "choice",
       "stem": "11 + 5 = ?",
-      "options": ["15", "16", "17", "18"],
+      "options": [
+        "15",
+        "16",
+        "17",
+        "18"
+      ],
       "answer": "16",
       "subject": "math",
       "topic": "单元4 20以内进位加法"
@@ -202,7 +281,12 @@
       "difficulty": 2,
       "type": "choice",
       "stem": "7 + 8 = ?",
-      "options": ["13", "14", "15", "16"],
+      "options": [
+        "13",
+        "14",
+        "15",
+        "16"
+      ],
       "answer": "15",
       "subject": "math",
       "topic": "单元4 20以内进位加法"
@@ -212,7 +296,12 @@
       "difficulty": 2,
       "type": "choice",
       "stem": "5 + 9 = ?",
-      "options": ["12", "13", "14", "15"],
+      "options": [
+        "12",
+        "13",
+        "14",
+        "15"
+      ],
       "answer": "14",
       "subject": "math",
       "topic": "单元4 20以内进位加法"
@@ -220,10 +309,21 @@
     {
       "id": "m-w02-022",
       "difficulty": 3,
-      "type": "choice",
-      "stem": "哪道算式得数最大？",
-      "options": ["6 + 8", "7 + 5", "9 + 3", "8 + 4"],
-      "answer": "6 + 8",
+      "type": "ordering",
+      "stem": "把这些算式按得数从大到小排好：6 + 8，7 + 5，9 + 3，8 + 4",
+      "items": [
+        "6 + 8",
+        "7 + 5",
+        "9 + 3",
+        "8 + 4"
+      ],
+      "correctOrder": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "answer": "0,1,2,3",
       "subject": "math",
       "topic": "单元4 20以内进位加法"
     },
@@ -232,7 +332,12 @@
       "difficulty": 2,
       "type": "choice",
       "stem": "14 - 6 = ?",
-      "options": ["7", "8", "9", "10"],
+      "options": [
+        "7",
+        "8",
+        "9",
+        "10"
+      ],
       "answer": "8",
       "subject": "math",
       "topic": "单元5 20以内退位减法"
@@ -242,7 +347,12 @@
       "difficulty": 2,
       "type": "choice",
       "stem": "17 - 9 = ?",
-      "options": ["6", "7", "8", "9"],
+      "options": [
+        "6",
+        "7",
+        "8",
+        "9"
+      ],
       "answer": "8",
       "subject": "math",
       "topic": "单元5 20以内退位减法"
@@ -252,7 +362,12 @@
       "difficulty": 2,
       "type": "choice",
       "stem": "15 - 8 = ?",
-      "options": ["5", "6", "7", "8"],
+      "options": [
+        "5",
+        "6",
+        "7",
+        "8"
+      ],
       "answer": "7",
       "subject": "math",
       "topic": "单元5 20以内退位减法"
@@ -262,7 +377,12 @@
       "difficulty": 2,
       "type": "choice",
       "stem": "13 - 7 = ?",
-      "options": ["4", "5", "6", "7"],
+      "options": [
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
       "answer": "6",
       "subject": "math",
       "topic": "单元5 20以内退位减法"
@@ -272,7 +392,12 @@
       "difficulty": 2,
       "type": "choice",
       "stem": "18 - 5 = ?",
-      "options": ["12", "13", "14", "15"],
+      "options": [
+        "12",
+        "13",
+        "14",
+        "15"
+      ],
       "answer": "13",
       "subject": "math",
       "topic": "单元5 20以内退位减法"
@@ -282,7 +407,12 @@
       "difficulty": 2,
       "type": "choice",
       "stem": "小朋友有 16 颗糖，吃掉 7 颗，还剩几颗？",
-      "options": ["8", "9", "10", "11"],
+      "options": [
+        "8",
+        "9",
+        "10",
+        "11"
+      ],
       "answer": "9",
       "subject": "math",
       "topic": "单元5 20以内退位减法"
@@ -292,7 +422,12 @@
       "difficulty": 2,
       "type": "choice",
       "stem": "树上有 12 只鸟，飞走 4 只，还剩几只？",
-      "options": ["6", "7", "8", "9"],
+      "options": [
+        "6",
+        "7",
+        "8",
+        "9"
+      ],
       "answer": "8",
       "subject": "math",
       "topic": "单元5 20以内退位减法"
@@ -302,7 +437,12 @@
       "difficulty": 3,
       "type": "choice",
       "stem": "下面哪道算式得数是 9？",
-      "options": ["12 - 3", "13 - 6", "15 - 8", "14 - 7"],
+      "options": [
+        "12 - 3",
+        "13 - 6",
+        "15 - 8",
+        "14 - 7"
+      ],
       "answer": "12 - 3",
       "subject": "math",
       "topic": "单元5 20以内退位减法"
@@ -312,7 +452,12 @@
       "difficulty": 2,
       "type": "choice",
       "stem": "比 11 小 4 的数是？",
-      "options": ["6", "7", "8", "9"],
+      "options": [
+        "6",
+        "7",
+        "8",
+        "9"
+      ],
       "answer": "7",
       "subject": "math",
       "topic": "单元5 20以内退位减法"
@@ -320,9 +465,8 @@
     {
       "id": "m-w02-032",
       "difficulty": 3,
-      "type": "choice",
+      "type": "input",
       "stem": "□ - 5 = 9，□ 是多少？",
-      "options": ["12", "13", "14", "15"],
       "answer": "14",
       "subject": "math",
       "topic": "单元5 20以内退位减法"
@@ -332,7 +476,12 @@
       "difficulty": 2,
       "type": "choice",
       "stem": "从 20 往回数 3 个数，停在哪个数？",
-      "options": ["18", "17", "16", "15"],
+      "options": [
+        "18",
+        "17",
+        "16",
+        "15"
+      ],
       "answer": "17",
       "subject": "math",
       "topic": "单元5 20以内退位减法"
@@ -342,7 +491,12 @@
       "difficulty": 2,
       "type": "choice",
       "stem": "小红有 15 支铅笔，送给同学 6 支，还剩几支？",
-      "options": ["7", "8", "9", "10"],
+      "options": [
+        "7",
+        "8",
+        "9",
+        "10"
+      ],
       "answer": "9",
       "subject": "math",
       "topic": "单元5 20以内退位减法"
@@ -352,7 +506,12 @@
       "difficulty": 2,
       "type": "choice",
       "stem": "18 - 9 = ?",
-      "options": ["7", "8", "9", "10"],
+      "options": [
+        "7",
+        "8",
+        "9",
+        "10"
+      ],
       "answer": "9",
       "subject": "math",
       "topic": "单元5 20以内退位减法"
@@ -362,7 +521,12 @@
       "difficulty": 3,
       "type": "choice",
       "stem": "男孩有 10 个气球，送出 3 个又得到 2 个，现在有几个？",
-      "options": ["8", "9", "10", "11"],
+      "options": [
+        "8",
+        "9",
+        "10",
+        "11"
+      ],
       "answer": "9",
       "subject": "math",
       "topic": "单元5 20以内退位减法"
@@ -372,7 +536,12 @@
       "difficulty": 3,
       "type": "choice",
       "stem": "15 由 8 和几组成？",
-      "options": ["5", "6", "7", "8"],
+      "options": [
+        "5",
+        "6",
+        "7",
+        "8"
+      ],
       "answer": "7",
       "subject": "math",
       "topic": "单元5 20以内退位减法"
@@ -382,7 +551,12 @@
       "difficulty": 3,
       "type": "choice",
       "stem": "哪道算式的结果是 8？",
-      "options": ["11 - 3", "12 - 5", "13 - 4", "14 - 8"],
+      "options": [
+        "11 - 3",
+        "12 - 5",
+        "13 - 4",
+        "14 - 8"
+      ],
       "answer": "11 - 3",
       "subject": "math",
       "topic": "单元5 20以内退位减法"
@@ -392,7 +566,12 @@
       "difficulty": 2,
       "type": "choice",
       "stem": "9 + 4 = ?",
-      "options": ["11", "12", "13", "14"],
+      "options": [
+        "11",
+        "12",
+        "13",
+        "14"
+      ],
       "answer": "13",
       "subject": "math",
       "topic": "单元5 20以内退位减法"
@@ -402,7 +581,12 @@
       "difficulty": 2,
       "type": "choice",
       "stem": "一盒彩笔有 14 支，拿走 5 支后还剩几支？",
-      "options": ["8", "9", "10", "11"],
+      "options": [
+        "8",
+        "9",
+        "10",
+        "11"
+      ],
       "answer": "9",
       "subject": "math",
       "topic": "单元5 20以内退位减法"
@@ -412,7 +596,12 @@
       "difficulty": 1,
       "type": "choice",
       "stem": "下面哪个字的声母是 z？",
-      "options": ["早", "草", "伞", "花"],
+      "options": [
+        "早",
+        "草",
+        "伞",
+        "花"
+      ],
       "answer": "早",
       "subject": "chinese",
       "topic": "单元1 拼音启蒙"
@@ -422,7 +611,12 @@
       "difficulty": 1,
       "type": "choice",
       "stem": "“草”字的声母是？",
-      "options": ["z", "c", "s", "h"],
+      "options": [
+        "z",
+        "c",
+        "s",
+        "h"
+      ],
       "answer": "c",
       "subject": "chinese",
       "topic": "单元1 拼音启蒙"
@@ -432,7 +626,12 @@
       "difficulty": 1,
       "type": "choice",
       "stem": "“伞”字的声母是？",
-      "options": ["z", "c", "s", "r"],
+      "options": [
+        "z",
+        "c",
+        "s",
+        "r"
+      ],
       "answer": "s",
       "subject": "chinese",
       "topic": "单元1 拼音启蒙"
@@ -442,7 +641,12 @@
       "difficulty": 1,
       "type": "choice",
       "stem": "“坐”字的读音开头是？",
-      "options": ["z", "c", "s", "zh"],
+      "options": [
+        "z",
+        "c",
+        "s",
+        "zh"
+      ],
       "answer": "z",
       "subject": "chinese",
       "topic": "单元1 拼音启蒙"
@@ -452,7 +656,12 @@
       "difficulty": 1,
       "type": "choice",
       "stem": "下面哪个字和“早”都属于 z 开头？",
-      "options": ["左", "次", "松", "花"],
+      "options": [
+        "左",
+        "次",
+        "松",
+        "花"
+      ],
       "answer": "左",
       "subject": "chinese",
       "topic": "单元1 拼音启蒙"
@@ -462,7 +671,12 @@
       "difficulty": 1,
       "type": "choice",
       "stem": "“在”字的声母是？",
-      "options": ["z", "c", "s", "w"],
+      "options": [
+        "z",
+        "c",
+        "s",
+        "w"
+      ],
       "answer": "z",
       "subject": "chinese",
       "topic": "单元1 拼音启蒙"
@@ -472,7 +686,12 @@
       "difficulty": 1,
       "type": "choice",
       "stem": "“村”字的声母是？",
-      "options": ["z", "c", "s", "n"],
+      "options": [
+        "z",
+        "c",
+        "s",
+        "n"
+      ],
       "answer": "c",
       "subject": "chinese",
       "topic": "单元1 拼音启蒙"
@@ -482,7 +701,12 @@
       "difficulty": 1,
       "type": "choice",
       "stem": "“森”字的声母是？",
-      "options": ["z", "c", "s", "l"],
+      "options": [
+        "z",
+        "c",
+        "s",
+        "l"
+      ],
       "answer": "s",
       "subject": "chinese",
       "topic": "单元1 拼音启蒙"
@@ -492,7 +716,12 @@
       "difficulty": 1,
       "type": "choice",
       "stem": "“草地”里的“草”属于哪类字？",
-      "options": ["植物", "动物", "颜色", "动作"],
+      "options": [
+        "植物",
+        "动物",
+        "颜色",
+        "动作"
+      ],
       "answer": "植物",
       "subject": "chinese",
       "topic": "单元1 拼音启蒙"
@@ -500,10 +729,19 @@
     {
       "id": "c-w02-010",
       "difficulty": 2,
-      "type": "choice",
-      "stem": "把 z、c、s 按顺序排列，正确的是哪一项？",
-      "options": ["zcs", "czs", "szc", "scz"],
-      "answer": "zcs",
+      "type": "ordering",
+      "stem": "把 z、c、s 按顺序排列",
+      "items": [
+        "c",
+        "s",
+        "z"
+      ],
+      "correctOrder": [
+        2,
+        0,
+        1
+      ],
+      "answer": "2,0,1",
       "subject": "chinese",
       "topic": "单元1 拼音启蒙"
     },
@@ -512,7 +750,12 @@
       "difficulty": 1,
       "type": "choice",
       "stem": "下面哪个字带“木”字旁？",
-      "options": ["林", "日", "水", "火"],
+      "options": [
+        "林",
+        "日",
+        "水",
+        "火"
+      ],
       "answer": "林",
       "subject": "chinese",
       "topic": "单元2 字词和偏旁"
@@ -522,7 +765,12 @@
       "difficulty": 1,
       "type": "choice",
       "stem": "“河”字左边的偏旁是？",
-      "options": ["氵", "艹", "口", "忄"],
+      "options": [
+        "氵",
+        "艹",
+        "口",
+        "忄"
+      ],
       "answer": "氵",
       "subject": "chinese",
       "topic": "单元2 字词和偏旁"
@@ -532,7 +780,12 @@
       "difficulty": 1,
       "type": "choice",
       "stem": "“明”字左边是？",
-      "options": ["日", "月", "木", "火"],
+      "options": [
+        "日",
+        "月",
+        "木",
+        "火"
+      ],
       "answer": "日",
       "subject": "chinese",
       "topic": "单元2 字词和偏旁"
@@ -542,7 +795,12 @@
       "difficulty": 1,
       "type": "choice",
       "stem": "“花”字主要和什么有关？",
-      "options": ["植物", "天气", "声音", "数字"],
+      "options": [
+        "植物",
+        "天气",
+        "声音",
+        "数字"
+      ],
       "answer": "植物",
       "subject": "chinese",
       "topic": "单元2 字词和偏旁"
@@ -552,7 +810,12 @@
       "difficulty": 2,
       "type": "choice",
       "stem": "下面哪个词最适合形容春天？",
-      "options": ["温暖", "寒冷", "吵闹", "沉重"],
+      "options": [
+        "温暖",
+        "寒冷",
+        "吵闹",
+        "沉重"
+      ],
       "answer": "温暖",
       "subject": "chinese",
       "topic": "单元2 字词和偏旁"
@@ -562,7 +825,12 @@
       "difficulty": 1,
       "type": "choice",
       "stem": "“青蛙”里表示动物名字的字是？",
-      "options": ["青", "蛙", "草", "春"],
+      "options": [
+        "青",
+        "蛙",
+        "草",
+        "春"
+      ],
       "answer": "蛙",
       "subject": "chinese",
       "topic": "单元2 字词和偏旁"
@@ -570,9 +838,8 @@
     {
       "id": "c-w02-017",
       "difficulty": 2,
-      "type": "choice",
+      "type": "input",
       "stem": "“雨”字一共有几画？",
-      "options": ["7", "8", "9", "10"],
       "answer": "8",
       "subject": "chinese",
       "topic": "单元2 字词和偏旁"
@@ -582,7 +849,12 @@
       "difficulty": 2,
       "type": "choice",
       "stem": "“口”字旁的字常和什么有关？",
-      "options": ["说话", "颜色", "时间", "形状"],
+      "options": [
+        "说话",
+        "颜色",
+        "时间",
+        "形状"
+      ],
       "answer": "说话",
       "subject": "chinese",
       "topic": "单元2 字词和偏旁"
@@ -592,7 +864,12 @@
       "difficulty": 2,
       "type": "choice",
       "stem": "下面哪个词语书写正确？",
-      "options": ["早上", "早尚", "草上", "草山"],
+      "options": [
+        "早上",
+        "早尚",
+        "草上",
+        "草山"
+      ],
       "answer": "早上",
       "subject": "chinese",
       "topic": "单元2 字词和偏旁"
@@ -602,7 +879,12 @@
       "difficulty": 2,
       "type": "choice",
       "stem": "下面哪个字和“河”一样带有三点水？",
-      "options": ["江", "花", "明", "早"],
+      "options": [
+        "江",
+        "花",
+        "明",
+        "早"
+      ],
       "answer": "江",
       "subject": "chinese",
       "topic": "单元2 字词和偏旁"
@@ -612,7 +894,12 @@
       "difficulty": 1,
       "type": "choice",
       "stem": "“我们一起上学去。”这句话里谁在一起？",
-      "options": ["我们", "学校", "老师", "书包"],
+      "options": [
+        "我们",
+        "学校",
+        "老师",
+        "书包"
+      ],
       "answer": "我们",
       "subject": "chinese",
       "topic": "单元3 句子和阅读"
@@ -622,7 +909,12 @@
       "difficulty": 1,
       "type": "choice",
       "stem": "“春风吹，花儿开”里最像春天的是？",
-      "options": ["花儿开", "冬天冷", "大雨下", "太阳落"],
+      "options": [
+        "花儿开",
+        "冬天冷",
+        "大雨下",
+        "太阳落"
+      ],
       "answer": "花儿开",
       "subject": "chinese",
       "topic": "单元3 句子和阅读"
@@ -632,7 +924,12 @@
       "difficulty": 2,
       "type": "choice",
       "stem": "哪一个词和“安静”意思更接近？",
-      "options": ["安宁", "热闹", "急忙", "粗心"],
+      "options": [
+        "安宁",
+        "热闹",
+        "急忙",
+        "粗心"
+      ],
       "answer": "安宁",
       "subject": "chinese",
       "topic": "单元3 句子和阅读"
@@ -642,7 +939,12 @@
       "difficulty": 1,
       "type": "choice",
       "stem": "“太阳”会从哪里升起？",
-      "options": ["东边", "西边", "南边", "北边"],
+      "options": [
+        "东边",
+        "西边",
+        "南边",
+        "北边"
+      ],
       "answer": "东边",
       "subject": "chinese",
       "topic": "单元3 句子和阅读"
@@ -652,7 +954,12 @@
       "difficulty": 1,
       "type": "choice",
       "stem": "“小鸟在天上飞”里谁在飞？",
-      "options": ["小鸟", "小马", "小狗", "小鱼"],
+      "options": [
+        "小鸟",
+        "小马",
+        "小狗",
+        "小鱼"
+      ],
       "answer": "小鸟",
       "subject": "chinese",
       "topic": "单元3 句子和阅读"
@@ -662,7 +969,12 @@
       "difficulty": 1,
       "type": "choice",
       "stem": "“校园”主要指什么地方？",
-      "options": ["学校", "商店", "公园", "医院"],
+      "options": [
+        "学校",
+        "商店",
+        "公园",
+        "医院"
+      ],
       "answer": "学校",
       "subject": "chinese",
       "topic": "单元3 句子和阅读"
@@ -670,10 +982,11 @@
     {
       "id": "c-w02-027",
       "difficulty": 2,
-      "type": "choice",
-      "stem": "下面哪句话读起来最完整？",
-      "options": ["我爱", "我爱学校", "爱学校我", "学校爱我"],
-      "answer": "我爱学校",
+      "type": "true-false",
+      "stem": "判断：‘我爱学校’ 比 ‘我爱’ 更完整。",
+      "answer": "true",
+      "trueLabel": "对",
+      "falseLabel": "不对",
       "subject": "chinese",
       "topic": "单元3 句子和阅读"
     },
@@ -682,7 +995,12 @@
       "difficulty": 2,
       "type": "choice",
       "stem": "“老师”主要做什么？",
-      "options": ["教我们学习", "帮我们睡觉", "带我们玩水", "给我们送礼物"],
+      "options": [
+        "教我们学习",
+        "帮我们睡觉",
+        "带我们玩水",
+        "给我们送礼物"
+      ],
       "answer": "教我们学习",
       "subject": "chinese",
       "topic": "单元3 句子和阅读"
@@ -692,7 +1010,12 @@
       "difficulty": 2,
       "type": "choice",
       "stem": "下面哪一个词语适合搭配“认真”？",
-      "options": ["听讲", "奔跑", "吃饭", "睡觉"],
+      "options": [
+        "听讲",
+        "奔跑",
+        "吃饭",
+        "睡觉"
+      ],
       "answer": "听讲",
       "subject": "chinese",
       "topic": "单元3 句子和阅读"
@@ -702,7 +1025,12 @@
       "difficulty": 2,
       "type": "choice",
       "stem": "“我们读书”一共几个字？",
-      "options": ["4", "5", "6", "7"],
+      "options": [
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
       "answer": "4",
       "subject": "chinese",
       "topic": "单元3 句子和阅读"
@@ -712,7 +1040,12 @@
       "difficulty": 1,
       "type": "choice",
       "stem": "“人”字共有几画？",
-      "options": ["2", "3", "4", "5"],
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
       "answer": "2",
       "subject": "chinese",
       "topic": "单元4 综合复习"
@@ -722,7 +1055,12 @@
       "difficulty": 1,
       "type": "choice",
       "stem": "下面哪个字的偏旁是“氵”？",
-      "options": ["河", "花", "明", "早"],
+      "options": [
+        "河",
+        "花",
+        "明",
+        "早"
+      ],
       "answer": "河",
       "subject": "chinese",
       "topic": "单元4 综合复习"
@@ -732,7 +1070,12 @@
       "difficulty": 1,
       "type": "choice",
       "stem": "“小鱼游来游去”里谁在游？",
-      "options": ["小鱼", "小鸟", "小马", "小狗"],
+      "options": [
+        "小鱼",
+        "小鸟",
+        "小马",
+        "小狗"
+      ],
       "answer": "小鱼",
       "subject": "chinese",
       "topic": "单元4 综合复习"
@@ -742,7 +1085,12 @@
       "difficulty": 1,
       "type": "choice",
       "stem": "下面哪个词语更适合说“学校”里的地方？",
-      "options": ["教室", "香蕉", "汽车", "花园"],
+      "options": [
+        "教室",
+        "香蕉",
+        "汽车",
+        "花园"
+      ],
       "answer": "教室",
       "subject": "chinese",
       "topic": "单元4 综合复习"
@@ -752,7 +1100,12 @@
       "difficulty": 2,
       "type": "choice",
       "stem": "“认真写字”里最重要的是？",
-      "options": ["写字认真", "跑得快", "吃得多", "说得大声"],
+      "options": [
+        "写字认真",
+        "跑得快",
+        "吃得多",
+        "说得大声"
+      ],
       "answer": "写字认真",
       "subject": "chinese",
       "topic": "单元4 综合复习"
@@ -762,7 +1115,12 @@
       "difficulty": 1,
       "type": "choice",
       "stem": "“口”字可以表示什么器官？",
-      "options": ["嘴巴", "耳朵", "手", "脚"],
+      "options": [
+        "嘴巴",
+        "耳朵",
+        "手",
+        "脚"
+      ],
       "answer": "嘴巴",
       "subject": "chinese",
       "topic": "单元4 综合复习"
@@ -772,7 +1130,12 @@
       "difficulty": 2,
       "type": "choice",
       "stem": "“上学”反义词最接近哪一项？",
-      "options": ["放学", "回家", "起床", "散步"],
+      "options": [
+        "放学",
+        "回家",
+        "起床",
+        "散步"
+      ],
       "answer": "放学",
       "subject": "chinese",
       "topic": "单元4 综合复习"
@@ -782,7 +1145,12 @@
       "difficulty": 1,
       "type": "choice",
       "stem": "“妈妈带我去学校”里谁带我去学校？",
-      "options": ["妈妈", "老师", "同学", "哥哥"],
+      "options": [
+        "妈妈",
+        "老师",
+        "同学",
+        "哥哥"
+      ],
       "answer": "妈妈",
       "subject": "chinese",
       "topic": "单元4 综合复习"
@@ -792,7 +1160,12 @@
       "difficulty": 2,
       "type": "choice",
       "stem": "下面哪个字的意思和“看”最接近？",
-      "options": ["望", "吃", "跑", "喝"],
+      "options": [
+        "望",
+        "吃",
+        "跑",
+        "喝"
+      ],
       "answer": "望",
       "subject": "chinese",
       "topic": "单元4 综合复习"
@@ -800,9 +1173,8 @@
     {
       "id": "c-w02-040",
       "difficulty": 1,
-      "type": "choice",
+      "type": "input",
       "stem": "“我们爱学校”一共有几个字？",
-      "options": ["4", "5", "6", "7"],
       "answer": "4",
       "subject": "chinese",
       "topic": "单元4 综合复习"
@@ -812,7 +1184,12 @@
       "difficulty": 1,
       "type": "choice",
       "stem": "Which word means “铅笔”?",
-      "options": ["pencil", "pen", "ruler", "book"],
+      "options": [
+        "pencil",
+        "pen",
+        "ruler",
+        "book"
+      ],
       "answer": "pencil",
       "subject": "english",
       "topic": "School things"
@@ -822,7 +1199,12 @@
       "difficulty": 1,
       "type": "choice",
       "stem": "This is my ___.",
-      "options": ["book", "ruler", "pen", "desk"],
+      "options": [
+        "book",
+        "ruler",
+        "pen",
+        "desk"
+      ],
       "answer": "book",
       "subject": "english",
       "topic": "School things"
@@ -832,7 +1214,12 @@
       "difficulty": 1,
       "type": "choice",
       "stem": "Which is a school thing?",
-      "options": ["pencil", "banana", "dog", "car"],
+      "options": [
+        "pencil",
+        "banana",
+        "dog",
+        "car"
+      ],
       "answer": "pencil",
       "subject": "english",
       "topic": "School things"
@@ -842,7 +1229,12 @@
       "difficulty": 1,
       "type": "choice",
       "stem": "Which word means “橡皮”?",
-      "options": ["eraser", "marker", "chair", "box"],
+      "options": [
+        "eraser",
+        "marker",
+        "chair",
+        "box"
+      ],
       "answer": "eraser",
       "subject": "english",
       "topic": "School things"
@@ -852,7 +1244,12 @@
       "difficulty": 1,
       "type": "choice",
       "stem": "Open your ___.",
-      "options": ["book", "cat", "apple", "bus"],
+      "options": [
+        "book",
+        "cat",
+        "apple",
+        "bus"
+      ],
       "answer": "book",
       "subject": "english",
       "topic": "School things"
@@ -860,9 +1257,8 @@
     {
       "id": "e-w02-006",
       "difficulty": 2,
-      "type": "choice",
-      "stem": "Which word is spelled correctly?",
-      "options": ["ruler", "ruller", "rooler", "rueler"],
+      "type": "input",
+      "stem": "Spell the word correctly: r_u_l_e_r",
       "answer": "ruler",
       "subject": "english",
       "topic": "School things"
@@ -872,7 +1268,12 @@
       "difficulty": 1,
       "type": "choice",
       "stem": "What color is the sky?",
-      "options": ["blue", "red", "green", "yellow"],
+      "options": [
+        "blue",
+        "red",
+        "green",
+        "yellow"
+      ],
       "answer": "blue",
       "subject": "english",
       "topic": "School things"
@@ -882,7 +1283,12 @@
       "difficulty": 1,
       "type": "choice",
       "stem": "Which letter comes first in “book”?",
-      "options": ["A", "B", "C", "D"],
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
       "answer": "B",
       "subject": "english",
       "topic": "School things"
@@ -892,7 +1298,12 @@
       "difficulty": 1,
       "type": "choice",
       "stem": "Which one is used to write?",
-      "options": ["pen", "shoe", "bag", "desk"],
+      "options": [
+        "pen",
+        "shoe",
+        "bag",
+        "desk"
+      ],
       "answer": "pen",
       "subject": "english",
       "topic": "School things"
@@ -902,7 +1313,12 @@
       "difficulty": 1,
       "type": "choice",
       "stem": "Which word means “书包”?",
-      "options": ["schoolbag", "teacher", "desk", "window"],
+      "options": [
+        "schoolbag",
+        "teacher",
+        "desk",
+        "window"
+      ],
       "answer": "schoolbag",
       "subject": "english",
       "topic": "School things"
@@ -910,10 +1326,11 @@
     {
       "id": "e-w02-011",
       "difficulty": 2,
-      "type": "choice",
-      "stem": "How many letters are in “book”?",
-      "options": ["3", "4", "5", "6"],
-      "answer": "4",
+      "type": "true-false",
+      "stem": "True or false: “book” has 4 letters.",
+      "answer": "true",
+      "trueLabel": "True",
+      "falseLabel": "False",
       "subject": "english",
       "topic": "School things"
     },
@@ -922,7 +1339,12 @@
       "difficulty": 2,
       "type": "choice",
       "stem": "Choose the correct sentence.",
-      "options": ["This is my eraser.", "This my is eraser.", "Eraser my this is.", "This are my eraser."],
+      "options": [
+        "This is my eraser.",
+        "This my is eraser.",
+        "Eraser my this is.",
+        "This are my eraser."
+      ],
       "answer": "This is my eraser.",
       "subject": "english",
       "topic": "School things"
@@ -932,7 +1354,12 @@
       "difficulty": 1,
       "type": "choice",
       "stem": "Which one is not a school thing?",
-      "options": ["apple", "pencil", "ruler", "book"],
+      "options": [
+        "apple",
+        "pencil",
+        "ruler",
+        "book"
+      ],
       "answer": "apple",
       "subject": "english",
       "topic": "School things"
@@ -940,10 +1367,21 @@
     {
       "id": "e-w02-014",
       "difficulty": 2,
-      "type": "choice",
-      "stem": "Which pair belongs together in class?",
-      "options": ["pencil and pen", "pencil and apple", "bag and cat", "book and dog"],
-      "answer": "pencil and pen",
+      "type": "ordering",
+      "stem": "Put these school words in A-B-C order: ruler, bag, pencil, book",
+      "items": [
+        "ruler",
+        "bag",
+        "pencil",
+        "book"
+      ],
+      "correctOrder": [
+        1,
+        3,
+        2,
+        0
+      ],
+      "answer": "1,3,2,0",
       "subject": "english",
       "topic": "School things"
     },
@@ -952,7 +1390,12 @@
       "difficulty": 1,
       "type": "choice",
       "stem": "Which number word matches 3?",
-      "options": ["two", "three", "four", "five"],
+      "options": [
+        "two",
+        "three",
+        "four",
+        "five"
+      ],
       "answer": "three",
       "subject": "english",
       "topic": "School things"

@@ -136,6 +136,7 @@ export const QuestionPackIndexEntrySchema = z.object({
   week: z.number().int().min(1).max(18),
   title: z.string().min(1),
   path: z.string().min(1),
+  textbookHint: z.string().min(1).optional(),
 });
 export type QuestionPackIndexEntry = z.infer<typeof QuestionPackIndexEntrySchema>;
 

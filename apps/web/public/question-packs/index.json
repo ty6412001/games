@@ -3,62 +3,74 @@
     {
       "week": 1,
       "title": "第1周 · 当前教材进度包 / 语文至练习4 / 数学前三单元 / 英语1B Unit1-4",
-      "path": "/question-packs/week-01.json"
+      "path": "/question-packs/week-01.json",
+      "textbookHint": "偏教材进度包，覆盖前期多单元内容"
     },
     {
       "week": 2,
       "title": "第2周 · 苏教版一下 1-5 单元 / 数学语文英语 / 95题综合卷",
-      "path": "/question-packs/week-02.json"
+      "path": "/question-packs/week-02.json",
+      "textbookHint": "前5单元综合练习，适合作为阶段复盘"
     },
     {
       "week": 3,
       "title": "第3周 · 100以内数/zhchshr/Family",
-      "path": "/question-packs/week-03.json"
+      "path": "/question-packs/week-03.json",
+      "textbookHint": "数学贴近100以内数认识，语英偏主题能力包"
     },
     {
       "week": 4,
       "title": "第4周 · 整十数/偏旁反义词/Colors",
-      "path": "/question-packs/week-04.json"
+      "path": "/question-packs/week-04.json",
+      "textbookHint": "数学强贴教材，语英偏能力点巩固"
     },
     {
       "week": 5,
       "title": "第5周 · 不进位加法/量词句式/Animals",
-      "path": "/question-packs/week-05.json"
+      "path": "/question-packs/week-05.json",
+      "textbookHint": "适合加法阶段练习与语文句式巩固"
     },
     {
       "week": 6,
       "title": "第6周 · 不退位减法/同音字阅读/Food",
-      "path": "/question-packs/week-06.json"
+      "path": "/question-packs/week-06.json",
+      "textbookHint": "减法主线清晰，语英偏主题阅读词汇"
     },
     {
       "week": 7,
       "title": "第7周 · 进位加法/搭配排序/Body parts",
-      "path": "/question-packs/week-07.json"
+      "path": "/question-packs/week-07.json",
+      "textbookHint": "适合进位加法训练和语文排序表达"
     },
     {
       "week": 8,
       "title": "第8周 · 退位减法/标点看图/Daily actions",
-      "path": "/question-packs/week-08.json"
+      "path": "/question-packs/week-08.json",
+      "textbookHint": "数学和语文都较贴教材能力目标"
     },
     {
       "week": 9,
       "title": "第9周 · 人民币/词义判断/Weather",
-      "path": "/question-packs/week-09.json"
+      "path": "/question-packs/week-09.json",
+      "textbookHint": "人民币单元对应性较强，语英为主题扩展"
     },
     {
       "week": 10,
       "title": "第10周 · 综合复习/字词句/Review",
-      "path": "/question-packs/week-10.json"
+      "path": "/question-packs/week-10.json",
+      "textbookHint": "整周为综合复习包，不对应单一章节"
     },
     {
       "week": 11,
       "title": "第11周 · 认识钟表/阅读表达/At school",
-      "path": "/question-packs/week-11.json"
+      "path": "/question-packs/week-11.json",
+      "textbookHint": "钟表匹配度高，语英偏场景能力包"
     },
     {
       "week": 12,
       "title": "第12周 · 图形与规律/看图说句/My day",
-      "path": "/question-packs/week-12.json"
+      "path": "/question-packs/week-12.json",
+      "textbookHint": "图形与规律、看图说句贴教材，新题型试点周"
     }
   ]
 }
