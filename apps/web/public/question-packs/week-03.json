@@ -55,14 +55,8 @@
     {
       "id": "m-w03-004",
       "difficulty": 1,
-      "type": "choice",
+      "type": "input",
       "stem": "比 60 大 1 的数是？",
-      "options": [
-        "59",
-        "60",
-        "61",
-        "70"
-      ],
       "answer": "61",
       "subject": "math",
       "topic": "100以内数的认识"
@@ -130,15 +124,21 @@
     {
       "id": "m-w03-011",
       "difficulty": 2,
-      "type": "choice",
-      "stem": "下面哪个数最大？",
-      "options": [
-        "56",
-        "65",
-        "46",
-        "59"
+      "type": "ordering",
+      "stem": "把这些数从大到小排好：36，63，30，66",
+      "items": [
+        "36",
+        "63",
+        "30",
+        "66"
       ],
-      "answer": "65",
+      "correctOrder": [
+        3,
+        1,
+        0,
+        2
+      ],
+      "answer": "3,1,0,2",
       "subject": "math",
       "topic": "100以内数的认识"
     },
@@ -267,15 +267,11 @@
     {
       "id": "m-w03-020",
       "difficulty": 3,
-      "type": "choice",
-      "stem": "下面哪个数最接近 50？",
-      "options": [
-        "41",
-        "49",
-        "60",
-        "37"
-      ],
-      "answer": "49",
+      "type": "true-false",
+      "stem": "判断：49 比 50 少 1，所以它最接近 50。",
+      "answer": "true",
+      "trueLabel": "对",
+      "falseLabel": "错",
       "subject": "math",
       "topic": "100以内数的认识"
     },
@@ -327,14 +323,8 @@
     {
       "id": "c-w03-004",
       "difficulty": 1,
-      "type": "choice",
+      "type": "input",
       "stem": "“站”字的声母是？",
-      "options": [
-        "z",
-        "zh",
-        "ch",
-        "r"
-      ],
       "answer": "zh",
       "subject": "chinese",
       "topic": "zh ch sh r与阅读"
@@ -399,14 +389,11 @@
     {
       "id": "c-w03-010",
       "difficulty": 2,
-      "type": "choice",
-      "stem": "下面哪个词语写得对？",
-      "options": [
-        "汽车",
-        "书包",
-        "汽水"
-      ],
-      "answer": "汽车",
+      "type": "true-false",
+      "stem": "判断：“汽车”这个词写得对。",
+      "answer": "true",
+      "trueLabel": "对",
+      "falseLabel": "错",
       "subject": "chinese",
       "topic": "zh ch sh r与阅读"
     },
@@ -527,10 +514,10 @@
     },
     {
       "id": "c-w03-018",
-      "difficulty": 3,
+      "difficulty": 2,
       "type": "input",
-      "stem": "“日”可以组词“日___”，填一个常见字",
-      "answer": "出",
+      "stem": "阅读句子后作答：小日记里写“叔叔在树下读书”。句子里谁在树下读书？",
+      "answer": "叔叔",
       "subject": "chinese",
       "topic": "zh ch sh r与阅读"
     },
@@ -588,14 +575,11 @@
     {
       "id": "e-w03-003",
       "difficulty": 1,
-      "type": "choice",
-      "stem": "Tom is a boy. He may be a ___.",
-      "options": [
-        "brother",
-        "mother",
-        "grandma"
-      ],
-      "answer": "brother",
+      "type": "true-false",
+      "stem": "True or false: Tom may be a brother.",
+      "answer": "true",
+      "trueLabel": "True",
+      "falseLabel": "False",
       "subject": "english",
       "topic": "family"
     },
@@ -666,14 +650,8 @@
     {
       "id": "e-w03-010",
       "difficulty": 2,
-      "type": "choice",
-      "stem": "Which one is a family member?",
-      "options": [
-        "sister",
-        "book",
-        "bus",
-        "apple"
-      ],
+      "type": "input",
+      "stem": "Write one family member word from this topic",
       "answer": "sister",
       "subject": "english",
       "topic": "family"
@@ -709,16 +687,12 @@
     },
     {
       "id": "e-w03-013",
-      "difficulty": 1,
-      "type": "image-choice",
-      "stem": "What is this?",
-      "stemImage": "/assets/quiz/horse.svg",
-      "options": [
-        "horse",
-        "mother",
-        "desk"
-      ],
-      "answer": "horse",
+      "difficulty": 2,
+      "type": "true-false",
+      "stem": "True or false: grandma is a family member.",
+      "answer": "true",
+      "trueLabel": "True",
+      "falseLabel": "False",
       "subject": "english",
       "topic": "family"
     },
