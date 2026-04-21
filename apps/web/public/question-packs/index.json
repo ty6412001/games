@@ -49,6 +49,11 @@
       "week": 10,
       "title": "第10周 · 综合复习/字词句/Review",
       "path": "/question-packs/week-10.json"
+    },
+    {
+      "week": 11,
+      "title": "第11周 · 认识钟表/阅读表达/At school",
+      "path": "/question-packs/week-11.json"
     }
   ]
 }

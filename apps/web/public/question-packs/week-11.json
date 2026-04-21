@@ -1,0 +1,555 @@
+{
+  "week": 11,
+  "title": "第11周 · 认识钟表 / 阅读表达 / At school · 55题综合卷",
+  "boss": {
+    "id": "gomora",
+    "name": "哥莫拉",
+    "hp": 5000
+  },
+  "questions": [
+    {
+      "id": "m-w11-001",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "分针指着 12，时针指着 3，是几时？",
+      "options": ["3时", "12时", "6时", "9时"],
+      "answer": "3时",
+      "subject": "math",
+      "topic": "认识钟表"
+    },
+    {
+      "id": "m-w11-002",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "分针指着 12，时针指着 7，是几时？",
+      "options": ["7时", "12时", "5时", "9时"],
+      "answer": "7时",
+      "subject": "math",
+      "topic": "认识钟表"
+    },
+    {
+      "id": "m-w11-003",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "钟面上一共有几个大格？",
+      "options": ["10", "11", "12", "13"],
+      "answer": "12",
+      "subject": "math",
+      "topic": "认识钟表"
+    },
+    {
+      "id": "m-w11-004",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "时针走 1 大格，表示过去了多久？",
+      "options": ["1时", "1分", "10分", "30分"],
+      "answer": "1时",
+      "subject": "math",
+      "topic": "认识钟表"
+    },
+    {
+      "id": "m-w11-005",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "分针走一圈，表示过去了多久？",
+      "options": ["30分", "60分", "1时", "60分，也就是1时"],
+      "answer": "60分，也就是1时",
+      "subject": "math",
+      "topic": "认识钟表"
+    },
+    {
+      "id": "m-w11-006",
+      "difficulty": 1,
+      "type": "input",
+      "stem": "8时过1小时是几时？",
+      "answer": "9",
+      "subject": "math",
+      "topic": "认识钟表"
+    },
+    {
+      "id": "m-w11-007",
+      "difficulty": 1,
+      "type": "input",
+      "stem": "10时前1小时是几时？",
+      "answer": "9",
+      "subject": "math",
+      "topic": "认识钟表"
+    },
+    {
+      "id": "m-w11-008",
+      "difficulty": 1,
+      "type": "input",
+      "stem": "12时过2小时是几时？",
+      "answer": "2",
+      "subject": "math",
+      "topic": "认识钟表"
+    },
+    {
+      "id": "m-w11-009",
+      "difficulty": 1,
+      "type": "input",
+      "stem": "6时前1小时是几时？",
+      "answer": "5",
+      "subject": "math",
+      "topic": "认识钟表"
+    },
+    {
+      "id": "m-w11-010",
+      "difficulty": 2,
+      "type": "input",
+      "stem": "从 3时 到 6时，过了几小时？",
+      "answer": "3",
+      "subject": "math",
+      "topic": "认识钟表"
+    },
+    {
+      "id": "m-w11-011",
+      "difficulty": 2,
+      "type": "choice",
+      "stem": "小朋友 8时上学，9时下课，学习了多久？",
+      "options": ["1小时", "2小时", "30分", "10分"],
+      "answer": "1小时",
+      "subject": "math",
+      "topic": "认识钟表"
+    },
+    {
+      "id": "m-w11-012",
+      "difficulty": 2,
+      "type": "choice",
+      "stem": "下面哪个时间最早？",
+      "options": ["9时", "7时", "8时", "10时"],
+      "answer": "7时",
+      "subject": "math",
+      "topic": "认识钟表"
+    },
+    {
+      "id": "m-w11-013",
+      "difficulty": 1,
+      "type": "image-choice",
+      "stem": "图里有 4 颗星星，从 4时开始每小时点亮1颗，4小时后点亮几颗？",
+      "stemImage": "/assets/quiz/stars-4.svg",
+      "options": ["1", "2", "3", "4"],
+      "answer": "4",
+      "subject": "math",
+      "topic": "认识钟表"
+    },
+    {
+      "id": "m-w11-014",
+      "difficulty": 1,
+      "type": "image-choice",
+      "stem": "图里有 5 个苹果，小明 5时开始每小时吃1个，2小时后还剩几个？",
+      "stemImage": "/assets/quiz/apples-5.svg",
+      "options": ["2", "3", "4", "5"],
+      "answer": "3",
+      "subject": "math",
+      "topic": "认识钟表"
+    },
+    {
+      "id": "m-w11-015",
+      "difficulty": 2,
+      "type": "choice",
+      "stem": "钟面上最上面的数字是？",
+      "options": ["3", "6", "9", "12"],
+      "answer": "12",
+      "subject": "math",
+      "topic": "认识钟表"
+    },
+    {
+      "id": "m-w11-016",
+      "difficulty": 2,
+      "type": "ordering",
+      "stem": "把这些时间从早到晚排好：6时，9时，7时，8时",
+      "items": ["6时", "9时", "7时", "8时"],
+      "correctOrder": [0, 2, 3, 1],
+      "answer": "0,2,3,1",
+      "subject": "math",
+      "topic": "认识钟表"
+    },
+    {
+      "id": "m-w11-017",
+      "difficulty": 2,
+      "type": "ordering",
+      "stem": "把这些时间从晚到早排好：2时，5时，1时，4时",
+      "items": ["2时", "5时", "1时", "4时"],
+      "correctOrder": [1, 3, 0, 2],
+      "answer": "1,3,0,2",
+      "subject": "math",
+      "topic": "认识钟表"
+    },
+    {
+      "id": "m-w11-018",
+      "difficulty": 3,
+      "type": "input",
+      "stem": "电影 6时开始，8时结束，一共放了几小时？",
+      "answer": "2",
+      "subject": "math",
+      "topic": "认识钟表"
+    },
+    {
+      "id": "m-w11-019",
+      "difficulty": 3,
+      "type": "choice",
+      "stem": "小军 7时起床，过了 3 小时去上课，他是几时去上课？",
+      "options": ["8时", "9时", "10时", "11时"],
+      "answer": "10时",
+      "subject": "math",
+      "topic": "认识钟表"
+    },
+    {
+      "id": "m-w11-020",
+      "difficulty": 3,
+      "type": "input",
+      "stem": "从 9时 到 12时，再过 1 小时，是几时？",
+      "answer": "1",
+      "subject": "math",
+      "topic": "认识钟表"
+    },
+
+    {
+      "id": "c-w11-001",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "‘操场上，同学们在跑步。’ 这句话说的是哪里？",
+      "options": ["教室", "操场", "食堂", "图书角"],
+      "answer": "操场",
+      "subject": "chinese",
+      "topic": "阅读表达"
+    },
+    {
+      "id": "c-w11-002",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "‘老师在黑板上写字。’ 谁在写字？",
+      "options": ["老师", "同学", "妈妈", "爸爸"],
+      "answer": "老师",
+      "subject": "chinese",
+      "topic": "阅读表达"
+    },
+    {
+      "id": "c-w11-003",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "‘小鸟在树上唱歌。’ 小鸟在哪里？",
+      "options": ["地上", "树上", "水里", "家里"],
+      "answer": "树上",
+      "subject": "chinese",
+      "topic": "阅读表达"
+    },
+    {
+      "id": "c-w11-004",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "‘我有一本新书。’ 这本书怎么样？",
+      "options": ["旧", "新", "大", "小"],
+      "answer": "新",
+      "subject": "chinese",
+      "topic": "阅读表达"
+    },
+    {
+      "id": "c-w11-005",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "‘今天下雨了，我们在教室里看书。’ 今天天气怎样？",
+      "options": ["下雪", "晴天", "下雨", "刮风"],
+      "answer": "下雨",
+      "subject": "chinese",
+      "topic": "阅读表达"
+    },
+    {
+      "id": "c-w11-006",
+      "difficulty": 1,
+      "type": "input",
+      "stem": "补句子：我在___写字。",
+      "answer": "教室",
+      "subject": "chinese",
+      "topic": "阅读表达"
+    },
+    {
+      "id": "c-w11-007",
+      "difficulty": 1,
+      "type": "input",
+      "stem": "补句子：早上我背着书包去___。",
+      "answer": "学校",
+      "subject": "chinese",
+      "topic": "阅读表达"
+    },
+    {
+      "id": "c-w11-008",
+      "difficulty": 1,
+      "type": "input",
+      "stem": "补句子：老师站在___前面。",
+      "answer": "黑板",
+      "subject": "chinese",
+      "topic": "阅读表达"
+    },
+    {
+      "id": "c-w11-009",
+      "difficulty": 1,
+      "type": "input",
+      "stem": "补句子：同学们一起在操场上___。",
+      "answer": "跑步",
+      "subject": "chinese",
+      "topic": "阅读表达"
+    },
+    {
+      "id": "c-w11-010",
+      "difficulty": 2,
+      "type": "input",
+      "stem": "‘小红在认真听课。’ 谁在听课？",
+      "answer": "小红",
+      "subject": "chinese",
+      "topic": "阅读表达"
+    },
+    {
+      "id": "c-w11-011",
+      "difficulty": 2,
+      "type": "choice",
+      "stem": "‘上课铃响了，大家回到教室。’ 说明大家之前可能在？",
+      "options": ["操场", "家里", "商店", "医院"],
+      "answer": "操场",
+      "subject": "chinese",
+      "topic": "阅读表达"
+    },
+    {
+      "id": "c-w11-012",
+      "difficulty": 2,
+      "type": "choice",
+      "stem": "‘妈妈送我去学校。’ 谁送‘我’去学校？",
+      "options": ["老师", "妈妈", "同学", "爷爷"],
+      "answer": "妈妈",
+      "subject": "chinese",
+      "topic": "阅读表达"
+    },
+    {
+      "id": "c-w11-013",
+      "difficulty": 1,
+      "type": "image-choice",
+      "stem": "看图选词：图里有 5 个苹果。哪个词最合适？",
+      "stemImage": "/assets/quiz/apples-5.svg",
+      "options": ["苹果", "星星", "小鸟", "书包"],
+      "answer": "苹果",
+      "subject": "chinese",
+      "topic": "阅读表达"
+    },
+    {
+      "id": "c-w11-014",
+      "difficulty": 1,
+      "type": "image-choice",
+      "stem": "看图选词：图里有 4 颗星星。哪个词最合适？",
+      "stemImage": "/assets/quiz/stars-4.svg",
+      "options": ["苹果", "星星", "老师", "桌子"],
+      "answer": "星星",
+      "subject": "chinese",
+      "topic": "阅读表达"
+    },
+    {
+      "id": "c-w11-015",
+      "difficulty": 2,
+      "type": "choice",
+      "stem": "下面哪句话最通顺？",
+      "options": ["我在操场上跑步。", "跑步我在操场上。", "操场跑步我在。", "我跑操场上在步。"],
+      "answer": "我在操场上跑步。",
+      "subject": "chinese",
+      "topic": "阅读表达"
+    },
+    {
+      "id": "c-w11-016",
+      "difficulty": 2,
+      "type": "ordering",
+      "stem": "把句子排通顺：在 / 我们 / 学习 / 教室里",
+      "items": ["在", "我们", "学习", "教室里"],
+      "correctOrder": [1, 0, 3, 2],
+      "answer": "1,0,3,2",
+      "subject": "chinese",
+      "topic": "阅读表达"
+    },
+    {
+      "id": "c-w11-017",
+      "difficulty": 2,
+      "type": "ordering",
+      "stem": "把词语排成句子：老师 / 讲课 / 正在 / 给我们",
+      "items": ["老师", "讲课", "正在", "给我们"],
+      "correctOrder": [0, 2, 3, 1],
+      "answer": "0,2,3,1",
+      "subject": "chinese",
+      "topic": "阅读表达"
+    },
+    {
+      "id": "c-w11-018",
+      "difficulty": 3,
+      "type": "choice",
+      "stem": "‘上课时要认真听讲，下课后可以去操场活动。’ 这句话先说什么，后说什么？",
+      "options": ["先上课，后活动", "先活动，后上课", "先吃饭，后回家", "先睡觉，后起床"],
+      "answer": "先上课，后活动",
+      "subject": "chinese",
+      "topic": "阅读表达"
+    },
+    {
+      "id": "c-w11-019",
+      "difficulty": 3,
+      "type": "input",
+      "stem": "‘我们在图书角看书。’ 这句话里，大家在做什么？",
+      "answer": "看书",
+      "subject": "chinese",
+      "topic": "阅读表达"
+    },
+    {
+      "id": "c-w11-020",
+      "difficulty": 3,
+      "type": "choice",
+      "stem": "‘小明先写字，再读书。’ 小明先做什么？",
+      "options": ["读书", "写字", "跑步", "吃饭"],
+      "answer": "写字",
+      "subject": "chinese",
+      "topic": "阅读表达"
+    },
+
+    {
+      "id": "e-w11-001",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "What is this? (teacher 指向老师)",
+      "options": ["teacher", "student", "desk", "book"],
+      "answer": "teacher",
+      "subject": "english",
+      "topic": "At school"
+    },
+    {
+      "id": "e-w11-002",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "What is this? (desk 指向课桌)",
+      "options": ["chair", "desk", "school", "bag"],
+      "answer": "desk",
+      "subject": "english",
+      "topic": "At school"
+    },
+    {
+      "id": "e-w11-003",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "Which word means ‘书’ ?",
+      "options": ["pen", "book", "ruler", "school"],
+      "answer": "book",
+      "subject": "english",
+      "topic": "At school"
+    },
+    {
+      "id": "e-w11-004",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "Which word means ‘书包’ ?",
+      "options": ["bag", "desk", "chair", "teacher"],
+      "answer": "bag",
+      "subject": "english",
+      "topic": "At school"
+    },
+    {
+      "id": "e-w11-005",
+      "difficulty": 1,
+      "type": "choice",
+      "stem": "Who teaches us?",
+      "options": ["teacher", "student", "bag", "desk"],
+      "answer": "teacher",
+      "subject": "english",
+      "topic": "At school"
+    },
+    {
+      "id": "e-w11-006",
+      "difficulty": 1,
+      "type": "input",
+      "stem": "Fill in: This is my ____. (书)",
+      "answer": "book",
+      "subject": "english",
+      "topic": "At school"
+    },
+    {
+      "id": "e-w11-007",
+      "difficulty": 1,
+      "type": "input",
+      "stem": "Fill in: I carry my ____ to school. (书包)",
+      "answer": "bag",
+      "subject": "english",
+      "topic": "At school"
+    },
+    {
+      "id": "e-w11-008",
+      "difficulty": 1,
+      "type": "input",
+      "stem": "Fill in: We sit at the ____. (课桌)",
+      "answer": "desk",
+      "subject": "english",
+      "topic": "At school"
+    },
+    {
+      "id": "e-w11-009",
+      "difficulty": 1,
+      "type": "input",
+      "stem": "Fill in: The ____ is kind. (老师)",
+      "answer": "teacher",
+      "subject": "english",
+      "topic": "At school"
+    },
+    {
+      "id": "e-w11-010",
+      "difficulty": 2,
+      "type": "input",
+      "stem": "Fill in: I am a ____. (学生)",
+      "answer": "student",
+      "subject": "english",
+      "topic": "At school"
+    },
+    {
+      "id": "e-w11-011",
+      "difficulty": 2,
+      "type": "choice",
+      "stem": "Which one is used for writing?",
+      "options": ["pen", "bag", "desk", "school"],
+      "answer": "pen",
+      "subject": "english",
+      "topic": "At school"
+    },
+    {
+      "id": "e-w11-012",
+      "difficulty": 2,
+      "type": "choice",
+      "stem": "Which place do students go every day?",
+      "options": ["school", "zoo", "park", "farm"],
+      "answer": "school",
+      "subject": "english",
+      "topic": "At school"
+    },
+    {
+      "id": "e-w11-013",
+      "difficulty": 1,
+      "type": "image-choice",
+      "stem": "How many apples can you see?",
+      "stemImage": "/assets/quiz/apples-5.svg",
+      "options": ["three", "four", "five", "six"],
+      "answer": "five",
+      "subject": "english",
+      "topic": "At school"
+    },
+    {
+      "id": "e-w11-014",
+      "difficulty": 1,
+      "type": "image-choice",
+      "stem": "How many stars can you see?",
+      "stemImage": "/assets/quiz/stars-4.svg",
+      "options": ["two", "three", "four", "five"],
+      "answer": "four",
+      "subject": "english",
+      "topic": "At school"
+    },
+    {
+      "id": "e-w11-015",
+      "difficulty": 2,
+      "type": "choice",
+      "stem": "Choose the correct sentence.",
+      "options": ["This is a book.", "This book is a.", "Is this book a.", "Book this is a."],
+      "answer": "This is a book.",
+      "subject": "english",
+      "topic": "At school"
+    }
+  ]
+}
