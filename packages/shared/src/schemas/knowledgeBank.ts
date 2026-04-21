@@ -241,6 +241,7 @@ export const KnowledgeExportMetadataSchema = z.object({
   answerLogCount: z.number().int().nonnegative(),
   wrongBookCount: z.number().int().nonnegative(),
   masteryRecordCount: z.number().int().nonnegative(),
+  rewardEventCount: z.number().int().nonnegative(),
 });
 export type KnowledgeExportMetadata = z.infer<typeof KnowledgeExportMetadataSchema>;
 
@@ -250,5 +251,6 @@ export const KnowledgeExportBundleSchema = z.object({
   answerLogs: z.array(KnowledgeAnswerLogSchema),
   wrongBookRecords: z.array(KnowledgeWrongBookRecordSchema),
   masteryRecords: z.array(KnowledgeMasteryRecordSchema),
+  rewardEvents: z.array(LearningRewardEventSchema),
 });
 export type KnowledgeExportBundle = z.infer<typeof KnowledgeExportBundleSchema>;

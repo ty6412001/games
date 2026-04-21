@@ -50,7 +50,18 @@ export const ExportCenter = ({ onExit }: { onExit: () => void }) => {
       ['答题日志', bundle.metadata.answerLogCount],
       ['错题本', bundle.metadata.wrongBookCount],
       ['掌握记录', bundle.metadata.masteryRecordCount],
+      ['奖励事件', bundle.metadata.rewardEventCount],
     ] as const;
+  }, [bundle]);
+
+  const recentOutcomes = useMemo(() => {
+    if (!bundle) return [];
+    return bundle.answerLogs.slice(0, 8);
+  }, [bundle]);
+
+  const rewardFeed = useMemo(() => {
+    if (!bundle) return [];
+    return bundle.rewardEvents.slice(0, 8);
   }, [bundle]);
 
   return (
@@ -77,7 +88,7 @@ export const ExportCenter = ({ onExit }: { onExit: () => void }) => {
 
         {hasToken ? (
           <>
-            <section className="mt-8 grid gap-4 md:grid-cols-4">
+            <section className="mt-8 grid gap-4 md:grid-cols-5">
               {summary.map(([label, value]) => (
                 <div key={label} className="rounded-3xl border border-white/10 bg-white/5 p-5">
                   <div className="text-sm text-stone-400">{label}</div>
@@ -108,8 +119,10 @@ export const ExportCenter = ({ onExit }: { onExit: () => void }) => {
               <div className="mt-6 grid gap-4 md:grid-cols-2">
                 <Panel title="最近题目">{bundle.questions.slice(0, 5).map((item) => <li key={item.id}>{item.topic} · {item.subject} · {item.status}</li>)}</Panel>
                 <Panel title="最近错题">{bundle.wrongBookRecords.slice(0, 5).map((item) => <li key={item.id}>{item.questionStem} · 错 {item.wrongCount} 次</li>)}</Panel>
-                <Panel title="最近答题日志">{bundle.answerLogs.slice(0, 5).map((item) => <li key={item.id}>{item.gameMode} · {item.outcome} · {item.questionStem}</li>)}</Panel>
+                <Panel title="最近答题日志">{recentOutcomes.map((item) => <li key={item.id}>{item.gameMode} · {item.outcome} · {item.questionStem}</li>)}</Panel>
                 <Panel title="掌握记录">{bundle.masteryRecords.slice(0, 5).map((item) => <li key={item.id}>{item.questionId} · 分数 {item.masteryScore}</li>)}</Panel>
+                <Panel title="奖励事件">{rewardFeed.map((item) => <li key={item.id}>{item.eventType} · +{item.amount} · {item.gameMode}</li>)}</Panel>
+                <Panel title="最近学习状态">{recentOutcomes.map((item) => <li key={`${item.id}-state`}>{item.subject} · {item.outcome} · {new Date(item.answeredAt).toLocaleString('zh-CN', { hour12: false })}</li>)}</Panel>
               </div>
             ) : null}
           </>

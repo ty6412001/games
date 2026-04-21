@@ -64,9 +64,9 @@ sudo bash /tmp/ultraman/deploy/install.sh /opt/ultraman-monopoly
 
 ## 升级
 
-1. 把新代码 rsync 到机器：`rsync -a --exclude node_modules --exclude apps/server/data ./ user@host:/tmp/ultraman/`
+1. 把新代码 rsync 到机器：`rsync -a --exclude node_modules --exclude apps/server/data --exclude apps/server/.env ./ user@host:/tmp/ultraman/`
 2. `sudo bash /tmp/ultraman/deploy/install.sh /opt/ultraman-monopoly`
-3. 已有 `.env` 和 `data/` 会被保留，只覆盖代码
+3. 已有 `.env` 和 `data/` 会被保留，只覆盖代码（同步时也不要把 `apps/server/.env` 带过去）
 
 ## 卸载
 

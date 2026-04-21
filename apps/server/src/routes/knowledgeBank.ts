@@ -621,6 +621,9 @@ router.get('/api/knowledge-bank/export/health-safe', (_req, res, next) => {
     const masteryRecords = (db
       .prepare('SELECT * FROM knowledge_mastery_record ORDER BY updatedAt DESC LIMIT 1000')
       .all() as KnowledgeMasteryRecordRow[]).map(mapMasteryRow);
+    const rewardEvents = (db
+      .prepare('SELECT * FROM learning_reward_event ORDER BY createdAt DESC LIMIT 1000')
+      .all() as LearningRewardEventRow[]).map(mapLearningRewardEventRow);
 
     const payload: KnowledgeExportBundle = {
       metadata: {
@@ -634,11 +637,13 @@ router.get('/api/knowledge-bank/export/health-safe', (_req, res, next) => {
         answerLogCount: answerLogs.length,
         wrongBookCount: wrongBookRecords.length,
         masteryRecordCount: masteryRecords.length,
+        rewardEventCount: rewardEvents.length,
       },
       questions,
       answerLogs,
       wrongBookRecords,
       masteryRecords,
+      rewardEvents,
     };
     res.json(KnowledgeExportBundleSchema.parse(payload));
   } catch (err) {

@@ -46,6 +46,7 @@ rsync -a --delete \
   --exclude='.git' \
   --exclude='dist' \
   --exclude='apps/server/data' \
+  --exclude='apps/server/.env' \
   "${SOURCE_DIR}/" "${INSTALL_DIR}/"
 
 log "安装依赖"
