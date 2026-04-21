@@ -1,4 +1,4 @@
-import type { WrongBookEntry } from '@ultraman/shared';
+import type { KnowledgeAnswerLog, LearningRewardEvent, WrongBookEntry } from '@ultraman/shared';
 
 const DEFAULT_TIMEOUT_MS = 2000;
 const TOKEN_KEY = 'ultraman.auth.token';
@@ -142,4 +142,11 @@ export const logBossOutcome = async (entry: {
   playedAt: number;
 }): Promise<void> => {
   await request('/boss-log', { method: 'POST', body: entry });
+};
+
+export const createAnswerLog = async (entry: Omit<KnowledgeAnswerLog, 'id'>): Promise<{
+  log: KnowledgeAnswerLog;
+  rewardEvent: LearningRewardEvent;
+}> => {
+  return await request('/knowledge-bank/answer-logs', { method: 'POST', body: entry, timeoutMs: 3000 });
 };

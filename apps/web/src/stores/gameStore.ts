@@ -65,6 +65,7 @@ import {
   type DeckerEvent,
 } from '../domain/decker/energy.js';
 import { loadBrainPack, loadQuestionPack } from '../data/packs/questionPackLoader.js';
+import { createAnswerLog } from '../data/cloud/apiClient.js';
 import { recordWrong } from '../data/repo/wrongBookRepo.js';
 import {
   clearCorrectForChild,
@@ -563,6 +564,36 @@ const recordCorrectSafe = (question: Question, week: number): void => {
   void recordCorrect({ childId: DEFAULT_CHILD_ID, question, week }).catch((err) => {
     console.warn('recordCorrect failed', err);
   });
+};
+
+const syncAnswerLogSafe = async (params: {
+  learnerId: string;
+  question: Question;
+  answer: string;
+  gameMode: 'monopoly' | 'review' | 'practice' | 'boss' | 'wrong-book';
+  outcome: 'correct' | 'wrong' | 'timeout' | 'skipped';
+  startedAt: number;
+  answeredAt?: number;
+}): Promise<void> => {
+  try {
+    const answeredAt = params.answeredAt ?? Date.now();
+    await createAnswerLog({
+      learnerId: params.learnerId,
+      questionId: params.question.id,
+      subject: params.question.subject,
+      grade: 'grade1',
+      semester: 'lower',
+      gameMode: params.gameMode,
+      outcome: params.outcome,
+      questionStem: params.question.stem,
+      submittedAnswer: params.answer,
+      correctAnswer: params.question.answer,
+      durationMs: Math.max(0, answeredAt - params.startedAt),
+      answeredAt,
+    });
+  } catch (err) {
+    console.warn('createAnswerLog failed', err);
+  }
 };
 
 const loadPackForSubject = async (subject: Subject, week: number): Promise<QuestionPack> => {
@@ -1151,6 +1182,7 @@ export const useGameStore = create<Store>((set, get) => ({
 
     const correct = isAnswerCorrect(quiz.question, answer);
     const reward = rewardFor(quiz.question);
+    const answerLogMode = quiz.context.kind === 'boss-attack' ? 'boss' : 'monopoly';
     let workingGame = game;
     let message = '';
     let outcome: QuizResult['outcome'] = correct ? 'correct' : 'wrong';
@@ -1177,6 +1209,16 @@ export const useGameStore = create<Store>((set, get) => ({
         if (quiz.playerId === state.childId && CORE_SUBJECTS.has(quiz.question.subject)) {
           recordCorrectSafe(quiz.question, game.week);
         }
+        if (quiz.playerId === state.childId) {
+          void syncAnswerLogSafe({
+            learnerId: quiz.playerId,
+            question: quiz.question,
+            answer,
+            gameMode: answerLogMode,
+            outcome: 'correct',
+            startedAt: quiz.startedAt,
+          });
+        }
         const nextLastChildSubject =
           quiz.playerId === state.childId && CORE_SUBJECTS.has(quiz.question.subject)
             ? quiz.question.subject
@@ -1200,6 +1242,16 @@ export const useGameStore = create<Store>((set, get) => ({
       }
       if (shouldRecordWrong(state, quiz)) {
         void recordWrongSafe(state.childId!, quiz.question, answer, game.week);
+      }
+      if (quiz.playerId === state.childId) {
+        void syncAnswerLogSafe({
+          learnerId: quiz.playerId,
+          question: quiz.question,
+          answer,
+          gameMode: answerLogMode,
+          outcome: 'wrong',
+          startedAt: quiz.startedAt,
+        });
       }
       const settled = settlePropertyRent(workingGame, quiz.playerId, ctx);
       workingGame = updateStreak(settled.workingGame, quiz.playerId, 0);
@@ -1240,9 +1292,29 @@ export const useGameStore = create<Store>((set, get) => ({
         if (quiz.playerId === state.childId && CORE_SUBJECTS.has(quiz.question.subject)) {
           recordCorrectSafe(quiz.question, game.week);
         }
+        if (quiz.playerId === state.childId) {
+          void syncAnswerLogSafe({
+            learnerId: quiz.playerId,
+            question: quiz.question,
+            answer,
+            gameMode: answerLogMode,
+            outcome: 'correct',
+            startedAt: quiz.startedAt,
+          });
+        }
         message = `答对！这块地奖励 +¥${bonusReward}`;
       } else {
         workingGame = updateStreak(workingGame, quiz.playerId, 0);
+        if (quiz.playerId === state.childId) {
+          void syncAnswerLogSafe({
+            learnerId: quiz.playerId,
+            question: quiz.question,
+            answer,
+            gameMode: answerLogMode,
+            outcome: 'wrong',
+            startedAt: quiz.startedAt,
+          });
+        }
         message = '答错了，这次没有奖励';
       }
       const isChildCore =
@@ -1283,11 +1355,31 @@ export const useGameStore = create<Store>((set, get) => ({
         workingGame = { ...workingGame, bossBattle: next };
         if (correct) {
           nextCorrectIds = markQuestionCorrect(nextCorrectIds, quiz.question);
+          if (quiz.playerId === state.childId) {
+            void syncAnswerLogSafe({
+              learnerId: quiz.playerId,
+              question: quiz.question,
+              answer,
+              gameMode: answerLogMode,
+              outcome: 'correct',
+              startedAt: quiz.startedAt,
+            });
+          }
           message = `命中 Boss！造成伤害 ${battle.currentHp - next.currentHp}`;
           workingGame = updateStreak(workingGame, quiz.playerId, 1);
         } else {
           if (shouldRecordWrong(state, quiz)) {
             void recordWrongSafe(state.childId!, quiz.question, answer, game.week);
+          }
+          if (quiz.playerId === state.childId) {
+            void syncAnswerLogSafe({
+              learnerId: quiz.playerId,
+              question: quiz.question,
+              answer,
+              gameMode: answerLogMode,
+              outcome: 'wrong',
+              startedAt: quiz.startedAt,
+            });
           }
           workingGame = updateStreak(workingGame, quiz.playerId, 0);
           message = quiz.playerId === state.childId
@@ -1364,6 +1456,16 @@ export const useGameStore = create<Store>((set, get) => ({
       if (shouldRecordWrong(state, quiz)) {
         void recordWrongSafe(state.childId!, quiz.question, answer, game.week);
       }
+      if (quiz.playerId === state.childId) {
+        void syncAnswerLogSafe({
+          learnerId: quiz.playerId,
+          question: quiz.question,
+          answer,
+          gameMode: answerLogMode,
+          outcome: 'wrong',
+          startedAt: quiz.startedAt,
+        });
+      }
       workingGame = addMoney(workingGame, quiz.playerId, reward.wrong);
       workingGame = updateStreak(workingGame, quiz.playerId, 0);
       const isChildPlayer = quiz.playerId === state.childId;
@@ -1385,6 +1487,16 @@ export const useGameStore = create<Store>((set, get) => ({
       quiz.playerId === state.childId && CORE_SUBJECTS.has(quiz.question.subject);
     if (correct && isChildCore) {
       recordCorrectSafe(quiz.question, game.week);
+    }
+    if (correct && quiz.playerId === state.childId) {
+      void syncAnswerLogSafe({
+        learnerId: quiz.playerId,
+        question: quiz.question,
+        answer,
+        gameMode: answerLogMode,
+        outcome: 'correct',
+        startedAt: quiz.startedAt,
+      });
     }
     const nextLastChildSubject =
       isChildCore ? quiz.question.subject : state.lastChildSubject;
@@ -1429,6 +1541,7 @@ export const useGameStore = create<Store>((set, get) => ({
     if (!quiz || !game) return;
 
     const isChildAnswering = state.childId !== null && quiz.playerId === state.childId;
+    const answerLogMode = quiz.context.kind === 'boss-attack' ? 'boss' : 'monopoly';
     const nextDecker = isChildAnswering
       ? deriveNextDecker(state.deckerState, 'wrong')
       : state.deckerState;
@@ -1436,6 +1549,16 @@ export const useGameStore = create<Store>((set, get) => ({
     let workingGame = game;
     if (shouldRecordWrong(state, quiz)) {
       void recordWrongSafe(state.childId!, quiz.question, '(超时)', game.week);
+    }
+    if (quiz.playerId === state.childId) {
+      void syncAnswerLogSafe({
+        learnerId: quiz.playerId,
+        question: quiz.question,
+        answer: '(超时)',
+        gameMode: answerLogMode,
+        outcome: 'timeout',
+        startedAt: quiz.startedAt,
+      });
     }
 
     if (quiz.context.kind === 'property-rent') {
