@@ -7,7 +7,7 @@ import { HeroAvatar } from '../../theme/ultraman/HeroAvatar';
 import { HEROES } from '../../theme/ultraman/heroes';
 
 const DURATIONS: DurationMinutes[] = [20, 30, 45];
-const WEEKS = packIndex.packs.map((pack) => pack.week).sort((a, b) => a - b);
+const WEEK_OPTIONS = [...packIndex.packs].sort((a, b) => a.week - b.week);
 const MIN_PLAYERS = 2;
 const MAX_PLAYERS = 5;
 const DEFAULT_WEEK = 1;
@@ -51,6 +51,11 @@ export const HeroSelect = () => {
     makeDraftPlayer(1),
     makeDraftPlayer(2),
   ]);
+
+  const selectedWeekMeta = useMemo(
+    () => WEEK_OPTIONS.find((pack) => pack.week === week) ?? null,
+    [week],
+  );
 
   const badges = useMemo(() => computeBadges(drafts), [drafts]);
   const childCount = useMemo(() => drafts.filter((d) => d.isChild).length, [drafts]);
@@ -163,27 +168,33 @@ export const HeroSelect = () => {
                 <h2 className="text-lg font-bold">📚 选择周目</h2>
                 <span className="text-sm font-medium text-slate-400">默认第 1 周，基于题库索引</span>
               </div>
-            <div className="grid grid-cols-2 gap-3 md:grid-cols-5">
-              {WEEKS.map((value) => {
-                const selected = week === value;
-                return (
-                  <button
-                    key={value}
-                    type="button"
-                    onClick={() => setWeek(value)}
-                    aria-pressed={selected}
-                    className={`min-h-[56px] rounded-2xl border px-4 text-lg font-black transition ${
-                      selected
-                        ? 'border-amber-300 bg-amber-400 text-slate-950 ring-4 ring-amber-400'
-                        : 'border-slate-700 bg-slate-900/70 text-slate-100 hover:border-slate-500'
-                    }`}
-                  >
-                    第{value}周
-                  </button>
-                );
-              })}
+              <div className="grid grid-cols-2 gap-3 md:grid-cols-5">
+                {WEEK_OPTIONS.map((pack) => {
+                  const selected = week === pack.week;
+                  return (
+                    <button
+                      key={pack.week}
+                      type="button"
+                      onClick={() => setWeek(pack.week)}
+                      aria-pressed={selected}
+                      className={`min-h-[56px] rounded-2xl border px-4 text-lg font-black transition ${
+                        selected
+                          ? 'border-amber-300 bg-amber-400 text-slate-950 ring-4 ring-amber-400'
+                          : 'border-slate-700 bg-slate-900/70 text-slate-100 hover:border-slate-500'
+                      }`}
+                    >
+                      第{pack.week}周
+                    </button>
+                  );
+                })}
+              </div>
+              {selectedWeekMeta?.textbookHint ? (
+                <div className="rounded-2xl border border-sky-400/30 bg-sky-500/10 px-4 py-3 text-sm text-sky-100">
+                  <div className="font-bold text-sky-200">教材进度提示</div>
+                  <div className="mt-1 leading-6">{selectedWeekMeta.textbookHint}</div>
+                </div>
+              ) : null}
             </div>
-          </div>
 
           <div className={`grid auto-rows-fr content-start gap-3 ${playerGridClass}`}>
             {drafts.map((draft, index) => {
@@ -253,7 +264,7 @@ export const HeroSelect = () => {
           <p className={`text-sm ${needsChildSelection ? 'text-amber-200' : 'text-slate-400'}`}>
             {needsChildSelection
               ? '请选择且仅选择 1 位小朋友后开始游戏'
-              : `阵容已就绪，立即进入第 ${week} 周`}
+              : `阵容已就绪，立即进入第 ${week} 周${selectedWeekMeta ? `（${selectedWeekMeta.title}）` : ''}`}
           </p>
           <button
             type="button"
