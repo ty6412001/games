@@ -54,6 +54,11 @@
       "week": 11,
       "title": "第11周 · 认识钟表/阅读表达/At school",
       "path": "/question-packs/week-11.json"
+    },
+    {
+      "week": 12,
+      "title": "第12周 · 图形与规律/看图说句/My day",
+      "path": "/question-packs/week-12.json"
     }
   ]
 }
