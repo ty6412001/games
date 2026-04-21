@@ -93,6 +93,21 @@ describe('QuestionSchema', () => {
     expect(QuestionSchema.parse(q).answer).toBe('15');
   });
 
+  it('accepts a true-false question', () => {
+    const q = {
+      id: 'c-w01-003',
+      subject: 'chinese',
+      difficulty: 1,
+      topic: '判断',
+      stem: '“春天很暖和。” 这句话对吗？',
+      type: 'true-false',
+      answer: 'true',
+      trueLabel: '对',
+      falseLabel: '不对',
+    };
+    expect(QuestionSchema.parse(q).type).toBe('true-false');
+  });
+
   it('accepts an ordering question with matching lengths', () => {
     const q = {
       id: 'c-w02-001',

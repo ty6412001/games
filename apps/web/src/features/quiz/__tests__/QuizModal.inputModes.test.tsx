@@ -113,4 +113,23 @@ describe('QuizModal input mode routing', () => {
     render(<QuizModal />);
     expect(screen.getByRole('button', { name: /选择 一/ })).toBeInTheDocument();
   });
+
+  it('renders true-false area with custom labels', () => {
+    useGameStore.setState({
+      activeQuiz: buildQuiz({
+        id: 'q-tf',
+        subject: 'english',
+        difficulty: 1,
+        topic: '判断',
+        type: 'true-false',
+        stem: 'The sun is hot.',
+        answer: 'true',
+        trueLabel: '对',
+        falseLabel: '不对',
+      }),
+    });
+    render(<QuizModal />);
+    expect(screen.getByRole('button', { name: '对' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: '不对' })).toBeInTheDocument();
+  });
 });

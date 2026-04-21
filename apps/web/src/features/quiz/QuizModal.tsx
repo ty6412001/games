@@ -126,6 +126,13 @@ const AnswerArea = ({
     case 'choice':
     case 'image-choice':
       return <ChoiceArea options={question.options} onSubmit={onSubmit} />;
+    case 'true-false':
+      return (
+        <ChoiceArea
+          options={[question.trueLabel ?? '对', question.falseLabel ?? '错']}
+          onSubmit={(answer) => onSubmit(answer === (question.trueLabel ?? '对') ? 'true' : 'false')}
+        />
+      );
     case 'input': {
       const canUseDigitKeypad = /^\d+$/.test(question.answer.trim());
       return canUseDigitKeypad ? (

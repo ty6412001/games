@@ -60,12 +60,21 @@ export const OrderingQuestionSchema = z.object({
   answer: z.string().min(1),
 });
 
+export const TrueFalseQuestionSchema = z.object({
+  ...questionBaseShape,
+  type: z.literal('true-false'),
+  answer: z.enum(['true', 'false']),
+  trueLabel: z.string().min(1).optional(),
+  falseLabel: z.string().min(1).optional(),
+});
+
 export const QuestionSchema = z
   .discriminatedUnion('type', [
     ChoiceQuestionSchema,
     InputQuestionSchema,
     ImageChoiceQuestionSchema,
     OrderingQuestionSchema,
+    TrueFalseQuestionSchema,
   ])
   .superRefine((q, ctx) => {
     if (q.type === 'choice' || q.type === 'image-choice') {

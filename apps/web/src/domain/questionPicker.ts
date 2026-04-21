@@ -66,6 +66,9 @@ export const countdownSeconds = (question: Question): number => {
   if (question.type === 'input' || question.type === 'ordering') {
     return base === 20 ? 30 : base === 35 ? 50 : 70;
   }
+  if (question.type === 'true-false') {
+    return base === 20 ? 15 : base === 35 ? 25 : 35;
+  }
   return base;
 };
 
