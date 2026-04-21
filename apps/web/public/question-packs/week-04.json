@@ -55,14 +55,8 @@
     {
       "id": "m-w04-004",
       "difficulty": 1,
-      "type": "choice",
-      "stem": "下面哪个数是整十数？",
-      "options": [
-        "44",
-        "50",
-        "61",
-        "72"
-      ],
+      "type": "input",
+      "stem": "下面哪个数是整十数？请写出这个数",
       "answer": "50",
       "subject": "math",
       "topic": "整十数与数位"
@@ -130,14 +124,8 @@
     {
       "id": "m-w04-011",
       "difficulty": 2,
-      "type": "choice",
-      "stem": "下面哪个数比 40 大，比 60 小？",
-      "options": [
-        "30",
-        "50",
-        "60",
-        "70"
-      ],
+      "type": "input",
+      "stem": "写出一个比 40 大、比 60 小的整十数",
       "answer": "50",
       "subject": "math",
       "topic": "整十数与数位"
@@ -267,14 +255,11 @@
     {
       "id": "m-w04-020",
       "difficulty": 3,
-      "type": "choice",
-      "stem": "下面哪个说法对？",
-      "options": [
-        "60 里面有 6 个十",
-        "60 里面有 60 个十",
-        "60 的个位是 6"
-      ],
-      "answer": "60 里面有 6 个十",
+      "type": "true-false",
+      "stem": "判断：整十数的个位上都是 0。",
+      "answer": "true",
+      "trueLabel": "对",
+      "falseLabel": "错",
       "subject": "math",
       "topic": "整十数与数位"
     },
@@ -326,14 +311,8 @@
     {
       "id": "c-w04-004",
       "difficulty": 1,
-      "type": "choice",
+      "type": "input",
       "stem": "“大”的反义词是？",
-      "options": [
-        "多",
-        "小",
-        "高",
-        "远"
-      ],
       "answer": "小",
       "subject": "chinese",
       "topic": "偏旁与反义词"
@@ -392,14 +371,11 @@
     {
       "id": "c-w04-010",
       "difficulty": 2,
-      "type": "choice",
-      "stem": "下面哪一组是反义词？",
-      "options": [
-        "大-小",
-        "白-亮",
-        "山-水"
-      ],
-      "answer": "大-小",
+      "type": "true-false",
+      "stem": "判断：“大-小”是一组反义词。",
+      "answer": "true",
+      "trueLabel": "对",
+      "falseLabel": "错",
       "subject": "chinese",
       "topic": "偏旁与反义词"
     },
@@ -518,10 +494,10 @@
     },
     {
       "id": "c-w04-018",
-      "difficulty": 3,
+      "difficulty": 2,
       "type": "input",
-      "stem": "“明亮”的“明”还能组词“明___”",
-      "answer": "天",
+      "stem": "写出带有“氵”偏旁的一个字",
+      "answer": "河",
       "subject": "chinese",
       "topic": "偏旁与反义词"
     },
@@ -593,14 +569,11 @@
     {
       "id": "e-w04-004",
       "difficulty": 1,
-      "type": "choice",
-      "stem": "Grass is usually ___.",
-      "options": [
-        "green",
-        "red",
-        "black"
-      ],
-      "answer": "green",
+      "type": "true-false",
+      "stem": "True or false: Grass is usually green.",
+      "answer": "true",
+      "trueLabel": "True",
+      "falseLabel": "False",
       "subject": "english",
       "topic": "colors"
     },
@@ -657,14 +630,8 @@
     {
       "id": "e-w04-010",
       "difficulty": 2,
-      "type": "choice",
-      "stem": "Which one is a color?",
-      "options": [
-        "red",
-        "apple",
-        "book",
-        "bus"
-      ],
+      "type": "input",
+      "stem": "Write one color word from this topic",
       "answer": "red",
       "subject": "english",
       "topic": "colors"
@@ -700,16 +667,12 @@
     },
     {
       "id": "e-w04-013",
-      "difficulty": 1,
-      "type": "image-choice",
-      "stem": "What color are many apples?",
-      "stemImage": "/assets/quiz/apple.svg",
-      "options": [
-        "red",
-        "green",
-        "purple"
-      ],
-      "answer": "red",
+      "difficulty": 2,
+      "type": "true-false",
+      "stem": "True or false: black is a color.",
+      "answer": "true",
+      "trueLabel": "True",
+      "falseLabel": "False",
       "subject": "english",
       "topic": "colors"
     },
