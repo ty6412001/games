@@ -55,14 +55,8 @@
     {
       "id": "m-w05-004",
       "difficulty": 1,
-      "type": "choice",
+      "type": "input",
       "stem": "52 + 6 = ?",
-      "options": [
-        "56",
-        "57",
-        "58",
-        "59"
-      ],
       "answer": "58",
       "subject": "math",
       "topic": "100以内不进位加法"
@@ -130,15 +124,9 @@
     {
       "id": "m-w05-011",
       "difficulty": 2,
-      "type": "choice",
-      "stem": "下面哪个算式得数是 46？",
-      "options": [
-        "40 + 6",
-        "41 + 6",
-        "45 + 2",
-        "38 + 7"
-      ],
-      "answer": "40 + 6",
+      "type": "input",
+      "stem": "写出一道得数是 46 的算式答案结果",
+      "answer": "46",
       "subject": "math",
       "topic": "100以内不进位加法"
     },
@@ -267,15 +255,21 @@
     {
       "id": "m-w05-020",
       "difficulty": 3,
-      "type": "choice",
-      "stem": "下面哪道算式得数最大？",
-      "options": [
-        "43 + 2",
-        "51 + 4",
-        "36 + 3",
-        "24 + 5"
+      "type": "ordering",
+      "stem": "把这些得数从大到小排好：25+3，34+2，41+6，52+1",
+      "items": [
+        "28",
+        "36",
+        "47",
+        "53"
       ],
-      "answer": "51 + 4",
+      "correctOrder": [
+        3,
+        2,
+        1,
+        0
+      ],
+      "answer": "3,2,1,0",
       "subject": "math",
       "topic": "100以内不进位加法"
     },
@@ -327,14 +321,8 @@
     {
       "id": "c-w05-004",
       "difficulty": 1,
-      "type": "choice",
-      "stem": "一___桌子",
-      "options": [
-        "张",
-        "朵",
-        "本",
-        "只"
-      ],
+      "type": "input",
+      "stem": "一___桌子，请填写量词",
       "answer": "张",
       "subject": "chinese",
       "topic": "量词与句式"
@@ -392,14 +380,11 @@
     {
       "id": "c-w05-010",
       "difficulty": 2,
-      "type": "choice",
-      "stem": "下面哪个句子通顺？",
-      "options": [
-        "我有一只小狗。",
-        "一只我有小狗。",
-        "小狗一只有我。"
-      ],
-      "answer": "我有一只小狗。",
+      "type": "true-false",
+      "stem": "判断：\"我有一只小狗。\" 这个句子是通顺的。",
+      "answer": "true",
+      "trueLabel": "对",
+      "falseLabel": "错",
       "subject": "chinese",
       "topic": "量词与句式"
     },
@@ -518,9 +503,9 @@
     },
     {
       "id": "c-w05-018",
-      "difficulty": 3,
+      "difficulty": 2,
       "type": "input",
-      "stem": "“一___白云”，填一个常见量词",
+      "stem": "补全句子：天上有一___白云",
       "answer": "朵",
       "subject": "chinese",
       "topic": "量词与句式"
@@ -593,14 +578,11 @@
     {
       "id": "e-w05-004",
       "difficulty": 1,
-      "type": "choice",
-      "stem": "Fish can ___.",
-      "options": [
-        "swim",
-        "run",
-        "read"
-      ],
-      "answer": "swim",
+      "type": "true-false",
+      "stem": "True or false: Fish can swim.",
+      "answer": "true",
+      "trueLabel": "True",
+      "falseLabel": "False",
       "subject": "english",
       "topic": "animals"
     },
@@ -657,14 +639,8 @@
     {
       "id": "e-w05-010",
       "difficulty": 2,
-      "type": "choice",
-      "stem": "Which one is NOT an animal?",
-      "options": [
-        "pig",
-        "bird",
-        "apple",
-        "dog"
-      ],
+      "type": "input",
+      "stem": "Which one is NOT an animal? Write the answer.",
       "answer": "apple",
       "subject": "english",
       "topic": "animals"
@@ -700,16 +676,12 @@
     },
     {
       "id": "e-w05-013",
-      "difficulty": 1,
-      "type": "image-choice",
-      "stem": "What is this animal?",
-      "stemImage": "/assets/quiz/horse.svg",
-      "options": [
-        "horse",
-        "bird",
-        "fish"
-      ],
-      "answer": "horse",
+      "difficulty": 2,
+      "type": "true-false",
+      "stem": "True or false: dog is an animal.",
+      "answer": "true",
+      "trueLabel": "True",
+      "falseLabel": "False",
       "subject": "english",
       "topic": "animals"
     },
