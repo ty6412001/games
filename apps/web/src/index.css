@@ -2,6 +2,54 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  color-scheme: dark;
+  --bg-base: #020617;
+  --bg-elevated: rgba(15, 23, 42, 0.78);
+  --bg-strong: rgba(15, 23, 42, 0.92);
+  --line-soft: rgba(148, 163, 184, 0.16);
+  --line-strong: rgba(251, 191, 36, 0.4);
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+  --accent-primary: #fbbf24;
+  --accent-cool: #38bdf8;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at top, rgba(56, 189, 248, 0.14), transparent 34%),
+    radial-gradient(circle at 85% 20%, rgba(251, 191, 36, 0.14), transparent 26%),
+    linear-gradient(180deg, #020617 0%, #050b19 50%, #020617 100%);
+  color: var(--text-primary);
+  font-family:
+    'Noto Sans SC',
+    'Source Han Sans SC',
+    'PingFang SC',
+    'Hiragino Sans GB',
+    'Microsoft YaHei',
+    'WenQuanYi Micro Hei',
+    'Heiti SC',
+    system-ui,
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
 @layer utilities {
   .z-45 {
     z-index: 45;
@@ -40,12 +88,50 @@
   .font-kid {
     font-family:
       'ZCOOL KuaiLe',
+      'Noto Sans SC',
+      'Source Han Sans SC',
+      'PingFang SC',
+      'Microsoft YaHei',
       system-ui,
       sans-serif;
   }
 
   .font-digit {
     font-family: Orbitron, ui-monospace, monospace;
+  }
+
+  .panel-soft {
+    background: var(--bg-elevated);
+    border: 1px solid var(--line-soft);
+    box-shadow:
+      0 18px 50px -28px rgba(0, 0, 0, 0.75),
+      0 1px 0 rgba(255, 255, 255, 0.05) inset;
+    backdrop-filter: blur(18px);
+  }
+
+  .panel-strong {
+    background:
+      linear-gradient(160deg, rgba(15, 23, 42, 0.96), rgba(30, 41, 59, 0.92)),
+      rgba(15, 23, 42, 0.94);
+    border: 1px solid rgba(251, 191, 36, 0.22);
+    box-shadow:
+      0 24px 60px -30px rgba(0, 0, 0, 0.9),
+      0 1px 0 rgba(255, 255, 255, 0.06) inset;
+    backdrop-filter: blur(20px);
+  }
+
+  .eyebrow {
+    color: #fde68a;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+  }
+
+  .headline-glow {
+    text-shadow:
+      0 0 24px rgba(56, 189, 248, 0.14),
+      0 0 38px rgba(251, 191, 36, 0.08);
   }
 }
 

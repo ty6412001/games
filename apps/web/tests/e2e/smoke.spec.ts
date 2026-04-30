@@ -10,7 +10,8 @@ test('main menu loads', async ({ page }) => {
 test('setup screen shows hero selection', async ({ page }) => {
   await page.goto('/');
   await page.getByRole('button', { name: '▶ 开始游戏' }).click();
-  await expect(page.getByText('⏱️ 对局时长')).toBeVisible();
+  await expect(page.getByRole('heading', { name: '对局时长' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: '玩家阵容' })).toBeVisible();
   await expect(page.getByText(/玩家 \d/).first()).toBeVisible();
   await expect(page.getByRole('button', { name: '⚡ 开始游戏' })).toBeVisible();
 });

@@ -5,7 +5,7 @@ import {
   type LearningGameMode,
   type Subject,
 } from '@ultraman/shared';
-import { useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 
 type QuestionFilters = {
   subject: '' | Subject;
@@ -73,7 +73,7 @@ export const KnowledgeBankCenter = ({ onExit }: { onExit: () => void }) => {
 
   const hasToken = Boolean(getToken());
 
-  const loadQuestions = async () => {
+  const loadQuestions = useCallback(async () => {
     setLoading(true);
     setError(null);
     try {
@@ -89,7 +89,7 @@ export const KnowledgeBankCenter = ({ onExit }: { onExit: () => void }) => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [filters.mode, filters.status, filters.subject]);
 
   useEffect(() => {
     if (!hasToken) {
@@ -97,7 +97,7 @@ export const KnowledgeBankCenter = ({ onExit }: { onExit: () => void }) => {
       return;
     }
     void loadQuestions();
-  }, [filters.subject, filters.status, filters.mode, hasToken]);
+  }, [hasToken, loadQuestions]);
 
   const publishedCount = useMemo(() => questions.filter((item) => item.status === 'published').length, [questions]);
 

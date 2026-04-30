@@ -93,7 +93,7 @@ export const Board = ({ centerContent }: BoardProps = {}) => {
 
   return (
     <div
-      className="grid aspect-square h-full max-h-full w-full gap-1 rounded-2xl bg-slate-950/80 p-2"
+      className="grid aspect-square h-full max-h-full w-full gap-1.5 rounded-[1.6rem] bg-slate-950/70 p-2.5"
       style={{
         gridTemplateColumns: `repeat(${SIDE_LENGTH}, minmax(0, 1fr))`,
         gridTemplateRows: `repeat(${SIDE_LENGTH}, minmax(0, 1fr))`,
@@ -114,7 +114,7 @@ export const Board = ({ centerContent }: BoardProps = {}) => {
           <div
             key={position}
             data-tile-id={tileId}
-            className={`relative flex aspect-square flex-col items-center justify-between rounded-lg border-2 p-1 text-[10px] font-bold md:text-xs ${tileBackgroundClass(tile)} ${
+            className={`relative flex aspect-square flex-col items-center justify-between rounded-xl border-2 p-1.5 text-[11px] font-bold md:text-[13px] ${tileBackgroundClass(tile)} ${
               pathIncludes ? 'ring-2 ring-amber-300' : ''
             }`}
             style={{
@@ -126,11 +126,13 @@ export const Board = ({ centerContent }: BoardProps = {}) => {
               backgroundPosition: 'center 36%',
             }}
           >
-            <div className="rounded bg-slate-950/70 px-1 text-center leading-tight text-slate-50">
+            <div className="rounded-md bg-slate-950/72 px-1.5 py-0.5 text-center leading-tight text-slate-50">
               {tileLabel(tile)}
             </div>
             {isPropertyTile ? (
-              <div className="rounded bg-slate-950/70 px-1 text-[9px] text-slate-200">¥{tile.basePrice}</div>
+              <div className="rounded-md bg-slate-950/72 px-1.5 py-0.5 text-[10px] text-slate-200 md:text-[11px]">
+                ¥{tile.basePrice}
+              </div>
             ) : null}
             {owner ? (
               <div
@@ -164,7 +166,7 @@ export const Board = ({ centerContent }: BoardProps = {}) => {
           </div>
         );
       })}
-      <div className="col-span-6 col-start-2 row-span-6 row-start-2 overflow-hidden rounded-2xl bg-gradient-to-br from-indigo-950 to-slate-900">
+      <div className="col-span-6 col-start-2 row-span-6 row-start-2 overflow-hidden rounded-[1.7rem] bg-gradient-to-br from-indigo-950/95 via-slate-900 to-slate-950">
         {centerContent ?? (
           <div className="flex h-full items-center justify-center text-center text-slate-200">
             <div>

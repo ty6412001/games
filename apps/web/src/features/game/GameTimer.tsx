@@ -24,8 +24,8 @@ export const GameTimer = () => {
   const remaining = game.durationMin * 60 - elapsed;
 
   return (
-    <div className="rounded-2xl bg-slate-900/80 px-4 py-2 text-2xl font-black text-amber-300">
-      ⏳ {format(remaining)}
+    <div className="rounded-full border border-amber-300/20 bg-amber-400/10 px-4 py-2 text-xl font-black text-amber-200">
+      <span className="font-digit">⏳ {format(remaining)}</span>
     </div>
   );
 };
